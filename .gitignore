@@ -292,7 +292,5 @@ static
 .static
 /.static
 *.static
-yatube/.static
-yatube/static
 **.static
 */.static/*
