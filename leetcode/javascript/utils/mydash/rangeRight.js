@@ -35,7 +35,7 @@ function getRawTag(value) {
 
   try {
     value[symToStringTag] = undefined;
-    const unmasked = true;
+    var unmasked = true;
   } catch (e) {}
 
   const result = nativeObjectToString.call(value);
