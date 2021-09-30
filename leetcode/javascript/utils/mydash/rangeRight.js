@@ -1,4 +1,4 @@
-// _.range(4);
+// _.rangeRight(4);
 
 const MAX_SAFE_INTEGER = 9007199254740991;
 const MAX_INTEGER = 1.7976931348623157e+308;
@@ -53,11 +53,6 @@ function objectToString(value) {
   return nativeObjectToString.call(value);
 }
 
-function isLength(value) {
-  return typeof value == 'number' &&
-    value > -1 && value % 1 === 0 && value <= MAX_SAFE_INTEGER;
-}
-
 function baseGetTag(value) {
   if (value == null) {
     return value === undefined ? undefinedTag : nullTag;
@@ -77,6 +72,11 @@ function isFunction(value) {
   return tag === funcTag || tag === genTag || tag === asyncTag || tag === proxyTag;
 }
 
+function isLength(value) {
+  return typeof value == 'number' &&
+    value > -1 && value % 1 === 0 && value <= MAX_SAFE_INTEGER;
+}
+
 function isArrayLike(value) {
   return value != null && isLength(value.length) && !isFunction(value);
 }
@@ -93,10 +93,6 @@ function isIndex(value, length) {
 
 function eq(value, other) {
   return value === other || (value !== value && other !== other);
-}
-
-function isObjectLike(value) {
-  return value != null && typeof value == 'object';
 }
 
 function isSymbol(value) {
@@ -138,20 +134,6 @@ function toNumber(value) {
     : (reIsBadHex.test(value) ? NAN : +value);
 }
 
-function isIterateeCall(value, index, object) {
-  if (!isObject(object)) {
-    return false;
-  }
-  const type = typeof index;
-  if (type === 'number'
-        ? (isArrayLike(object) && isIndex(index, object.length))
-        : (type === 'string' && index in object)
-      ) {
-    return eq(object[index], value);
-  }
-  return false;
-}
-
 function toFinite(value) {
   if (!value) {
     return value === 0 ? value : 0;
@@ -166,14 +148,28 @@ function toFinite(value) {
 
 function baseRange(start, end, step, fromRight) {
   let index = -1,
-    length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),
-    result = Array(length);
+      length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),
+      result = Array(length);
 
   while (length--) {
     result[fromRight ? length : ++index] = start;
     start += step;
   }
   return result;
+}
+
+function isIterateeCall(value, index, object) {
+  if (!isObject(object)) {
+    return false;
+  }
+  const type = typeof index;
+  if (type === 'number'
+        ? (isArrayLike(object) && isIndex(index, object.length))
+        : (type === 'string' && index in object)
+      ) {
+    return eq(object[index], value);
+  }
+  return false;
 }
 
 function createRange(fromRight) {
@@ -194,25 +190,12 @@ function createRange(fromRight) {
   };
 }
 
-const range = createRange();
+const rangeRight = createRange(true);
 
-console.log(range(4));
-// => [0, 1, 2, 3]
-
-console.log(range(-4));
-// => [0, -1, -2, -3]
-
-console.log(range(1, 5));
-// => [1, 2, 3, 4]
-
-console.log(range(0, 20, 5));
-// => [0, 5, 10, 15]
-
-console.log(range(0, -4, -1));
-// => [0, -1, -2, -3]
-
-console.log(range(1, 4, 0));
-// => [1, 1, 1]
-
-console.log(range(0));
-// => []
+console.log(rangeRight(4));  // => [3, 2, 1, 0]
+console.log(rangeRight(-4));  // => [-3, -2, -1, 0]
+console.log(rangeRight(1, 5));  // => [4, 3, 2, 1]
+console.log(rangeRight(0, 20, 5));  // => [15, 10, 5, 0]
+console.log(rangeRight(0, -4, -1));  // => [-3, -2, -1, 0]
+console.log(rangeRight(1, 4, 0));  // => [1, 1, 1]
+console.log(rangeRight(0));  // => []
