@@ -7,3 +7,11 @@ const first = (array) => {
 };
 
 console.log(first(arr)); // => 1
+
+function firstYandex(list) {
+        if (!Array.isArray(list)) {
+            return undefined;
+        }
+
+        return list.length ? list[0] : undefined;
+}
