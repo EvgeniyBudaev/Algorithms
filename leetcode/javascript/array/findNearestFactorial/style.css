@@ -1,0 +1,65 @@
+.page {
+  margin: 0;
+}
+
+.content {
+  font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding-top: 40px;
+  background-image: url('https://code.s3.yandex.net/web-code/entrance-test/Union.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.content__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #0C0C0D;
+  margin: 40px auto 20px;
+}
+
+.content__text:first-child {
+  margin-top: 0;
+}
+
+.form {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.form__input {
+  width: 480px;
+  margin: 0;
+  padding: 11px 20px;
+  border: 1px solid #3C39EC;
+  border-radius: 0px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.content__image {
+  background-image: url('https://code.s3.yandex.net/web-code/entrance-test/Party.png');
+  background-size: cover;
+  background-position: center;
+  width: 720px;
+  height: 480px;
+  display: flex;
+}
+
+.content__result {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 176px;
+  line-height: 176px;
+  text-align: center;
+  color: #3C39EC;
+  margin: auto;
+}
+
+#congratulation {
+  padding-bottom: 40px;
+}

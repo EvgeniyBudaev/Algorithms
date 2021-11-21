@@ -1,0 +1,71 @@
+.page {
+  font-family: Montserat;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 52px;
+}
+
+.header__logo {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.5em;
+}
+
+.page__catalog {
+  margin-top: 32px;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 324px);
+  column-gap: 24px;
+  row-gap: 48px;
+  justify-content: center;
+}
+
+.catalog__item {
+  width: 324px;
+}
+
+.card__image {
+  width: 100%;
+  height: 216px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__description {
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.card__title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px
+}
+
+.card__info {
+  font-size: 14px;
+  color: #0C0C0D;
+  margin: 8px 0 0;
+  opacity: 0.4;
+}
+
+.card__price {
+  margin: 8px 0 0;
+  font-size: 18px;
+  line-height: 32px;
+  color: #A98B5F;
+  font-weight: bold;
+}
