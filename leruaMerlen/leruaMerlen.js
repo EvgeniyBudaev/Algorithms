@@ -20,15 +20,15 @@ const moveOptions = {
 const getCommon = (list) => {
   const common = [];
 
-  list.forEach(item => {
+  for(let i = 0; i < list.length; i++) {
     const lastItem = common[common.length - 1];
 
-    if (lastItem !== moveOptions[item]) {
-      common.push(item);
+    if (lastItem !== moveOptions[list[i]]) {
+      common.push(list[i]);
     } else {
       common.pop();
     }
-  });
+  }
 
   return common;
 };
