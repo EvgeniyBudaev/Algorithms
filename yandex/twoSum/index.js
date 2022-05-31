@@ -3,6 +3,7 @@
 
 const initialData = [2, 1, 3, 5, 5];
 
+/* Наивный способ. Медленно работает. Скорость N2 / 4 */
 const twoSum = (numberList, x) => { // 1 и 3
 	const result = [];
 

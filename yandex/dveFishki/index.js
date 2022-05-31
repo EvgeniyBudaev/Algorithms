@@ -5,6 +5,7 @@
 const initialData = [-1, -9, -7, 3, -6]; // [-1, 3]
 // const initialData = [-93, 67, 84, -30, -96, 22, 40, -11, -39, 11]; // None
 
+/* Наивный способ. Медленно работает. Скорость N2 / 4 */
 function twoSum(array, targetSum) {
 	const result = [];
 
