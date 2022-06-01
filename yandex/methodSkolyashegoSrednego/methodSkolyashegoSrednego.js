@@ -2,6 +2,7 @@
 
 const initialData = [4, 3, 8, 1, 5, 6, 3];
 
+/* Оптимизированный алгоритм */
 const averageMoving = (array, k) => { // [5, 4, 4.67, 4, 4.67]
 	const result = [];
 	let current_sum = 0;
