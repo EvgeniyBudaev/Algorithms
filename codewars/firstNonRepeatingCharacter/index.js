@@ -17,8 +17,6 @@ function firstNonRepeatingLetter(s) {
 	const text = s.toLowerCase();
 	for (let i = 0; i < text.length; i++)
 		if(text.indexOf(text[i]) === text.lastIndexOf(text[i])) {
-			console.log("indexOf", text.indexOf(text[i]));
-			console.log("lastIndexOf", text.lastIndexOf(text[i]));
 			return s[i];
 		}
 
