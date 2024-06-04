@@ -1,3 +1,5 @@
+import {push} from "./push.js";
+
 export function slice(array, start = 0, end = array.length) {
     // проверяем, является ли переданный объект массивом
     if (!Array.isArray(array)) {
@@ -13,7 +15,7 @@ export function slice(array, start = 0, end = array.length) {
 
     // Извлекаем элементы из исходного массива
     for (let i = startIndex; i < endIndex; i++) {
-        result.push(array[i]);
+        push(result, array[i]);
     }
 
     // Возвращаем новый массив
