@@ -33,4 +33,4 @@ var combine = function(arr1, arr2) {
 
 const arr1 = [1, 4, 7, 20];
 const arr2 = [3, 5, 6];
-console.log(combine(arr1, arr2));
+console.log(combine(arr1, arr2)); // [1, 3, 4, 5, 6, 7, 20]
