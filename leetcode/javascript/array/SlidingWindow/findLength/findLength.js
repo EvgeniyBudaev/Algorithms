@@ -5,7 +5,7 @@
 
 /*
 Input: nums = [3, 1, 2, 7, 4, 2, 1, 1, 5], k = 8
-Output: ["o","l","l","e","h"]
+Output: 4
  */
 
 /**
@@ -14,7 +14,7 @@ Output: ["o","l","l","e","h"]
  * @return {number}
  */
 var findLength = function(nums, k) {
-    // curr is the current sum of the window
+    // curr — текущая сумма окна
     let left = 0, curr = 0, ans = 0;
     for (let right = 0; right < nums.length; right++) {
         curr += nums[right];
@@ -29,4 +29,4 @@ var findLength = function(nums, k) {
     return ans;
 }
 
-console.log(findLength([3, 1, 2, 7, 4, 2, 1, 1, 5], 8));// 4
+console.log(findLength([3, 1, 2, 7, 4, 2, 1, 1, 5], 8)); // 4
