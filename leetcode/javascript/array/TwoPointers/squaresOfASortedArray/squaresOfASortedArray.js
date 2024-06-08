@@ -22,19 +22,40 @@ Output: [4,9,9,49,121]
 var sortedSquares = function(nums) {
     let left = 0;
     let right = nums.length - 1;
+    let idx = right;
     let result = [];
 
-    for (let i = right; i >= 0; i--) {
+    while (idx > -1) {
         if (Math.abs(nums[left]) < Math.abs(nums[right])) {
-            result[i] = nums[right] ** 2;
+            result[idx] = nums[right] ** 2;
+            idx--;
             right--;
         } else {
-            result[i] = nums[left] ** 2;
+            result[idx] = nums[left] ** 2;
+            idx--;
             left++;
         }
     }
 
     return result;
 };
+
+// var sortedSquares = function(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+//     let result = [];
+//
+//     for (let i = right; i >= 0; i--) {
+//         if (Math.abs(nums[left]) < Math.abs(nums[right])) {
+//             result[i] = nums[right] ** 2;
+//             right--;
+//         } else {
+//             result[i] = nums[left] ** 2;
+//             left++;
+//         }
+//     }
+//
+//     return result;
+// };
 
 console.log(sortedSquares([-4,-1,0,3,10]));
