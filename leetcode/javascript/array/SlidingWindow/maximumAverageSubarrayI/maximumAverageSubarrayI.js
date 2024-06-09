@@ -33,10 +33,9 @@ var findMaxAverage = function(nums, k) {
     let maxAvg = currSum / k;
 
     for (let i = k; i < nums.length; i++) {
-        const newSum = currSum - nums[i - k] + nums[i];
-        const avg = newSum / k;
+        currSum +=  nums[i] - nums[i - k];
+        const avg = currSum / k;
         maxAvg = Math.max(maxAvg, avg);
-        currSum = newSum;
     }
 
     return maxAvg;
