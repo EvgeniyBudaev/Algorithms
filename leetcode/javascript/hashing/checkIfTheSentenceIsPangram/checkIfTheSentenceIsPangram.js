@@ -21,9 +21,7 @@ Output: false
  */
 var checkIfPangram = function(sentence) {
     if (sentence.length < 26) return false;
-    const arr = sentence.split('');
-    const set = new Set(arr);
-    return set.size === 26;
+    return new Set([...sentence]).size === 26;
 };
 
 console.log(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"));
