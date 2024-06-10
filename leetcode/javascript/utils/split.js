@@ -4,6 +4,7 @@ export function split(str, separator) {
 
     for (let i = 0; i < str.length; i++) {
         const el = str[i];
+
         if (el === separator || separator === '' && temp) {
             res.push(temp);
             temp = '';
@@ -14,7 +15,7 @@ export function split(str, separator) {
         }
     }
 
-    if(temp) {
+    if (temp) {
         res.push(temp);
     }
 
