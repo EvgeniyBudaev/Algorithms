@@ -1,18 +1,22 @@
 export function split(str, separator) {
     const res = [];
     let temp = '';
-    for(let i = 0; i < str.length; i++){
+
+    for (let i = 0; i < str.length; i++) {
         const el = str[i];
-        if(el === separator || separator === '' && temp){
+        if (el === separator || separator === '' && temp) {
             res.push(temp);
             temp = '';
         }
-        if(el !== separator){
+
+        if (el !== separator) {
             temp += el;
         }
     }
-    if(temp){
+
+    if(temp) {
         res.push(temp);
     }
+
     return res;
 }
