@@ -14,8 +14,7 @@ const binarySearch = (list, item, low = 0, high = list.length - 1) => {
 
     if (guess === item) {
         return mid;
-    }
-    else if (guess > item) {
+    } else if (guess > item) {
         high = mid - 1;
         return binarySearch(list, item, low, high);
     } else {
