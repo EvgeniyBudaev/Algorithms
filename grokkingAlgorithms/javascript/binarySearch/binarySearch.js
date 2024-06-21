@@ -12,9 +12,11 @@ const binarySearch = (list, item) => {
         const guess = list[mid]; // guess - предполагаемое число
 
         if (guess === item) return mid;
-
-        if (guess > item) high = mid - 1;
-        else high = mid + 1;
+        if (guess > item) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
+        }
     }
 
     return null;
