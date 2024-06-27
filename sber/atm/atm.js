@@ -3,7 +3,7 @@ const atm = [
     ["500", 1],
     ["100", 9],
     ["50", 99],
-];
+]; // total 8350
 
 const getMoney = (atm, total) => {
     return atm.reduce((acc, item) => {
@@ -16,4 +16,4 @@ const getMoney = (atm, total) => {
     }, {});
 };
 
-console.log(getMoney(atm, 4565)); // {50: 23, 100: 9, 500: 1, 1000: 2}
+console.log(getMoney(atm, 4565)); // {50: 23, 100: 9, 500: 1, 1000: 2} -> 4550
