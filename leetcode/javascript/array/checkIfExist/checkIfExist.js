@@ -1,3 +1,12 @@
+// https://leetcode.com/problems/check-if-n-and-its-double-exist/description/
+
+/*
+Учитывая массив целых чисел, проверьте, существуют ли два индекса i и j такие, что:
+i != j
+0 <= i, j < arr.length
+arr[i] == 2 * arr[j]
+*/
+
 /*
 Input: arr = [10,2,5,3]
 Output: true
@@ -17,16 +26,17 @@ Explanation: There is no i and j that satisfy the conditions.
 var checkIfExist = function(arr) {
     let left = 0, right = 1;
 
-    while (left < arr.length-1) {
+    while (left < arr.length - 1) {
         if (arr[left] === (arr[right] * 2) || arr[right] === (arr[left] * 2)) {
-            return true
+            return true;
         } else if (right === arr.length - 1) {
-            left++
-            right = left + 1
+            left++;
+            right = left + 1;
         } else {
-            right++
+            right++;
         }
     }
+
     return false;
 };
 
