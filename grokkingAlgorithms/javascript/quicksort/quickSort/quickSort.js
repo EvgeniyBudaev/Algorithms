@@ -21,7 +21,7 @@ const quickSort2 = array => {
     const pivot = array[0]; // Опорный элемент
     const keysAreLessPivot = [];
     const keysAreMorePivot = [];
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 1; i < array.length; i++) {
         if (array[i] <= pivot) {
             keysAreLessPivot.push(array[i]);
         } else {
@@ -36,3 +36,4 @@ const quickSort2 = array => {
 };
 
 console.log(quickSort([10, 5, 2, 3])); // [2, 3, 5, 10]
+console.log(quickSort2([10, 5, 2, 3])); // [2, 3, 5, 10]
