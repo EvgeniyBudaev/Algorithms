@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/max-consecutive-ones/description/
 /* Max Consecutive Ones */
 /* Максимальное количество последовательных единиц */
 /*
@@ -22,16 +23,15 @@ nums [i] равно 0 или 1.
  * @return {number}
  */
  const findMaxConsecutiveOnes = function(nums) {
-    let counter = 0;
-    let quantityMaxOne = 0;
+    let counter = 0, quantityMaxOne = 0;
 
-    for (let i = 0; i <= nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (nums[i] === 1) {
             counter++;
-        } else {
-            if (quantityMaxOne < counter) {
+            if (counter > quantityMaxOne) {
                 quantityMaxOne = counter;
             }
+        } else {
             counter = 0;
         }
     }
