@@ -39,5 +39,5 @@ nums [i] равно 0 или 1.
     return quantityMaxOne;
 };
 
-const nums = [1, 1, 0, 1, 1, 1]
+const nums = [1, 1, 0, 1, 1, 1];
 console.log("result: ", findMaxConsecutiveOnes(nums));
