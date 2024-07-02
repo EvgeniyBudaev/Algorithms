@@ -19,9 +19,6 @@ Output: [1,2,3]
 Explanation: After calling your function, the input array is modified to: [1,2,3]
 */
 
-
-const arr = [1,0,2,3,0,4,5,0];
-
 /**
  * @param {number[]} arr
  * @return {void} Do not return anything, modify arr in-place instead.
@@ -36,4 +33,27 @@ var duplicateZeros = function(arr) {
     }
 };
 
+/**
+ * @param {number[]} arr
+ * @return {void} Do not return anything, modify arr in-place instead.
+ */
+// Two pointers
+// O(n) time | O(1) space
+// var duplicateZeros(easy) = function(arr) {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         if (arr[i] == 0) {
+//             shiftArray(arr, i + 1, arr.length - 1);
+//             arr[++i] = 0;
+//         }
+//     }
+// };
+
+// function shiftArray(array, left, right) {
+//     while (left < right) {
+//         array[right] = array[right - 1];
+//         right--;
+//     }
+// }
+
+const arr = [1,0,2,3,0,4,5,0];
 duplicateZeros(arr);
