@@ -1,4 +1,4 @@
-/*  Find Numbers with Even Number of Digits */
+// https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
 /* Найдите числа с четным числом цифр */
 /* 
 Дан массив целых чисел, верните, сколько из них содержат четное количество цифр.
@@ -16,7 +16,7 @@ Output: 1
  * @param {number[]} nums
  * @return {number}
  */
- const findNumbers = function(nums) {
+const findNumbers = function(nums) {
     let counter = 0;
 
     for (let i = 0; i <= nums.length; i++) {
