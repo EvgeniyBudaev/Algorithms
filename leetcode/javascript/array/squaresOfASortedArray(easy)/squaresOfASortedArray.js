@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/squares-of-a-sorted-array/description/
-/* Squares of a Sorted Array */
 
 /* Two pointers
 Time complexity: O(n)
