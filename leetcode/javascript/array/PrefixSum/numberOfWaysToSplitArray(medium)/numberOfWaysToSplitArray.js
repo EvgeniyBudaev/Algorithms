@@ -1,7 +1,13 @@
-/*
+/* https://leetcode.com/problems/number-of-ways-to-split-array/description/
 Дан массив чисел nums, найти количество способов разбиения массива на 2 части, таким образом, чтобы первая часть имела
 сумму элементов больше или равна сумме элементов второй части массива.
 Вторая часть массива должна иметь как минимум 1 элемент.
+
+Input: nums = [4, 2, 1, 1]
+Output: 3
+
+Input: nums = [10,4,-8,7]
+Output: 2
  */
 
 /**
@@ -11,8 +17,8 @@
 // Подсчет количества способов разбиения массива на 2 части. Сложность алгоритма O(n), по памяти O(1).
 var waysToSplitArray = function(nums) {
     let answer =  0; // answer - количество способов разбиения массива на  2 части.
-    let leftSection = 0;  // leftSection   - сумма элементов первой части массива.
-    let total  =  0; // total  - сумма элементов.
+    let leftSection = 0;  // leftSection - сумма элементов первой части массива.
+    let total  =  0; // total - сумма элементов.
 
     for (let i = 0; i < nums.length; i++) {
         total += nums[i]; // 8
