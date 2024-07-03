@@ -1,19 +1,14 @@
+// https://leetcode.com/problems/maximum-average-subarray-i/description/
 // Fixed window size
 
 /*
 Вам дан целочисленный массив nums, состоящий из n элементов, и целое число k.
-
 Найдите непрерывный подмассив длиной k, имеющий максимальное среднее значение, и верните это значение.
-Принимается любой ответ с ошибкой расчета менее 10-5.
- */
 
-/*
 Input: nums = [1,12,-5,-6,50,3], k = 4
 Output: 12.75000
 Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
- */
 
-/*
 Input: nums = [5], k = 1
 Output: 5.00000
  */
