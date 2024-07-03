@@ -13,9 +13,10 @@ Output: 4
  * @param {number} k
  * @return {number}
  */
-var findLength = function(nums, k) {
+var findLengthSubarray = function(nums, k) {
     // curr — текущая сумма окна
     let left = 0, curr = 0, ans = 0;
+
     for (let right = 0; right < nums.length; right++) {
         curr += nums[right];
         while (curr > k) {
@@ -29,4 +30,4 @@ var findLength = function(nums, k) {
     return ans;
 }
 
-console.log(findLength([3, 1, 2, 7, 4, 2, 1, 1, 5], 8)); // 4
+console.log(findLengthSubarray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8)); // 4
