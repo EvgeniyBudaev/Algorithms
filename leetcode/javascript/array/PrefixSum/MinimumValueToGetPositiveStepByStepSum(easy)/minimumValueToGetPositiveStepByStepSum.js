@@ -1,24 +1,17 @@
-/*
+/* https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/
 Учитывая массив целых чисел nums, вы начинаете с начального положительного значения startValue.
-На каждой итерации вы вычисляете пошаговую сумму startValue плюс элементы в числах (слева направо).
-Возвращает минимальное положительное значение startValue, чтобы пошаговая сумма никогда не была меньше 1.
- */
+На каждой итерации вы вычисляете пошаговую сумму startValue плюс элементы в nums (слева направо).
+Верните минимальное положительное значение startValue, чтобы пошаговая сумма никогда не была меньше 1.
 
-/*
 Input: nums = [-3,2,-3,4,2]
 Output: 5
- */
 
-/*
 Input: nums = [1,2]
 Output: 1
 Explanation: Minimum start value should be positive.
- */
 
-/*
 Input: nums = [1,-2,-3]
 Output: 5
-
  */
 
 /**
@@ -37,4 +30,4 @@ var minStartValue = function(nums) {
     return Math.abs(minVal) + 1;
 };
 
-console.log(minStartValue([-3,2,-3,4,2])); // 5
+console.log(minStartValue([-3, 2, -3, 4, 2])); // 5
