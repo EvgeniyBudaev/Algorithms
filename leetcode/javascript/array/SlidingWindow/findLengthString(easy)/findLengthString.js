@@ -15,7 +15,7 @@ Output: 5
  * @param {string} s
  * @return {number}
  */
-var findLength = function(s) {
+var findLengthString = function(s) {
     // curr — текущее количество нулей в окне
     let left = 0, curr = 0, ans = 0;
     for (let right = 0; right < s.length; right++) {
@@ -36,4 +36,4 @@ var findLength = function(s) {
     return ans;
 }
 
-console.log(findLength("1101100111")); // 5
+console.log(findLengthString("1101100111")); // 5
