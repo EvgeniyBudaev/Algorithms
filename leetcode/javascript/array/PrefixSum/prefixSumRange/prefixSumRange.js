@@ -5,7 +5,7 @@
 Подход "Prefix Sum" очень удобный подход, когда задача связана с суммами элементов подмассивов.
 
 Основная идея "Prefix Sum" - это создать некоторый массив prefix, в котором значение prefix[i] равно сумме элементов
-до i индекса влючетильно.
+до i индекса включительно.
 Например: "На вход подается массив nums = [5, 2, 3, 6, 1, 4], гда наш prefix массив будет содержать следующие элементы
 [5, 7, 10, 15, 16, 20]. Т.е. prefix[0] = 5, prefix[1] = 5 + 2, prefix[2] = 5+ 2 +3 и так далее.
 
@@ -24,7 +24,7 @@ const prefixSumRange = (arr, start, end) => {
     const prefix = [arr[0]];
 
     for (let i = 1; i < arr.length; i++) {
-        prefix.push(arr[i]  +  prefix[prefix.length - 1]);
+        prefix.push(arr[i] + prefix[prefix.length - 1]);
     }
 
     return prefix[end] - prefix[start] + arr[start];
