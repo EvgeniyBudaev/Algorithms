@@ -42,9 +42,7 @@ var answerQueries = function(nums, queries) {
 
         while(left <= right){
             let mid = Math.floor((left + right) / 2);
-            const guess = nums[mid];
-
-            if (guess > target){
+            if (prefixSum[mid] > target) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
