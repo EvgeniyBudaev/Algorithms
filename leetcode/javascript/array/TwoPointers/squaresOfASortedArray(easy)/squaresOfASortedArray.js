@@ -10,7 +10,11 @@ After sorting, it becomes [0,1,9,16,100].
 
 Input: nums = [-7,-3,2,3,11]
 Output: [4,9,9,49,121]
- */
+
+Two pointers
+Time complexity: O(n)
+Space complexity: O(n)
+*/
 
 /**
  * @param {number[]} nums
@@ -18,7 +22,7 @@ Output: [4,9,9,49,121]
  */
 var sortedSquares = function(nums) {
     let left = 0, right = nums.length - 1;
-    let result = [];
+    let result = new Array(nums.length).fill(0);
 
     for (let i = nums.length - 1; i >= 0; i--) {
         if (Math.abs(nums[left]) < Math.abs(nums[right])) {
