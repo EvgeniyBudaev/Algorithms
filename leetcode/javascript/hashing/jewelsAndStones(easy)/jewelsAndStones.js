@@ -1,19 +1,15 @@
-/*
+/* https://leetcode.com/problems/jewels-and-stones/description/
 Вам даны строки jewels, представляющие типы камней, которые являются jewels, и stones,
 представляющие те камни, которые у вас есть. Каждый символ в stones — это тип камня, который у вас есть.
 Вы хотите знать, сколько stones у вас тоже являются jewels.
 Буквы чувствительны к регистру, поэтому «а» считается другим типом камня, чем «А».
- */
 
-/*
 Input: jewels = "aA", stones = "aAAbbbb"
 Output: 3
- */
 
-/*
 Input: jewels = "z", stones = "ZZ"
 Output: 0
- */
+*/
 
 /**
  * @param {string} jewels
