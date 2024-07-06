@@ -1,21 +1,16 @@
-/*
-Учитывая массив целых чисел A, верните наибольшее целое число, которое встречается только один раз.
+/* Учитывая массив целых чисел A, верните наибольшее целое число, которое встречается только один раз.
 Если ни одно целое число не встречается один раз, верните -1.
- */
 
-/*
 Input: [5,7,3,9,4,9,8,3,1]
 Output: 8
 Explanation:
 The maximum integer in the array is 9 but it is repeated. The number 8 occurs only once, so it's the answer.
- */
 
-/*
 Input: [9,9,8,8]
 Output: -1
 Explanation:
 There is no number that occurs only once.
- */
+*/
 
 var largestUniqueNumber = function (nums) {
     const map = new Map();
