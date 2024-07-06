@@ -17,9 +17,7 @@ var checkForTarget = function(nums, target) {
     while (left < right) {
         // curr is the current sum
         let curr = nums[left] + nums[right];
-        if (curr === target) {
-            return true;
-        }
+        if (curr === target) return true;
 
         if (curr > target) {
             right--;
