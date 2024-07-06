@@ -1,18 +1,14 @@
-/*
+/* https://leetcode.com/problems/contiguous-array/description/
 Учитывая числа двоичного массива, верните максимальную длину непрерывного подмассива с равным количеством 0 и 1.
- */
 
-/*
 Input: nums = [0,1]
 Output: 2
 Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
- */
 
-/*
 Input: nums = [0,1,0]
 Output: 2
 Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
- */
+*/
 
 /**
  * @param {number[]} nums
