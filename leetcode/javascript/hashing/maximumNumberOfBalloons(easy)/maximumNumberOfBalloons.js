@@ -1,25 +1,18 @@
-/*
+/* https://leetcode.com/problems/maximum-number-of-balloons/description/
 Учитывая строковый текст, вы хотите использовать символы текста для формирования как можно большего количества
 экземпляров слова «balloon».
-
 Каждый символ в тексте можно использовать не более одного раза. Возвращает максимальное количество экземпляров,
 которые можно сформировать.
- */
 
-/*
 Input: text = "nlaebolko"
 Output: 1
- */
 
-/*
 Input: text = "loonbalxballpoon"
 Output: 2
- */
 
-/*
 Input: text = "leetcode"
 Output: 0
- */
+*/
 
 /**
  * @param {string} text
