@@ -1,4 +1,4 @@
-/*
+/* https://leetcode.com/problems/online-stock-span/description/
 Разработайте алгоритм, который собирает ежедневные котировки цен на некоторые акции и возвращает диапазон цен этих акций
 на текущий день.
 
@@ -15,15 +15,13 @@
 
 StockSpanner() Инициализирует объект класса.
 int next(int цена) Возвращает интервал цены акции, учитывая, что сегодняшняя цена равна цене
-*/
 
-/*
 Input
 ["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]
 [[], [100], [80], [60], [70], [60], [75], [85]]
 Output
 [null, 1, 1, 1, 2, 1, 4, 6]
- */
+*/
 
 var StockSpanner = function() {
     this.stack = [];
@@ -34,15 +32,14 @@ var StockSpanner = function() {
  * @return {number}
  */
 StockSpanner.prototype.next = function(price) {
-    let span=1;
+    let span= 1;
 
     while (this.stack.length && this.stack[this.stack.length - 1][1] <= price) {
         let top = this.stack.pop();
         span += top[0];
     }
 
-    this.stack.push([span,price]);
-
+    this.stack.push([span, price]);
     return span;
 };
 
