@@ -5,17 +5,17 @@
 s[i] — строчная буква, а s[i + 1] — та же буква, но в верхнем регистре или наоборот.
 Чтобы сделать строку хорошей, вы можете выбрать два соседних символа, которые делают строку плохой, и удалить их.
 Вы можете продолжать делать это, пока строка не станет хорошей.
-
 Верните строку после того, как исправили ее. Ответ гарантированно будет уникальным при заданных ограничениях.
 Обратите внимание, что пустая строка тоже подойдет.
 
 Input: s = "leEeetcode"
 Output: "leetcode"
-Explanation: In the first step, either you choose i = 1 or i = 2, both will result "leEeetcode" to be reduced to "leetcode".
+Explanation: На первом этапе, либо вы выберете i = 1, либо i = 2, в результате оба варианта «leEeetcode» будут сокращены
+до «leetcode».
 
 Input: s = "abBAcC"
 Output: ""
-Explanation: We have many possible scenarios, and all lead to the same answer. For example:
+Explanation: У нас есть много возможных сценариев, и все они ведут к одному и тому же ответу. Например:
 "abBAcC" --> "aAcC" --> "cC" --> ""
 "abBAcC" --> "abBA" --> "aA" --> ""
 
