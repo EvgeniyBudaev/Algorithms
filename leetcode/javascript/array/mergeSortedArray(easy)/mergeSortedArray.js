@@ -1,29 +1,21 @@
-// https://leetcode.com/problems/merge-sorted-array/description/
-
-/*
+/* https://leetcode.com/problems/merge-sorted-array/description/
 Вам даны два целочисленных массива nums1 и nums2, отсортированные в порядке неубывания, и два целых числа m и n,
 представляющие количество элементов в nums1 и nums2 соответственно.
 Объедините nums1 и nums2 в один массив, отсортированный в неубывающем порядке.
 Окончательно отсортированный массив не должен возвращаться функцией, а должен храниться внутри массива nums1.
 Чтобы учесть это, nums1 имеет длину m + n, где первые m элементов обозначают элементы, которые следует объединить,
 а последние n элементов имеют значение 0 и их следует игнорировать. nums2 имеет длину n.
-*/
 
-/*
 Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
 Output: [1,2,2,3,5,6]
 Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
-*/
 
-/*
 Input: nums1 = [1], m = 1, nums2 = [], n = 0
 Output: [1]
 Explanation: The arrays we are merging are [1] and [].
 The result of the merge is [1].
-*/
 
-/*
 Input: nums1 = [0], m = 0, nums2 = [1], n = 1
 Output: [1]
 Explanation: The arrays we are merging are [] and [1].
