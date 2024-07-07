@@ -1,6 +1,4 @@
-// https://leetcode.com/problems/two-sum/description/
-
-/*
+/* https://leetcode.com/problems/two-sum/description/
 Учитывая массив целых чисел nums и целочисленную target, верните индексы двух чисел так, чтобы их сумма составляла
 target. Вы можете предположить, что каждый вход будет иметь ровно одно решение, и вы не можете использовать один и тот
 же элемент дважды. Вы можете вернуть ответ в любом порядке.
@@ -17,7 +15,7 @@ Output: [1,2]
 Example 3:
 Input: nums = [3,3], target = 6
 Output: [0,1]
- */
+*/
 
 /**
  * @param {number[]} nums
