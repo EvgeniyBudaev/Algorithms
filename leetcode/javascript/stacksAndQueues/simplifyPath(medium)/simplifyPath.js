@@ -1,4 +1,4 @@
-/*
+/* https://leetcode.com/problems/simplify-path/description/
 Учитывая абсолютный путь к файловой системе в стиле Unix, который начинается с косой черты «/», преобразуйте этот путь в
 упрощенный канонический путь.
 
@@ -14,32 +14,22 @@
 Он не должен заканчиваться косой чертой «/», если только это не корневой каталог.
 Следует исключить любые одиночные или двойные точки, используемые для обозначения текущих или родительских каталогов.
 Верните новый путь.
- */
 
-/*
 Input: path = "/home/"
 Output: "/home"
- */
 
-/*
 Input: path = "/home//foo/"
 Output: "/home/foo"
- */
 
-/*
 Input: path = "/home/user/Documents/../Pictures"
 Output: "/home/user/Pictures"
- */
 
-/*
 Input: path = "/../"
 Output: "/"
- */
 
-/*
 Input: path = "/.../a/../b/c/../d/./"
 Output: "/.../b/d"
- */
+*/
 
 /**
  * @param {string} path
