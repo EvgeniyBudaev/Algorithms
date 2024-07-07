@@ -1,7 +1,4 @@
-// https://leetcode.com/problems/max-consecutive-ones/description/
-/* Max Consecutive Ones */
-/* Максимальное количество последовательных единиц */
-/*
+/* https://leetcode.com/problems/max-consecutive-ones/description/
 Для двоичного массива nums вернуть максимальное количество последовательных 1 в массиве.
 
 Example 1
