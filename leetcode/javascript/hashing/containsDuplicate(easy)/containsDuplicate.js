@@ -52,9 +52,9 @@ var containsDuplicate = function(nums) {
 
 // Time complexity: O(n)
 // Space complexity: O(n)
+
 // var containsDuplicate = function(nums) {
-//   const s = new Set(nums);
-//   return s.size !== nums.length;
+//   return new Set(nums).size !== nums.length;
 // };
 
 console.log(containsDuplicate([1,2,3,1])); // true
