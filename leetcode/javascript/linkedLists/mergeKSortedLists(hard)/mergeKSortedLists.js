@@ -57,7 +57,7 @@ function createLinkedList(arr) {
  */
 var mergeKLists = function(lists) {
     const minHeap = getMinHeap(lists);
-    return mergeLists(minHeap);Z
+    return mergeLists(minHeap);
 };
 
 const getMinHeap = (lists) => {
