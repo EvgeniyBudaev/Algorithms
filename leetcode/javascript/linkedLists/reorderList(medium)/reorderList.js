@@ -90,4 +90,4 @@ const reorder = (l1, l2) => {
 }
 
 const head = createLinkedList([1,2,3,4]);
-console.log(reorderList(head)); // [1,4,2,3]
+reorderList(head); // [1,4,2,3]
