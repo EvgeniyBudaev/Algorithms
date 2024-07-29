@@ -46,7 +46,7 @@ var solveNQueens = function(n) {
       result.push([...chessBoard].map(row => row.join('')));
       return;
     }
-    for( var col = 0; col < n; col++) {
+    for(let col = 0; col < n; col++) {
       if(isValidQueen(row, col)) {
         chessBoard[row][col] = "Q";
         backtrack(row + 1);
