@@ -1,4 +1,4 @@
-/*
+/* 2215. Find the Difference of Two Arrays
 
 Учитывая два целочисленных массива nums1 и nums2 с индексом 0, верните ответ в виде списка размером 2, где:
 
@@ -21,19 +21,11 @@ Output: [[1,3],[4,6]]
  * @return {number[][]}
  */
 var findDifference = function(nums1, nums2) {
-    let s1 = new Set(nums1);
-    let s2 = new Set(nums2);
-    let ans = [[], []];
-
-    for (let i of s1) {
-        if (!s2.has(i)) ans[0].push(i);
-    }
-
-    for (let i of s2) {
-        if (!s1.has(i)) ans[1].push(i);
-    }
-
-    return ans;
+    const s1 = new Set(nums1);
+    const s2 = new Set(nums2);
+    nums1.forEach(num => s2.delete(num));
+    nums2.forEach(num => s1.delete(num));
+    return [[...s1], [...s2]];
 };
 
 const nums1 = [1,2,3];
