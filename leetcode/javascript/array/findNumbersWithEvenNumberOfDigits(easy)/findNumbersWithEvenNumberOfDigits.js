@@ -1,6 +1,6 @@
-// https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
-/* Найдите числа с четным числом цифр */
-/* 
+/* https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
+
+Найдите числа с четным числом цифр.
 Дан массив целых чисел, верните, сколько из них содержат четное количество цифр.
 
 Example 1:
@@ -18,15 +18,11 @@ Output: 1
  */
 const findNumbers = function(nums) {
     let counter = 0;
-
-    for (let i = 0; i <= nums.length; i++) {
-        if (nums[i] && nums[i].toString().length % 2 === 0) {
-            counter++;
-        }
-    }
-
+    nums.forEach(num => {
+        if (num.toString().length % 2 === 0) counter++;
+    })
     return counter;
 };
 
-const nums = [12, 345, 2, 6, 7896];
+const nums = [12, 345, 2, 6, 7896]; // 2
 console.log(findNumbers(nums));
