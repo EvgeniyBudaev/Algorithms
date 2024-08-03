@@ -1,7 +1,7 @@
 /* https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description/
 
 Учитывая двоичный массив nums, вам следует удалить из него один элемент.
-Возвращает размер самого длинного непустого подмассива, содержащего только 1 в результирующем массиве. Верните 0, если
+Венрните размер самого длинного непустого подмассива, содержащего только 1 в результирующем массиве. Верните 0, если
 такого подмассива нет.
 
 Input: nums = [1,1,0,1]
@@ -22,17 +22,15 @@ Output: 2
  * @return {number}
  */
 var longestSubarray = function(nums) {
-    let leftPtr = 0;
-    let result = 0;
-    let zeroCount = 0;
+    let left = 0, result = 0, zeroCount = 0;
 
-    for (let rightPtr = 0; rightPtr < nums.length; rightPtr++) {
-        if (nums[rightPtr] === 0) zeroCount++;
+    for (let right = 0; right < nums.length; right++) {
+        if (nums[right] === 0) zeroCount++;
         if (zeroCount > 1) {
-            if (nums[leftPtr] === 0) zeroCount--;
-            leftPtr++;
+            if (nums[left] === 0) zeroCount--;
+            left++;
         }
-        if (zeroCount <= 1) result = Math.max(result, rightPtr - leftPtr);
+        if (zeroCount <= 1) result = Math.max(result, right - left);
     }
 
     return result;
