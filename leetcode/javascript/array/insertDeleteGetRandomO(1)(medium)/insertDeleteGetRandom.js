@@ -14,18 +14,17 @@ int getRandom() Возвращает случайный элемент из те
 Input
 ["RandomizedSet", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"]
 [[], [1], [2], [2], [], [1], [2], []]
-Output
-[null, true, false, true, 2, true, false, 2]
+Output: [null, true, false, true, 2, true, false, 2]
 
 Объяснение
 RandomizedSet randomizedSet = новый RandomizedSet();
-рандомизированныйSet.insert(1); // Вставляет 1 в набор. Возвращает true, поскольку 1 была вставлена успешно.
-рандомизированныйSet.remove(2); // Возвращает false, поскольку числа 2 не существует в наборе.
-рандомизированныйSet.insert(2); // Вставляет 2 в набор, возвращает true. Набор теперь содержит [1,2].
-рандомизированныйSet.getRandom(); // getRandom() должен возвращать либо 1, либо 2 случайным образом.
-рандомизированныйSet.remove(1); // Удаляет 1 из набора, возвращает true. Набор теперь содержит [2].
-рандомизированныйSet.insert(2); // 2 уже было в наборе, поэтому возвращаем false.
-рандомизированныйSet.getRandom(); // Поскольку 2 — единственное число в наборе, getRandom() всегда будет возвращать 2.
+randomizedSet.insert(1); // Вставляет 1 в набор. Возвращает true, поскольку 1 была вставлена успешно.
+randomizedSet.remove(2); // Возвращает false, поскольку числа 2 не существует в наборе.
+randomizedSet.insert(2); // Вставляет 2 в набор, возвращает true. Набор теперь содержит [1,2].
+randomizedSet.getRandom(); // getRandom() должен возвращать либо 1, либо 2 случайным образом.
+randomizedSet.remove(1); // Удаляет 1 из набора, возвращает true. Набор теперь содержит [2].
+randomizedSet.insert(2); // 2 уже было в наборе, поэтому возвращаем false.
+randomizedSet.getRandom(); // Поскольку 2 — единственное число в наборе, getRandom() всегда будет возвращать 2.
 */
 
 var RandomizedSet = function() {
@@ -56,8 +55,8 @@ RandomizedSet.prototype.remove = function(val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function() {
-    let index = Math.floor(Math.random() * this.container.size);
-    let arr = [...this.container];
+    const index = Math.floor(Math.random() * this.container.size);
+    const arr = [...this.container];
     return arr[index];
 };
 
@@ -68,3 +67,12 @@ RandomizedSet.prototype.getRandom = function() {
  * var param_2 = obj.remove(val)
  * var param_3 = obj.getRandom()
  */
+
+const randomizedSet = new RandomizedSet();
+randomizedSet.insert(1);
+randomizedSet.remove(2);
+randomizedSet.insert(2);
+randomizedSet.getRandom();
+randomizedSet.remove(1);
+randomizedSet.insert(2);
+randomizedSet.getRandom();
