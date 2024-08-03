@@ -24,9 +24,18 @@ Output: [[1,2],[3,4]]
  * @return {number[][]}
  */
 
-const construct2DArray = (original, m, n) => {
+var construct2DArray = function(original, m, n) {
     if (m * n !== original.length) return [];
-    let result = [];
+    const arr = [];
+    for (let i = 0; i < original.length; i += n) {
+        arr.push(original.slice(i, i + n));
+    }
+    return arr;
+};
+
+const construct2DArray2 = (original, m, n) => {
+    if (m * n !== original.length) return [];
+    const result = [];
     let idx = 0;
     while (idx < original.length) {
         result.push(original.slice(idx, idx + n));
@@ -35,18 +44,9 @@ const construct2DArray = (original, m, n) => {
     return result;
 }
 
-var construct2DArray2 = function(original, m, n) {
-    if (m * n !== original.length) return [];
-    let arr = [];
-    for (let i = 0; i < original.length; i += n) {
-        arr.push(original.slice(i, i + n));
-    }
-    return arr;
-};
-
 var construct2DArray3 = function(original, m, n) {
     if (m * n !== original.length) return [];
-    let arr = [];
+    const arr = [];
     for (let i = 0, x = 0; i < m; i++) {
         arr[i] = [];
         for (let j = 0; j < n; j++) {
