@@ -54,4 +54,4 @@ console.log("candies: ", candies);
   return candies.reduce((a, b) => a + b, 0);
 };
 
-console.log(candy([5, 3, 7, 8, 9])); // 5
+console.log(candy([1,0,2])); // 5
