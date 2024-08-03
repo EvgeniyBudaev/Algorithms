@@ -9,7 +9,7 @@ const getPossibleMoney = (atm, total) => {
     return atm.reduce((acc, item) => {
         const banknote = item[0];
         const quantityBanknotesInATM = item[1];
-        const possibleQuantityForGet = Math.min(quantityBanknotesInATM, Math.floor(total / banknote));
+        const possibleQuantityForGet = Math.min(quantityBanknotesInATM, Math.floor(total / Number(banknote)));
         total -= possibleQuantityForGet * Number(banknote);
         acc[banknote] = possibleQuantityForGet;
         return acc;
