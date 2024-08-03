@@ -19,8 +19,8 @@ Output: []
  * @return {number[]}
  */
 var findDuplicates = function(nums) {
-    let set = new Set();
-    let result = [];
+    const set = new Set();
+    const result = [];
     for (let num of nums ) {
         if (set.has(num)) result.push(num);
         else set.add(num);
