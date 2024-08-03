@@ -1,6 +1,6 @@
 /* https://leetcode.com/problems/first-missing-positive/description/
 
-Дан несортированный целочисленный массив nums. Возвращает наименьшее положительное целое число, которого нет в nums.
+Дан несортированный целочисленный массив nums. Верните наименьшее положительное целое число, которого нет в nums.
 Вы должны реализовать алгоритм, который работает за время O(n) и использует вспомогательное пространство O(1).
 
 Input: nums = [1,2,0]
@@ -21,13 +21,9 @@ Output: 1
  * @return {number}
  */
 var firstMissingPositive = function(nums) {
-  const numSet = new Set(nums.filter(num => num > 0));
+  const set = new Set(nums.filter(num => num > 0));
   let i = 1;
-
-  while (numSet.has(i)) {
-    i++;
-  }
-
+  while (set.has(i)) i++;
   return i;
 };
 
