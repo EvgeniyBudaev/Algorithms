@@ -99,3 +99,7 @@ ATM.prototype.withdraw = function(amount) {
  * obj.deposit(banknotesCount)
  * var param_2 = obj.withdraw(amount)
  */
+
+const atm = new ATM();
+atm.deposit([0,0,1,2,1]);
+atm.withdraw(600);
