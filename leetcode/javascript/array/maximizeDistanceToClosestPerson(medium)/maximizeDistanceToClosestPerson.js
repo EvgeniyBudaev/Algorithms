@@ -23,7 +23,7 @@ var maxDistToClosest = function(seats) {
     return Math.max(
         zeros.shift().length,
         zeros.pop().length,
-        ...zeros.map(i => i.length ? i.length / 2 : 0)
+        ...zeros.map(i => i.length ? Math.ceil(i.length / 2) : 0)
     );
 };
 
