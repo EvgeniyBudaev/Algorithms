@@ -17,14 +17,16 @@ Output: 4
  * @return {number}
  */
 var findMaxConsecutiveOnes = function (nums) {
-    let [l, cnt] = [0, 0];
-    for (const x of nums) {
-        cnt += x ^ 1;
-        if (cnt > 1) {
-            cnt -= nums[l++] ^ 1;
+    let left = 0, zeroCount = 0, maxCountOnes = 0, maxFlipOperations = 1;
+    for (let right = 0; right < nums.length; right++) {
+        if (nums[right] === 0) zeroCount++;
+        while (zeroCount > maxFlipOperations) {
+            if (nums[left] === 0) zeroCount--;
+            left++;
         }
+        maxCountOnes = Math.max(maxCountOnes, right - left + 1);
     }
-    return nums.length - l;
+    return maxCountOnes;
 };
 
 console.log(findMaxConsecutiveOnes([1,0,1,1,0])); // 4
