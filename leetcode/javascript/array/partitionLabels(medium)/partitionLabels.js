@@ -1,4 +1,4 @@
-/*
+/* 763. Partition Labels
 
 Вам дана строка s. Мы хотим разделить строку на как можно большее количество частей, чтобы каждая буква появлялась не
 более чем в одной части. Обратите внимание, что разбиение выполнено так, что после объединения всех частей по порядку
@@ -24,10 +24,10 @@ var partitionLabels = function(s) {
     for (let i = 0; i < s.length; i++) {
         lastIdx[s[i]] = i;
     }
-    let curLast = 0, res = [], acc = 0;
+    let curLastIdx = 0, res = [], acc = 0;
     for (let i = 0; i < s.length; i++) {
-        curLast = Math.max(curLast, lastIdx[s[i]]);
-        if (i === curLast) {
+        curLastIdx = Math.max(curLastIdx, lastIdx[s[i]]);
+        if (i === curLastIdx) {
             res.push(i + 1 - acc);
             acc = i + 1;
         }
