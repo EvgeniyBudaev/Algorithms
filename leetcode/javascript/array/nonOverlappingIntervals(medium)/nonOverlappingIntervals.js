@@ -1,6 +1,6 @@
 /* https://leetcode.com/problems/non-overlapping-intervals/description/
 
-Учитывая массив интервалов интервалов, где интервалы[i] = [starti, endi], верните минимальное количество интервалов,
+Учитывая массив интервалов, где интервалы[i] = [starti, endi], верните минимальное количество интервалов,
 которое вам нужно удалить, чтобы остальные интервалы не перекрывались.
 
 Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
@@ -22,7 +22,7 @@ Output: 0
  */
 var eraseOverlapIntervals = function(intervals) {
     let res = 0;
-    intervals.sort((a, b) => a[1] - b[1]);
+    intervals.sort((a, b) => a[1] - b[1]); // [[1,2],[2,3],[1,3],[3,4]]
     let prev_end = intervals[0][1];
 
     for (let i = 1; i < intervals.length; i++) {
