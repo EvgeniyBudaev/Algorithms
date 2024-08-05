@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
 Учитывая целочисленный массив чисел, отсортированный в неубывающем порядке, удалите дубликаты на месте так, чтобы каждый
 уникальный элемент появлялся только один раз. Относительный порядок элементов должен оставаться неизменным.
 Затем верните количество уникальных элементов в числах.
@@ -23,7 +24,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
  * @return {number[]}
  */
 var removeDuplicates = function(nums) {
-    if (nums.length === 0) return [];
+    if (!nums.length) return [];
     // Инициализируем количество уникальных элементов равным 1
     let k = 1;
     for (let i = 1; i < nums.length; i++) {
@@ -49,4 +50,4 @@ var removeDuplicates = function(nums) {
 //     return nums;
 // };
 
-console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
+console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4])); // [0,1,2,3,4]
