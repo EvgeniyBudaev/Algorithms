@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/remove-element/description/
+
 Учитывая целочисленный массив nums и целочисленное значение, удалите все вхождения val в nums на месте. Порядок
 элементов может быть изменен. Затем верните количество элементов в виде чисел, которые не равны val.
 Учитывайте количество элементов в nums, которые не равны val be k. Чтобы вас приняли, вам необходимо сделать следующее:
@@ -21,9 +22,7 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 function removeElement(nums, val) {
 	let count = 0; // Счетчик для отслеживания элементов, отличных от val
 	for (let i = 0; i < nums.length; i++) {
-		if (nums[i] !== val) {
-			nums[count++] = nums[i];
-		}
+		if (nums[i] !== val) nums[count++] = nums[i];
 	}
 	nums.length = count; // Обрезаем массив до фактической длины
 	return nums.length;
@@ -40,5 +39,4 @@ function removeElement(nums, val) {
 // 	return nums.length;
 // };
 
-const initialData = [3,2,2,3];
-console.log(removeElement(initialData, 3)); // 2
+console.log(removeElement([3,2,2,3], 3)); // 2
