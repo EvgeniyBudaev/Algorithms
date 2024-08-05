@@ -15,29 +15,19 @@ Output: [[7,4,1],[8,5,2],[9,6,3]]
  */
 var rotate = function(matrix) {
     const n = matrix.length;
-
-    for (let row = 0; row < n / 2; row++) {
-        for (let col = row; col < n - row - 1; col++) {
-            // Поменяйте местами верхнюю левую и верхнюю правую ячейки в текущей группе.
-            [matrix[row][col], matrix[col][n - 1 - row]] = [
-                matrix[col][n - 1 - row],
-                matrix[row][col],
-            ];
-
-            // Поменяйте местами верхнюю левую и нижнюю правую ячейки в текущей группе.
-            [matrix[row][col], matrix[n - 1 - row][n - 1 - col]] =
-                [
-                    matrix[n - 1 - row][n - 1 - col],
-                    matrix[row][col],
-                ];
-
-            // Поменяйте местами верхнюю левую и нижнюю левую ячейки в текущей группе.
-            [matrix[row][col], matrix[n - 1 - col][row]] = [
-                matrix[n - 1 - col][row],
-                matrix[row][col],
-            ];
+    for (let i = 0; i < n; i++) {
+        for (let j = i; j < n; j++) {
+            let temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
         }
     }
+
+    // Переверните каждую строку
+    for (let i = 0; i < n; i++) {
+        matrix[i].reverse();
+    }
+
     return matrix;
 };
 
