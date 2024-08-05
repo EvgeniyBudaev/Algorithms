@@ -12,25 +12,31 @@ Output: [[1,0,1],[0,0,0],[1,0,1]]
  * @return {number[][]} Do not return anything, modify matrix in-place instead.
  */
 var setZeroes = function(matrix) {
-    let row = new Array(matrix.length).fill(0);
-    let col = new Array(matrix[0].length).fill(0);
-    for (let i = 0;i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-            if( matrix[i][j] === 0) {
-                row[i] = 1;
-                col[j] = 1;
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const zeroRow = new Set();
+    const zeroCol = new Set();
+
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            if (matrix[row][col] === 0) {
+                zeroRow.add(row);
+                zeroCol.add(col);
             }
         }
     }
 
-    for (let i = 0;i < matrix.length; i++) {
-        for (let j = 0;j < matrix[i].length; j++) {
-            if (row[i]||col[j]) {
-                matrix[i][j] = 0;
-            }
+    zeroRow.forEach((row) => {
+        for (let col = 0; col < cols; col++) {
+            matrix[row][col] = 0;
         }
-    }
-    return matrix;
+    })
+
+    zeroCol.forEach((col) => {
+        for (let row = 0; row < rows; row++) {
+            matrix[row][col] = 0;
+        }
+    })
 };
 
 const matrix = [[1,1,1],[1,0,1],[1,1,1]];
