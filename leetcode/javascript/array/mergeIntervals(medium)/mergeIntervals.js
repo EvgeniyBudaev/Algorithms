@@ -17,7 +17,8 @@ Output: [[1,5]]
  * @return {number[][]}
  */
 var merge = function(intervals) {
-    intervals.sort((a, b) => a[0] - b[0]);
+    if(!intervals.length) return [];
+    intervals.sort((a, b) => a[0] - b[0]); // [[1,3],[2,6],[8,10],[15,18]]
     const merged = [];
     let prev = intervals[0];
 
