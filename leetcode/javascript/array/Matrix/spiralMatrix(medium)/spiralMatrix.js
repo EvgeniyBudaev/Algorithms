@@ -32,6 +32,7 @@ var spiralOrder = function(matrix) {
         // 2. Справа налево (если направление == -1) Увеличиваем указатель col для перемещения по горизонтали
         for (let i = 0; i < cols; i++) {
             col += direction;
+            console.log("result: ", result);
             result.push(matrix[row][col]);
         }
         rows--;
