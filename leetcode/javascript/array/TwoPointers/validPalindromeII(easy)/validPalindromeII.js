@@ -18,24 +18,25 @@ Output: false
  * @return {boolean}
  */
 var validPalindrome = function(s) {
-    let low = 0, high = s.length - 1;
-    while (low < high) {
-        if (s[low] !== s[high]) {
-            return isPalindrome(s, low + 1, high) || isPalindrome(s, low, high - 1);
+    let left = 0, right = s.length - 1;
+    while (left < right) {
+        if (s[left] !== s[right]) {
+            return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
         }
-        low++;
-        high--;
+        left++;
+        right--;
     }
     return true;
 };
 
-function isPalindrome(str, low, high) {
-    while (low < high) {
-        if (str[low] !== str[high]) return false;
-        low++;
-        high--;
+function isPalindrome(str, left, right) {
+    console.log(str, left, right);
+    while (left < right) {
+        if (str[left] !== str[right]) return false;
+        left++;
+        right--;
     }
     return true;
 }
 
-console.log(validPalindrome("aba")); // true
+console.log(validPalindrome("abca")); // true
