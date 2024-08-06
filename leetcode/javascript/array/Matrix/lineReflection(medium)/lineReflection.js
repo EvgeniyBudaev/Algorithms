@@ -1,4 +1,5 @@
-/* https://baihuqian.github.io/2018-08-12-line-reflection/
+/* 356. Line Reflection
+https://baihuqian.github.io/2018-08-12-line-reflection/
 
 Учитывая n точек на двумерной плоскости, найдите, существует ли такая линия, параллельная оси Y, которая отражает данные
 точки.
