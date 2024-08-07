@@ -6,15 +6,15 @@
 
 Input: s = "ab#c", t = "ad#c"
 Output: true
-Explanation: Both s and t become "ac".
+Пояснение: И s, и t становятся "ac".
 
 Input: s = "ab##", t = "c#d#"
 Output: true
-Explanation: Both s and t become "".
+Пояснение: И s, и t становятся "".
 
 Input: s = "a#c", t = "b"
 Output: false
-Explanation: s becomes "c" while t becomes "b".
+Пояснение: s становится «c», а t становится «b».
 */
 
 /**
@@ -62,11 +62,8 @@ var backspaceCompareWithStack = function(s, t) {
     let build = str => {
         const stack = [];
         for (const c of str) {
-            if (c !== '#') {
-                stack.push(c);
-            } else if (stack.length) {
-                stack.pop();
-            }
+            if (c !== '#') stack.push(c);
+            else if (stack.length) stack.pop();
         }
         return stack.join('');
     }
