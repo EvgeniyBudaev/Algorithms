@@ -17,6 +17,14 @@ Output: 3
  * @return {number}
  */
 var findDuplicate = function(nums) {
+    let visited = new Array(nums.length).fill(false);
+    for (let num of nums) {
+        if(!visited[num]) visited[num] = true;
+        else return num;
+    }
+};
+
+var findDuplicateTwoPointers = function(nums) {
     let slow = nums[0];
     let fast = nums[0];
     do {
