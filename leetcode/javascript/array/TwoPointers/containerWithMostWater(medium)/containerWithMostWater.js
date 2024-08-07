@@ -1,8 +1,9 @@
 /* https://leetcode.com/problems/container-with-most-water/description/
+
 Вам дан целочисленный массив высотой длины n. Нарисовано n вертикальных линий, конечными точками которых являются
  (i, 0) и (i, height[i]).
 Найдите две линии, которые вместе с осью X образуют контейнер, в котором содержится больше всего воды.
-Возвращайте максимальное количество воды, которое может хранить контейнер.
+Верните максимальное количество воды, которое может хранить контейнер.
 Обратите внимание, что вы не можете наклонять контейнер
 
 Input: height = [1,8,6,2,5,4,8,3,7]
@@ -29,11 +30,8 @@ var maxArea = function(height) {
     const minHeight = Math.min(height[left], height[right]);
     const width = right - left;
     maxArea = Math.max(maxArea, width * minHeight);
-    if (height[left] < height[right]) {
-      left++;
-    } else {
-      right--;
-    }
+    if (height[left] < height[right]) left++;
+    else right--;
   }
 
   return maxArea;
