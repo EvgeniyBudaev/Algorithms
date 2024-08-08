@@ -19,29 +19,28 @@ Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
  * @return {number[][]}
  */
 var intervalIntersection = function(firstList, secondList) {
-    let  result = [];
-    let i = 0, j = 0;
+    let result = [];
+    let left = 0, right = 0;
 
-    while (i < firstList.length && j < secondList.length) {
-        let first = firstList[i];
-        let second = secondList[j];
+    while (left < firstList.length && right < secondList.length) {
+        let first = firstList[left];
+        let second = secondList[right];
         let start = Math.max(first[0], second[0]);
         let end = Math.min(first[1], second[1]);
 
         if (start <= end) result.push([start, end]);
 
-        if (first[1] < second[1]) {
-            i++;
-        } else if (first[1] > second[1]) {
-            j++;
-        } else {
-            i++;
-            j++;
+        if (first[1] < second[1]) left++;
+        else if (first[1] > second[1]) right++;
+        else {
+            left++;
+            right++;
         }
     }
+
     return result;
 };
 
 const firstList = [[0,2],[5,10],[13,23],[24,25]];
 const secondList = [[1,5],[8,12],[15,24],[25,26]];
-console.log(intervalIntersection(firstList, secondList));
+console.log(intervalIntersection(firstList, secondList)); // [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
