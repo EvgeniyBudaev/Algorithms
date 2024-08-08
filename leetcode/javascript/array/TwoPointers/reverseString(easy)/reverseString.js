@@ -1,6 +1,5 @@
-// https://leetcode.com/problems/reverse-string/description/
+/* https://leetcode.com/problems/reverse-string/description/
 
-/*
 Напишите функцию, которая переворачивает строку. Входная строка задается как массив символов s.
 
 Input: s = ["h","e","l","l","o"]
