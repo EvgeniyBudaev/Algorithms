@@ -37,4 +37,4 @@ var twoSum = function(numbers, target) {
     return [-1, -1];
 };
 
-console.log(twoSum([2,7,11,15], 9));
+console.log(twoSum([2,7,11,15], 9)); // [1,2]
