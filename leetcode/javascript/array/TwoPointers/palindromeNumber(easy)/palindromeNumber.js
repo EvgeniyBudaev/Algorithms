@@ -1,6 +1,5 @@
-// https://leetcode.com/problems/palindrome-number/description/
+/* https://leetcode.com/problems/palindrome-number/description/
 
-/*
 Учитывая целое число x, верните true, если x является палиндром и false в противном случае.
 
 Input: x = 121
@@ -25,9 +24,7 @@ var isPalindrome = function(x) {
     let left = 0, right = str.length - 1;
 
     while (left < right) {
-        if (str[left] !== str[right]) {
-            return false;
-        }
+        if (str[left] !== str[right]) return false;
         left++;
         right--;
     }
