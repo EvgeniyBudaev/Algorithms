@@ -16,8 +16,8 @@ Output: 6
  */
 var trap = function(height) {
     let left = 0, leftMaxValue = height[0];
-    let sum = 0;
     let right = height.length - 1, rightMaxValue = height[right];
+    let sum = 0;
 
     while (left < right) {
         if (leftMaxValue <= rightMaxValue) {
