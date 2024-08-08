@@ -30,7 +30,6 @@ var validPalindrome = function(s) {
 };
 
 function isPalindrome(str, left, right) {
-    console.log(str, left, right);
     while (left < right) {
         if (str[left] !== str[right]) return false;
         left++;
