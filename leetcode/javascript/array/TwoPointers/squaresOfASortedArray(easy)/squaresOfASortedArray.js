@@ -21,6 +21,10 @@ Space complexity: O(n)
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
+    return nums.map(x => x ** 2).sort((a, b) => a - b);
+};
+
+var sortedSquaresTwoPointers = function(nums) {
     let left = 0, right = nums.length - 1;
     let result = new Array(nums.length).fill(0);
 
