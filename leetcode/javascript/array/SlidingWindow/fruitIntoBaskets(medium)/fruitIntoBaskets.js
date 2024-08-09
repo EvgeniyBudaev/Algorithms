@@ -40,11 +40,8 @@ var totalFruit = function(fruits) {
         hashMap.set(rightFruit, hashMap.get(rightFruit) + 1 || 0);
         while (hashMap.size > 2) {
             const leftFruit = fruits[left];
-            if (hashMap.get(leftFruit) === 0) {
-                hashMap.delete(leftFruit);
-            } else {
-                hashMap.set(leftFruit, hashMap.get(leftFruit) - 1);
-            }
+            if (hashMap.get(leftFruit) === 0) hashMap.delete(leftFruit);
+            else hashMap.set(leftFruit, hashMap.get(leftFruit) - 1);
             left++;
         }
         maxLen = Math.max(maxLen, right - left + 1);
