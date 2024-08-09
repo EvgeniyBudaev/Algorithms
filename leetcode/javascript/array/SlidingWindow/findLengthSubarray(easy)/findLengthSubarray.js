@@ -14,8 +14,7 @@ Output: 4
  * @return {number}
  */
 var findLengthSubarray = function(nums, k) {
-    // curr — текущая сумма окна
-    let left = 0, curr = 0, ans = 0;
+    let left = 0, curr = 0, ans = 0; // curr — текущая сумма окна
 
     for (let right = 0; right < nums.length; right++) {
         curr += nums[right];
@@ -23,7 +22,6 @@ var findLengthSubarray = function(nums, k) {
             curr -= nums[left];
             left++;
         }
-
         ans = Math.max(ans, right - left + 1);
     }
 
