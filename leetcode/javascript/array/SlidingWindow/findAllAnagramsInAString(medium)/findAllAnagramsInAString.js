@@ -25,27 +25,20 @@ var findAnagrams = function(s, p) {
         obj[i] ? obj[i] += 1 : obj[i] = 1;
     }
 
-    let left = 0;
-    let right = 0;
-    let count = p.length;
+    let left = 0, right = 0, count = p.length;
 
     while (right < s.length) {
-
         if (obj[s[right]] > 0) count--;
-
         obj[s[right]]--;
         right++;
-
         if (count === 0) arr.push(left);
-
         if (right - left === p.length) {
-
             if (obj[s[left]] >= 0) count++;
-
             obj[s[left]]++;
             left++;
         }
     }
+
     return arr;
 };
 
