@@ -22,16 +22,12 @@ Output: 0
  * @return {number}
  */
 var maxProfit = function(prices) {
-    // left - для покупки
-    // right - для продажи
-    let [left, right, max] = [0, 1, 0];
+    let [left, right, max] = [0, 1, 0]; // left - для покупки, right - для продажи
 
     while (right < prices.length) {
         const canSlide = prices[right] <= prices[left];
         if (canSlide) left = right;
-
         const window = prices[right] - prices[left];
-
         max = Math.max(max, window);
         right++;
     }
