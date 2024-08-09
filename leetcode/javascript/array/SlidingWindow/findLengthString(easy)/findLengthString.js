@@ -21,7 +21,7 @@ var findLengthString = function(s) {
     for (let right = 0; right < s.length; right++) {
         if (s[right] === "0") curr++;
         while (curr > 1) {
-            if (s[left] === "0") curr -= 1;
+            if (s[left] === "0") curr--;
             left++;
         }
         ans = Math.max(ans, right - left + 1);
