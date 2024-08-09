@@ -16,20 +16,14 @@ Output: 5
  * @return {number}
  */
 var findLengthString = function(s) {
-    // curr — текущее количество нулей в окне
-    let left = 0, curr = 0, ans = 0;
-    for (let right = 0; right < s.length; right++) {
-        if (s[right] === "0") {
-            curr++;
-        }
+    let left = 0, curr = 0, ans = 0; // curr — текущее количество нулей в окне
 
+    for (let right = 0; right < s.length; right++) {
+        if (s[right] === "0") curr++;
         while (curr > 1) {
-            if (s[left] === "0") {
-                curr -= 1;
-            }
+            if (s[left] === "0") curr -= 1;
             left++;
         }
-
         ans = Math.max(ans, right - left + 1);
     }
 
