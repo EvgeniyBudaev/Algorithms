@@ -26,6 +26,7 @@ Output: ""
  * @return {string}
  */
 var minWindow = function(s, t) {
+    if (s.length < t.length) return "";
     let cnt = {}, len = t.length, res = [], min = Infinity;
     for (let char of t) {
         cnt[char] = (cnt[char] || 0) + 1;
