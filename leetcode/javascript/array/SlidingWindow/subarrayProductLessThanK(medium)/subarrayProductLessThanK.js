@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/subarray-product-less-than-k/description/
+
 Учитывая массив положительных целых чисел nums и целое число k, верните количество подмассивов, в которых произведение
 всех элементов в подмассиве строго меньше k.
 
@@ -10,7 +11,7 @@ Output: 8
 
 Input: nums = [1,2,3], k = 0
 Output: 0
- */
+*/
 
 /**
  * @param {number[]} nums
@@ -19,7 +20,7 @@ Output: 0
  */
 var numSubarrayProductLessThanK = function(nums, k) {
     if (k <= 1) return 0;
-    let ans = 0, left = 0, curr = 1;
+    let left = 0, curr = 1, ans = 0;
 
     for (let right = 0; right < nums.length; right++) {
         curr *= nums[right];
