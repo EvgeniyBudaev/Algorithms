@@ -1,4 +1,4 @@
-/* https://github.com/EvgeniyBudaev/doocs_leetcode/blob/main/solution/0100-0199/0159.Longest%20Substring%20with%20At%20Most%20Two%20Distinct%20Characters/README_EN.md
+/* https://github.com/EvgeniyBudaev/doocs_leetcode/tree/main/solution/0100-0199/0159.Longest%20Substring%20with%20At%20Most%20Two%20Distinct%20Characters
 
 Учитывая строку s и целое число k, верните длину самой длинной подстроки s, содержащей не более k различных символов.
 
@@ -12,24 +12,23 @@ Output: 2
 */
 
 function lengthOfLongestSubstringKDistinct(s, k) {
-    const charFrequency = new Map();
+    const map = new Map();
     let maxLength = 0;
 
     for (let left = 0, right = 0; right < s.length; right++) {
         const currentChar = s[right];
         // Увеличить частоту текущего символа на карте.
-        const frequency = (charFrequency.get(currentChar) || 0) + 1;
-        charFrequency.set(currentChar, frequency);
+        map.set(currentChar, (map.get(currentChar) || 0) + 1);
 
         // Если имеется более двух разных символов, сузьте окно слева.
-        while (charFrequency.size > k) {
+        while (map.size > k) {
             // Уменьшите частоту появления символа у «левого» указателя.
             const leftChar = s[left];
-            const leftFrequency = (charFrequency.get(leftChar) || 0) - 1;
+            const leftFrequency = (map.get(leftChar) || 0) - 1;
             // Если частота не равна нулю, обновите ее на карте.
-            if (leftFrequency > 0) charFrequency.set(leftChar, leftFrequency);
+            if (leftFrequency > 0) map.set(leftChar, leftFrequency);
             // Если частота равна нулю, удалите ее с карты.
-            else charFrequency.delete(leftChar);
+            else map.delete(leftChar);
             left++;
         }
 
