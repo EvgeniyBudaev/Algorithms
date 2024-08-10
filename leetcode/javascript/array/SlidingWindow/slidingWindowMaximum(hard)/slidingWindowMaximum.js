@@ -1,8 +1,9 @@
-/* https://leetcode.com/problems/minimum-window-substring/solutions/3061723/js-fastest-easy-commented/
+/* https://leetcode.com/problems/sliding-window-maximum/description/
+https://leetcode.com/problems/minimum-window-substring/solutions/3061723/js-fastest-easy-commented/
 
 Вам дан массив целых чисел nums, есть скользящее окно размера k, которое перемещается из самого левого края массива в
 самый правый. В окне вы можете увидеть только k чисел. Каждый раз скользящее окно перемещается вправо на одну позицию.
-Верните максимальное скользящее окно.
+Верните максимальное число в скользящем окне.
 
 Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
 Output: [3,3,5,5,6,7]
@@ -27,9 +28,9 @@ Output: [1]
  */
 var maxSlidingWindow = function(nums, k) {
     // Инициализировать пустой массив для хранения максимальных значений.
-    let res = [];
+    const ans = [];
     // Инициализируйте дек (двустороннюю очередь) для хранения индексов элементов в текущем окне.
-    let deque = [];
+    const deque = [];
 
     // Перебрать входной массив.
     for (let i = 0; i < nums.length; i++) {
@@ -41,13 +42,13 @@ var maxSlidingWindow = function(nums, k) {
         if (deque[0] <= i - k) deque.shift();
         // Добавьте текущий индекс в дек.
         deque.push(i);
-        // Если текущий индекс достиг размера окна или больше, добавьте максимальный элемент из двухсторонней очереди в массив результатов.
-        if (i >= k - 1) res.push(nums[deque[0]]);
+        // Если текущий индекс достиг размера окна или больше, добавьте максимальный элемент из двухсторонней очереди в
+        // массив результатов.
+        if (i >= k - 1) ans.push(nums[deque[0]]);
     }
 
     // Верните массив, содержащий максимальный элемент в каждом скользящем окне.
-    return res;
+    return ans;
 };
 
-const nums = [1,3,-1,-3,5,3,6,7];
-console.log(maxSlidingWindow(nums, 3)); // [3,3,5,5,6,7]
+console.log(maxSlidingWindow([1,3,-1], 3)); // [3,3,5,5,6,7]
