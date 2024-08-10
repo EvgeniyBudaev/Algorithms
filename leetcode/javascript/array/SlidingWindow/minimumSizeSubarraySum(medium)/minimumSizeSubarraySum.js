@@ -21,22 +21,22 @@ Output: 0
  * @return {number}
  */
 var minSubArrayLen = function(target, nums) {
-    let start = 0, end = 0;
-    let minValue = Infinity;
+    let left = 0, right = 0;
+    let minLength = Infinity;
     let subarraySum = nums[0];
-    while (start <= end && end < nums.length) {
-        if(subarraySum >= target){
-            minValue = Math.min(minValue, end - start + 1);
-            subarraySum -= nums[start];
-            start++;
+
+    while (right < nums.length) {
+        if(subarraySum >= target) {
+            minLength = Math.min(minLength, right - left + 1);
+            subarraySum -= nums[left];
+            left++;
         } else {
-            end++;
-            subarraySum += nums[end];
+            right++;
+            subarraySum += nums[right];
         }
     }
-    return minValue === Infinity ? 0 : minValue;
+
+    return minLength === Infinity ? 0 : minLength;
 };
 
-const target = 7;
-const nums = [2,3,1,2,4,3];
-console.log(minSubArrayLen(target, nums)); // 2
+console.log(minSubArrayLen(7, [2,3,1,2,4,3])); // 2
