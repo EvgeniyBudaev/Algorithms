@@ -18,11 +18,15 @@ Output: false
  */
 var checkInclusion = function(s1, s2) {
     if (s1.length > s2.length) return false;
+
     let neededChar = {};
+
     for (let i = 0; i < s1.length; i++) {
         neededChar[s1[i]] = (neededChar[s1[i]] || 0) + 1;
     }
+
     let left = 0, right = 0, requiredLength = s1.length;
+
     while (right < s2.length) {
         let current = s2[right];
         if (neededChar[current] > 0) requiredLength--;
@@ -35,6 +39,7 @@ var checkInclusion = function(s1, s2) {
             left++;
         }
     }
+
     return false;
 };
 
