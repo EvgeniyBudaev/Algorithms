@@ -1,7 +1,6 @@
-// https://leetcode.com/problems/maximum-average-subarray-i/description/
-// Fixed window size
+/* https://leetcode.com/problems/maximum-average-subarray-i/description/
+Fixed window size
 
-/*
 Вам дан целочисленный массив nums, состоящий из n элементов, и целое число k.
 Найдите непрерывный подмассив длиной k, имеющий максимальное среднее значение, и верните это значение.
 
@@ -11,7 +10,7 @@ Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
 
 Input: nums = [5], k = 1
 Output: 5.00000
- */
+*/
 
 /**
  * @param {number[]} nums
@@ -19,17 +18,17 @@ Output: 5.00000
  * @return {number}
  */
 var findMaxAverage = function(nums, k) {
-    let currSum = 0;
+    let sum = 0;
 
     for (let i = 0; i < k; i++) {
-        currSum += nums[i];
+        sum += nums[i];
     }
 
-    let maxAvg = currSum / k;
+    let maxAvg = sum / k;
 
     for (let i = k; i < nums.length; i++) {
-        currSum +=  nums[i] - nums[i - k];
-        const avg = currSum / k;
+        sum +=  nums[i] - nums[i - k];
+        const avg = sum / k;
         maxAvg = Math.max(maxAvg, avg);
     }
 
