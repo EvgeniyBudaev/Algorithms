@@ -24,7 +24,7 @@ Output: 4
  */
 var characterReplacement = function(s, k) {
     const map = {};
-    let longest = 0, maxFreq = 0;
+    let ans = 0, maxFreq = 0;
     let left = 0, right = 0;
 
     while (right < s.length) {
@@ -35,11 +35,11 @@ var characterReplacement = function(s, k) {
             map[s[left]]--;
             left++;
         }
-        longest = Math.max(longest, right - left + 1);
+        ans = Math.max(ans, right - left + 1);
         right++;
     }
 
-    return longest;
+    return ans;
 };
 
 console.log(characterReplacement("ABAB", 2)); // 4
