@@ -22,7 +22,7 @@ var findAnagrams = function(s, p) {
     const obj = {};
 
     for (let i of p) {
-        obj[i] ? obj[i] += 1 : obj[i] = 1;
+        obj[i] ? obj[i]++ : obj[i] = 1;
     }
 
     let left = 0, right = 0, count = p.length;
