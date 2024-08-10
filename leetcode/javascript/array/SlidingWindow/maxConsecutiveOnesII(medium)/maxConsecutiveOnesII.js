@@ -1,4 +1,5 @@
-/* https://github.com/EvgeniyBudaev/doocs_leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md
+/* 487. Max Consecutive Ones II 🔒
+https://github.com/EvgeniyBudaev/doocs_leetcode/blob/main/solution/0400-0499/0487.Max%20Consecutive%20Ones%20II/README.md
 
 Учитывая двоичный массив nums, если не более одного можно перевернуть 0, верните 1 максимальное количество
 последовательных чисел в массиве.
@@ -17,16 +18,18 @@ Output: 4
  * @return {number}
  */
 var findMaxConsecutiveOnes = function (nums) {
-    let left = 0, zeroCount = 0, maxCountOnes = 0, maxFlipOperations = 1;
+    let left = 0, zeroCount = 0, ans = 0, maxFlipOperations = 1;
+
     for (let right = 0; right < nums.length; right++) {
         if (nums[right] === 0) zeroCount++;
         while (zeroCount > maxFlipOperations) {
             if (nums[left] === 0) zeroCount--;
             left++;
         }
-        maxCountOnes = Math.max(maxCountOnes, right - left + 1);
+        ans = Math.max(ans, right - left + 1);
     }
-    return maxCountOnes;
+
+    return ans;
 };
 
 console.log(findMaxConsecutiveOnes([1,0,1,1,0])); // 4
