@@ -24,36 +24,36 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 var lengthOfLongestSubstring = function(s) {
     if (s.length <= 1) return s.length;
 
-    let left = 0, right = 0, maxLength = 0;
-    const charSet = new Set();
+    let left = 0, right = 0, ans = 0;
+    const set = new Set();
 
     while (right < s.length) {
-        if (charSet.has(s[right])) {
-            charSet.delete(s[left]);
+        if (set.has(s[right])) {
+            set.delete(s[left]);
             left++;
         } else {
-            charSet.add(s[right]);
+            set.add(s[right]);
+            ans = Math.max(ans, right - left + 1);
             right++;
-            maxLength = Math.max(maxLength, right - left);
         }
     }
 
-    return maxLength;
+    return ans;
 };
 
 var lengthOfLongestSubstringWithMap = function(s) {
     if (s.length <= 1) return s.length;
 
     let left = 0, max = 0;
-    let charMap = new Map();
+    let map = new Map();
 
-    for (let i = 0; i < s.length; i++) {
-        let current = s[i];
-        if (charMap.has(current)) {
-            left = Math.max(charMap.get(current) + 1, left);
+    for (let right = 0; right < s.length; right++) {
+        let current = s[right];
+        if (map.has(current)) {
+            left = Math.max(map.get(current) + 1, left);
         }
-        max = Math.max(max, (i - left) + 1);
-        charMap.set(current, i);
+        max = Math.max(max, right - left + 1);
+        map.set(current, right);
     }
 
     return max;
