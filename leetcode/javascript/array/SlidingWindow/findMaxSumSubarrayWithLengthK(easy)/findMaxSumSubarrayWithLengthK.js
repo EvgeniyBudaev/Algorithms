@@ -9,7 +9,7 @@
  * @return {number}
  */
 // time complexity: O(n), space complexity: O(1)
-var findMaxSumSubarray = function(nums, k) {
+var findMaxSumSubarrayWithLengthK = function(nums, k) {
     let curr = 0; // Some data to track the window
     for (let i = 0; i < k; i++) {
         curr += nums[i];
@@ -24,4 +24,4 @@ var findMaxSumSubarray = function(nums, k) {
     return ans;
 }
 
-console.log(findMaxSumSubarray([3, -1, 4, 12, -8, 5, 6], 4)); // 18 <- [3, -1, 4, 12,]
+console.log(findMaxSumSubarrayWithLengthK([3, -1, 4, 12, -8, 5, 6], 4)); // 18 <- [3, -1, 4, 12,]
