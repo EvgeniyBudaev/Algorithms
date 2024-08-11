@@ -50,7 +50,7 @@ var candy = function(ratings) {
       candies[i] = Math.max(candies[i], candies[i + 1] + 1);
     }
   }
-console.log("candies: ", candies);
+
   return candies.reduce((a, b) => a + b, 0);
 };
 
