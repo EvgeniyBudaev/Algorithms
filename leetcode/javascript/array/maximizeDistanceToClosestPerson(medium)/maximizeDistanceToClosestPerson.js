@@ -19,7 +19,7 @@ Output: 2
  * @return {number}
  */
 var maxDistToClosest = function(seats) {
-    const zeros = seats.join('').split('1');
+    const zeros = seats.join('').split('1'); // ['', '000', '0', '']
     return Math.max(
         zeros.shift().length,
         zeros.pop().length,
