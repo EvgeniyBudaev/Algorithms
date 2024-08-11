@@ -12,12 +12,12 @@
  * @return {boolean}
  */
 var isSubsequence = function(s, t) {
-    let i = 0, j = 0;
-    while (i < s.length && j < t.length) {
-        if (s[i] === t[j]) i++;
-        j++;
+    let left = 0, right = 0;
+    while (left < s.length && right < t.length) {
+        if (s[left] === t[right]) left++;
+        right++;
     }
-    return i === s.length;
+    return left === s.length;
 };
 
 console.log(isSubsequence("ace", "abcde")); // true
