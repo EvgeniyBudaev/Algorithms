@@ -4,24 +4,22 @@
 
 Например, если задано s = «1101100111», ответ будет равен 5. Если вы выполните переворот по индексу 2,
 строка станет 1111100111.
- */
 
-/*
 Input: nums = "1101100111"
 Output: 5
- */
+*/
 
 /**
  * @param {string} s
  * @return {number}
  */
 var findLengthString = function(s) {
-    let left = 0, curr = 0, ans = 0; // curr — текущее количество нулей в окне
+    let left = 0, zeroCount = 0, ans = 0;
 
     for (let right = 0; right < s.length; right++) {
-        if (s[right] === "0") curr++;
-        while (curr > 1) {
-            if (s[left] === "0") curr--;
+        if (s[right] === "0") zeroCount++;
+        while (zeroCount > 1) {
+            if (s[left] === "0") zeroCount--;
             left++;
         }
         ans = Math.max(ans, right - left + 1);
