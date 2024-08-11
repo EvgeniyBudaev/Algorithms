@@ -22,8 +22,8 @@ var topKFrequent = function(words, k) {
         const word = words[i];
         map.set(word, (map.get(word) ?? 0) + 1);
     }
-
-    const arr = [...map.entries()]
+    // [...map.entries()]: [['i', 2], ['love', 2], ['leetcode', 1], ['coding', 1]]
+    const arr = [...map.entries()] // arr: [['i', 2], ['love', 2], ['coding', 1], ['leetcode', 1]]
         .sort((a, b) => b[1] !== a[1] ? b[1] - a[1] : a[0]
             .localeCompare(b[0]));
 
