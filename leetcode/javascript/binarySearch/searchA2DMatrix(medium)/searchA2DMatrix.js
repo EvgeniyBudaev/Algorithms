@@ -24,6 +24,9 @@ var searchMatrix = function(matrix, target) {
 
     while (left <= right) {
         const mid = Math.floor((left + right) / 2); // 5 -> 2 -> 0 -> 1
+        // Преобразование индекса в координаты: Значение mid затем преобразуется обратно в координаты строки и
+        // столбца (row и col) в исходной матрице. Это делается путем деления mid на количество столбцов (cols) и
+        // взятия остатка от деления соответственно.
         const [row, col] = [Math.floor(mid / cols), mid % cols];
         const guess = matrix[row][col]; // 11 -> 5 -> 1 -> 3
 
