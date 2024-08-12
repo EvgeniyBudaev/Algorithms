@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/longest-subsequence-with-limited-sum/description/
+
 Вам дан целочисленный массив nums длины n и запросы целочисленного массива queries длиной m.
 Верните answer в виде массива длиной m, где answer[i] — максимальный размер подпоследовательности, которую можно взять
 из чисел, чтобы сумма ее элементов была меньше или равна запросу [i].
@@ -27,6 +28,22 @@ Output: [0]
  * @return {number[]}
  */
 var answerQueries = function(nums, queries) {
+    nums.sort((a, b) => a - b); // [1, 2, 4, 5]
+    const ans = [];
+    for (let query of queries) {
+        let count = 0, sum = 0;
+        for  (let i = 0; i < nums.length; i++) {
+            if (sum + nums[i] <= query) {
+                sum += nums[i];
+                count++;
+            }
+        }
+        ans.push(count);
+    }
+    return ans;
+};
+
+var answerQueriesV2 = function(nums, queries) {
     nums.sort((a,b) => a - b); // [1, 2, 4, 5]
     const prefixSum = [nums[0]];
 
@@ -54,6 +71,4 @@ var answerQueries = function(nums, queries) {
     return answer;
 };
 
-const nums = [4,5,2,1];
-const queries = [3,10,21];
-console.log(answerQueries(nums, queries)); // [2,3,4]
+console.log(answerQueries([4,5,2,1], [3,10,21])); // [2,3,4]
