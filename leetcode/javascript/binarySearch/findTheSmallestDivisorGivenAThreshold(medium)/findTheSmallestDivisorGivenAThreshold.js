@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/
+
 Учитывая массив целых чисел nums и целочисленный threshold, мы выберем положительный целочисленный divisor, разделим на
 него весь массив и просуммируем результат деления. Найдите наименьший divisor, чтобы упомянутый выше результат был
 меньше или равен threshold.
@@ -27,26 +28,20 @@ var smallestDivisor = function(nums, threshold) {
     let right = Math.max(...nums);
 
     // sumDivisions - функция для суммирования делителей
-    let sumDivisions = (div) => {
+    const sumDivisions = (div) => {
         let total = 0;
-
         for (const num of nums) {
             total += Math.ceil(num / div);
         }
-
         return total;
     };
 
     while (left <= right) {
         let mid = Math.floor((left + right) / 2);
-
-        if (sumDivisions(mid) <= threshold) {
-            // Половина проблемного пространства за счет снижения «макс.»
-            right = mid - 1;
-        } else {
-            // Половина проблемного пространства за счет увеличения «мин»
-            left = mid + 1;
-        }
+        // Половина проблемного пространства за счет снижения «макс.»
+        if (sumDivisions(mid) <= threshold) right = mid - 1;
+        // Половина проблемного пространства за счет увеличения «мин»
+        else left = mid + 1;
     }
 
     // слева сейчас находится на минимальном пороге
