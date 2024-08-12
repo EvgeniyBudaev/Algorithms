@@ -11,7 +11,7 @@
  * Create a matrix
  * @param {number} rows Number of rows
  * @param {number} columns ANumber of columns
- * @returns {Array} Matrix
+ * @returns {Array} matrix
  */
 const createMatrix = (rows = 0, columns = 0) => {
     const matrix = [];
