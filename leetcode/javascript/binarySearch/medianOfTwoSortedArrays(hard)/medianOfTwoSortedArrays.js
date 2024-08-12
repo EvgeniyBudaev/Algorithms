@@ -41,16 +41,11 @@ var findMedianSortedArrays = function(nums1, nums2) {
         const minY = (partitionY === n) ? Number.MAX_SAFE_INTEGER : nums2[partitionY]; // 9007199254740991 -> 3
 
         if (maxX <= minY && maxY <= minX) {
-            if ((m + n) % 2 === 0) {
-                return (Math.max(maxX, maxY) + Math.min(minX, minY)) / 2;
-            } else {
-                return Math.max(maxX, maxY);
-            }
-        } else if (maxX > minY) {
-            high = partitionX - 1;
-        } else {
-            low = partitionX + 1;
+            if ((m + n) % 2 === 0) return (Math.max(maxX, maxY) + Math.min(minX, minY)) / 2;
+            else return Math.max(maxX, maxY);
         }
+        else if (maxX > minY) high = partitionX - 1;
+        else low = partitionX + 1;
     }
 
     throw new Error("Input arrays are not sorted.");
@@ -68,22 +63,16 @@ var findMedianSortedArraysTwoPointers = function(nums1, nums2) {
     let i = 0, j = 0;
 
     while (i < nums1.length && j < nums2.length) {
-        if (nums1[i] < nums2[j]) {
-            merged.push(nums1[i++]);
-        } else {
-            merged.push(nums2[j++]);
-        }
+        if (nums1[i] < nums2[j]) merged.push(nums1[i++]);
+        else merged.push(nums2[j++]);
     }
 
     while (i < nums1.length) merged.push(nums1[i++]);
     while (j < nums2.length) merged.push(nums2[j++]);
 
     let mid = Math.floor(merged.length / 2);
-    if (merged.length % 2 === 0) {
-        return (merged[mid - 1] + merged[mid]) / 2;
-    } else {
-        return merged[mid];
-    }
+    if (merged.length % 2 === 0) return (merged[mid - 1] + merged[mid]) / 2;
+    else return merged[mid];
 };
 
 console.log(findMedianSortedArrays([1,3], [2])); // 2.00000
