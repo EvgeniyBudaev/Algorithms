@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/search-insert-position/description/
+
 Учитывая отсортированный массив различных целых чисел и целевое значение, верните индекс, если цель найдена.
 Если нет, верните индекс там, где он был бы, если бы он был вставлен по порядку.
 Вы должны написать алгоритм со сложностью выполнения O(log n)
@@ -27,16 +28,11 @@ var searchInsert = function(nums, target) {
         const guess = nums[mid];
 
         if (guess === target) return mid;
-
-        if (guess > target) {
-            high = mid - 1;
-        } else {
-            low = mid + 1;
-        }
+        if (guess > target) high = mid - 1;
+        else low = mid + 1;
     }
 
     return low;
 };
 
-const myList = [1,3,5,6];
-console.log(searchInsert(myList, 5)); // 2
+console.log(searchInsert([1,3,5,6], 5)); // 2
