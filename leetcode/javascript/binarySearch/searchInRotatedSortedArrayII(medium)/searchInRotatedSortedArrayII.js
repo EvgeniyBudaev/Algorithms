@@ -21,6 +21,10 @@ Output: false
  * @return {boolean}
  */
 var search = function(nums, target) {
+    return nums.includes(target);
+};
+
+var searchBinarySearch = function(nums, target) {
     let low = 0, high = nums.length - 1;
 
     while (low <= high) {
@@ -43,6 +47,4 @@ var search = function(nums, target) {
     return false;
 };
 
-const nums = [2,5,6,0,0,1,2];
-const target = 0;
-console.log(search(nums, target)); // true
+console.log(search([2,5,6,0,0,1,2], 0)); // true
