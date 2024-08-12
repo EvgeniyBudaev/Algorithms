@@ -21,6 +21,11 @@ Output: 1
  * @return {number}
  */
 var findMin = function(nums) {
+    nums.sort((a, b) => a - b);
+    return nums[0];
+};
+
+var findMinBinarySearch = function(nums) {
     let left = 0, right = nums.length - 1;
 
     while (left < right) { // l: 0, r: 4 -> l: 3, r: 4
