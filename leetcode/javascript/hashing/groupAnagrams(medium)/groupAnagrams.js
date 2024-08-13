@@ -22,20 +22,20 @@ Output: [["a"]]
 // Space complexity: O(n)
 var groupAnagrams = function(strs) {
     if (!strs.length) return [[]];
-    const seen = {}, arr = [];
+    const map = {}, ans = [];
 
     for (let i = 0; i < strs.length; i++) {
-        const index = strs[i].split('').sort().join('');
-        if (seen[index]) seen[index].push(strs[i]);
-        else seen[index] = [strs[i]];
+        const index = strs[i].split('').sort().join(''); // aet, aet, ant, aet, ant, abt
+        if (map[index]) map[index].push(strs[i]);
+        else map[index] = [strs[i]];
     }
-    // seen: { abt: ['bat'], aet: ['eat', 'tea', 'ate'], ant: ['tan', 'nat' }
+    // map: { abt: ['bat'], aet: ['eat', 'tea', 'ate'], ant: ['tan', 'nat' }
 
-    for (let i in seen) {
-        arr.push(seen[i]);
+    for (let i in map) {
+        ans.push(map[i]);
     }
 
-    return arr;
+    return ans;
 };
 
 const strs = ["eat","tea","tan","ate","nat","bat"];
