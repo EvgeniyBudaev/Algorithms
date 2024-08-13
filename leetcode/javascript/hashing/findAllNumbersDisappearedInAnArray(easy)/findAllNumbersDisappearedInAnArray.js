@@ -15,18 +15,18 @@ Output: [2]
  * @return {number[]}
  */
 var findDisappearedNumbers = function(nums) {
-    const hashmap = {};
-    const output = [];
+    const map = {};
+    const ans = [];
 
     for (let i = 0; i < nums.length; i++) {
-        hashmap[nums[i]] = 1;
+        map[nums[i]] = 1;
     }
 
     for (let i = 1; i <= nums.length; i++) {
-        if (!hashmap[i]) output.push(i);
+        if (!map[i]) ans.push(i);
     }
 
-    return output;
+    return ans;
 };
 
 console.log(findDisappearedNumbers([4,3,2,7,8,2,3,1])); // [5,6]
