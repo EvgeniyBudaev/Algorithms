@@ -16,14 +16,14 @@ Output: ""
  * @return {string}
  */
 var reorganizeString = function(s) {
-    const charMap = {};
+    const map = {};
     const res = [];
 
     for (let char of s) {
-        charMap[char] = (charMap[char] || 0) + 1;
+        map[char] = (map[char] || 0) + 1;
     }
 
-    const sortedMap = Object.entries(charMap).sort((a, b) => b[1] - a[1]);
+    const sortedMap = Object.entries(map).sort((a, b) => b[1] - a[1]); // [['a, 2], ['b', 1']]
     let position = 0;
 
     if (sortedMap[0][1] > Math.floor((s.length + 1) / 2)) return '';
