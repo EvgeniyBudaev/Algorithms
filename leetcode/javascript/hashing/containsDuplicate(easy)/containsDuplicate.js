@@ -1,5 +1,6 @@
 /* https://leetcode.com/problems/contains-duplicate/description/
 Javascript - set vs. object https://leetcode.com/problems/contains-duplicate/solutions/515531/javascript-set-vs-object/
+
 Учитывая числа целочисленного массива, верните true, если какое-либо значение встречается в массиве хотя бы дважды, и
 верните false, если каждый элемент различен.
 
@@ -18,7 +19,7 @@ Output: true
  * @return {boolean}
  */
 var containsDuplicate = function(nums) {
-  let obj = {};
+  const obj = {};
 
   for (let i = 0; i < nums.length; i++) {
     if (obj[nums[i]]) return true;
@@ -29,7 +30,7 @@ var containsDuplicate = function(nums) {
 };
 
 // var containsDuplicate = function(nums) {
-//   let seen = new Map();
+//   const seen = new Map();
 //
 //   for (let num = 0; num < nums.length; num++) {
 //     if (seen.has(nums[num])) return true;
