@@ -1,4 +1,6 @@
-/* Учитывая массив целых чисел A, верните наибольшее целое число, которое встречается только один раз.
+/* 1133. Largest Unique Number
+
+Учитывая массив целых чисел A, верните наибольшее целое число, которое встречается только один раз.
 Если ни одно целое число не встречается один раз, верните -1.
 
 Input: [5,7,3,9,4,9,8,3,1]
@@ -17,20 +19,14 @@ var largestUniqueNumber = function (nums) {
 
     // Заполняем мапу
     for (let i = 0; i < nums.length; i++) {
-        if (map.has(nums[i])) {
-            map.set(nums[i], map.get(nums[i]) + 1);
-        } else {
-            map.set(nums[i], 1);
-        }
+        map.set(nums[i], (map.get(nums[i]) ?? 0) + 1);
     }
 
     // Находим наибольшее число, которое встречается только один раз
     let max = -1;
 
     for (let [key, value] of map) {
-        if (value === 1 && key > max) {
-            max = key;
-        }
+        if (value === 1 && key > max) max = key;
     }
 
     return max;
