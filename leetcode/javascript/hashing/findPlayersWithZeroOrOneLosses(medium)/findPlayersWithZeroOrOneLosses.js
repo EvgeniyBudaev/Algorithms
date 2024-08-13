@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/find-players-with-zero-or-one-losses/description/
+
 Вам дан целочисленный массив matchs, где match[i] = [winneri,loseri] указывает, что игрок-победитель победил
 игрока-проигравшего в матче.
 Вернуть ответ в виде списка размером 2, где:
@@ -32,29 +33,23 @@ Thus, answer[0] = [1,2,5,6] and answer[1] = [].
  * @return {number[][]}
  */
 var findWinners = function(matches) {
-    let winnersArray = []; // Массив для хранения победителей
-    let loseCount = {}; // Объект для хранения количества потерь для каждого игрока
+    const obj = {};
 
-    // Перебираем массив матчей
-    for (let i = 0; i < matches.length; i++) {
-        winnersArray.push(matches[i][0]); // Добавляем победителя в winnersArray
+    for (let match of matches) {
+        if(!obj[match[0]]) obj[match[0]] = 0;
+        if(!obj[match[1]]) obj[match[1]] = 0;
 
-        let loser = matches[i][1]; // Получаем проигравшего
-        loseCount[loser] = (loseCount[loser] + 1) || 1; // Увеличиваем кол-во проигрышей для проигравшего
+        ++obj[match[1]];
     }
 
-    // Фильтруем игроков, которые не проиграли ни одного матча
-    let noLossPlayers = winnersArray.filter(player => !loseCount[player]);
+    const ans = [[],[]];
 
-    // Фильтруем игроков, проигравших ровно один матч
-    let oneLossPlayers = Object.keys(loseCount).filter(player => loseCount[player] === 1);
+    for (let [key,value] of Object.entries(obj)) {
+        if (value === 0) ans[0].push(key);
+        if (value === 1) ans[1].push(key);
+    }
 
-    // Удаляем дубликаты и сортируем массивы
-    let sortedNoLossPlayers = [...new Set(noLossPlayers)].sort();
-    let sortedOneLossPlayers = [...new Set(oneLossPlayers)].sort();
-
-    // Возвращаем массив, содержащий sortedNoLossPlayers и sortedOneLossPlayers.
-    return [sortedNoLossPlayers, sortedOneLossPlayers];
+    return ans;
 };
 
 const matches = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]];
