@@ -1,9 +1,8 @@
-/*
-Вам дан целочисленный массив. Вы можете выбрать набор целых чисел и удалить все вхождения этих целых чисел в массив.
-Верните минимальный размер набора, чтобы была удалена хотя бы половина целых чисел массива.
-*/
+/* 1338. Reduce Array Size to The Half
 
-/*
+Вам дан целочисленный массив. Вы можете выбрать набор целых чисел и удалить все вхождения этих целых чисел в массиве.
+Верните минимальный размер набора, чтобы была удалена хотя бы половина целых чисел массива.
+
 Input: arr = [3,3,3,3,5,5,5,2,2,7]
 Output: 2
 Объяснение: При выборе {3,7} будет создан новый массив [5,5,5,2,2] размером 5
@@ -11,40 +10,35 @@ Output: 2
 Возможные наборы размера 2: {3,5},{3,2},{5,2}.
 Выбор набора {2,7} невозможен, так как при этом будет создан новый массив [3,3,3,3,5,5,5],
 размер которого превышает половину размера старого массива.
- */
 
-/*
 Input: arr = [7,7,7,7,7,7]
 Output: 1
 Пояснение: Единственный возможный набор, который вы можете выбрать, — это {7}. Это сделает новый массив пустым.
- */
+*/
 
 /**
  * @param {number[]} arr
  * @return {number}
  */
 var minSetSize = function(arr) {
-    let freq = new Map();
+    const map = new Map();
 
     for (let num of arr) {
-        freq.set(num, (freq.get(num) || 0) + 1);
+        map.set(num, (map.get(num) || 0) + 1);
     }
 
-    let freqArr = Array.from(freq.values()).sort((a, b) => b - a);
-    let len = arr.length;
-    let setSize = 0;
+    const freqArr = Array.from(map.values()).sort((a, b) => b - a);
+    const len = arr.length;
+    let size = 0;
     let count = 0;
 
     for (let i = 0; i < freqArr.length; i++) {
         count += freqArr[i];
-        setSize++;
-
-        if (count >= len / 2) {
-            return setSize;
-        }
+        size++;
+        if (count >= len / 2) return size;
     }
 
-    return setSize;
+    return size;
 };
 
 console.log(minSetSize([3,3,3,3,5,5,5,2,2,7])); // 2
