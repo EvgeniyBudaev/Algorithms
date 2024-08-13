@@ -1,26 +1,27 @@
-/*
+/* 1426. Counting Elements
+
 Учитывая целочисленный массив arr, подсчитайте, сколько элементов x существует так, что x + 1 также находится в arr.
 Если в arr есть дубликаты, посчитайте их отдельно.
 
 Input: arr = [1,2,3]
 Output: 2
-Explanation: 1 and 2 are counted cause 2 and 3 are in arr.
+Пояснение: 1 и 2 учитываются, потому что 2 и 3 находятся в arr.
 
 Input: arr = [1,1,3,3,5,5,7,7]
 Output: 0
-Explanation: No numbers are counted, cause there's no 2, 4, 6, or 8 in arr.
+Пояснение: Никакие числа не учитываются, поскольку в arr нет цифр 2, 4, 6 или 8.
 
 Input: arr = [1,3,2,3,5,0]
 Output: 3
-Explanation: 0, 1 and 2 are counted cause 1, 2 and 3 are in arr.
+Пояснение: 0, 1 и 2 учитываются, потому что 1, 2 и 3 находятся в arr.
 
 Input: arr = [1,1,2,2]
 Output: 2
-Explanation: Two 1s are counted cause 2 is in arr.
+Пояснение: Две единицы засчитываются, потому что 2 находится в arr.
 
 Input: arr = [1,1,2]
 Output: 2
-Explanation: Both 1s are counted because 2 is in the array.
+Объяснение: Обе единицы учитываются, поскольку в массиве есть 2.
  */
 
 /**
@@ -31,20 +32,20 @@ var countElements = function (arr) {
     let map = {}, total = 0;
 
     // Добавляем элементы в map
-    for(let i of nums) map[i] ? map[i]++ : map[i] = 1;
+    for (let i of arr) map[i] ? map[i]++ : map[i] = 1;
 
     // Удаление повторяющихся элементов
-    let newNums = [... new Set(nums)];
+    const newNums = [... new Set(arr)];
 
     // Если длина массива после удаления повторяющихся чисел меньше трёх, возвращаем 0;
-    if(newNums.length < 3) return 0;
+    if (newNums.length < 3) return 0;
 
     // Сортируем массив newNums и удаляем первый и последний элементы.
     // для всех остальных элементов проверяем их количество на карте и добавляем в переменную total
-    newNums.sort((a,b) => a-b).slice(1, newNums.length-1).forEach(num => total += map[num]);
+    newNums.sort((a, b) => a - b).slice(1, newNums.length - 1).forEach(num => total += map[num]);
 
     // Возвращаем итоговую переменную
     return total;
 };
 
-console.log(countElements([1,2,3]));
+console.log(countElements([1,2,3])); // 2
