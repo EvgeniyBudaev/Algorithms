@@ -1,13 +1,14 @@
 /* https://leetcode.com/problems/contiguous-array/description/
+
 Учитывая числа двоичного массива, верните максимальную длину непрерывного подмассива с равным количеством 0 и 1.
 
 Input: nums = [0,1]
 Output: 2
-Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
+Пояснение: [0, 1] — это самый длинный непрерывный подмассив с равным количеством 0 и 1.
 
 Input: nums = [0,1,0]
 Output: 2
-Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
+Пояснение: [0, 1] (или [1, 0]) — это самый длинный непрерывный подмассив с равным количеством 0 и 1.
 */
 
 /**
@@ -27,12 +28,9 @@ var findMaxLength = function(nums) {
         // Поиск подмассивов с равным количеством нулей и единиц
         // Если да, то вычисляем длину текущего подмассива как разницу между текущим индексом i и индексом последнего
         // вхождения такого же count (map[count]). Обновляем maxLen, если текущая длина больше предыдущего максимума.
-        if (map[count] !== undefined) {
-            maxLen = Math.max(maxLen, i - map[count]);
-        } else {
-            // Если нет, то сохраняем текущий индекс i в map под ключом count.
-            map[count] = i;
-        }
+        if (map[count] !== undefined) maxLen = Math.max(maxLen, i - map[count]);
+        // Если нет, то сохраняем текущий индекс i в map под ключом count.
+        else map[count] = i;
     }
 
     // Возвращаем максимальную длину подмассива с равным количеством нулей и единиц
