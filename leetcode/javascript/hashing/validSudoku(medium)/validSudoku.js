@@ -51,9 +51,7 @@ var isValidSudoku = function (board) {
           let val = board[r][c];
           if (val === ".") continue;
           let boxIndex = Math.floor(r / 3) * 3 + Math.floor(c / 3);
-          if (rows[r].has(val) || cols[c].has(val) || boxes[boxIndex].has(val)) {
-              return false;
-          }
+          if (rows[r].has(val) || cols[c].has(val) || boxes[boxIndex].has(val)) return false;
           rows[r].add(val);
           cols[c].add(val);
           boxes[boxIndex].add(val);
