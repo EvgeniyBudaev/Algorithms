@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/ransom-note/description/
+
 Учитывая две строки ransomNote и magazine, верните true, если ransomNote можно создать с использованием букв из magazine,
 и false в противном случае.
 Каждое письмо в magazine можно использовать в ransomNote только один раз.
@@ -21,14 +22,12 @@ Output: true
 var canConstruct = function(ransomNote, magazine) {
      const map = {};
 
-     for(const letter of magazine) {
+     for (const letter of magazine) {
          map[letter] = map[letter] + 1 || 1;
      }
 
-     for(let letter of ransomNote) {
-         if(!map[letter]) {
-             return false;
-         }
+     for (let letter of ransomNote) {
+         if (!map[letter]) return false;
          map[letter]--;
      }
 
