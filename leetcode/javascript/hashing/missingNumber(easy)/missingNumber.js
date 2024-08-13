@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/missing-number/description/
+
 Учитывая массив nums, содержащий n различных чисел в диапазоне [0, n], верните единственное число в диапазоне,
 которое отсутствует в массиве.
 
@@ -23,12 +24,10 @@ range since it does not appear in nums.
  * @return {number}
  */
 var missingNumber = function(nums) {
-    const map = new Set(nums);
+    const set = new Set(nums);
 
     for (let i = 0; i < nums.length; i++)  {
-        if (!map.has(i)) {
-            return i;
-        }
+        if (!set.has(i)) return i;
     }
 
     return nums.length;
