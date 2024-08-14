@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/make-the-string-great/description/
+
 Дана строка s, состоящая из строчных и прописных английских букв.
 Хорошая строка — это строка, в которой нет двух соседних символов s[i] и s[i + 1], где:
 0 <= i <= s.length - 2
@@ -29,11 +30,11 @@ Output: "s"
  */
 var makeGood = function(s) {
     if (!s) return '';
-    let stack = [];
+    const stack = [];
 
     for (let char of s) {
-        let top = stack[stack.length - 1];
-        if(char !== top && char.toLowerCase() === (top ?? '').toLowerCase()) stack.pop();
+        const stackLastElement = stack[stack.length - 1];
+        if (char !== stackLastElement && char.toLowerCase() === (stackLastElement ?? '').toLowerCase()) stack.pop();
         else stack.push(char);
     }
 
