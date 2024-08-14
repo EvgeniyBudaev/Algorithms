@@ -8,7 +8,7 @@
 Автопарк – это автомобиль или автомобили, едущие рядом друг с другом. Скорость автопарка – это минимальная скорость
 любого автомобиля в парке.
 Если автомобиль догоняет автопарк на заданной миле, он все равно будет считаться частью автопарка.
-Возвращает количество автопарков, которые прибудут в пункт назначения.
+Верните количество автопарков, которые прибудут в пункт назначения.
 
 Input: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
 Output: 3
@@ -28,16 +28,16 @@ Explanation:
  * @return {number}
  */
 var carFleet = function(target, position, speed) {
-    let pairs = [];
+    const pairs = [];
     for (let i = 0; i < position.length; i++) {
         pairs.push([position[i], speed[i]]);
     }
 
     pairs.sort((a, b) => b[0] - a[0]); // [ [10, 2], [8, 4], [5, 1], [3, 3], [0, 1] ]
 
-    let stack = [];
+    const stack = [];
     for (let [pos, spd] of pairs) {
-        let time = (target - pos) / spd; // 1 -> 1 -> 7 -> 3 -> 12
+        const time = (target - pos) / spd; // 1 -> 1 -> 7 -> 3 -> 12
         if (stack.length === 0 || time > stack[stack.length - 1]) {
             // time: 1 -> 7 -> 12
             // stack[stack.length - 1]): undefined -> 1 -> 7
