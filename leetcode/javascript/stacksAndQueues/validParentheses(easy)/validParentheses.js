@@ -24,18 +24,19 @@ Output: false
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(s, stack = []) {
+var isValid = function(s) {
+    const stack = [];
     const map = {
         '}': '{',
         ']': '[',
         ')': '(',
     };
 
-    for (const char of s) {/* Time O(N) */
-        const isBracket = (char in map);
-        if (!isBracket) { stack.push(char); continue; }/* Space O(N) */
+    for (const char of s) { /* Time O(N) */
+        const isBracket = (char in map); // false -> true
+        if (!isBracket) { stack.push(char); continue; } /* Space O(N) */
 
-        const isEqual = (stack[stack.length - 1] === map[char]);
+        const isEqual = (stack[stack.length - 1] === map[char]); // true
         if (isEqual) { stack.pop(); continue; }
 
         return false;
