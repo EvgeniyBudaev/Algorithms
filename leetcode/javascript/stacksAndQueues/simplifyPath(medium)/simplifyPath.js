@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/simplify-path/description/
+
 Учитывая абсолютный путь к файловой системе в стиле Unix, который начинается с косой черты «/», преобразуйте этот путь в
 упрощенный канонический путь.
 
@@ -36,19 +37,15 @@ Output: "/.../b/d"
  * @return {string}
  */
 var simplifyPath = function(path) {
-    const stack = [];
-    const directories = path.split("/");
+    const stack = []; // ['home']
+    const directories = path.split("/"); // ["", "home", ""]
 
     for (const dir of directories) {
-        if (dir === "." || !dir) {
-            continue;
-        } else if (dir === "..") {
-            if (stack.length > 0) {
-                stack.pop();
-            }
-        } else {
-            stack.push(dir);
+        if (dir === "." || !dir) continue;
+        else if (dir === "..") {
+            if (stack.length > 0) stack.pop();
         }
+        else stack.push(dir);
     }
 
     return "/" + stack.join("/");
