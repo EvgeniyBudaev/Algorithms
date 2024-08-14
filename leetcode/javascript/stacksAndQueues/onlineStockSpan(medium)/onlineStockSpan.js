@@ -1,4 +1,5 @@
 /* https://leetcode.com/problems/online-stock-span/description/
+
 Разработайте алгоритм, который собирает ежедневные котировки цен на некоторые акции и возвращает диапазон цен этих акций
 на текущий день.
 
@@ -35,7 +36,7 @@ StockSpanner.prototype.next = function(price) {
     let span= 1;
 
     while (this.stack.length && this.stack[this.stack.length - 1][1] <= price) {
-        let top = this.stack.pop();
+        const top = this.stack.pop();
         span += top[0];
     }
 
