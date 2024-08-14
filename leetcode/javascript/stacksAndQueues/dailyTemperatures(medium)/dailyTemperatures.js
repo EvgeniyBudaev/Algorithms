@@ -24,7 +24,7 @@ var dailyTemperatures = function(temperatures) {
 
     for (let i = 0; i < temperatures.length; i++) {
         while (stack.length > 0 && temperatures[i] > temperatures[stack[stack.length - 1]]) {
-            const idx = stack.pop();
+            const idx = stack.pop(); // 0 -> 1 -> 4 -> 3 -> 5 -> 2
             result[idx] = i - idx;
         }
         stack.push(i);
