@@ -30,9 +30,7 @@ var combinationSum = function(candidates, target) {
             res.push([...comb]);
             return;
         }
-
         if (total > target || idx >= candidates.length) return;
-
         comb.push(candidates[idx]);
         makeCombination(idx, comb, total + candidates[idx]);
         comb.pop();
@@ -43,6 +41,4 @@ var combinationSum = function(candidates, target) {
     return res;
 };
 
-const candidates = [2,3,6,7];
-const target = 7;
-console.log(combinationSum(candidates, target));
+console.log(combinationSum([2,3,6,7], 7)); // [[2,2,3],[7]]
