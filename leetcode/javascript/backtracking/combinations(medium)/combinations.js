@@ -15,15 +15,15 @@ Output: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]
  * @return {number[][]}
  */
 var combine = function (n, k) {
-    let res = [];
-    const backtrack = (start = 1, combination = [] ) => {
+    const res = [];
+    const backtrack = (start = 1, combination = []) => {
         if (combination.length === k) {
             res.push([...combination]);
             return;
         }
-        for  ( let i = start; i<=n ; i++ ) {
+        for (let i = start; i <= n; i++) {
             combination.push(i);
-            backtrack(i+1, combination);
+            backtrack(i + 1, combination);
             combination.pop();
         }
     }
