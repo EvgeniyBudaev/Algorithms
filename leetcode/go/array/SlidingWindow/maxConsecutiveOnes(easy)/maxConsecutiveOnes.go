@@ -17,8 +17,8 @@ Output: 2
 
 func main() {
 	nums := []int{1, 1, 0, 1, 1, 1}
-	result := findMaxConsecutiveOnes(nums)
-	fmt.Println(result) // 3
+	r := findMaxConsecutiveOnes(nums)
+	fmt.Println(r) // 3
 }
 
 func findMaxConsecutiveOnes(nums []int) int {
