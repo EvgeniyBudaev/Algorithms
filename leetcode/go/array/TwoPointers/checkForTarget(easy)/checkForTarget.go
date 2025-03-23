@@ -14,7 +14,7 @@ func main() {
 	nums := []int{1, 2, 4, 6, 8, 9, 14, 15}
 	target := 13
 	r := checkForTarget(nums, target)
-	fmt.Println(r)
+	fmt.Println(r) // true
 }
 
 func checkForTarget(nums []int, target int) bool {

@@ -27,8 +27,7 @@ Space complexity: O(1)
 
 func main() {
 	height := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
-	r := maxArea(height)
-	fmt.Println(r)
+	fmt.Println(maxArea(height)) // 49
 }
 
 func maxArea(height []int) int {

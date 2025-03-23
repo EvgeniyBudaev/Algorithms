@@ -24,7 +24,7 @@ func main() {
 	nums := []int{-1, 2, 1, -4}
 	target := 1
 	r := threeSumClosest(nums, target)
-	fmt.Println(r)
+	fmt.Println(r) // 2
 }
 
 func threeSumClosest(nums []int, target int) int {

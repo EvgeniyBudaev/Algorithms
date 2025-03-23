@@ -11,10 +11,8 @@ import "fmt"
 */
 
 func main() {
-	r1 := isSubsequence("ace", "abcde")
-	fmt.Println(r1)
-	r2 := isSubsequence("aec", "abcde")
-	fmt.Println(r2)
+	fmt.Println(isSubsequence("ace", "abcde")) // true
+	fmt.Println(isSubsequence("aec", "abcde")) // false
 }
 
 func isSubsequence(s, t string) bool {

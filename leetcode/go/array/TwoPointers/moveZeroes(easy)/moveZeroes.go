@@ -16,7 +16,7 @@ Output: [0]
 
 func main() {
 	nums := []int{0, 1, 0, 3, 12}
-	moveZeroes(nums)
+	moveZeroes(nums) // [1, 3, 12, 0, 0]
 }
 
 func moveZeroes(nums []int) {

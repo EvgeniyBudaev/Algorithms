@@ -21,8 +21,7 @@ Output: [4,9]
 func main() {
 	nums1 := []int{1, 2, 2, 1}
 	nums2 := []int{2, 2}
-	r := intersect(nums1, nums2)
-	fmt.Println(r)
+	fmt.Println(intersect(nums1, nums2)) // [2,2]
 }
 
 func intersect(nums1 []int, nums2 []int) []int {

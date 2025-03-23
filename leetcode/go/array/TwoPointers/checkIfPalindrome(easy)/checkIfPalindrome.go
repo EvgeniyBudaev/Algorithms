@@ -8,10 +8,8 @@ import "fmt"
 */
 
 func main() {
-	r1 := checkIfPalindrome("racecar")
-	fmt.Println(r1)
-	r2 := checkIfPalindrome("aleba")
-	fmt.Println(r2)
+	fmt.Println(checkIfPalindrome("racecar")) // true
+	fmt.Println(checkIfPalindrome("aleba"))   // false
 }
 
 func checkIfPalindrome(s string) bool {

@@ -20,8 +20,7 @@ Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]
 func main() {
 	firstList := [][]int{{0, 2}, {5, 10}, {13, 23}, {24, 25}}
 	secondList := [][]int{{1, 5}, {8, 12}, {15, 24}, {25, 26}}
-	r := intervalIntersection(firstList, secondList)
-	fmt.Println(r)
+	fmt.Println(intervalIntersection(firstList, secondList)) // [[1 2] [5 5] [8 10] [15 23] [24 24] [25 25]]
 }
 
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
