@@ -25,9 +25,7 @@ Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We ret
 
 func main() {
 	numbers := []int{2, 7, 11, 15}
-	target := 9
-	r := twoSum(numbers, target)
-	fmt.Println(r)
+	fmt.Println(twoSum(numbers, 9)) // [1,2]
 }
 
 func twoSum(numbers []int, target int) []int {

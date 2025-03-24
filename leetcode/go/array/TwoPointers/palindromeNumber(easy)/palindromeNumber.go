@@ -23,10 +23,8 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 */
 
 func main() {
-	r1 := isPalindrome(121)
-	fmt.Println(r1)
-	r2 := isPalindrome(-121)
-	fmt.Println(r2)
+	fmt.Println(isPalindrome(121))  // true
+	fmt.Println(isPalindrome(-121)) // false
 }
 
 func isPalindrome(x int) bool {

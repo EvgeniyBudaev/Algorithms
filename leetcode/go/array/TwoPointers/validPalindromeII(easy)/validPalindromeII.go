@@ -18,15 +18,9 @@ Output: false
 */
 
 func main() {
-	s1 := "aba"
-	r1 := validPalindrome(s1)
-	fmt.Println(r1)
-	s2 := "abca"
-	r2 := validPalindrome(s2)
-	fmt.Println(r2)
-	s3 := "abc"
-	r3 := validPalindrome(s3)
-	fmt.Println(r3)
+	fmt.Println(validPalindrome("aba"))  // true
+	fmt.Println(validPalindrome("abca")) // true
+	fmt.Println(validPalindrome("abc"))  // false
 }
 
 func validPalindrome(s string) bool {

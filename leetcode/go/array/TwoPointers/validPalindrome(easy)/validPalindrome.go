@@ -26,9 +26,7 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 */
 
 func main() {
-	s := "A man, a plan, a canal: Panama"
-	r := isPalindrome(s)
-	fmt.Println(r)
+	fmt.Println(isPalindrome("A man, a plan, a canal: Panama")) // true
 }
 
 func isAlphaNumeric(c rune) bool {

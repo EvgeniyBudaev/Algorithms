@@ -15,13 +15,12 @@ Output: 6
 
 func main() {
 	height := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
-	r := trap(height)
-	fmt.Println(r)
+	fmt.Println(trap(height)) // 6
 }
 
 func trap(height []int) int {
 	left := 0
-	leftMaxValue := height[0]
+	leftMaxValue := height[left]
 	right := len(height) - 1
 	rightMaxValue := height[right]
 	sum := 0

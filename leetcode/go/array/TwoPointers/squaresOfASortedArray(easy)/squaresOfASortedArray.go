@@ -24,18 +24,14 @@ Space complexity: O(n)
 */
 
 func main() {
-	r := sortedSquares([]int{-4, -1, 0, 3, 10})
-	fmt.Println(r)
+	fmt.Println(sortedSquares([]int{-4, -1, 0, 3, 10})) // [0,1,9,16,100]
 }
 
 func sortedSquares(nums []int) []int {
 	squares := make([]int, len(nums))
-
 	for i, num := range nums {
 		squares[i] = num * num
 	}
-
 	sort.Ints(squares)
-
 	return squares
 }
