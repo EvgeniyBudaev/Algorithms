@@ -27,7 +27,6 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	for right := 0; right < len(s); right++ {
 		currentChar := s[right]
 		charMap[currentChar]++ // Увеличиваем частоту текущего символа
-
 		// Если количество уникальных символов превышает k, сдвигаем left
 		for len(charMap) > k {
 			leftChar := s[left]
@@ -37,12 +36,8 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 			}
 			left++ // Сдвигаем left
 		}
-
 		// Обновляем максимальную длину подстроки
-		currentLength := right - left + 1
-		if currentLength > maxLength {
-			maxLength = currentLength
-		}
+		maxLength = max(maxLength, right-left+1)
 	}
 
 	return maxLength

@@ -33,7 +33,6 @@ func longestSubarray(nums []int) int {
 		if nums[right] == 0 {
 			zeroCount++
 		}
-
 		// Если количество нулей превышает 1, сдвигаем left
 		if zeroCount > 1 {
 			if nums[left] == 0 {
@@ -41,12 +40,8 @@ func longestSubarray(nums []int) int {
 			}
 			left++
 		}
-
 		// Обновляем максимальную длину подмассива
-		currentWindow := right - left
-		if currentWindow > ans {
-			ans = currentWindow
-		}
+		ans = max(ans, right-left)
 	}
 
 	return ans

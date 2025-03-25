@@ -17,7 +17,7 @@ Output: [0,6]
 */
 
 func main() {
-	fmt.Println(findAnagrams("cbaebabacd", "abc"))
+	fmt.Println(findAnagrams("cbaebabacd", "abc")) // [0,6]
 }
 
 func findAnagrams(s string, p string) []int {

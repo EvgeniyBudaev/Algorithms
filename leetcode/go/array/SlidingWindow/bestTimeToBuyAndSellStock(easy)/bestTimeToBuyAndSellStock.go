@@ -23,7 +23,7 @@ Output: 0
 
 func main() {
 	prices := []int{7, 1, 5, 3, 6, 4}
-	fmt.Println(maxProfit(prices))
+	fmt.Println(maxProfit(prices)) // 5
 }
 
 func maxProfit(prices []int) int {

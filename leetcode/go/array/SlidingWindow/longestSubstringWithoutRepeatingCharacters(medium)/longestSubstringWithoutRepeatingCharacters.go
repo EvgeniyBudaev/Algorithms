@@ -21,7 +21,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 */
 
 func main() {
-	fmt.Println(lengthOfLongestSubstring("abcabcbb"))
+	fmt.Println(lengthOfLongestSubstring("abcabcbb")) // 3
 }
 
 func lengthOfLongestSubstring(s string) int {
@@ -29,17 +29,20 @@ func lengthOfLongestSubstring(s string) int {
 		return len(s)
 	}
 
-	left, maxInt := 0, 0
-	charMap := make(map[byte]int)
+	left, right, maxLength := 0, 0, 0
+	charMap := make(map[byte]bool)
 
-	for right := 0; right < len(s); right++ {
-		current := s[right]
-		if prevIndex, exists := charMap[current]; exists {
-			left = max(prevIndex+1, left)
+	for right < len(s) {
+		currentChar := s[right]
+		if _, ok := charMap[currentChar]; !ok {
+			charMap[currentChar] = true
+			maxLength = max(maxLength, right-left+1)
+			right++
+		} else {
+			delete(charMap, s[left])
+			left++
 		}
-		maxInt = max(maxInt, right-left+1)
-		charMap[current] = right
 	}
 
-	return maxInt
+	return maxLength
 }

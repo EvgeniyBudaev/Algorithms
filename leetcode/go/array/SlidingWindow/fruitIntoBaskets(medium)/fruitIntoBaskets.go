@@ -57,9 +57,7 @@ func totalFruit(fruits []int) int {
 
 		// Обновляем максимальную длину окна
 		currentWindow := right - left + 1
-		if currentWindow > maxCount {
-			maxCount = currentWindow
-		}
+		maxCount = fruitMap[currentWindow]
 	}
 
 	return maxCount

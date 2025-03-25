@@ -17,8 +17,7 @@ Output: 2
 
 func main() {
 	nums := []int{1, 1, 0, 1, 1, 1}
-	r := findMaxConsecutiveOnes(nums)
-	fmt.Println(r) // 3
+	fmt.Println(findMaxConsecutiveOnes(nums)) // 3
 }
 
 func findMaxConsecutiveOnes(nums []int) int {
@@ -29,7 +28,6 @@ func findMaxConsecutiveOnes(nums []int) int {
 		if nums[right] == 0 {
 			zeroCount++
 		}
-
 		// Если количество нулей больше 0, двигаем левый указатель
 		for zeroCount > 0 {
 			if nums[left] == 0 {
@@ -37,13 +35,8 @@ func findMaxConsecutiveOnes(nums []int) int {
 			}
 			left++
 		}
-
 		// Обновляем максимальную длину последовательных единиц
-		currentWindowSize := right - left + 1
-
-		if currentWindowSize > ans {
-			ans = currentWindowSize
-		}
+		ans = max(ans, right-left+1)
 	}
 
 	return ans

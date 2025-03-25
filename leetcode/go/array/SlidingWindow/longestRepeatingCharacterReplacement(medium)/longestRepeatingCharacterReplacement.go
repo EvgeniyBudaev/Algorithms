@@ -26,30 +26,28 @@ func main() {
 }
 
 func characterReplacement(s string, k int) int {
-	charCount := make(map[byte]int) // Хранит количество каждого символа в текущем окне
-	ans, maxFreq := 0, 0            // ans - максимальная длина, maxFreq - максимальная частота символа в окне
-	left := 0                       // Указатель на начало окна
+	charMap := make(map[byte]int) // Хранит количество каждого символа в текущем окне
+	ans, maxFreq := 0, 0          // ans - максимальная длина, maxFreq - максимальная частота символа в окне
+	left := 0                     // Указатель на начало окна
 
 	for right := 0; right < len(s); right++ {
-		current := s[right]
-		charCount[current]++ // Увеличиваем количество текущего символа
+		currentChar := s[right]
+		charMap[currentChar]++ // Увеличиваем количество текущего символа
 
 		// Обновляем максимальную частоту символа в окне
-		if charCount[current] > maxFreq {
-			maxFreq = charCount[current]
+		if charMap[currentChar] > maxFreq {
+			maxFreq = charMap[currentChar]
 		}
 
+		window := right - left + 1
 		// Если размер окна превышает maxFreq + k, сдвигаем left
-		if (right-left+1)-maxFreq > k {
-			charCount[s[left]]-- // Уменьшаем количество символа слева
-			left++               // Сдвигаем left
+		if window-maxFreq > k {
+			charMap[s[left]]-- // Уменьшаем количество символа слева
+			left++             // Сдвигаем left
 		}
 
 		// Обновляем максимальную длину окна
-		currentWindow := right - left + 1
-		if currentWindow > ans {
-			ans = currentWindow
-		}
+		ans = max(ans, window)
 	}
 
 	return ans

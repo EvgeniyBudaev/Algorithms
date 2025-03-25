@@ -14,7 +14,7 @@ Output: 5
 */
 
 func main() {
-	fmt.Println(findLengthString("1101100111"))
+	fmt.Println(findLengthString("1101100111")) // 5
 }
 
 func findLengthString(s string) int {
@@ -24,7 +24,6 @@ func findLengthString(s string) int {
 		if s[right] == '0' {
 			zeroCount++
 		}
-
 		// Если количество нулей больше 1, сдвигаем left
 		for zeroCount > 1 {
 			if s[left] == '0' {
@@ -32,12 +31,8 @@ func findLengthString(s string) int {
 			}
 			left++
 		}
-
 		// Обновляем максимальную длину
-		currentLength := right - left + 1
-		if currentLength > ans {
-			ans = currentLength
-		}
+		ans = max(ans, right-left+1)
 	}
 
 	return ans

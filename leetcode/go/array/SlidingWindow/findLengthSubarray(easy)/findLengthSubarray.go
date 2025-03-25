@@ -12,7 +12,7 @@ Output: 4
 
 func main() {
 	nums := []int{3, 1, 2, 7, 4, 2, 1, 1, 5}
-	fmt.Println(findLengthSubarray(nums, 8))
+	fmt.Println(findLengthSubarray(nums, 8)) // 4
 }
 
 func findLengthSubarray(nums []int, k int) int {
@@ -20,18 +20,13 @@ func findLengthSubarray(nums []int, k int) int {
 
 	for right := 0; right < len(nums); right++ {
 		sum += nums[right]
-
 		// Если сумма превышает k, сдвигаем left
 		for sum > k {
 			sum -= nums[left]
 			left++
 		}
-
 		// Обновляем максимальную длину подмассива
-		currentLength := right - left + 1
-		if currentLength > ans {
-			ans = currentLength
-		}
+		ans = max(ans, right-left+1)
 	}
 
 	return ans
