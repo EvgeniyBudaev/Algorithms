@@ -23,7 +23,7 @@ Output: ""
 */
 
 func main() {
-	fmt.Println(minWindow("ADOBECODEBANC", "ABC")) // "BANC""BANC"
+	fmt.Println(minWindow("ADOBECODEBANC", "ABC")) // "BANC"
 }
 
 func minWindow(s string, t string) string {

@@ -16,7 +16,7 @@ Output: false
 */
 
 func main() {
-	fmt.Println(checkInclusion("ab", "eidbaooo")) // true
+	fmt.Println(checkInclusion("ab", "ei")) // true
 }
 
 func checkInclusion(s1 string, s2 string) bool {
@@ -33,11 +33,11 @@ func checkInclusion(s1 string, s2 string) bool {
 	left, right, requiredLength := 0, 0, len(s1)
 
 	for right < len(s2) {
-		current := s2[right]
-		if neededChar[current] > 0 {
+		currentChar := s2[right]
+		if neededChar[currentChar] > 0 {
 			requiredLength--
 		}
-		neededChar[current]--
+		neededChar[currentChar]--
 		right++
 
 		// Если все символы s1 найдены в текущем окне
