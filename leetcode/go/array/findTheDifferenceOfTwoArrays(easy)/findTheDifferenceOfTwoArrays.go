@@ -22,8 +22,7 @@ Output: [[1,3],[4,6]]
 func main() {
 	arr1 := []int{1, 2, 3}
 	arr2 := []int{2, 4, 6}
-	r := findDifference(arr1, arr2)
-	fmt.Println(r)
+	fmt.Println(findDifference(arr1, arr2)) // [[1,3],[4,6]]
 }
 
 func findDifference(nums1 []int, nums2 []int) [][]int {

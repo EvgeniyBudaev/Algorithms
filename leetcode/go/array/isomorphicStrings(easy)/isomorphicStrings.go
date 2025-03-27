@@ -24,8 +24,7 @@ Output: true
 */
 
 func main() {
-	r := isIsomorphic("egg", "add")
-	fmt.Println(r)
+	fmt.Println(isIsomorphic("egg", "add")) // true
 }
 
 func isIsomorphic(s string, t string) bool {
@@ -33,14 +32,15 @@ func isIsomorphic(s string, t string) bool {
 		return false
 	}
 
-	sPattern, tPattern := map[byte]int{}, map[byte]int{}
+	charMap := make(map[byte]byte)
 
-	for index := range s {
-		if sPattern[s[index]] != tPattern[t[index]] {
-			return false
+	for i := range s {
+		if v, ok := charMap[s[i]]; !ok {
+			charMap[s[i]] = t[i]
 		} else {
-			sPattern[s[index]] = index + 1
-			tPattern[t[index]] = index + 1
+			if v != t[i] {
+				return false
+			}
 		}
 	}
 

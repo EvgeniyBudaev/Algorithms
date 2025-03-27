@@ -20,8 +20,7 @@ Output: 3
 
 func main() {
 	arr := []int{3, 2, 3}
-	r := majorityElement(arr)
-	fmt.Println(r)
+	fmt.Println(majorityElement(arr)) // 3
 }
 
 func majorityElement(nums []int) int {

@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 /* https://leetcode.com/problems/duplicate-zeros/description/
 
 Учитывая целочисленный массив фиксированной длины arr, дублируйте каждое вхождение нуля, сдвигая оставшиеся элементы
@@ -16,7 +18,9 @@ Explanation: After calling your function, the input array is modified to: [1,2,3
 */
 
 func main() {
-	duplicateZeros([]int{1, 0, 2})
+	arr := []int{1, 0, 2, 3, 0, 4, 5, 0}
+	duplicateZeros(arr)
+	fmt.Println(arr) // [1,0,0,2,3,0,0,4]
 }
 
 func duplicateZeros(arr []int) {

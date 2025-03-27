@@ -22,8 +22,7 @@ Output: 2
 
 func main() {
 	seats := []int{1, 0, 0, 0, 1, 0, 1}
-	r := maxDistToClosest(seats)
-	fmt.Println(r)
+	fmt.Println(maxDistToClosest(seats)) // 2
 }
 
 func maxDistToClosest(seats []int) int {

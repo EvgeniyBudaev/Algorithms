@@ -20,8 +20,7 @@ Output: false
 */
 
 func main() {
-	r := isOneEditDistance("ab", "acb")
-	fmt.Println(r)
+	fmt.Println(isOneEditDistance("ab", "acb")) // true
 }
 
 func isOneEditDistance(s string, t string) bool {

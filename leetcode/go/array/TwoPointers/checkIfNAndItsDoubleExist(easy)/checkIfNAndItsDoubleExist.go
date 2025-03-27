@@ -20,8 +20,7 @@ Output: false
 
 func main() {
 	arr := []int{10, 2, 5, 3}
-	r := checkIfExist(arr)
-	fmt.Println(r)
+	fmt.Println(checkIfExist(arr)) // true
 }
 
 func checkIfExist(arr []int) bool {

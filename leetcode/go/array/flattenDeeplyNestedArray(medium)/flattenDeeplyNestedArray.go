@@ -37,7 +37,7 @@ Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 func main() {
 	arr := []interface{}{1, 2, 3, []interface{}{4, 5, 6}, []interface{}{7, 8, []interface{}{9, 10, 11}, 12}, []interface{}{13, 14, 15}}
 	n := 0
-	fmt.Println(flat(arr, n))
+	fmt.Println(flat(arr, n)) // [1, 2, 3, [4, 5, 6], [7, 8, [9, 10, 11], 12], [13, 14, 15]]
 }
 
 func flat(arr []interface{}, n int) []interface{} {

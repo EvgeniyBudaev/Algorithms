@@ -23,8 +23,7 @@ Output: 1
 
 func main() {
 	nums := []int{2, 2, 1}
-	r := singleNumber(nums)
-	fmt.Println(r)
+	fmt.Println(singleNumber(nums)) // 1
 }
 
 func singleNumber(nums []int) int {

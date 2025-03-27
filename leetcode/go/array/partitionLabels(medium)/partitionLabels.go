@@ -20,8 +20,7 @@ Output: [10]
 */
 
 func main() {
-	r := partitionLabels("ababcbacadefegdehijhklij")
-	fmt.Println(r)
+	fmt.Println(partitionLabels("ababcbacadefegdehijhklij")) // [9,7,8]
 }
 
 func partitionLabels(s string) []int {

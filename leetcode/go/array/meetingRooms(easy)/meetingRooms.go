@@ -19,15 +19,14 @@ Output: true
 
 func main() {
 	intervals := [][]int{{7, 10}, {2, 4}}
-	r := canAttendMeetings(intervals)
-	fmt.Println(r)
+	fmt.Println(canAttendMeetings(intervals)) // true
 }
 
 func canAttendMeetings(intervals [][]int) bool {
 	// Сортируем интервалы по начальному времени
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
-	})
+	}) // [[2,4],[7,10]]
 
 	// Проверяем, есть ли пересечения интервалов
 	for i := 1; i < len(intervals); i++ {

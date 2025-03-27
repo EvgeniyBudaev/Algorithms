@@ -18,8 +18,7 @@ Output: 3
 
 func main() {
 	arr := []int{1, 3, 4, 2, 2}
-	r := findDuplicate(arr)
-	fmt.Println(r)
+	fmt.Println(findDuplicate(arr)) // 2
 }
 
 func findDuplicate(nums []int) int {

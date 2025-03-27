@@ -22,8 +22,7 @@ Output: 1
 
 func main() {
 	nums := []int{1, 2, 0}
-	r := firstMissingPositive(nums)
-	fmt.Println(r)
+	fmt.Println(firstMissingPositive(nums)) // 3
 }
 
 func firstMissingPositive(nums []int) int {
