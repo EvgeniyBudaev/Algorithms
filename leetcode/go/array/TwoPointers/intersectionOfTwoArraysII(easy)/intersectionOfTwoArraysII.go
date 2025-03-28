@@ -25,8 +25,8 @@ func main() {
 }
 
 func intersect(nums1 []int, nums2 []int) []int {
-	sort.Ints(nums1)
-	sort.Ints(nums2)
+	sort.Ints(nums1) // [1 1 2 2]
+	sort.Ints(nums2) // [2 2]
 	left, right := 0, 0
 	result := make([]int, 0)
 	for left < len(nums1) && right < len(nums2) {

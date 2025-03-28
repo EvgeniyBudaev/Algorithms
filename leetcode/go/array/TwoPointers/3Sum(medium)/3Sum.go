@@ -31,8 +31,7 @@ Output: [[0,0,0]]
 
 func main() {
 	nums := []int{-1, 0, 1, 2, -1, -4}
-	r := threeSum(nums)
-	fmt.Println(r) // [[-1 -1 2] [-1 0 1]]
+	fmt.Println(threeSum(nums)) // [[-1 -1 2] [-1 0 1]]
 }
 
 func threeSum(nums []int) [][]int {

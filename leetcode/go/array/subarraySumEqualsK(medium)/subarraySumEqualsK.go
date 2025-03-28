@@ -17,8 +17,7 @@ Output: 2
 func main() {
 	nums := []int{1, 1, 1}
 	k := 2
-	r := subarraySum(nums, k)
-	fmt.Println(r)
+	fmt.Println(subarraySum(nums, k)) // 2
 }
 
 func subarraySum(nums []int, k int) int {
@@ -33,7 +32,7 @@ func subarraySum(nums []int, k int) int {
 	for _, num := range nums {
 		sum += num
 		// Если (sum - k) существует в map, увеличиваем count
-		if val, exists := sumMap[sum-k]; exists {
+		if val, ok := sumMap[sum-k]; ok {
 			count += val
 		}
 		// Обновляем map с текущей суммой

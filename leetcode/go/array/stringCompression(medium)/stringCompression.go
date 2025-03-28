@@ -25,20 +25,19 @@ Output: вернуть 6, и первые 6 символов входного м
 
 func main() {
 	chars := []byte{'a', 'a', 'b', 'b', 'c', 'c', 'c'}
-	r := compress(chars)
-	fmt.Println(r)
+	fmt.Println(compress(chars)) // 6
 }
 
 func compress(chars []byte) int {
 	i, j := 0, 0
 	for j < len(chars) {
 		count := 0
-		curr := chars[j]
-		for j < len(chars) && chars[j] == curr {
+		currentChar := chars[j]
+		for j < len(chars) && chars[j] == currentChar {
 			j++
 			count++
 		}
-		chars[i] = curr
+		chars[i] = currentChar
 		i++
 		if count > 1 {
 			for _, digit := range strconv.Itoa(count) {

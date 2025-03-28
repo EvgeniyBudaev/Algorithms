@@ -12,8 +12,7 @@ import (
 func main() {
 	arr1 := []int{1, 4, 7, 20}
 	arr2 := []int{3, 5, 6}
-	r := combine(arr1, arr2)
-	fmt.Println(r) // [1 3 4 5 6 7 20]
+	fmt.Println(combine(arr1, arr2)) // [1 3 4 5 6 7 20]
 }
 
 func combine(arr1, arr2 []int) []int {

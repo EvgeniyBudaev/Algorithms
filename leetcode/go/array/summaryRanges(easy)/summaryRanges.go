@@ -28,8 +28,7 @@ Output: ["0->2","4->5","7"]
 
 func main() {
 	nums := []int{0, 1, 2, 4, 5, 7}
-	r := summaryRanges(nums)
-	fmt.Println(r)
+	fmt.Println(summaryRanges(nums)) // [0->2 4->5 7]
 }
 
 func summaryRanges(nums []int) []string {

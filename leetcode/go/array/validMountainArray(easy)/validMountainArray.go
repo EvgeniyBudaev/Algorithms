@@ -24,8 +24,7 @@ Output: true
 
 func main() {
 	arr := []int{0, 3, 2, 1}
-	r := validMountainArray(arr)
-	fmt.Println(r)
+	fmt.Println(validMountainArray(arr)) // true
 }
 
 func validMountainArray(arr []int) bool {

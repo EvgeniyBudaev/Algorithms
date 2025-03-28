@@ -31,7 +31,7 @@ func main() {
 }
 
 func maxArea(height []int) int {
-	maxArea := 0
+	maxAreaContainer := 0
 	left := 0
 	right := len(height) - 1
 	for left < right {
@@ -41,7 +41,7 @@ func maxArea(height []int) int {
 		width := right - left
 		// Вычисляем площадь и обновляем maxArea, если текущая площадь больше
 		currentArea := width * minHeight
-		maxArea = max(maxArea, currentArea)
+		maxAreaContainer = max(maxAreaContainer, currentArea)
 		// Перемещаем указатель с меньшей высотой
 		if height[left] < height[right] {
 			left++
@@ -49,5 +49,5 @@ func maxArea(height []int) int {
 			right--
 		}
 	}
-	return maxArea
+	return maxAreaContainer
 }

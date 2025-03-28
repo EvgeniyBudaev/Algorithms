@@ -24,8 +24,7 @@ func main() {
 }
 
 func checkIfExist(arr []int) bool {
-	left := 0
-	right := 1
+	left, right := 0, 1
 
 	for left < len(arr)-1 {
 		if arr[left] == arr[right]*2 || arr[right] == arr[left]*2 {

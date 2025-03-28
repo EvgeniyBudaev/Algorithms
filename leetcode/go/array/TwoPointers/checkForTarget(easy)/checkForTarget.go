@@ -12,18 +12,16 @@ import "fmt"
 
 func main() {
 	nums := []int{1, 2, 4, 6, 8, 9, 14, 15}
-	target := 13
-	r := checkForTarget(nums, target)
-	fmt.Println(r) // true
+	fmt.Println(checkForTarget(nums, 13)) // true
 }
 
 func checkForTarget(nums []int, target int) bool {
 	left, right := 0, len(nums)-1
 	for left < right {
-		currSum := nums[left] + nums[right]
-		if currSum == target {
+		sum := nums[left] + nums[right]
+		if sum == target {
 			return true
-		} else if currSum > target {
+		} else if sum > target {
 			right--
 		} else {
 			left++
