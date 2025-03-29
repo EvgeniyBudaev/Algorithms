@@ -20,6 +20,7 @@ func combine(arr1, arr2 []int) []int {
 	p1 := m - 1
 	p2 := n - 1
 	arr1 = append(arr1, make([]int, n)...) // Расширяем arr1, чтобы он мог вместить элементы из arr2
+
 	for i := m + n - 1; i >= 0; i-- {
 		if p2 < 0 {
 			break
@@ -32,6 +33,7 @@ func combine(arr1, arr2 []int) []int {
 			p2--
 		}
 	}
+
 	return arr1
 }
 

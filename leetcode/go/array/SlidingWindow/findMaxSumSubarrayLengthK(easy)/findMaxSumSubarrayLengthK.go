@@ -13,20 +13,20 @@ func main() {
 }
 
 func findMaxSumSubarrayLengthK(nums []int, k int) int {
-	currSum := 0 // Текущая сумма подмассива длины k
+	sum := 0 // Текущая сумма подмассива длины k
 
 	// Вычисляем сумму первого окна длины k
 	for i := 0; i < k; i++ {
-		currSum += nums[i]
+		sum += nums[i]
 	}
 
-	ans := currSum // Инициализируем ответ суммой первого окна
+	ans := sum // Инициализируем ответ суммой первого окна
 
 	// Скользим окном по массиву
 	for i := k; i < len(nums); i++ {
-		currSum += nums[i] - nums[i-k] // Добавляем nums[i] и удаляем nums[i-k]
-		if currSum > ans {             // Обновляем ans, если текущая сумма больше
-			ans = currSum
+		sum += nums[i] - nums[i-k] // Добавляем nums[i] и удаляем nums[i-k]
+		if sum > ans {             // Обновляем ans, если текущая сумма больше
+			ans = sum
 		}
 	}
 

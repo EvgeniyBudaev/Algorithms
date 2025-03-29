@@ -29,9 +29,11 @@ func main() {
 
 func sortedSquares(nums []int) []int {
 	squares := make([]int, len(nums))
+
 	for i, num := range nums {
 		squares[i] = num * num
 	}
+
 	sort.Ints(squares)
 	return squares
 }

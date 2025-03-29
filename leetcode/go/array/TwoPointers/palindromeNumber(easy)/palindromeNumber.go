@@ -30,6 +30,7 @@ func main() {
 func isPalindrome(x int) bool {
 	str := strconv.Itoa(x)
 	left, right := 0, len(str)-1
+
 	for left < right {
 		if str[left] != str[right] {
 			return false
@@ -37,6 +38,7 @@ func isPalindrome(x int) bool {
 		left++
 		right--
 	}
+
 	return true
 }
 

@@ -14,6 +14,7 @@ func main() {
 
 func checkIfPalindrome(s string) bool {
 	left, right := 0, len(s)-1
+
 	for left < right {
 		if s[left] != s[right] {
 			return false
@@ -21,5 +22,6 @@ func checkIfPalindrome(s string) bool {
 		left++
 		right--
 	}
+
 	return true
 }

@@ -34,6 +34,7 @@ func maxArea(height []int) int {
 	maxAreaContainer := 0
 	left := 0
 	right := len(height) - 1
+
 	for left < right {
 		// Находим минимальную высоту между двумя линиями
 		minHeight := min(height[left], height[right])
@@ -49,5 +50,6 @@ func maxArea(height []int) int {
 			right--
 		}
 	}
+
 	return maxAreaContainer
 }

@@ -29,6 +29,7 @@ func intersect(nums1 []int, nums2 []int) []int {
 	sort.Ints(nums2) // [2 2]
 	left, right := 0, 0
 	result := make([]int, 0)
+
 	for left < len(nums1) && right < len(nums2) {
 		if nums1[left] < nums2[right] {
 			left++
@@ -40,5 +41,6 @@ func intersect(nums1 []int, nums2 []int) []int {
 			right++
 		}
 	}
+
 	return result
 }

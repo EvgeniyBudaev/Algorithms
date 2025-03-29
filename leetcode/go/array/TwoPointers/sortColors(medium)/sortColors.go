@@ -25,6 +25,7 @@ func main() {
 func sortColors(nums []int) {
 	i := 0
 	left, right := 0, len(nums)-1
+
 	for left < right && i <= right {
 		if nums[i] == 0 {
 			nums[left], nums[i] = nums[i], nums[left]

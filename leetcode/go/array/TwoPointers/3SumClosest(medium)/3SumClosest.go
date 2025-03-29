@@ -29,6 +29,7 @@ func threeSumClosest(nums []int, target int) int {
 	sort.Ints(nums)
 	n := len(nums)
 	closestSum := nums[0] + nums[1] + nums[2]
+
 	// n-2, чтобы гарантировать, что после текущего элемента nums[i] останется как минимум два элемента для формирования тройки.
 	for i := 0; i < n-2; i++ {
 		left := i + 1
@@ -49,6 +50,7 @@ func threeSumClosest(nums []int, target int) int {
 			}
 		}
 	}
+
 	return closestSum
 }
 

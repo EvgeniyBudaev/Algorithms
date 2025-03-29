@@ -22,24 +22,24 @@ func main() {
 
 func findAnagrams(s string, p string) []int {
 	arr := []int{}
-	obj := make(map[byte]int)
+	charMap := make(map[byte]int)
 
 	// Заполняем map для строки p
 	for i := 0; i < len(p); i++ {
-		obj[p[i]]++
+		charMap[p[i]]++
 	}
 
 	left, right, count := 0, 0, len(p)
 
 	for right < len(s) {
-		// Если символ s[right] есть в obj, уменьшаем count
-		if obj[s[right]] > 0 {
+		// Если символ s[right] есть в charMap, уменьшаем count
+		if charMap[s[right]] > 0 {
 			count--
 		}
-		// Уменьшаем значение в obj для текущего символа
-		obj[s[right]]--
+		// Уменьшаем значение в charMap для текущего символа
+		charMap[s[right]]--
 		right++
-
+		fmt.Println("count:", count)
 		// Если count == 0, значит, нашли анаграмму
 		if count == 0 {
 			arr = append(arr, left)
@@ -47,12 +47,12 @@ func findAnagrams(s string, p string) []int {
 
 		// Если окно достигло размера p, сдвигаем left
 		if right-left == len(p) {
-			// Если символ s[left] был в obj, увеличиваем count
-			if obj[s[left]] >= 0 {
+			// Если символ s[left] был в charMap, увеличиваем count
+			if charMap[s[left]] >= 0 {
 				count++
 			}
-			// Восстанавливаем значение в obj для символа s[left]
-			obj[s[left]]++
+			// Восстанавливаем значение в charMap для символа s[left]
+			charMap[s[left]]++
 			left++
 		}
 	}

@@ -17,11 +17,13 @@ func main() {
 
 func isSubsequence(s, t string) bool {
 	left, right := 0, 0
+
 	for left < len(s) && right < len(t) {
 		if s[left] == t[right] {
 			left++
 		}
 		right++
 	}
+
 	return left == len(s)
 }
