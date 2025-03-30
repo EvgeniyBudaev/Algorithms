@@ -24,12 +24,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 func main() {
-	arr := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+	arr := []int{1, 1, 2}
 	removeDuplicates(arr)
 }
 
 func removeDuplicates(nums []int) int {
 	k := 1 // Инициализируем количество уникальных элементов равным 1
+
 	for i := 1; i < len(nums); i++ {
 		if nums[i] != nums[k-1] {
 			nums[k] = nums[i]
@@ -38,6 +39,6 @@ func removeDuplicates(nums []int) int {
 	}
 
 	nums = nums[:k]
-	fmt.Println(nums)
+	fmt.Println(nums) // [1,2]
 	return len(nums)
 }

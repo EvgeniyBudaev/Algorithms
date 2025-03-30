@@ -30,6 +30,7 @@ func main() {
 
 func compress(chars []byte) int {
 	i, j := 0, 0
+
 	for j < len(chars) {
 		count := 0
 		currentChar := chars[j]
@@ -46,5 +47,6 @@ func compress(chars []byte) int {
 			}
 		}
 	}
+
 	return i
 }

@@ -27,14 +27,17 @@ func main() {
 
 func firstMissingPositive(nums []int) int {
 	set := make(map[int]bool)
+
 	for _, num := range nums {
 		if num > 0 {
 			set[num] = true
 		}
 	}
+
 	i := 1
 	for set[i] {
 		i++
 	}
+
 	return i
 }

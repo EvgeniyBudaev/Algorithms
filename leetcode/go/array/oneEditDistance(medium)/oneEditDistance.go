@@ -31,6 +31,7 @@ func isOneEditDistance(s string, t string) bool {
 	if m-n > 1 {
 		return false
 	}
+
 	for i := range t {
 		if s[i] != t[i] {
 			if m == n {
@@ -39,5 +40,6 @@ func isOneEditDistance(s string, t string) bool {
 			return s[i+1:] == t[i:]
 		}
 	}
+
 	return m == n+1
 }

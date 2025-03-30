@@ -28,6 +28,7 @@ func main() {
 func maxDistToClosest(seats []int) int {
 	prev := -1
 	ans := 0
+
 	for i := 0; i < len(seats); i++ {
 		if seats[i] == 1 {
 			if prev == -1 {
@@ -38,5 +39,6 @@ func maxDistToClosest(seats []int) int {
 			prev = i
 		}
 	}
+
 	return max(ans, len(seats)-1-prev)
 }
