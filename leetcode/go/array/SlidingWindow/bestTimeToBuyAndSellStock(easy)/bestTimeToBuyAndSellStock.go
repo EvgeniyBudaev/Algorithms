@@ -22,10 +22,10 @@ Output: 0
 */
 
 func main() {
-	prices := []int{7, 1, 5, 3, 6, 4}
-	fmt.Println(maxProfit(prices)) // 5
+	fmt.Println(maxProfit([]int{7, 1, 5, 3, 6, 4})) // 5
 }
 
+// maxProfit вычисляет максимальную возможную прибыль от покупки и продажи акций на основе массива цен.
 func maxProfit(prices []int) int {
 	left, right, profit := 0, 1, 0 // left - для покупки, right - для продажи
 
