@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/permutation-in-string/description/
+/* 567. Permutation in String
+https://leetcode.com/problems/permutation-in-string/description/
 
 Учитывая две строки s1 и s2, верните true, если s2 содержит перестановку s1, или false в противном случае.
 Другими словами, верните true, если одна из перестановок s1 является подстрокой s2.
@@ -16,7 +17,7 @@ Output: false
 */
 
 func main() {
-	fmt.Println(checkInclusion("ab", "ei")) // true
+	fmt.Println(checkInclusion("ab", "eidbaooo")) // true
 }
 
 func checkInclusion(s1 string, s2 string) bool {
