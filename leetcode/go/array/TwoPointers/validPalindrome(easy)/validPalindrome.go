@@ -29,10 +29,12 @@ func main() {
 	fmt.Println(isPalindrome("A man, a plan, a canal: Panama")) // true
 }
 
+// isAlphaNumeric проверяет, является ли переданный символ буквенно-цифровым
 func isAlphaNumeric(c rune) bool {
 	return unicode.IsLetter(c) || unicode.IsDigit(c)
 }
 
+// isPalindrome проверяет, является ли строка s палиндромом после нормализации.
 func isPalindrome(s string) bool {
 	left, right := 0, len(s)-1
 
