@@ -19,6 +19,7 @@ func main() {
 	fmt.Println(string(s1)) // ["o","l","l","e","h"]
 }
 
+// reverseString переворачивает строку.
 func reverseString(s []byte) {
 	left, right := 0, len(s)-1
 
