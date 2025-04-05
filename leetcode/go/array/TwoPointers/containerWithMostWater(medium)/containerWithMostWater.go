@@ -26,10 +26,11 @@ Space complexity: O(1)
 */
 
 func main() {
-	height := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
-	fmt.Println(maxArea(height)) // 49
+	fmt.Println(maxArea([]int{1, 8, 6, 2, 5, 4, 8, 3, 7})) // 49
 }
 
+// maxArea вычисляет максимальную площадь контейнера, образованного двумя вертикальными линиями и осью X,
+// где каждая линия задана высотой height[i], а расстояние между линиями определяет ширину контейнера.
 func maxArea(height []int) int {
 	maxAreaContainer := 0
 	left := 0
