@@ -27,6 +27,7 @@ func main() {
 	fmt.Println(isPalindrome(-121)) // false
 }
 
+// isPalindrome проверяет, является ли целое число x палиндромом.
 func isPalindrome(x int) bool {
 	str := strconv.Itoa(x)
 	left, right := 0, len(str)-1
