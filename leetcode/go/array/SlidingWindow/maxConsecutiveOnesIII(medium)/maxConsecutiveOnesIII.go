@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/max-consecutive-ones-iii/description/
+/* 1004. Max Consecutive Ones III
+https://leetcode.com/problems/max-consecutive-ones-iii/description/
 
 Учитывая двоичный массив nums и целое число k, верните максимальное количество последовательных единиц в массиве,
 если вы можете перевернуть не более k нулей.
@@ -22,8 +23,10 @@ func main() {
 	fmt.Println(longestOnes(nums, 2)) // 6
 }
 
+// longestOnes возвращает максимальное количество последовательных единиц в массиве при условии, что
+// можно перевернуть не более k нулей.
 func longestOnes(nums []int, k int) int {
-	left, zeroCount, ans := 0, 0, 0
+	left, zeroCount, result := 0, 0, 0
 
 	for right := 0; right < len(nums); right++ {
 		if nums[right] == 0 {
@@ -35,8 +38,8 @@ func longestOnes(nums []int, k int) int {
 			}
 			left++
 		}
-		ans = max(ans, right-left+1)
+		result = max(result, right-left+1)
 	}
 
-	return ans
+	return result
 }
