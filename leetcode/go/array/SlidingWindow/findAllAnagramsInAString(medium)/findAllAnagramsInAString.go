@@ -39,7 +39,7 @@ func findAnagrams(s string, p string) []int {
 		// Уменьшаем значение в charMap для текущего символа
 		charMap[s[right]]--
 		right++
-		fmt.Println("count:", count)
+
 		// Если count == 0, значит, нашли анаграмму
 		if count == 0 {
 			arr = append(arr, left)
