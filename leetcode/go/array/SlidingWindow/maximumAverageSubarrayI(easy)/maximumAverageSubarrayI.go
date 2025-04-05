@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/maximum-average-subarray-i/description/
+/* 643. Maximum Average Subarray I
+https://leetcode.com/problems/maximum-average-subarray-i/description/
 Fixed window size
 
 Вам дан целочисленный массив nums, состоящий из n элементов, и целое число k.
@@ -21,6 +22,7 @@ func main() {
 	fmt.Println(findMaxAverage(nums, 4)) // 12.75
 }
 
+// findMaxAverage находит максимальное среднее значение непрерывного подмассива длиной k.
 func findMaxAverage(nums []int, k int) float64 {
 	sum := 0
 
