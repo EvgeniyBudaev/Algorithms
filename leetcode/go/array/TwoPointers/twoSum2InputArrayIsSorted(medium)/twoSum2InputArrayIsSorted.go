@@ -24,10 +24,10 @@ Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We ret
 */
 
 func main() {
-	numbers := []int{2, 7, 11, 15}
-	fmt.Println(twoSum(numbers, 9)) // [1,2]
+	fmt.Println(twoSum([]int{2, 7, 11, 15}, 9)) // [1,2]
 }
 
+// twoSum находит два числа в отсортированном массиве numbers, сумма которых равна заданному целевому значению target.
 func twoSum(numbers []int, target int) []int {
 	left, right := 0, len(numbers)-1
 
