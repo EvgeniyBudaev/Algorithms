@@ -24,6 +24,7 @@ func main() {
 	fmt.Println(intersect(nums1, nums2)) // [2,2]
 }
 
+// intersect находит пересечение двух массивов nums1 и nums2.
 func intersect(nums1 []int, nums2 []int) []int {
 	sort.Ints(nums1) // [1 1 2 2]
 	sort.Ints(nums2) // [2 2]
