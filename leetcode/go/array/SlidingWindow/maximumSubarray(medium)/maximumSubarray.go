@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/maximum-subarray/description/
+/* 53. Maximum Subarray
+https://leetcode.com/problems/maximum-subarray/description/
 
 Учитывая целочисленный массив чисел, найдите подмассив с наибольшей суммой и вернуть ее сумму.
 
@@ -24,6 +25,7 @@ func main() {
 	fmt.Println(maxSubArray(nums)) // 6
 }
 
+// maxSubArray находит подмассив с наибольшей суммой и возвращает ее сумму.
 func maxSubArray(nums []int) int {
 	if len(nums) == 0 {
 		return 0
