@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/subarray-product-less-than-k/description/
+/* 713. Subarray Product Less Than K
+https://leetcode.com/problems/subarray-product-less-than-k/description/
 
 Учитывая массив положительных целых чисел nums и целое число k, верните количество подмассивов, в которых произведение
 всех элементов в подмассиве строго меньше k.
@@ -22,12 +23,13 @@ func main() {
 	fmt.Println(numSubarrayProductLessThanK(nums, 100)) // 8
 }
 
+// numSubarrayProductLessThanK возвращает количество подмассивов, в которых произведение всех элементов в подмассиве строго меньше k.
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	if k <= 1 {
 		return 0
 	}
 
-	left, curr, ans := 0, 1, 0
+	left, curr, result := 0, 1, 0
 
 	for right := 0; right < len(nums); right++ {
 		curr *= nums[right]
@@ -37,8 +39,8 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 			left++
 		}
 		// Добавляем количество подмассивов, заканчивающихся на right
-		ans += right - left + 1
+		result += right - left + 1
 	}
 
-	return ans
+	return result
 }
