@@ -15,10 +15,10 @@ func main() {
 	fmt.Println(combine(arr1, arr2)) // [1 3 4 5 6 7 20]
 }
 
+// combine объединяет два отсортированных массива arr1 и arr2 в один отсортированный массив
 func combine(arr1, arr2 []int) []int {
 	m, n := len(arr1), len(arr2)
-	p1 := m - 1
-	p2 := n - 1
+	p1, p2 := m-1, n-1
 	arr1 = append(arr1, make([]int, n)...) // Расширяем arr1, чтобы он мог вместить элементы из arr2
 
 	for i := m + n - 1; i >= 0; i-- {
