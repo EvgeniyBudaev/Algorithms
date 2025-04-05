@@ -12,6 +12,7 @@ func main() {
 	fmt.Println(checkIfPalindrome("aleba"))   // false
 }
 
+// checkIfPalindrome проверяет, является ли строка палиндромом.
 func checkIfPalindrome(s string) bool {
 	left, right := 0, len(s)-1
 
