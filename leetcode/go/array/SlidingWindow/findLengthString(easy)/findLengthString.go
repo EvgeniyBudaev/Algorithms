@@ -17,8 +17,10 @@ func main() {
 	fmt.Println(findLengthString("1101100111")) // 5
 }
 
+// findLengthString вычисляет длину самой длинной подстроки, состоящей только из '1',
+// при условии, что не более одного '0' можно заменить на '1' (или не заменять ничего).
 func findLengthString(s string) int {
-	left, zeroCount, ans := 0, 0, 0
+	left, zeroCount, result := 0, 0, 0
 
 	for right := 0; right < len(s); right++ {
 		if s[right] == '0' {
@@ -32,8 +34,8 @@ func findLengthString(s string) int {
 			left++
 		}
 		// Обновляем максимальную длину
-		ans = max(ans, right-left+1)
+		result = max(result, right-left+1)
 	}
 
-	return ans
+	return result
 }
