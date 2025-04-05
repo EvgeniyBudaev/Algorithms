@@ -20,6 +20,7 @@ func main() {
 	fmt.Println(nums)
 }
 
+// moveZeroes перемещает все нули в конец массива nums, сохраняя относительный порядок ненулевых элементов.
 func moveZeroes(nums []int) {
 	left := 0
 
