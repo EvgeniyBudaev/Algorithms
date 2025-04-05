@@ -5,8 +5,8 @@ import (
 	"math"
 )
 
-/* https://leetcode.com/problems/minimum-size-subarray-sum/description/
-solution https://leetcode.com/problems/minimum-size-subarray-sum/solutions/2657137/sliding-window-dynamic-approach-o-n-o-n-k-javascript/
+/* 209. Minimum Size Subarray Sum
+https://leetcode.com/problems/minimum-size-subarray-sum/description/
 
 Учитывая массив положительных целых чисел nums и цель положительного целого числа, верните минимальную длину
 подмассив сумма которых больше или равна целевой. Если такого подмассива нет, вместо него верните 0.
@@ -27,6 +27,7 @@ func main() {
 	fmt.Println(minSubArrayLen(7, nums)) // 2
 }
 
+// minSubArrayLen возвращает минимальную длину подмассива, сумма которой больше или равна целевой.
 func minSubArrayLen(target int, nums []int) int {
 	left, right := 0, 0
 	minLength := math.MaxInt32 // Используем максимальное значение для инициализации
