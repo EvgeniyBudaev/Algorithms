@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/remove-element/description/
+/* 27. Remove Element
+https://leetcode.com/problems/remove-element/description/
 
 Учитывая целочисленный массив nums и целочисленное значение, удалите все вхождения val в nums на месте. Порядок
 элементов может быть изменен. Затем верните количество элементов в виде чисел, которые не равны val.
@@ -19,10 +20,10 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 */
 
 func main() {
-	arr := []int{3, 2, 2, 3}
-	removeElement(arr, 3)
+	removeElement([]int{3, 2, 2, 3}, 3) // [2,2]
 }
 
+// removeElement удаляет все вхождения val в nums на месте.
 func removeElement(nums []int, val int) int {
 	count := 0 // Счетчик для отслеживания элементов, отличных от val
 
