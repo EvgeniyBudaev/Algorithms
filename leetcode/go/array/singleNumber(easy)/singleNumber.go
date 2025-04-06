@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/single-number/description/
+/* 136. Single Number
+https://leetcode.com/problems/single-number/description/
 
 Учитывая непустой массив целых чисел nums, каждый элемент появляется дважды, кроме одного. Найдите этого единственного.
 Вы должны реализовать решение с линейной сложностью времени выполнения и использовать только постоянное дополнительное
@@ -22,16 +23,18 @@ Output: 1
 */
 
 func main() {
-	nums := []int{2, 2, 1}
-	fmt.Println(singleNumber(nums)) // 1
+	fmt.Println(singleNumber([]int{2, 2, 1})) // 1
 }
 
+// singleNumber находит уникальное число в слайсе.
 func singleNumber(nums []int) int {
 	sort.Ints(nums)
+
 	for i := 0; i < len(nums)-1; i += 2 {
 		if nums[i] != nums[i+1] {
 			return nums[i]
 		}
 	}
+
 	return nums[len(nums)-1]
 }
