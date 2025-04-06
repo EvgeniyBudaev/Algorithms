@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+/* 26. Remove Duplicates from Sorted Array
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
 Учитывая целочисленный массив чисел, отсортированный в неубывающем порядке, удалите дубликаты на месте так, чтобы каждый
 уникальный элемент появлялся только один раз. Относительный порядок элементов должен оставаться неизменным.
@@ -24,10 +25,10 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 func main() {
-	arr := []int{1, 1, 2}
-	removeDuplicates(arr)
+	removeDuplicates([]int{1, 1, 2}) // [1,2]
 }
 
+// removeDuplicates функция для удаления дубликатов в отсортированном массиве чисел.
 func removeDuplicates(nums []int) int {
 	k := 1 // Инициализируем количество уникальных элементов равным 1
 
