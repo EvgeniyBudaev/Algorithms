@@ -23,25 +23,31 @@ func main() {
 	fmt.Println(partitionLabels("ababcbacadefegdehijhklij")) // [9,7,8]
 }
 
+// partitionLabels разделяет строки на максимальное количество частей так,
+// чтобы каждый символ встречался только в одной части.
 func partitionLabels(s string) []int {
+	// 1. Создаём мапу, где ключ — символ, значение — его последний индекс в строке
 	lastIdx := make(map[rune]int)
 	for i, char := range s {
 		lastIdx[char] = i
 	}
 
-	curLastIdx := 0
-	res := []int{}
-	acc := 0
+	curLastIdx := 0   // Текущая граница раздела
+	result := []int{} // Результат (длины частей)
+	acc := 0          // Суммарная длина предыдущих частей (для вычисления длины текущей)
 
+	// 2. Проходим по строке, определяя границы частей
 	for i, char := range s {
+		// Если последнее вхождение символа дальше текущей границы, расширяем границу
 		if lastIdx[char] > curLastIdx {
 			curLastIdx = lastIdx[char]
 		}
+		// Если дошли до границы — текущая часть завершена
 		if i == curLastIdx {
-			res = append(res, i+1-acc)
-			acc = i + 1
+			result = append(result, i+1-acc) // Добавляем длину части (i+1 - сумма предыдущих)
+			acc = i + 1                      // Обновляем суммарную длину
 		}
 	}
 
-	return res
+	return result
 }
