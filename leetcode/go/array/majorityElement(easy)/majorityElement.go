@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/majority-element/description/
+/* 169. Majority Element
+https://leetcode.com/problems/majority-element/description/
 
 Учитывая массив nums размера n, верните элемент большинства.
 Мажоритарным элементом является элемент, который появляется более ⌊n / 2⌋ раз. Вы можете предположить, что элемент
@@ -19,10 +20,10 @@ Output: 3
 */
 
 func main() {
-	arr := []int{3, 2, 3}
-	fmt.Println(majorityElement(arr)) // 3
+	fmt.Println(majorityElement([]int{3, 2, 3})) // 3
 }
 
+// majorityElement возвращает элемент большинства.
 func majorityElement(nums []int) int {
 	count := 0
 	candidate := 0
