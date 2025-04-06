@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-/* https://leetcode.com/problems/find-the-duplicate-number/description/
+/* 287. Find the Duplicate Number
+https://leetcode.com/problems/find-the-duplicate-number/description/
 
 Дан массив целых чисел nums, содержащий n + 1 целых чисел, где каждое целое число находится в диапазоне [1, n]
 включительно.
@@ -17,10 +20,10 @@ Output: 3
 */
 
 func main() {
-	arr := []int{1, 3, 4, 2, 2}
-	fmt.Println(findDuplicate(arr)) // 2
+	fmt.Println(findDuplicate([]int{1, 3, 4, 2, 2})) // 2
 }
 
+// findDuplicate возвращает целое повторяющееся число.
 func findDuplicate(nums []int) int {
 	visited := make([]bool, len(nums))
 
@@ -34,3 +37,13 @@ func findDuplicate(nums []int) int {
 
 	return -1
 }
+
+//func findDuplicate(nums []int) int {
+//	sort.Ints(nums)
+//	for i := 1; i < len(nums); i++ {
+//		if nums[i] == nums[i-1] {
+//			return nums[i]
+//		}
+//	}
+//	return -1
+//}
