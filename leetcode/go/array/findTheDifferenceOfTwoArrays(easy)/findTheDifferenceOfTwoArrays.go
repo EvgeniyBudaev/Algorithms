@@ -25,6 +25,7 @@ func main() {
 	fmt.Println(findDifference(arr1, arr2)) // [[1,3],[4,6]]
 }
 
+// findDifference возвращает списки элементов, которых нет в другом масиве.
 func findDifference(nums1 []int, nums2 []int) [][]int {
 	s1 := make(map[int]bool)
 	s2 := make(map[int]bool)
