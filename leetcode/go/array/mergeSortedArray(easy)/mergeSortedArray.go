@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/merge-sorted-array/description/
+/* 88. Merge Sorted Array
+https://leetcode.com/problems/merge-sorted-array/description/
 
 Вам даны два целочисленных массива nums1 и nums2, отсортированные в порядке неубывания, и два целых числа m и n,
 представляющие количество элементов в nums1 и nums2 соответственно.
@@ -32,23 +33,24 @@ Output: [1]
 func main() {
 	arr1 := []int{1, 2, 3, 0, 0, 0}
 	arr2 := []int{2, 5, 6}
-	merge(arr1, 3, arr2, 3)
+	merge(arr1, 3, arr2, 3) // [1,2,2,3,5,6]
 }
 
+// merge объединяет два неотсортированных массива в один массив и сортирует его.
 func merge(nums1 []int, m int, nums2 []int, n int) {
-	index1 := m - 1
-	index2 := n - 1
+	p1 := m - 1
+	p2 := n - 1
 
 	for i := m + n - 1; i >= 0; i-- {
-		if index2 < 0 {
+		if p2 < 0 {
 			break
 		}
-		if index1 >= 0 && nums1[index1] > nums2[index2] {
-			nums1[i] = nums1[index1]
-			index1--
+		if p1 >= 0 && nums1[p1] > nums2[p2] {
+			nums1[i] = nums1[p1]
+			p1--
 		} else {
-			nums1[i] = nums2[index2]
-			index2--
+			nums1[i] = nums2[p2]
+			p2--
 		}
 	}
 
