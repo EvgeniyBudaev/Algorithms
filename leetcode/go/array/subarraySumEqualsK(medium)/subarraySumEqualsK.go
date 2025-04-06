@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/subarray-sum-equals-k/description/
+/* 560. Subarray Sum Equals K
+https://leetcode.com/problems/subarray-sum-equals-k/description/
 
 Учитывая массив целых чисел nums и целое число k, верните общее количество подмассивов, сумма которых равна k.
 Подмассив — это непрерывная непустая последовательность элементов массива.
@@ -20,13 +21,13 @@ func main() {
 	fmt.Println(subarraySum(nums, k)) // 2
 }
 
+// subarraySum находит количество подмассивов с суммой, равной k.
 func subarraySum(nums []int, k int) int {
-	// Создаем map для хранения сумм и их количества
-	sumMap := make(map[int]int)
-	sumMap[0] = 1 // Инициализируем с суммой 0, встречающейся 1 раз
+	sumMap := make(map[int]int) // Создаем map для хранения сумм и их количества
+	sumMap[0] = 1               // Инициализируем с суммой 0, встречающейся 1 раз
 
-	sum := 0
-	count := 0
+	sum := 0   // Текущая сумма
+	count := 0 // Количество подмассивов с суммой k
 
 	// Проходим по массиву
 	for _, num := range nums {
