@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-/* https://leetcode.com/problems/two-sum/description/
+/* 1. Two Sum
+https://leetcode.com/problems/two-sum/description/
 
 Учитывая массив целых чисел nums и целочисленную target, верните индексы двух чисел так, чтобы их сумма составляла
 target. Вы можете предположить, что каждый вход будет иметь ровно одно решение, и вы не можете использовать один и тот
@@ -23,10 +26,10 @@ Output: [0,1]
 */
 
 func main() {
-	nums := []int{2, 7, 11, 15}
-	fmt.Println(twoSum(nums, 9)) // [0,1]
+	fmt.Println(twoSum([]int{2, 7, 11, 15}, 9)) // [0,1]
 }
 
+// twoSum возвращает индексы двух чисел так, чтобы их сумма составляла target.
 func twoSum(nums []int, target int) []int {
 	// Создаем map для хранения чисел и их индексов
 	numMap := make(map[int]int)
