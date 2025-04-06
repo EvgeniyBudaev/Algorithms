@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/duplicate-zeros/description/
+/* 1089. Duplicate Zeros
+https://leetcode.com/problems/duplicate-zeros/description/
 
 Учитывая целочисленный массив фиксированной длины arr, дублируйте каждое вхождение нуля, сдвигая оставшиеся элементы
 вправо. Обратите внимание, что элементы, превышающие длину исходного массива, не записываются. Внесите вышеуказанные
@@ -23,6 +24,8 @@ func main() {
 	fmt.Println(arr) // [1,0,0,2,3,0,0,4]
 }
 
+// duplicateZeros дублирует каждое вхождение нуля, сдвигая оставшиеся элементы вправо.
+// Элементы, превышающие длину исходного массива, не записываются.
 func duplicateZeros(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		if arr[i] == 0 && len(arr) != 0 {
