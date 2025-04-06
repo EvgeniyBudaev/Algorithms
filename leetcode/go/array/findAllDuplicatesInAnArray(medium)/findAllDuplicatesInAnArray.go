@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
+/* 442. Find All Duplicates in an Array
+https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
 
 Учитывая целочисленный массив nums длины n, где все целые числа nums находятся в диапазоне [1, n] и каждое целое число
 встречается один или два раза, верните массив всех целых чисел, которые встречаются дважды.
@@ -28,17 +29,18 @@ func main() {
 
 // Time O(n)
 // Space O(1)
+// findDuplicates находит дубликаты чисел.
 func findDuplicates(nums []int) []int {
-	sort.Ints(nums)
-	var res []int
+	sort.Ints(nums) // [1, 2, 2, 3, 3, 4, 7, 8]
+	var result []int
 
 	for i := 1; i < len(nums); i++ {
 		if nums[i] == nums[i-1] {
-			res = append(res, nums[i])
+			result = append(result, nums[i])
 		}
 	}
 
-	return res
+	return result
 }
 
 // Invalid Space Complexity
