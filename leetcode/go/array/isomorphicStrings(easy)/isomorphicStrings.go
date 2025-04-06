@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-/* https://leetcode.com/problems/isomorphic-strings/description/
+/* 205. Isomorphic Strings
+https://leetcode.com/problems/isomorphic-strings/description/
 
 Даны две строки s и t. Определите, изоморфны ли они.
 Две строки s и t изоморфны, если символы в s можно заменить, чтобы получить t.
@@ -27,6 +28,7 @@ func main() {
 	fmt.Println(isIsomorphic("egg", "add")) // true
 }
 
+// isIsomorphic определяет, изоморфны ли строки.
 func isIsomorphic(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
