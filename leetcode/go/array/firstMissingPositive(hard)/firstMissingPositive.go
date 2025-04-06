@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/first-missing-positive/description/
+/* 41. First Missing Positive
+https://leetcode.com/problems/first-missing-positive/description/
 
 Дан несортированный целочисленный массив nums. Верните наименьшее положительное целое число, которого нет в nums.
 Вы должны реализовать алгоритм, который работает за время O(n) и использует вспомогательное пространство O(1).
@@ -25,6 +26,7 @@ func main() {
 	fmt.Println(firstMissingPositive(nums)) // 3
 }
 
+// firstMissingPositive возвращает наименьшее положительное целое число, которого нет в nums.
 func firstMissingPositive(nums []int) int {
 	set := make(map[int]bool)
 
