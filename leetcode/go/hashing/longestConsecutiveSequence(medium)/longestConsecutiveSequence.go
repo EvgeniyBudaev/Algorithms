@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/longest-consecutive-sequence/description/
+/* 128. Longest Consecutive Sequence
+https://leetcode.com/problems/longest-consecutive-sequence/description/
 
 Учитывая несортированный массив целых чисел nums, верните длину самой длинной последовательной последовательности
 элементов.
@@ -40,8 +41,8 @@ func longestConsecutive(nums []int) int {
 
 // search проходит по отсортированному массиву и находит самую длинную последовательность
 func search(nums []int) int {
-	maxScore := 1 // Максимальная длина последовательности
-	score := 1    // Текущая длина последовательности
+	maxScore := 1  // Максимальная длина последовательности
+	currScore := 1 // Текущая длина последовательности
 
 	for i := 1; i < len(nums); i++ {
 		// Пропускаем дубликаты
@@ -51,20 +52,20 @@ func search(nums []int) int {
 
 		// Проверяем, является ли текущее число следующим в последовательности
 		if nums[i] == nums[i-1]+1 {
-			score++ // Увеличиваем текущую длину последовательности
+			currScore++ // Увеличиваем текущую длину последовательности
 			continue
 		}
 
 		// Обновляем максимальную длину если текущая последовательность закончилась
-		if score > maxScore {
-			maxScore = score
+		if currScore > maxScore {
+			maxScore = currScore
 		}
-		score = 1 // Сбрасываем счетчик для новой последовательности
+		currScore = 1 // Сбрасываем счетчик для новой последовательности
 	}
 
 	// Возвращаем максимальную длину (на случай если самая длинная последовательность в конце массива)
-	if score > maxScore {
-		return score
+	if currScore > maxScore {
+		return currScore
 	}
 	return maxScore
 }
