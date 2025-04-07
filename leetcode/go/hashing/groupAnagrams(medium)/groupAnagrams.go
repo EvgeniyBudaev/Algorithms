@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/group-anagrams/description/
+/* 49. Group Anagrams
+https://leetcode.com/problems/group-anagrams/description/
 
 Учитывая массив строк strs, сгруппируйте анаграммы вместе. Вы можете вернуть ответ в любом порядке.
 Анаграмма — это слово или фраза, образованная путем перестановки букв другого слова или фразы, обычно с использованием
@@ -26,6 +27,7 @@ func main() {
 	fmt.Println(groupAnagrams(strs)) // [["bat"],["nat","tan"],["ate","eat","tea"]]
 }
 
+// groupAnagrams группирует анаграммы в исходном срезе строк
 func groupAnagrams(strs []string) [][]string {
 	if len(strs) == 0 {
 		return [][]string{}
@@ -39,7 +41,7 @@ func groupAnagrams(strs []string) [][]string {
 		sort.Slice(s, func(i, j int) bool {
 			return s[i] < s[j]
 		})
-		sortedStr := string(s)
+		sortedStr := string(s) // aet, aet, ant, aet, ant, abt
 
 		anagramMap[sortedStr] = append(anagramMap[sortedStr], str)
 	}
@@ -48,6 +50,9 @@ func groupAnagrams(strs []string) [][]string {
 	// Преобразовываем значения карты в срезы срезов
 	result := make([][]string, 0, len(anagramMap))
 	for _, group := range anagramMap {
+		// [eat tea ate]
+		// [tan nat]
+		// [bat]
 		result = append(result, group)
 	}
 
