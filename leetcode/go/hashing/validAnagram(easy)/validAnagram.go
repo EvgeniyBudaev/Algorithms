@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/valid-anagram/description/
+/* 242. Valid Anagram
+https://leetcode.com/problems/valid-anagram/description/
 
 Учитывая две строки s и t, верните true, если t является анаграммой s, и false в противном случае.
 Анаграмма — это слово или фраза, образованная путем перестановки букв другого слова или фразы, обычно с использованием
