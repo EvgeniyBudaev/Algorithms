@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 /* 1426. Counting Elements
@@ -33,37 +32,24 @@ Output: 2
 
 func main() {
 	fmt.Println(countElements([]int{1, 2, 3})) // 2
+	fmt.Println(countElements([]int{1, 1, 2})) // 2
 }
 
+// countElements подсчитывает количество элементов x в массиве, таких что x + 1 также находится в массиве.
 func countElements(arr []int) int {
-	// Создаем map для подсчета количества каждого элемента
-	countMap := make(map[int]int)
+	// Создаем множество (map) для быстрой проверки наличия элементов в массиве.
+	elementSet := make(map[int]bool)
 	for _, num := range arr {
-		countMap[num]++
+		elementSet[num] = true
 	}
 
-	// Создаем slice с уникальными элементами
-	uniqueNums := make([]int, 0, len(countMap))
-	for num := range countMap {
-		uniqueNums = append(uniqueNums, num)
+	count := 0
+	// Проходим по всем элементам массива и проверяем, есть ли (x + 1) в множестве.
+	for _, num := range arr {
+		if elementSet[num+1] {
+			count++
+		}
 	}
 
-	// Если уникальных элементов меньше 3, возвращаем 0
-	if len(uniqueNums) < 3 {
-		return 0
-	}
-
-	// Сортируем уникальные элементы
-	sort.Ints(uniqueNums)
-
-	// Исключаем минимальный и максимальный элементы
-	middleNums := uniqueNums[1 : len(uniqueNums)-1]
-
-	// Суммируем количество оставшихся элементов
-	total := 0
-	for _, num := range middleNums {
-		total += countMap[num]
-	}
-
-	return total
+	return count
 }
