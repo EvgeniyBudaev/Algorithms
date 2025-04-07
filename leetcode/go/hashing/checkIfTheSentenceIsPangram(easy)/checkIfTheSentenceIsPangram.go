@@ -5,7 +5,8 @@ import (
 	"unicode"
 )
 
-/* https://leetcode.com/problems/check-if-the-sentence-is-pangram/description/
+/* 1832. Check if the Sentence Is Pangram
+https://leetcode.com/problems/check-if-the-sentence-is-pangram/description/
 
 Панграмма – это предложение, в котором каждая буква английского алфавита встречается хотя бы один раз.
 Учитывая строковое предложение, содержащее только строчные буквы английского языка, верните true, если предложение
@@ -23,6 +24,7 @@ func main() {
 	fmt.Println(checkIfPangram("leetcode"))                            // false
 }
 
+// checkIfPangram проверяет, является ли предложение панграммой.
 func checkIfPangram(sentence string) bool {
 	if len(sentence) < 26 {
 		return false
@@ -34,5 +36,6 @@ func checkIfPangram(sentence string) bool {
 			letters[unicode.ToLower(char)] = true
 		}
 	}
+
 	return len(letters) == 26
 }
