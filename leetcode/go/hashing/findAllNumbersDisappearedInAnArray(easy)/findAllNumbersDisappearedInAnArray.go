@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+/* 448. Find All Numbers Disappeared in an Array
+https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
 
 Учитывая массив nums из n целых чисел, где nums[i] находится в диапазоне [1, n], верните массив всех целых чисел в
 диапазоне [1, n], которые не встречаются в nums.
@@ -19,18 +20,19 @@ func main() {
 	fmt.Println(findDisappearedNumbers(nums)) // [5,6]
 }
 
+// findDisappearedNumbers - находит пропущенные числа в массиве nums.
 func findDisappearedNumbers(nums []int) []int {
-	numMap := make(map[int]bool)
+	numSet := make(map[int]bool)
 	var result []int
 
 	// Отмечаем все существующие номера на карте
 	for _, num := range nums {
-		numMap[num] = true
+		numSet[num] = true
 	}
 
 	// Проверяем наличие пропущенных цифр от 1 до n
 	for i := 1; i <= len(nums); i++ {
-		if !numMap[i] {
+		if !numSet[i] {
 			result = append(result, i)
 		}
 	}
