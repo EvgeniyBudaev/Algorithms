@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/contiguous-array/description/
+/* 525. Contiguous Array
+https://leetcode.com/problems/contiguous-array/description/
 
 Учитывая числа двоичного массива, верните максимальную длину непрерывного подмассива с равным количеством 0 и 1.
 
@@ -20,13 +21,14 @@ func main() {
 	fmt.Println(findMaxLength(nums)) // 2
 }
 
+// findMaxLength находит максимальную длину непрерывного подмассива с равным количеством 0 и 1.
 func findMaxLength(nums []int) int {
 	maxLen := 0 // Текущая максимальная длина подмассива
 	// count - Отслеживает разницу между количеством единиц и нулей в рассматриваемой части массива.
 	// Если count положительно, это означает, что больше единиц, чем нулей; если отрицательно — наоборот.
 	count := 0
-	countMap := make(map[int]int)
-	countMap[0] = -1
+	countMap := make(map[int]int) // Хранит индексы для каждой уникальной разницы между единицами и нулями
+	countMap[0] = -1              // Инициализация для случая, когда count равен 0.
 
 	for i, num := range nums {
 		if num == 1 {
@@ -34,7 +36,6 @@ func findMaxLength(nums []int) int {
 		} else {
 			count--
 		}
-
 		// Поиск подмассивов с равным количеством нулей и единиц
 		// Если да, то вычисляем длину текущего подмассива как разницу между текущим индексом i и индексом последнего
 		// вхождения такого же count (map[count]). Обновляем maxLen, если текущая длина больше предыдущего максимума.
