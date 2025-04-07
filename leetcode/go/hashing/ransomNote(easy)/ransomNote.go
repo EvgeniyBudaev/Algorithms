@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/ransom-note/description/
+/* 383. Ransom Note
+https://leetcode.com/problems/ransom-note/description/
 
 Учитывая две строки ransomNote и magazine, верните true, если ransomNote можно создать с использованием букв из magazine,
 и false в противном случае.
@@ -19,7 +20,8 @@ Output: true
 */
 
 func main() {
-	fmt.Println(canConstruct("a", "b")) // false
+	fmt.Println(canConstruct("a", "b"))    // false
+	fmt.Println(canConstruct("aa", "aab")) // true
 }
 
 // canConstruct проверяет, можно ли построить строку ransomNote из букв строки magazine
