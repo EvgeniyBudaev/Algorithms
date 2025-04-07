@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+/* 3. Longest Substring Without Repeating Characters
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
 Дана строка s, найдите длину самой длинной подстроки без повторения символов.
 
@@ -24,22 +25,23 @@ func main() {
 	fmt.Println(lengthOfLongestSubstring("abcabcbb")) // 3
 }
 
+// lengthOfLongestSubstring находит длину самой длинной подстрока без повторения символов.
 func lengthOfLongestSubstring(s string) int {
 	if len(s) <= 1 {
 		return len(s)
 	}
 
 	left, right, maxLength := 0, 0, 0
-	charMap := make(map[byte]bool)
+	charSet := make(map[byte]bool)
 
 	for right < len(s) {
 		currentChar := s[right]
-		if _, ok := charMap[currentChar]; !ok {
-			charMap[currentChar] = true
+		if _, ok := charSet[currentChar]; !ok {
+			charSet[currentChar] = true
 			maxLength = max(maxLength, right-left+1)
 			right++
 		} else {
-			delete(charMap, s[left])
+			delete(charSet, s[left])
 			left++
 		}
 	}
