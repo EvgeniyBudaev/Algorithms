@@ -5,7 +5,8 @@ import (
 	"math"
 )
 
-/* https://leetcode.com/problems/maximum-number-of-balloons/description/
+/* 1189. Maximum Number of Balloons
+https://leetcode.com/problems/maximum-number-of-balloons/description/
 
 Учитывая строковый текст, вы хотите использовать символы текста для формирования как можно большего количества
 экземпляров слова «balloon».
@@ -52,9 +53,7 @@ func maxNumberOfBalloons(text string) int {
 	// Находим минимальное значение среди всех требуемых букв
 	minValue := math.Inf(1) // Начинаем с положительной бесконечности
 	for _, count := range counts {
-		if count < minValue {
-			minValue = count
-		}
+		minValue = min(minValue, count)
 	}
 
 	// Возвращаем целую часть минимального значения (округляем вниз)
