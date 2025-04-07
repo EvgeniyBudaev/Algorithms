@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/top-k-frequent-elements/description/
+/* 347. Top K Frequent Elements
+https://leetcode.com/problems/top-k-frequent-elements/description/
 
 Учитывая целочисленный массив nums и целое число k, верните k наиболее часто встречающихся элементов. Вы можете вернуть
 ответ в любом порядке.
@@ -18,7 +19,7 @@ Output: [1]
 */
 
 func main() {
-	fmt.Println(topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)) // [1 2]
+	fmt.Println(topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)) // [1, 2]
 }
 
 // topKFrequent возвращает k наиболее часто встречающихся чисел
@@ -47,6 +48,7 @@ func topKFrequent(nums []int, k int) []int {
 	sort.Slice(numFreqs, func(i, j int) bool {
 		return numFreqs[i].freq > numFreqs[j].freq
 	})
+	// [{1, 3} {2, 2} {3, 1}]
 
 	// Выбираем k самых частых чисел
 	result := make([]int, 0, k)
