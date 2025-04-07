@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/missing-number/description/
+/* 268. Missing Number
+https://leetcode.com/problems/missing-number/description/
 
 Учитывая массив nums, содержащий n различных чисел в диапазоне [0, n], верните единственное число в диапазоне,
 которое отсутствует в массиве.
