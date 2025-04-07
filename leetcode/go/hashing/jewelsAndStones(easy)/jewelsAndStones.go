@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/jewels-and-stones/description/
+/* 771. Jewels and Stones
+https://leetcode.com/problems/jewels-and-stones/description/
 
 Вам даны строки jewels, представляющие типы камней, которые являются jewels, и stones,
 представляющие те камни, которые у вас есть. Каждый символ в stones — это тип камня, который у вас есть.
@@ -20,9 +21,10 @@ func main() {
 	fmt.Println(numJewelsInStones("aA", "aAAbbbb")) // 3
 }
 
+// numJewelsInStones получает количество камней из набора камней в наборе камней
 func numJewelsInStones(jewels string, stones string) int {
-	count := 0
-	jewelSet := make(map[rune]bool)
+	count := 0                      // Счетчик камней
+	jewelSet := make(map[rune]bool) // Множество камней
 
 	// Создаем набор камней для поиска O(1)
 	for _, j := range jewels {
