@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/contains-duplicate/description/
-Javascript - set vs. object https://leetcode.com/problems/contains-duplicate/solutions/515531/javascript-set-vs-object/
+/* 217. Contains Duplicate
+https://leetcode.com/problems/contains-duplicate/description/
 
 Учитывая числа целочисленного массива, верните true, если какое-либо значение встречается в массиве хотя бы дважды, и
 верните false, если каждый элемент различен.
@@ -19,10 +19,10 @@ Output: true
 */
 
 func main() {
-	nums := []int{1, 2, 3, 1}
-	fmt.Println(containsDuplicate(nums)) // true
+	fmt.Println(containsDuplicate([]int{1, 2, 3, 1})) // true
 }
 
+// containsDuplicate проверяет, содержит ли массив повторяющиеся элементы.
 func containsDuplicate(nums []int) bool {
 	seen := make(map[int]bool)
 
