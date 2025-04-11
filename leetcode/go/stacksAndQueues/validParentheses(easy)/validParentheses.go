@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/valid-parentheses/description/
+/* 20. Valid Parentheses
+https://leetcode.com/problems/valid-parentheses/description/
 
 Учитывая строку s, содержащую только символы '(', ')', '{', '}', '[' и ']', определите, является ли входная строка
 допустимой.
@@ -29,8 +30,9 @@ func main() {
 	fmt.Println(isValid("(]"))     // false
 }
 
+// isValid проверяет, что каждой закрывающей скобке соответствует открытая скобка того же типа.
 func isValid(s string) bool {
-	stack := make([]rune, 0)
+	stack := make([]rune, 0) // Стек для хранения открывающих скобок
 	brackets := map[rune]rune{
 		'}': '{',
 		']': '[',
