@@ -27,7 +27,7 @@ func main() {
 // dailyTemperatures — функция, которая возвращает количество дней, которое вам нужно подождать после i-го дня,
 // чтобы получить более высокую температуру.
 func dailyTemperatures(temperatures []int) []int {
-	stack := []int{}
+	var stack []int // Стек для хранения индексов дней с пониженной температурой
 	result := make([]int, len(temperatures))
 
 	for i := 0; i < len(temperatures); i++ {
