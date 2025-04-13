@@ -5,7 +5,8 @@ import (
 	"unicode"
 )
 
-/* https://leetcode.com/problems/make-the-string-great/description/
+/* 1544. Make The String Great
+https://leetcode.com/problems/make-the-string-great/description/
 
 Дана строка s, состоящая из строчных и прописных английских букв.
 Хорошая строка — это строка, в которой нет двух соседних символов s[i] и s[i + 1], где:
@@ -35,17 +36,19 @@ func main() {
 	fmt.Println(makeGood("leEeetcode")) // "leetcode"
 }
 
+// makeGood возвращает хорошую строку.
 func makeGood(s string) string {
 	if len(s) == 0 {
 		return ""
 	}
 
-	var stack []rune
+	var stack []rune // Используем слайс для стека символов
 
 	for _, char := range s {
 		if len(stack) > 0 {
-			last := stack[len(stack)-1]
-			if char != last && unicode.ToLower(char) == unicode.ToLower(last) {
+			lastChar := stack[len(stack)-1]
+			// Если символы являются противоположными регистрами
+			if char != lastChar && unicode.ToLower(char) == unicode.ToLower(lastChar) {
 				stack = stack[:len(stack)-1] // Удаляем последний элемент
 				continue
 			}
