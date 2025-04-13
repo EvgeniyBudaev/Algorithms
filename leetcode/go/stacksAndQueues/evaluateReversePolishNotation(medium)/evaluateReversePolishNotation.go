@@ -5,7 +5,8 @@ import (
 	"strconv"
 )
 
-/* https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
+/* 150. Evaluate Reverse Polish Notation
+https://leetcode.com/problems/evaluate-reverse-polish-notation/description/
 
 Вам дан массив строковых токенов, который представляет арифметическое выражение в обратной польской нотации.
 Оцените выражение. Возвращает целое число, представляющее значение выражения.
@@ -33,6 +34,7 @@ func main() {
 	fmt.Println(evalRPN(tokens)) // 9
 }
 
+// evalRPN - оценка выражения в обратной польской нотации
 func evalRPN(tokens []string) int {
 	stack := []int{}
 	operators := map[string]func(int, int) int{
