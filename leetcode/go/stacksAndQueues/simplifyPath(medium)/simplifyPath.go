@@ -5,7 +5,8 @@ import (
 	"strings"
 )
 
-/* https://leetcode.com/problems/simplify-path/description/
+/* 71. Simplify Path
+https://leetcode.com/problems/simplify-path/description/
 
 Учитывая абсолютный путь к файловой системе в стиле Unix, который начинается с косой черты «/», преобразуйте этот путь в
 упрощенный канонический путь.
@@ -44,14 +45,15 @@ func main() {
 	fmt.Println(simplifyPath("/home//foo/")) // "/home/foo"
 }
 
+// simplifyPath принимает абсолютный путь в стиле Unix и возвращает упрощенный канонический путь.
 func simplifyPath(path string) string {
-	var stack []string
-	directories := strings.Split(path, "/")
+	var stack []string                      // Стек для хранения директорий
+	directories := strings.Split(path, "/") // Разбиваем путь на составляющие директории
 
 	for _, dir := range directories {
-		if dir == "." || dir == "" {
+		if dir == "." || dir == "" { // Пропускаем текущий каталог и пустые строки
 			continue
-		} else if dir == ".." {
+		} else if dir == ".." { // Обрабатываем переход на один уровень каталога вверх
 			if len(stack) > 0 {
 				stack = stack[:len(stack)-1] // Удаляем последний элемент
 			}
@@ -60,5 +62,5 @@ func simplifyPath(path string) string {
 		}
 	}
 
-	return "/" + strings.Join(stack, "/")
+	return "/" + strings.Join(stack, "/") // Собираем упрощенный путь из элементов стека
 }
