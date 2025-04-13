@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/daily-temperatures/description/
+/* 739. Daily Temperatures
+https://leetcode.com/problems/daily-temperatures/description/
 
 Учитывая, что массив целых чисел представляет собой ежедневную температуру, верните ответ массива, такой,
 что ответ [i] — это количество дней, которое вам нужно подождать после i-го дня, чтобы получить более высокую
@@ -23,15 +24,17 @@ func main() {
 	fmt.Println(dailyTemperatures(temps)) // [1,1,4,2,1,1,0,0]
 }
 
+// dailyTemperatures — функция, которая возвращает количество дней, которое вам нужно подождать после i-го дня,
+// чтобы получить более высокую температуру.
 func dailyTemperatures(temperatures []int) []int {
 	stack := []int{}
 	result := make([]int, len(temperatures))
 
 	for i := 0; i < len(temperatures); i++ {
 		for len(stack) > 0 && temperatures[i] > temperatures[stack[len(stack)-1]] {
-			idx := stack[len(stack)-1]
+			idx := stack[len(stack)-1]   // Запоминаем индекс последнего элемента в стеке
 			stack = stack[:len(stack)-1] // Удаляем последний элемент
-			result[idx] = i - idx
+			result[idx] = i - idx        // Записываем количество дней
 		}
 		stack = append(stack, i)
 	}
