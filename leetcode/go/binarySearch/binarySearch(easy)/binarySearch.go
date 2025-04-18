@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/binary-search/description/
+/* 704. Binary Search
+https://leetcode.com/problems/binary-search/description/
 
 Учитывая массив целых чисел nums, отсортированный в порядке возрастания, и целочисленную цель, напишите функцию для
 поиска цели в nums. Если цель существует, верните ее индекс. В противном случае верните -1.
