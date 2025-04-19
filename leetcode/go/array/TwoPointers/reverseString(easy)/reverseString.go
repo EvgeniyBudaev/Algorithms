@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/reverse-string/description/
+/* 344. Reverse String
+https://leetcode.com/problems/reverse-string/description/
 
 Напишите функцию, которая переворачивает строку. Входная строка задается как массив символов s.
 
