@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/move-zeroes/description/
+/* 283. Move Zeroes
+https://leetcode.com/problems/move-zeroes/description/
 
 Учитывая целочисленный массив nums, переместите все 0 в его конец, сохраняя относительный порядок ненулевых элементов.
 Обратите внимание, что вы должны сделать это на месте, не копируя массив.
