@@ -11,7 +11,8 @@ import "fmt"
 */
 
 func main() {
-	fmt.Println(checkForTarget([]int{1, 2, 4, 6, 8, 9, 14, 15}, 13)) // true
+	nums := []int{1, 2, 4, 6, 8, 9, 14, 15}
+	fmt.Println(checkForTarget(nums, 13)) // true
 }
 
 // checkForTarget проверяет, существует ли в отсортированном массиве nums пара чисел, сумма которых равна заданному целевому значению target.
