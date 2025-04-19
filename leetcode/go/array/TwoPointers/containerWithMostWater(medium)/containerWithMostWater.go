@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-/* https://leetcode.com/problems/container-with-most-water/description/
+/* 11. Container With Most Water
+https://leetcode.com/problems/container-with-most-water/description/
 
 Вам дан целочисленный массив высотой длины n. Нарисовано n вертикальных линий, конечными точками которых являются
  (i, 0) и (i, height[i]).
@@ -26,7 +27,8 @@ Space complexity: O(1)
 */
 
 func main() {
-	fmt.Println(maxArea([]int{1, 8, 6, 2, 5, 4, 8, 3, 7})) // 49
+	nums := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+	fmt.Println(maxArea(nums)) // 49
 }
 
 // maxArea вычисляет максимальную площадь контейнера, образованного двумя вертикальными линиями и осью X,
