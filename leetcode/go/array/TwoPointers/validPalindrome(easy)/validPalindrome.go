@@ -5,7 +5,8 @@ import (
 	"unicode"
 )
 
-/* https://leetcode.com/problems/valid-palindrome/description/
+/* 125. Valid Palindrome
+https://leetcode.com/problems/valid-palindrome/description/
 
 Фраза является палиндромом, если после преобразования всех прописных букв в строчные и удаления всех небуквенно-цифровых
 символов она читается одинаково и вперед, и назад. Буквенно-цифровые символы включают буквы и цифры.
