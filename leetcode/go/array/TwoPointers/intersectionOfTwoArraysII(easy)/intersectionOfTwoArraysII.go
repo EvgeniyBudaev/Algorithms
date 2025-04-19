@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
+/* 350. Intersection of Two Arrays II
+https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
 
 Учитывая два целочисленных массива nums1 и nums2, верните массив их пересечения. Каждый элемент результата должен
 появляться столько раз, сколько он отображается в обоих массивах, и вы можете возвращать результат в любом порядке.
