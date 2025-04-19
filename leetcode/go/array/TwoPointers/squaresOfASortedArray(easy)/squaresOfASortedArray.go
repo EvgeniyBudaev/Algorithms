@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/squares-of-a-sorted-array/description/
+/* 977. Squares of a Sorted Array
+https://leetcode.com/problems/squares-of-a-sorted-array/description/
 
 Учитывая целочисленный массив nums, отсортированный в неубывающем порядке, верните массив квадратов каждого числа,
 отсортированного в неубывающем порядке.
