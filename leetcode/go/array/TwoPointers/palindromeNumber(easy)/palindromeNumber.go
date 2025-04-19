@@ -5,7 +5,8 @@ import (
 	"strconv"
 )
 
-/* https://leetcode.com/problems/palindrome-number/description/
+/* 9. Palindrome Number
+https://leetcode.com/problems/palindrome-number/description/
 
 Учитывая целое число x, верните true, если x является палиндром и false в противном случае.
 
