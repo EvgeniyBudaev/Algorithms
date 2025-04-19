@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
+/* 167. Two Sum II - Input Array Is Sorted
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 
 Учитывая массив целых чисел с индексом 1, который уже отсортирован в неубывающем порядке, найдите два числа, сумма
 которых дает определенное целевое число. Пусть эти два числа будут числами[индекс1] и числами[индекс2],
