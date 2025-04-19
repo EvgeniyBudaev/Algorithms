@@ -6,7 +6,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/3sum-closest/description/
+/* 16. 3Sum Closest
+https://leetcode.com/problems/3sum-closest/description/
 
 Учитывая целочисленный массив nums длины n и целочисленную цель, найдите три целых числа в nums, сумма которых наиболее
 близка к цели. Верните сумму трех целых чисел. Вы можете предположить, что каждый вход будет иметь ровно одно решение.
@@ -25,10 +26,11 @@ func main() {
 	fmt.Println(threeSumClosest(nums, 1)) // 2
 }
 
+// threeSumClosest возвращает сумму трех целых чисел, ближайшую к цели.
 func threeSumClosest(nums []int, target int) int {
-	sort.Ints(nums)
-	n := len(nums)
-	closestSum := nums[0] + nums[1] + nums[2]
+	sort.Ints(nums)                           // Сортируем массив чисел // [-4,-1,1,2]
+	n := len(nums)                            // Длина массива чисел
+	closestSum := nums[0] + nums[1] + nums[2] // Инициализируем ближайшую сумму тремя первыми элементами массива
 
 	// n-2, чтобы гарантировать, что после текущего элемента nums[i] останется как минимум два элемента для формирования тройки.
 	for i := 0; i < n-2; i++ {
