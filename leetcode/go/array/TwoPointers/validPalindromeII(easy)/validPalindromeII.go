@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/valid-palindrome-ii/description/
+/* 680. Valid Palindrome II
+https://leetcode.com/problems/valid-palindrome-ii/description/
 
 Учитывая строку s, верните true, если s может быть палиндромом после удаления из нее не более одного символа.
 
