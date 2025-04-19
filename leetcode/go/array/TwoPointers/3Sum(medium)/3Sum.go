@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/3sum/description/
+/* 15. 3Sum
+https://leetcode.com/problems/3sum/description/
 
 Учитывая целочисленный массив nums, верните все тройки [nums[i], nums[j], nums[k]] такие,
 что i != j, i != k и j != k и nums[i] + nums[j] + nums[к] == 0.
@@ -34,8 +35,9 @@ func main() {
 	fmt.Println(threeSum(nums)) // [[-1 -1 2] [-1 0 1]]
 }
 
+// threeSum функция принимает массив целых чисел и возвращает все тройки чисел, которые имеют сумму равную 0.
 func threeSum(nums []int) [][]int {
-	var res [][]int
+	var res [][]int // Массив для хранения результатов
 	sort.Ints(nums)
 
 	for i := 0; i < len(nums); i++ {
@@ -52,8 +54,8 @@ func threeSum(nums []int) [][]int {
 		if i > 0 && num == nums[i-1] {
 			continue
 		}
-		left := i + 1
-		right := len(nums) - 1
+		left := i + 1          // Указатель на следующий элемент после текущего числа
+		right := len(nums) - 1 // Указатель на последний элемент
 		for left < right {
 			threeSum := num + nums[left] + nums[right]
 			if threeSum > 0 {
