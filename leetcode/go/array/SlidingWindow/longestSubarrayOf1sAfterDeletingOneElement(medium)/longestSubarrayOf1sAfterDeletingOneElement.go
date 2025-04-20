@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description/
+/* 1493. Longest Subarray of 1's After Deleting One Element
+https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description/
 
 Учитывая двоичный массив nums, вам следует удалить из него один элемент.
 Верните размер самого длинного непустого подмассива, содержащего только 1 в результирующем массиве. Верните 0, если
