@@ -19,7 +19,8 @@ Output: [1]
 */
 
 func main() {
-	fmt.Println(topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)) // [1, 2]
+	nums := []int{1, 1, 1, 2, 2, 3}
+	fmt.Println(topKFrequent(nums, 2)) // [1, 2]
 }
 
 // topKFrequent возвращает k наиболее часто встречающихся чисел
