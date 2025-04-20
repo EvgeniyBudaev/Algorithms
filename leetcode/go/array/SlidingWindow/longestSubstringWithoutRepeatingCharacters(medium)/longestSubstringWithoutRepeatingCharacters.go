@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+/* 3. Longest Substring Without Repeating Characters
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
 Дана строка s. Найдите длину самой длинной подстрока без повторения символов.
 
