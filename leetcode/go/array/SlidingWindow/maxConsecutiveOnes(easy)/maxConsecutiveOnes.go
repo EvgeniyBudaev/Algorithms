@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/max-consecutive-ones/description/
+/* 485. Max Consecutive Ones
+https://leetcode.com/problems/max-consecutive-ones/description/
 
 Для двоичного массива nums вернуть максимальное количество последовательных 1 в массиве.
 
