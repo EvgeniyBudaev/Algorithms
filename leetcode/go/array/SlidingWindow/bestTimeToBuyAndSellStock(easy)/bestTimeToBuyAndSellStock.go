@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
-solution https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solutions/1735550/python-javascript-easy-solution-with-very-clear-explanation/
+/* 121. Best Time to Buy and Sell Stock
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 
 Вам дан массив цен, где цены[i] — это цена данной акции на i-й день.
 Вы хотите максимизировать свою прибыль, выбрав один день для покупки одной акции и выбрав другой день в будущем для
@@ -22,7 +22,8 @@ Output: 0
 */
 
 func main() {
-	fmt.Println(maxProfit([]int{7, 1, 5, 3, 6, 4})) // 5
+	prices := []int{7, 1, 5, 3, 6, 4}
+	fmt.Println(maxProfit(prices)) // 5
 }
 
 // maxProfit вычисляет максимальную возможную прибыль от покупки и продажи акций на основе массива цен.
@@ -30,13 +31,12 @@ func maxProfit(prices []int) int {
 	left, right, profit := 0, 1, 0 // left - для покупки, right - для продажи
 
 	for right < len(prices) {
+		// если цена акции меньше или равна цене акции в день покупки, то сдвигаем левую границу на один шаг вправо
 		if prices[right] <= prices[left] {
 			left = right
 		}
-		window := prices[right] - prices[left]
-		if window > profit {
-			profit = window
-		}
+		window := prices[right] - prices[left] // прибыль от текущей продажи акций
+		profit = max(profit, window)           // сохраняем максимальную прибыль
 		right++
 	}
 
