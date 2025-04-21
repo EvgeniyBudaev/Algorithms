@@ -36,7 +36,7 @@ func firstMissingPositive(nums []int) int {
 		}
 	}
 
-	i := 1
+	i := 1 // наименьшее положительное целое число
 	for set[i] {
 		i++
 	}
