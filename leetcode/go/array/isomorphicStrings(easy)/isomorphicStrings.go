@@ -38,8 +38,10 @@ func isIsomorphic(s string, t string) bool {
 
 	for i := range s {
 		if v, ok := charMap[s[i]]; !ok {
+			// Символ не существует, добавляем его в карту.
 			charMap[s[i]] = t[i]
 		} else {
+			// Если символ уже существует, но не соответствует текущему символу строки t, возвращаем false.
 			if v != t[i] {
 				return false
 			}
