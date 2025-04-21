@@ -23,17 +23,17 @@ func main() {
 	removeElement([]int{3, 2, 2, 3}, 3) // [2,2]
 }
 
-// removeElement удаляет все вхождения val в nums на месте.
+// removeElement удаляет все вхождения val в nums.
 func removeElement(nums []int, val int) int {
 	count := 0 // Счетчик для отслеживания элементов, отличных от val
 
 	for i := 0; i < len(nums); i++ {
-		if nums[i] != val {
+		if nums[i] != val { // Если текущий элемент не равен val, то переносим его в начало массива
 			nums[count] = nums[i]
 			count++
 		}
 	}
-
+	// [2,2,3,3] -> [2,2,_,_]
 	nums = nums[:count] // Обрезаем срез до фактической длины
 	fmt.Println(nums)   // [2,2]
 	return count
