@@ -35,52 +35,10 @@ func findDuplicates(nums []int) []int {
 	var result []int
 
 	for i := 1; i < len(nums); i++ {
-		if nums[i] == nums[i-1] {
+		if nums[i] == nums[i-1] { // если текущий элемент равен предыдущему, добавляем его в результат
 			result = append(result, nums[i])
 		}
 	}
 
 	return result
 }
-
-// Invalid Space Complexity
-//func findDuplicates(nums []int) []int {
-//	set := make(map[int]bool) // Используем map для хранения уникальных значений
-//	result := make([]int, 0)
-//
-//	for _, num := range nums {
-//		if set[num] {
-//			result = append(result, num)
-//		} else {
-//			set[num] = true
-//		}
-//	}
-//
-//	return result
-//}
-
-// Time O(n)
-// Space O(1)
-//func findDuplicates(nums []int) []int {
-//	var result []int
-//
-//	for _, num := range nums {
-//		n := abs(num)
-//
-//		if nums[n-1] < 0 { // Проверяем, отрицателен ли nums[n-1]
-//			// Если да, значит, число n уже встречалось ранее (так как мы инвертировали его в прошлый раз), и это дубликат → добавляем n в результат
-//			result = append(result, n)
-//		}
-//		// Если нет, инвертируем знак (nums[n-1] = -nums[n-1]), чтобы отметить, что число n уже встречалось.
-//		nums[n-1] = -nums[n-1]
-//	}
-//
-//	return result
-//}
-//
-//func abs(n int) int {
-//	if n < 0 {
-//		return -n
-//	}
-//	return n
-//}
