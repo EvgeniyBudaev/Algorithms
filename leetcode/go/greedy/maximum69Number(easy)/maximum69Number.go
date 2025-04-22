@@ -33,6 +33,7 @@ func main() {
 	fmt.Println(maximum69Number(9996)) // 9999
 }
 
+// maximum69Number возвращает максимальное число, полученное из числа с заменой одной цифры 6 на 9
 func maximum69Number(num int) int {
 	// Преобразуем число в строку, чтобы работать с отдельными цифрами
 	s := strconv.Itoa(num)
