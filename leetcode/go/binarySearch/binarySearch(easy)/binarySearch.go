@@ -23,6 +23,7 @@ func main() {
 	fmt.Println(search(nums, 9)) // 4
 }
 
+// search возвращает индекс элемента массива или -1, если элемент отсутствует в массиве.
 func search(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
