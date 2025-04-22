@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+/* 153. Find Minimum in Rotated Sorted Array
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
 
 Предположим, что массив длины n, отсортированный в порядке возрастания, поворачивается от 1 до n раз. Например, массив
 nums = [0,1,2,4,5,6,7] может выглядеть следующим образом:
@@ -25,6 +26,7 @@ func main() {
 	fmt.Println(findMin(nums)) // 1
 }
 
+// findMin возвращает минимальный элемент повернутого отсортированного массива.
 func findMin(nums []int) int {
 	left, right := 0, len(nums)-1
 
@@ -33,6 +35,7 @@ func findMin(nums []int) int {
 		guess := nums[mid]
 		leftNum, rightNum := nums[left], nums[right]
 
+		// Если левый элемент меньше правого элемента, то массив отсортирован и минимальный элемент левый.
 		if leftNum < rightNum {
 			return leftNum
 		}
