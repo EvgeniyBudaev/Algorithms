@@ -29,15 +29,17 @@ Output: 8
 
 func main() {
 	boxTypes := [][]int{{1, 3}, {2, 2}, {3, 1}}
-	fmt.Println(maximumUnits(boxTypes, 4)) // 8
+	truckSize := 4
+	fmt.Println(maximumUnits(boxTypes, truckSize)) // 8
 }
 
+// maximumUnits возвращает максимальное количество коробок, которое можно разместить в грузовике.
 func maximumUnits(boxTypes [][]int, truckSize int) int {
 	// Сортируем коробки по количеству единиц в убывающем порядке
-	sort.Slice(boxTypes, func(i, j int) bool { // [[1 3] [2 2] [3 1]]
+	sort.Slice(boxTypes, func(i, j int) bool {
 		return boxTypes[i][1] > boxTypes[j][1]
 	})
-	fmt.Println(boxTypes)
+	// после сортировки получаем [[1 3] [2 2] [3 1]]
 
 	countOfUnits := 0
 
@@ -45,6 +47,7 @@ func maximumUnits(boxTypes [][]int, truckSize int) int {
 	for _, box := range boxTypes {
 		// Определяем сколько коробок можно взять (не больше чем есть или вмещает грузовик)
 		allowedBoxes := box[0]
+		// Если есть больше коробок чем вмещает грузовик, берем только те, которые вмещает
 		if allowedBoxes > truckSize {
 			allowedBoxes = truckSize
 		}
