@@ -25,11 +25,12 @@ func main() {
 	fmt.Println(maxNumberOfApples(arr)) // 5
 }
 
+// maxNumberOfApples возвращает максимальное количество яблок, которое можно поместить в корзину без превышения веса.
 func maxNumberOfApples(appleWeights []int) int {
-	// Сортируем яблоки по весу (от легких к тяжелым)
-	sort.Ints(appleWeights)
 	totalWeight := 0
 	limit := 5000
+	// Сортируем яблоки по весу (от легких к тяжелым)
+	sort.Ints(appleWeights)
 
 	for i, weight := range appleWeights {
 		totalWeight += weight
