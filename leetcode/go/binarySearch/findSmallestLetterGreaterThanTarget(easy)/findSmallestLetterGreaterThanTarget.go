@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
+/* 744. Find Smallest Letter Greater Than Target
+https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
 
 Вам дан массив символов-букв, отсортированный в неубывающем порядке, и целевой символ. В буквах есть как минимум два
 разных символа.
@@ -19,6 +20,7 @@ func main() {
 	fmt.Println(nextGreatestLetter(letters, 'a')) // 99
 }
 
+// nextGreatestLetter возвращает наименьший буквенный символ, который лексикографически больше целевого символа.
 func nextGreatestLetter(letters []byte, target byte) byte {
 	length := len(letters)
 
@@ -33,6 +35,7 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 		mid := (low + high) / 2
 		guess := letters[mid]
 
+		// Если текущий символ больше целевого, и предыдущий символ меньше или равен целевому, возвращаем текущий символ
 		if guess > target && target >= letters[mid-1] {
 			return guess
 		}
