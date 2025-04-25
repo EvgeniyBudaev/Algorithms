@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-/*
+/* 70. Climbing Stairs
 https://leetcode.com/problems/climbing-stairs/description/
 
 Вы поднимаетесь по лестнице. Чтобы достичь вершины, нужно n шагов.
