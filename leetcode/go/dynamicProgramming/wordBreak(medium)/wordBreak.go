@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/word-break/description/
+/* 139. Word Break
+https://leetcode.com/problems/word-break/description/
 
 Учитывая строку s и словарь строк wordDict, верните true, если s можно сегментировать в разделенную пробелами
 последовательность из одного или нескольких словарных слов.
@@ -29,7 +30,7 @@ func main() {
 
 // wordBreak проверяет, можно ли разбить строку на слова из словаря
 func wordBreak(s string, wordDict []string) bool {
-	n := len(s)
+	n := len(s) // Длина входной строки
 
 	// Создаем map для быстрого поиска слов
 	wordSet := make(map[string]bool)
@@ -41,12 +42,12 @@ func wordBreak(s string, wordDict []string) bool {
 	dp := make([]bool, n+1)
 	dp[0] = true // Пустая строка считается разбиваемой
 
-	for i := 1; i <= n; i++ {
-		for j := 0; j < i; j++ {
+	for i := 1; i <= n; i++ { // Проходим по всем возможным длинам подстроки
+		for j := 0; j < i; j++ { // Проходим по всем возможным длинам предыдущей подстроки
 			// Проверяем, можно ли разбить подстроку s[0:j] и содержится ли s[j:i] в словаре
 			if dp[j] && wordSet[s[j:i]] {
-				dp[i] = true
-				break // Нашли разбиение, переходим к следующему i
+				dp[i] = true // Подстрока разбиваема
+				break        // Нашли разбиение, переходим к следующему i
 			}
 		}
 	}
