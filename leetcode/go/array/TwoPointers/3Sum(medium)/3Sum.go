@@ -38,7 +38,7 @@ func main() {
 // threeSum функция принимает массив целых чисел и возвращает все тройки чисел, которые имеют сумму равную 0.
 func threeSum(nums []int) [][]int {
 	var res [][]int // Массив для хранения результатов
-	sort.Ints(nums)
+	sort.Ints(nums) // [-4, -1, -1, 0, 1, 2]
 
 	for i := 0; i < len(nums); i++ {
 		num := nums[i]
