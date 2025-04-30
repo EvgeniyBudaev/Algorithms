@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/sort-colors/description/
+/* 75. Sort Colors
+https://leetcode.com/problems/sort-colors/description/
 
 Дан массив nums с n объектами красного, белого или синего цвета, отсортируйте их по месту так, чтобы объекты одного
 цвета были соседними, а цвета располагались в порядке красного, белого и синего.
@@ -22,18 +23,22 @@ func main() {
 	fmt.Println(nums) // [0,0,1,1,2,2]
 }
 
+// sortColors сортирует массив целых чисел по возрастанию
 func sortColors(nums []int) {
-	i := 0
+	i := 0 // индекс текущего элемента
 	left, right := 0, len(nums)-1
 
 	for left < right && i <= right {
+		// если текущий элемент равен 0, то меняем его местами с элементом в начале массива
 		if nums[i] == 0 {
 			nums[left], nums[i] = nums[i], nums[left]
 			left++
 			i++
+			// если текущий элемент равен 2, то меняем его местами с элементом в конце массива
 		} else if nums[i] == 2 {
 			nums[right], nums[i] = nums[i], nums[right]
 			right--
+			// если текущий элемент равен 1, то оставляем его на месте и переходим к следующему элементу
 		} else {
 			i++
 		}
