@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/interval-list-intersections/description/
+/* 986. Interval List Intersections
+https://leetcode.com/problems/interval-list-intersections/description/
 solution https://leetcode.com/problems/interval-list-intersections/solutions/4686775/simple-easy-solution-using-two-pointer/
 
 Вам даны два списка закрытых интервалов, firstList и SecondList,
@@ -23,20 +24,23 @@ func main() {
 	fmt.Println(intervalIntersection(firstList, secondList)) // [[1 2] [5 5] [8 10] [15 23] [24 24] [25 25]]
 }
 
+// intervalIntersection находит пересечение двух списков интервалов.
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	var result [][]int
 	left, right := 0, 0
 
 	for left < len(firstList) && right < len(secondList) {
-		first := firstList[left]
-		second := secondList[right]
-		start := max(first[0], second[0])
-		end := min(first[1], second[1])
-		if start <= end {
+		first := firstList[left]          // текущий интервал первого списка
+		second := secondList[right]       // текущий интервал второго списка
+		start := max(first[0], second[0]) // максимальное начало
+		end := min(first[1], second[1])   // минимальное окончание
+		if start <= end {                 // если начало меньше окончания, то добавляем интервал в результат
 			result = append(result, []int{start, end})
 		}
+		// если окончание первого интервала меньше второго, то двигаем указатель первого интервала, иначе двигаем второй
 		if first[1] < second[1] {
 			left++
+			// если окончание первого интервала больше второго, то двигаем указатель второго интервала
 		} else if first[1] > second[1] {
 			right++
 		} else {
