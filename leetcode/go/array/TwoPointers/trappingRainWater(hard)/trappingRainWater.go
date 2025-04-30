@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/trapping-rain-water/description/
+/* 42. Trapping Rain Water
+https://leetcode.com/problems/trapping-rain-water/description/
 
 Учитывая n неотрицательных целых чисел, представляющих карту высот, где ширина каждой полосы равна 1, вычислите,
 сколько воды она может удержать после дождя.
@@ -18,22 +19,24 @@ func main() {
 	fmt.Println(trap(height)) // 6
 }
 
+// trap вычисляет количество воды, которое может быть залита в массиве высот после дождя.
 func trap(height []int) int {
 	left := 0
-	leftMaxValue := height[left]
+	leftMaxValue := height[left] // максимальная высота слева
 	right := len(height) - 1
-	rightMaxValue := height[right]
-	sum := 0
+	rightMaxValue := height[right] // максимальная высота справа
+	sum := 0                       // общее количество воды, которое может быть залита
 
 	for left < right {
+		// если максимальная высота слева меньше максимальной высоты справа, двигаем левую границу вправо
 		if leftMaxValue <= rightMaxValue {
-			sum += leftMaxValue - height[left]
+			sum += leftMaxValue - height[left] // вычисляем количество воды, которое может быть залита в текущей ячейке
 			left++
-			leftMaxValue = max(leftMaxValue, height[left])
+			leftMaxValue = max(leftMaxValue, height[left]) // обновляем максимальную высоту слева
 		} else {
-			sum += rightMaxValue - height[right]
+			sum += rightMaxValue - height[right] // вычисляем количество воды, которое может быть залита в текущей ячейке
 			right--
-			rightMaxValue = max(rightMaxValue, height[right])
+			rightMaxValue = max(rightMaxValue, height[right]) // обновляем максимальную высоту справа
 		}
 	}
 
