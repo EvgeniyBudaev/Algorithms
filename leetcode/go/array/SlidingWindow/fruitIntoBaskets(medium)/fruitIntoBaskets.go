@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/fruit-into-baskets/description/
+/* 904. Fruit Into Baskets
+https://leetcode.com/problems/fruit-into-baskets/description/
 
 Вы посещаете ферму, на которой есть один ряд фруктовых деревьев, расположенных слева направо. Деревья представлены
 целочисленным массивом фруктов, где Fruit[i] — тип фруктов, которые производит i-е дерево.
@@ -33,30 +34,32 @@ Output: 4
 */
 
 func main() {
-	fruits := []int{1, 2, 1}
-	fmt.Println(totalFruit(fruits)) // Вывод: 3
+	fruits := []int{1, 2, 3, 2, 2}
+	fmt.Println(totalFruit(fruits)) // Вывод: 4 // [2,3,2,2]
 }
 
+// totalFruit возвращает максимальное количество фруктов, которые можно собрать в двух корзинах.
 func totalFruit(fruits []int) int {
 	fruitMap := make(map[int]int) // Хранит количество фруктов каждого типа в текущем окне
-	left, maxCount := 0, 0
+	left, maxCount := 0, 0        // Левый указатель окна и максимальное количество фруктов
 
 	for right := 0; right < len(fruits); right++ {
-		rightFruit := fruits[right]
-		fruitMap[rightFruit]++ // Увеличиваем количество текущего фрукта
+		rightFruit := fruits[right] // Фрукт на правом указателе
+		fruitMap[rightFruit]++      // Увеличиваем количество текущего фрукта
 
 		// Если в окне больше двух типов фруктов, сдвигаем left
 		for len(fruitMap) > 2 {
-			leftFruit := fruits[left]
-			fruitMap[leftFruit]-- // Уменьшаем количество фрукта слева
+			leftFruit := fruits[left] // Фрукт на левом указателе
+			fruitMap[leftFruit]--     // Уменьшаем количество фрукта слева
 			if fruitMap[leftFruit] == 0 {
 				delete(fruitMap, leftFruit) // Удаляем фрукт из map, если его количество стало 0
 			}
 			left++
 		}
 
-		// Обновляем максимальную длину окна
+		// Текущий размер окна
 		currentWindow := right - left + 1
+		// Обновляем максимальную длину окна
 		maxCount = fruitMap[currentWindow]
 	}
 
