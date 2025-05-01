@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-all-anagrams-in-a-string/description/
+/* 438. Find All Anagrams in a String
+https://leetcode.com/problems/find-all-anagrams-in-a-string/description/
 
 Учитывая две строки s и p, верните массив всех начальных индексов анаграмм p в s. Вы можете вернуть ответ в любом
 порядке.
@@ -20,9 +21,10 @@ func main() {
 	fmt.Println(findAnagrams("cbaebabacd", "abc")) // [0,6]
 }
 
+// findAnagrams находит все анаграммы строки p в строке s и возвращает их начальные индексы.
 func findAnagrams(s string, p string) []int {
-	arr := []int{}
-	charMap := make(map[byte]int)
+	result := []int{}
+	charMap := make(map[byte]int) // Словарь для подсчета символов в строке p
 
 	// Заполняем map для строки p
 	for i := 0; i < len(p); i++ {
@@ -42,7 +44,7 @@ func findAnagrams(s string, p string) []int {
 
 		// Если count == 0, значит, нашли анаграмму
 		if count == 0 {
-			arr = append(arr, left)
+			result = append(result, left)
 		}
 
 		// Если окно достигло размера p, сдвигаем left
@@ -57,5 +59,5 @@ func findAnagrams(s string, p string) []int {
 		}
 	}
 
-	return arr
+	return result
 }
