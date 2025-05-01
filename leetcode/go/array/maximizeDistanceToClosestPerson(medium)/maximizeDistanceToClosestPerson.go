@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-/* https://leetcode.com/problems/maximize-distance-to-closest-person/description/
+/* 849. Maximize Distance to Closest Person
+https://leetcode.com/problems/maximize-distance-to-closest-person/description/
 
 Вам дан массив, представляющий ряд мест, где места[i] = 1 представляет человека, сидящего на i-м месте, а места[i] = 0
 означает, что i-е место пусто (индексировано 0).
@@ -25,20 +26,26 @@ func main() {
 	fmt.Println(maxDistToClosest(seats)) // 2
 }
 
+// maxDistToClosest возвращает максимальное расстояние до ближайшего человека.
 func maxDistToClosest(seats []int) int {
-	prev := -1
-	ans := 0
+	prev := -1 // Предыдущее занятое сиденье
+	result := 0
 
 	for i := 0; i < len(seats); i++ {
+		// Если сиденье занято, обновляем максимальное расстояние до ближайшего человека
 		if seats[i] == 1 {
+			// Если это первое занятое сиденье, обновляем максимальное расстояние до ближайшего человека
 			if prev == -1 {
-				ans = i
+				result = i
 			} else {
-				ans = max(ans, (i-prev)/2)
+				// Если сиденье не первое занятое, обновляем максимальное расстояние до ближайшего человека
+				result = max(result, (i-prev)/2)
 			}
+			// Запоминаем индекс текущего занятое сиденья
 			prev = i
 		}
 	}
 
-	return max(ans, len(seats)-1-prev)
+	// Обновляем максимальное расстояние до ближайшего человека, если последнее занятое сиденье находится в конце массива
+	return max(result, len(seats)-1-prev)
 }
