@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/longest-repeating-character-replacement/description/
+/* 424. Longest Repeating Character Replacement
+https://leetcode.com/problems/longest-repeating-character-replacement/description/
 
 Вам дана строка s и целое число k. Вы можете выбрать любой символ строки и заменить его на любой другой символ
 английского верхнего регистра. Эту операцию можно выполнить не более k раз.
@@ -32,15 +33,15 @@ func characterReplacement(s string, k int) int {
 	left := 0                     // Указатель на начало окна
 
 	for right := 0; right < len(s); right++ {
-		currentChar := s[right]
-		charMap[currentChar]++ // Увеличиваем количество текущего символа
+		currentChar := s[right] // Текущий символ
+		charMap[currentChar]++  // Увеличиваем количество текущего символа
 
 		// Обновляем максимальную частоту символа в окне
 		if charMap[currentChar] > maxFreq {
 			maxFreq = charMap[currentChar]
 		}
 
-		window := right - left + 1
+		window := right - left + 1 // Размер текущего окна
 		// Если размер окна превышает maxFreq + k, сдвигаем left
 		if window-maxFreq > k {
 			charMap[s[left]]-- // Уменьшаем количество символа слева
