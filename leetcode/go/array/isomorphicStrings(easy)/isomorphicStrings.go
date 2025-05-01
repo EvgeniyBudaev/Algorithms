@@ -26,6 +26,7 @@ Output: true
 
 func main() {
 	fmt.Println(isIsomorphic("egg", "add")) // true
+	fmt.Println(isIsomorphic("abc", "aaa")) // false
 }
 
 // isIsomorphic определяет, изоморфны ли строки.
@@ -34,17 +35,31 @@ func isIsomorphic(s string, t string) bool {
 		return false
 	}
 
+	// Используем карту для отображения символов.
 	charMap := make(map[byte]byte)
+	// Используем карту для отслеживания уже сопоставленных символов.
+	valuesMap := make(map[byte]bool)
 
 	for i := range s {
-		if v, ok := charMap[s[i]]; !ok {
-			// Символ не существует, добавляем его в карту.
-			charMap[s[i]] = t[i]
-		} else {
+		sLetter := s[i] // Текущий символ в строке s.
+		tLetter := t[i] // Текущий символ в строке t.
+
+		v, ok := charMap[sLetter]
+		if !ok {
 			// Если символ уже существует, но не соответствует текущему символу строки t, возвращаем false.
-			if v != t[i] {
+			if _, saved := valuesMap[tLetter]; saved {
 				return false
 			}
+
+			// Символ не существует, добавляем его в карту.
+			valuesMap[tLetter] = true  // Добавляем в карту, чтобы отслеживать уже сопоставленные символы.
+			charMap[sLetter] = tLetter // Добавляем в карту соответствия символов.
+			continue
+		}
+
+		// Если символ уже существует, но не соответствует текущему символу строки t, возвращаем false.
+		if v != tLetter {
+			return false
 		}
 	}
 
