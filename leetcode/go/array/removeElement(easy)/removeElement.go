@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /* 27. Remove Element
 https://leetcode.com/problems/remove-element/description/
 
@@ -33,8 +31,8 @@ func removeElement(nums []int, val int) int {
 			count++
 		}
 	}
-	// [2,2,3,3] -> [2,2,_,_]
+
+	// [2,2,2,3] -> [2,2,_,_]
 	nums = nums[:count] // Обрезаем срез до фактической длины
-	fmt.Println(nums)   // [2,2]
 	return count
 }
