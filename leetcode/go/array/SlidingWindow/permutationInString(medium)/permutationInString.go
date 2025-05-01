@@ -20,6 +20,7 @@ func main() {
 	fmt.Println(checkInclusion("ab", "eidbaooo")) // true
 }
 
+// checkInclusion проверяет, содержит ли строка s2 перестановку строки s1.
 func checkInclusion(s1 string, s2 string) bool {
 	if len(s1) > len(s2) {
 		return false
@@ -34,11 +35,14 @@ func checkInclusion(s1 string, s2 string) bool {
 	left, right, requiredLength := 0, 0, len(s1)
 
 	for right < len(s2) {
-		currentChar := s2[right]
+		currentChar := s2[right] // Текущий символ в s2
+		// Если текущий символ найден в s1, уменьшаем счетчик необходимых символов
 		if neededChar[currentChar] > 0 {
 			requiredLength--
 		}
+		// Уменьшаем счетчик текущего символа
 		neededChar[currentChar]--
+		// Сдвигаем правую границу окна
 		right++
 
 		// Если все символы s1 найдены в текущем окне
@@ -48,9 +52,11 @@ func checkInclusion(s1 string, s2 string) bool {
 
 		// Если окно достигло длины s1, сдвигаем левую границу
 		if right-left == len(s1) {
+			// Если символ на левой границе был найден в s1, увеличиваем счетчик необходимых символов
 			if neededChar[s2[left]] >= 0 {
 				requiredLength++
 			}
+			// Восстанавливаем счетчик текущего символа
 			neededChar[s2[left]]++
 			left++
 		}
