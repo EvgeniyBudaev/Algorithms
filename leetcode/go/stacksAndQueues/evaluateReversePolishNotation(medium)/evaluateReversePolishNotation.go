@@ -36,7 +36,7 @@ func main() {
 
 // evalRPN - оценка выражения в обратной польской нотации
 func evalRPN(tokens []string) int {
-	stack := []int{}
+	var stack []int // Стек для хранения операндов
 	operators := map[string]func(int, int) int{
 		"+": func(a, b int) int { return a + b },
 		"-": func(a, b int) int { return a - b },
