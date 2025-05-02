@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/valid-mountain-array/
+/* 941. Valid Mountain Array
+https://leetcode.com/problems/valid-mountain-array/
 
 Учитывая массив целых чисел arr, верните true если и только если он является допустимым массивом гор.
 Напомним, что arr является горным массивом тогда и только тогда, когда:
@@ -27,6 +28,7 @@ func main() {
 	fmt.Println(validMountainArray(arr)) // true
 }
 
+// validMountainArray проверяет, является ли массив горным массивом.
 func validMountainArray(arr []int) bool {
 	if len(arr) <= 2 {
 		return false
@@ -36,19 +38,22 @@ func validMountainArray(arr []int) bool {
 	right := len(arr) - 1
 
 	for c := 0; c < len(arr); c++ {
+		// Если элементы возрастают, двигаемся вправо.
 		if arr[left] < arr[left+1] {
 			left++
 		}
+		// Если элементы убывают, двигаемся влево.
 		if arr[right] < arr[right-1] {
 			right--
 		}
+		// Если левый или правый указатель достигли конца, это не горный массив.
 		if right == len(arr)-1 || left == 0 {
 			return false
 		}
+		// Если левый и правый указатели встретились, это горный массив.
 		if left == right {
 			return true
 		}
-
 	}
 
 	return false
