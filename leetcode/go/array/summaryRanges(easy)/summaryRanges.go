@@ -5,7 +5,8 @@ import (
 	"strconv"
 )
 
-/* https://leetcode.com/problems/summary-ranges/description/
+/* 228. Summary Ranges
+https://leetcode.com/problems/summary-ranges/description/
 
 Вам дан отсортированный уникальный целочисленный массив чисел.
 Диапазон [a,b] — это набор всех целых чисел от a до b (включительно).
@@ -31,15 +32,17 @@ func main() {
 	fmt.Println(summaryRanges(nums)) // [0->2 4->5 7]
 }
 
+// summaryRanges возвращает наименьший отсортированный список диапазонов, который точно охватывает все числа в массиве nums.
 func summaryRanges(nums []int) []string {
 	if len(nums) == 0 {
 		return []string{}
 	}
 
-	result := []string{}
-	start := nums[0]
+	result := []string{} // Результирующий список диапазонов
+	start := nums[0]     // Начало текущего диапазона
 
 	for i := 1; i <= len(nums); i++ {
+		// Если числа идут подряд
 		if i < len(nums) && nums[i]-nums[i-1] == 1 {
 			continue // Продолжаем, если числа идут подряд
 		}
