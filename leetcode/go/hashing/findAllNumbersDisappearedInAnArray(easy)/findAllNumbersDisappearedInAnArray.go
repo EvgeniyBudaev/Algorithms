@@ -22,8 +22,8 @@ func main() {
 
 // findDisappearedNumbers - находит пропущенные числа в массиве nums.
 func findDisappearedNumbers(nums []int) []int {
-	numSet := make(map[int]bool)
-	var result []int
+	numSet := make(map[int]bool) // Создаем карту для отслеживания чисел
+	var result []int             // Создаем срез для хранения пропущенных чисел
 
 	// Отмечаем все существующие номера на карте
 	for _, num := range nums {
@@ -32,10 +32,12 @@ func findDisappearedNumbers(nums []int) []int {
 
 	// Проверяем наличие пропущенных цифр от 1 до n
 	for i := 1; i <= len(nums); i++ {
+		// Если число не отмечено на карте, добавляем его в срез
 		if !numSet[i] {
 			result = append(result, i)
 		}
 	}
 
+	// Возвращаем срез с пропущенными числами
 	return result
 }
