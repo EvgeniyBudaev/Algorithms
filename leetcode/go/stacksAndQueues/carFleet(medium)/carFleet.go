@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/car-fleet/description/
+/* 853. Car Fleet
+https://leetcode.com/problems/car-fleet/description/
 
 На расстоянии заданной мили от начальной мили 0 находится n автомобилей, которые едут, чтобы достичь целевой мили.
 Вам заданы два целочисленных массива: позиция и скорость, оба длиной n, где позиция[i] — это стартовая миля i-го
@@ -29,32 +30,36 @@ Explanation:
 */
 
 func main() {
-	position := []int{10, 8, 0, 5, 3}
-	speed := []int{2, 4, 1, 1, 3}
-	fmt.Println(carFleet(12, position, speed)) // 3
+	position := []int{10, 8, 0, 5, 3}              // Позиции автомобилей
+	speed := []int{2, 4, 1, 1, 3}                  // Скорости автомобилей
+	target := 12                                   // Расстояние в милях от начальной мили 0
+	fmt.Println(carFleet(target, position, speed)) // 3
 }
 
+// carFleet вычисляет количество автопарков, которые прибудут в пункт назначения.
 func carFleet(target int, position []int, speed []int) int {
 	// Создаем пары позиция-скорость
-	pairs := make([][2]int, len(position))
+	pairs := make([][2]int, len(position)) // [[10, 2] [8, 4] [0, 1] [5, 1] [3, 3]]
 	for i := 0; i < len(position); i++ {
 		pairs[i] = [2]int{position[i], speed[i]}
 	}
 
 	// Сортируем по позиции в порядке убывания
-	sort.Slice(pairs, func(i, j int) bool {
+	sort.Slice(pairs, func(i, j int) bool { // [[10, 2] [8, 4] [5, 1] [3, 3] [0, 1]]
 		return pairs[i][0] > pairs[j][0]
 	})
 
-	stack := []float64{}
+	stack := []float64{} // Стек для хранения времени встречи с предыдущим автопарком
 	for _, pair := range pairs {
-		pos, spd := pair[0], pair[1]
-		time := float64(target-pos) / float64(spd)
+		pos, spd := pair[0], pair[1]               // Позиция и скорость автомобиля
+		time := float64(target-pos) / float64(spd) // Время встречи с предыдущим автопарком
 
+		// Если текущий автомобиль догоняет предыдущий автопарк, он становится частью него
 		if len(stack) == 0 || time > stack[len(stack)-1] {
 			stack = append(stack, time)
 		}
 	}
 
+	// Возвращаем количество автопарков
 	return len(stack)
 }
