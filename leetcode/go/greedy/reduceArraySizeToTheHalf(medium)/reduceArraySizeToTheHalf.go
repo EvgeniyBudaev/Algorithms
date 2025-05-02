@@ -28,30 +28,35 @@ func main() {
 	fmt.Println(minSetSize(arr)) // 2
 }
 
+// minSetSize возвращает минимальный размер набора, чтобы была удалена хотя бы половина целых чисел массива.
 func minSetSize(arr []int) int {
-	freqMap := make(map[int]int)
+	freqMap := make(map[int]int) // Создаем карту для подсчета частот
 
 	// Подсчитываем частоту каждого числа
 	for _, num := range arr {
 		freqMap[num]++
 	}
+	// map[2:2, 3:4, 5:3, 7:1]
 
-	// Создаем слайс частот и сортируем по убыванию
+	// Создаем слайс частот
 	freqs := make([]int, 0, len(freqMap))
 	for _, count := range freqMap {
-		freqs = append(freqs, count)
+		freqs = append(freqs, count) // Добавляем частоту числа в слайс
 	}
-	sort.Sort(sort.Reverse(sort.IntSlice(freqs)))
 
-	total := len(arr)
-	half := total / 2
-	sum := 0
-	size := 0
+	// Сортируем частоты по убыванию
+	sort.Sort(sort.Reverse(sort.IntSlice(freqs))) // [4, 3, 2, 1]
+
+	total := len(arr) // Общее количество чисел в массиве
+	half := total / 2 // Половина общего количества чисел
+	sum := 0          // Сумма частот
+	size := 0         // Размер набора
 
 	// Суммируем частоты, пока не достигнем половины
 	for _, count := range freqs {
 		sum += count
 		size++
+		// Если сумма частот больше или равна половине, возвращаем размер набора
 		if sum >= half {
 			return size
 		}
