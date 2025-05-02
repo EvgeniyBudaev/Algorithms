@@ -5,7 +5,8 @@ import (
 	"strconv"
 )
 
-/* https://leetcode.com/problems/string-compression/description/
+/* 443. String Compression
+https://leetcode.com/problems/string-compression/description/
 
 Учитывая массив символов, сожмите его, используя следующий алгоритм:
 Начните с пустой строки s. Для каждой группы последовательно повторяющихся символов в символах:
@@ -28,18 +29,21 @@ func main() {
 	fmt.Println(compress(chars)) // 6
 }
 
+// compress возвращает новую длину массива символов после сжатия.
 func compress(chars []byte) int {
-	i, j := 0, 0
+	i, j := 0, 0 // Используем два указателя: i для записи в chars и j для обхода
 
 	for j < len(chars) {
-		count := 0
-		currentChar := chars[j]
+		count := 0              // Счетчик для подсчета количества повторяющихся символов
+		currentChar := chars[j] // Текущий символ
+		// Считаем количество повторяющихся символов
 		for j < len(chars) && chars[j] == currentChar {
 			j++
 			count++
 		}
-		chars[i] = currentChar
-		i++
+		chars[i] = currentChar // Записываем текущий символ в chars
+		i++                    // Переходим к следующему индексу для записи
+		// Если количество повторяющихся символов больше 1, записываем количество символов после текущего символа
 		if count > 1 {
 			for _, digit := range strconv.Itoa(count) {
 				chars[i] = byte(digit)
@@ -48,5 +52,6 @@ func compress(chars []byte) int {
 		}
 	}
 
+	// Возвращаем новую длину массива символов
 	return i
 }
