@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/reorganize-string/description/
+/* 767. Reorganize String
+https://leetcode.com/problems/reorganize-string/description/
 solution https://leetcode.com/problems/reorganize-string/submissions/1333724578/
 
 Дана строка s, переставьте символы s так, чтобы любые два соседних символа не были одинаковыми.
@@ -22,6 +23,7 @@ func main() {
 	fmt.Println(reorganizeString("aab")) // "aba"
 }
 
+// reorganizeString переставляет символы в строке так, чтобы любые два соседних символа не были одинаковыми.
 func reorganizeString(s string) string {
 	// Создаем карту для подсчета частот символов
 	freq := make(map[rune]int)
@@ -51,17 +53,19 @@ func reorganizeString(s string) string {
 
 	// Создаем результат и заполняем его
 	result := make([]rune, len(s))
-	position := 0
+	position := 0 // Индекс для заполнения результата
 
 	for _, cc := range chars {
-		for i := 0; i < cc.count; i++ {
-			result[position] = cc.char
-			position += 2
+		for i := 0; i < cc.count; i++ { // Для каждого символа заполняем его в результирующей строке
+			result[position] = cc.char // Заполняем символ в результирующей строке
+			position += 2              // Переходим к следующему индексу для заполнения
+			// Если мы достигли конца результирующей строки, начинаем с начала
 			if position >= len(result) {
 				position = 1
 			}
 		}
 	}
 
+	// Возвращаем реорганизованную строку
 	return string(result)
 }
