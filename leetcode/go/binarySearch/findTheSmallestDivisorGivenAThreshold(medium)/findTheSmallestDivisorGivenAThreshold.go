@@ -5,7 +5,8 @@ import (
 	"math"
 )
 
-/* https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/
+/* 1283. Find the Smallest Divisor Given a Threshold
+https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/
 
 Учитывая массив целых чисел nums и целочисленный threshold, мы выберем положительный целочисленный divisor, разделим на
 него весь массив и просуммируем результат деления. Найдите наименьший divisor, чтобы упомянутый выше результат был
@@ -28,12 +29,14 @@ func main() {
 	fmt.Println(smallestDivisor(nums, 6)) // 5
 }
 
+// smallestDivisor находит наименьший делитель, который при делении всех элементов массива на него дает сумму, не превышающую порога.
 func smallestDivisor(nums []int, threshold int) int {
 	left := 1
 	right := maxInSlice(nums) // Находим максимальное значение в массиве
 
 	for left <= right {
 		mid := (left + right) / 2
+		// Если сумма делителей не превышает порога
 		if sumDivisions(nums, mid) <= threshold {
 			right = mid - 1
 		} else {
@@ -46,8 +49,9 @@ func smallestDivisor(nums []int, threshold int) int {
 
 // Вспомогательная функция для вычисления суммы округленных вверх частных
 func sumDivisions(nums []int, divisor int) int {
-	total := 0
+	total := 0 // Инициализируем переменную для хранения суммы частных
 	for _, num := range nums {
+		// Вычисляем частное и округляем вверх до ближайшего целого числа
 		total += int(math.Ceil(float64(num) / float64(divisor)))
 	}
 	return total
@@ -55,8 +59,9 @@ func sumDivisions(nums []int, divisor int) int {
 
 // Вспомогательная функция для нахождения максимального значения в срезе
 func maxInSlice(nums []int) int {
-	maxNum := nums[0]
+	maxNum := nums[0] // Инициализируем переменную для хранения максимального значения с первым элементом среза
 	for _, num := range nums {
+		// Если текущий элемент больше максимального значения, обновляем максимальное значение
 		if num > maxNum {
 			maxNum = num
 		}
