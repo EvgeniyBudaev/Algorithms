@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-k-closest-elements/description/
+/* 658. Find K Closest Elements
+https://leetcode.com/problems/find-k-closest-elements/description/
 
 Учитывая отсортированный массив целых чисел arr, два целых числа k и x, верните k ближайших к x целых чисел в массиве.
 Результат также следует отсортировать по возрастанию.
@@ -23,17 +24,20 @@ func main() {
 	fmt.Println(findClosestElements(arr, 4, 3)) // [1,2,3,4]
 }
 
+// findClosestElements использует бинарный поиск для нахождения позиции элемента, ближайшего к x.
 func findClosestElements(arr []int, k int, x int) []int {
 	left, right := 0, len(arr)-k
 
 	for left < right {
-		mid := (left + right) / 2
-		if x-arr[mid] > arr[mid+k]-x {
+		mid := (left + right) / 2 // Поиск середины между левым и правым указателями
+		// Сравнение расстояния между элементом в середине и x с расстоянием между элементом, находящимся на k позициях
+		if x-arr[mid] > arr[mid+k]-x { // Если расстояние до левого элемента больше, чем до правого элемента, двигаем левую границу
 			left = mid + 1
 		} else {
 			right = mid
 		}
 	}
 
+	// Возвращаем срез, начиная с позиции, найденной выше, и длиной k.
 	return arr[left : left+k]
 }
