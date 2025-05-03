@@ -6,6 +6,7 @@ func main() {
 	fmt.Println(quicksort([]int{10, 5, 2, 3})) // [2, 3, 5, 10]
 }
 
+// quicksort быстрая сортировка массива O(n*log(n))
 func quicksort(list []int) []int {
 	// Базовый случай
 	if len(list) < 2 {
