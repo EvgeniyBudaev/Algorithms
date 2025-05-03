@@ -5,7 +5,8 @@ import (
 	"math"
 )
 
-/* https://leetcode.com/problems/koko-eating-bananas/description/
+/* 875. Koko Eating Bananas
+https://leetcode.com/problems/koko-eating-bananas/description/
 
 Коко любит есть бананы. Есть n стопок бананов, в i-й стопке бананов находится [i]. Охранники ушли и вернутся через час.
 Коко может решить, что ее скорость поедания бананов в час равна k. Каждый час она выбирает какую-то стопку бананов и
@@ -23,14 +24,17 @@ func main() {
 	fmt.Println(minEatingSpeed(piles, 8)) // 4
 }
 
+// minEatingSpeed - находит минимальную скорость, при которой Коко сможет съесть все бананы за заданное количество часов.
 func minEatingSpeed(piles []int, h int) int {
-	left := 1
-	right := maxInSlice(piles)
+	left := 1                  // Минимальная скорость
+	right := maxInSlice(piles) // Максимальная скорость
 
 	for left < right {
 		mid := (left + right) / 2
+		// getHourSpent - получить потраченные часы
 		hourSpent := getHourSpent(mid, piles)
 
+		// Если потраченное время больше, чем заданное количество часов, увеличиваем минимальную скорость.
 		if h < hourSpent {
 			left = mid + 1
 		} else {
@@ -38,13 +42,15 @@ func minEatingSpeed(piles []int, h int) int {
 		}
 	}
 
+	//  Возвращаем минимальную скорость, при которой Коко сможет съесть все бананы за заданное количество часов.
 	return right
 }
 
 // Вспомогательная функция для вычисления необходимого времени
 func getHourSpent(speed int, piles []int) int {
-	totalHours := 0
+	totalHours := 0 // Инициализируем переменную для хранения общего количества часов
 	for _, pile := range piles {
+		// Вычисляем количество часов для текущей стопки и добавляем к общему количеству часов
 		totalHours += int(math.Ceil(float64(pile) / float64(speed)))
 	}
 	return totalHours
@@ -52,7 +58,7 @@ func getHourSpent(speed int, piles []int) int {
 
 // Вспомогательная функция для нахождения максимального значения в срезе
 func maxInSlice(nums []int) int {
-	maxNum := nums[0]
+	maxNum := nums[0] // Инициализируем переменную для хранения максимального числа
 	for _, num := range nums {
 		if num > maxNum {
 			maxNum = num
