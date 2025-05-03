@@ -29,27 +29,20 @@ func searchMatrix(matrix [][]int, target int) bool {
 		return false
 	}
 
-	// Количество строк и столбцов в матрице.
-	rows, cols := len(matrix), len(matrix[0])
-	// Инициализация указателей начала и конца диапазона поиска.
-	left, right := 0, rows*cols-1
-
-	for left <= right {
-		mid := (left + right) / 2
-		// Вычисление текущей позиции в матрице.
-		row, col := mid/cols, mid%cols
-		// Вычисление значения в матрице по текущей позиции.
-		value := matrix[row][col]
-
-		// Сравнение значения с целью и соответствующее изменение границ поиска.
-		if value == target {
-			return true
-			// если текущее значение меньше цели, сдвигаем левую границу вправо
-		} else if value < target {
-			left = mid + 1
-			// если текущее значение больше цели, сдвигаем правую границу влево
-		} else {
-			right = mid - 1
+	for _, row := range matrix {
+		// Используем бинарный поиск для каждой строки
+		left, right := 0, len(row)-1
+		for left <= right {
+			mid := (left + right) / 2
+			// Если текущий элемент равен целевому значению, возвращаем true
+			if row[mid] == target {
+				return true
+				// Если текущий элемент меньше целевого значения, продолжаем поиск в правой половине строки
+			} else if row[mid] < target {
+				left = mid + 1
+			} else {
+				right = mid - 1
+			}
 		}
 	}
 
