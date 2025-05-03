@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/search-insert-position/description/
+/* 35. Search Insert Position
+https://leetcode.com/problems/search-insert-position/description/
 
 Учитывая отсортированный массив различных целых чисел и целевое значение, верните индекс, если цель найдена.
 Если нет, верните индекс там, где он был бы, если бы он был вставлен по порядку.
@@ -23,6 +24,7 @@ func main() {
 	fmt.Println(searchInsert(nums, 5)) // 2
 }
 
+// searchInsert возвращает индекс элемента массива или индекс, где он должен быть вставлен.
 func searchInsert(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
@@ -40,5 +42,6 @@ func searchInsert(nums []int, target int) int {
 		}
 	}
 
+	// Цель не найдена в массиве, возвращаем индекс, где она должна быть вставлено.
 	return low
 }
