@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
+/* 852. Peak Index in a Mountain Array
+https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
 
 Вам дан целочисленный горный массив длиной n, значения которого увеличиваются до пикового элемента, а затем уменьшаются.
 Верните индекс пикового элемента.
@@ -23,12 +24,14 @@ func main() {
 	fmt.Println(peakIndexInMountainArray(arr)) // 1
 }
 
+// peakIndexInMountainArray возвращает индекс пикового элемента в массиве arr.
 func peakIndexInMountainArray(arr []int) int {
 	left, right := 0, len(arr)-1
 
 	for left <= right {
 		mid := (left + right) / 2
-		if arr[mid] < arr[mid+1] {
+		// Проверяем, является ли текущий элемент пиковым элементом
+		if arr[mid] < arr[mid+1] { // Если текущий элемент меньше следующего, двигаемся вправо
 			left = mid + 1
 		} else {
 			right = mid - 1
