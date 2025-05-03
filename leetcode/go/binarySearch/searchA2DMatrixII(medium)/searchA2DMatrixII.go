@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/search-a-2d-matrix-ii/description/
+/* 240. Search a 2D Matrix II
+https://leetcode.com/problems/search-a-2d-matrix-ii/description/
 
 Напишите эффективный алгоритм, который ищет целевое значение в целочисленной матрице размером m x n. Эта матрица имеет
 следующие свойства:
@@ -21,14 +22,21 @@ func main() {
 	fmt.Println(searchMatrix(matrix, 5)) // true
 }
 
+// searchMatrix возвращает true, если цель находится в матрице, иначе false.
 func searchMatrix(matrix [][]int, target int) bool {
+	if len(matrix) == 0 || len(matrix[0]) == 0 {
+		return false
+	}
+
 	for _, row := range matrix {
 		// Используем бинарный поиск для каждой строки
 		left, right := 0, len(row)-1
 		for left <= right {
 			mid := (left + right) / 2
+			// Если текущий элемент равен целевому значению, возвращаем true
 			if row[mid] == target {
 				return true
+				// Если текущий элемент меньше целевого значения, продолжаем поиск в правой половине строки
 			} else if row[mid] < target {
 				left = mid + 1
 			} else {
@@ -36,5 +44,6 @@ func searchMatrix(matrix [][]int, target int) bool {
 			}
 		}
 	}
+
 	return false
 }
