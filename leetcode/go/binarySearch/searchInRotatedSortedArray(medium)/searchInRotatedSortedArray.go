@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+/* 33. Search in Rotated Sorted Array
+https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 
 Существует целочисленный массив nums, отсортированный по возрастанию (с разными значениями).
 
@@ -24,6 +25,7 @@ func main() {
 	fmt.Println(search(nums, 0)) // 4
 }
 
+// search - ищет индекс цели в отсортированном массиве после возможного поворота.
 func search(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
@@ -36,8 +38,9 @@ func search(nums []int, target int) int {
 			return mid
 		}
 
+		// Если левая половина отсортирована
 		if leftNum <= guess {
-			// Левая половина отсортирована
+			// Если цель находится между левой и центральной числами
 			if leftNum <= target && target < guess {
 				high = mid - 1
 			} else {
@@ -45,6 +48,7 @@ func search(nums []int, target int) int {
 			}
 		} else {
 			// Правая половина отсортирована
+			// Если цель находится между правой и центральной числами
 			if guess < target && target <= rightNum {
 				low = mid + 1
 			} else {
