@@ -17,7 +17,7 @@ func main() {
 	search("you")
 }
 
-// search поиск в ширину.
+// search поиск в ширину. O(n) + O(m) = O(n + m)
 func search(name string) bool {
 	var search_queue []string                           // Создание новой очереди
 	search_queue = append(search_queue, graph[name]...) // Добавление элементов в очередь поиска
