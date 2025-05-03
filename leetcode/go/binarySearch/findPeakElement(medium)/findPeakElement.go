@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-peak-element/description/
+/* 162. Find Peak Element
+https://leetcode.com/problems/find-peak-element/description/
 
 Пиковый элемент — это элемент, который строго больше своих соседей.
 Учитывая целочисленный массив с нулевым индексом, найдите пиковый элемент и верните его индекс. Если массив содержит
@@ -26,6 +27,7 @@ func main() {
 	fmt.Println(findPeakElement(nums)) // 2
 }
 
+// findPeakElement возвращает индекс пикового элемента в массиве nums.
 func findPeakElement(nums []int) int {
 	left, right := 0, len(nums)-1
 
