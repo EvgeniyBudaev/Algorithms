@@ -17,7 +17,7 @@ Input: p = [1,2], q = [1,null,2]
 Output: false
 */
 
-// Проверка симметричности бинарного дерева.
+// Проверка идентичности бинарных деревьев.
 func main() {
 	p := createTree([]interface{}{1, 2, 3})
 	q := createTree([]interface{}{1, 2, 3})
