@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/range-sum-query-immutable/description/
+/* 303. Range Sum Query - Immutable
+https://leetcode.com/problems/range-sum-query-immutable/description/
 
 Учитывая целочисленный массив nums, обработайте несколько запросов следующего типа:
 
@@ -28,27 +29,30 @@ numArray.sumRange(0, 5); // возвращаем (-2) + 0 + 3 + (-5) + 2 + (-1) 
 
 func main() {
 	nums := []int{-2, 0, 3, -5, 2, -1}
-	obj := Constructor(nums)
+	obj := Constructor(nums) // Создаем объект NumArray с массивом чисел
 
 	fmt.Println(obj.SumRange(0, 2)) // 1 (-2 + 0 + 3)
 }
 
-// NumArray - структура для хранения массива чисел и эффективного вычисления суммы элементов в диапазоне
+// NumArray - структура для хранения массива чисел и эффективного вычисления суммы элементов в диапазоне.
 type NumArray struct {
 	nums      []int // Исходный массив чисел
 	prefixSum []int // Массив префиксных сумм для оптимизации
 }
 
-// Constructor создает новый объект NumArray и инициализирует массив префиксных сумм
+// Constructor создает новый объект NumArray и инициализирует массив префиксных сумм.
+// time: O(n) - линейное время, так как мы проходим по всем элементам массива чисел
+// space: O(n) - линейное пространство, так как мы храним массив префиксных сумм
 func Constructor(nums []int) NumArray {
-	// Создаем массив префиксных сумм
-	prefix := make([]int, len(nums)+1)
-	prefix[0] = 0
+	prefix := make([]int, len(nums)+1) // Создаем массив префиксных сумм
+	prefix[0] = 0                      // Инициализируем первое значение в 0
 
 	// Заполняем массив префиксных сумм
 	for i := 0; i < len(nums); i++ {
+		// Суммируем текущее число с предыдущей суммой префикса
 		prefix[i+1] = prefix[i] + nums[i]
 	}
+	// prefix [0, -2, -2, 1, -4, -2, -3]
 
 	return NumArray{
 		nums:      nums,
@@ -56,7 +60,9 @@ func Constructor(nums []int) NumArray {
 	}
 }
 
-// SumRange вычисляет сумму элементов массива между индексами left и right включительно
+// SumRange вычисляет сумму элементов массива между индексами left и right включительно.
+// time: O(1) - постоянное время, так как мы просто обращаемся к массиву префиксных сумм
+// space: O(n) - линейное пространство, так как мы храним массив префиксных сумм
 func (this *NumArray) SumRange(left int, right int) int {
 	// Используем массив префиксных сумм для быстрого вычисления
 	return this.prefixSum[right+1] - this.prefixSum[left]
