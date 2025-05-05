@@ -9,11 +9,11 @@ https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 
 Example 1:
 Input: root = [1,null,2,3]
-Output: [1,2,3]
+Output: [1,3,2]
 
 Example 2:
 Input: root = [1,2,3,4,5,null,8,null,null,6,7,9]
-Output: [1,2,4,5,6,7,3,8,9]
+Output: [4,2,6,5,7,1,3,9,8]
 */
 
 func main() {
@@ -44,7 +44,7 @@ func traverse(node *TreeNode, result *[]int) {
 	if node == nil {
 		return
 	}
-	// Pre order - значит перед тем как рекурсивно идти в левое и правое поддерево мы добавляем значение узла в ответ.
+	// In order - левый потомок, текущий узел, правый потомок.
 	traverse(node.Left, result)         // Добавляем значение левого потомка
 	*result = append(*result, node.Val) // Добавляем значение текущего узла в ответ
 	traverse(node.Right, result)        // Добавляем значение правого потомка
