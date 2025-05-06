@@ -16,12 +16,14 @@ Output: 2
 */
 
 func main() {
-	nums := []int{1, 1, 1}
-	k := 2
+	nums := []int{1, 2, 3}
+	k := 3
 	fmt.Println(subarraySum(nums, k)) // 2
 }
 
 // subarraySum находит количество подмассивов с суммой, равной k.
+// time: O(n)
+// space: O(n)
 func subarraySum(nums []int, k int) int {
 	sumMap := make(map[int]int) // Создаем map для хранения сумм и их количества
 	sumMap[0] = 1               // Инициализируем с суммой 0, встречающейся 1 раз
@@ -31,7 +33,7 @@ func subarraySum(nums []int, k int) int {
 
 	// Проходим по массиву
 	for _, num := range nums {
-		sum += num
+		sum += num // Добавляем текущее число к текущей сумме
 		// Если (sum - k) существует в map, увеличиваем count
 		if val, ok := sumMap[sum-k]; ok {
 			count += val
@@ -40,5 +42,6 @@ func subarraySum(nums []int, k int) int {
 		sumMap[sum]++
 	}
 
+	// Возвращаем количество подмассивов с суммой k
 	return count
 }
