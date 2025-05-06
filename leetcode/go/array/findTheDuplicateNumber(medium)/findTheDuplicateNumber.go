@@ -24,19 +24,46 @@ func main() {
 }
 
 // findDuplicate возвращает целое повторяющееся число.
+// time complexity: O(n) - проход по массиву.
+// space complexity: O(1) - не используется дополнительная память.
 func findDuplicate(nums []int) int {
-	visited := make([]bool, len(nums))
-
 	for _, num := range nums {
-		if !visited[num] {
-			visited[num] = true
+		i := abs(num) // индекс в массиве
+		// Если элемент уже посещался, значит это повторяющееся число.
+		if nums[i] < 0 {
+			return i
+			// Если элемент еще не посещался, сделаем его отрицательным.
 		} else {
-			return num
+			nums[i] = -nums[i]
 		}
 	}
-
-	return -1
+	// Не найдено повторяющееся число.
+	return 0
 }
+
+func abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+
+// findDuplicate возвращает целое повторяющееся число.
+// time complexity: O(n) - проход по массиву.
+// space complexity: O(n) - используется вспомогательный массив для хранения посещенных чисел.
+//func findDuplicate(nums []int) int {
+//	visited := make([]bool, len(nums))
+//
+//	for _, num := range nums {
+//		if !visited[num] {
+//			visited[num] = true
+//		} else {
+//			return num
+//		}
+//	}
+//
+//	return -1
+//}
 
 //func findDuplicate(nums []int) int {
 //	sort.Ints(nums)
