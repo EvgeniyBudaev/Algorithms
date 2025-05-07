@@ -30,13 +30,14 @@ func merge(intervals [][]int) [][]int {
 		return [][]int{}
 	}
 
-	// Сортируем интервалы по начальному значению.
+	// Сортируем интервалы по начальному значению. O(n*log(n))
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
 
 	result := [][]int{intervals[0]} // Результат, начинаем с первого интервала
 
+	// O(n)
 	for i := 1; i < len(intervals); i++ {
 		current := intervals[i]       // Текущий интервал
 		last := result[len(result)-1] // Последний интервал в результате
@@ -62,5 +63,6 @@ func isOverlapping(a, b []int) bool {
 
 // mergeTwoIntervals объединяет два интервала.
 func mergeTwoIntervals(a, b []int) []int {
+	// Интервалы обязательно должны пересекаться
 	return []int{a[0], max(a[1], b[1])}
 }
