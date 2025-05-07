@@ -22,6 +22,9 @@ func main() {
 	fmt.Println(canAttendMeetings(intervals)) // true
 }
 
+// canAttendMeetings - функция для определения, может ли человек присутствовать на всех собраниях.
+// time complexity: O(n*log(n)) - из-за сортировки
+// space complexity: O(1)
 func canAttendMeetings(intervals [][]int) bool {
 	// Сортируем интервалы по начальному времени
 	sort.Slice(intervals, func(i, j int) bool {
@@ -30,6 +33,7 @@ func canAttendMeetings(intervals [][]int) bool {
 
 	// Проверяем, есть ли пересечения интервалов
 	for i := 1; i < len(intervals); i++ {
+		// Если конец предыдущего интервала больше начала текущего интервала, значит они пересекаются
 		if intervals[i][0] < intervals[i-1][1] {
 			return false
 		}
