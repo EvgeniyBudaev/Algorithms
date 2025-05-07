@@ -1,0 +1,50 @@
+package main
+
+import (
+	"fmt"
+)
+
+/* 674. Longest Continuous Increasing Subsequence
+https://leetcode.com/problems/longest-continuous-increasing-subsequence/description/
+
+Дан несортированный массив целых чисел nums, вернуть длину самой длинной непрерывной возрастающей подпоследовательности
+(т. е. подмассива). Подпоследовательность должна быть строго возрастающей.
+
+Непрерывная возрастающая подпоследовательность определяется двумя индексами l и r (l < r),
+такими, что она равна [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] и для каждого l <= i < r, nums[i] < nums[i + 1].
+
+Example 1:
+Input: nums = [1,3,5,4,7]
+Output: 3
+Объяснение: Самая длинная непрерывная возрастающая подпоследовательность — [1,3,5] с длиной 3.
+Хотя [1,3,5,7] является возрастающей подпоследовательностью, она не является непрерывной, поскольку элементы 5 и 7
+разделены элементом 4.
+*/
+
+func main() {
+	nums := []int{1, 3, 5, 4, 7}
+	fmt.Println(findLengthOfLCIS(nums)) // 3
+}
+
+// findLengthOfLCIS находит длину самой длинной непрерывной возрастающей подпоследовательности в массиве nums.
+// time complexity: O(n)
+// space complexity: O(1)
+func findLengthOfLCIS(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+
+	left, maxLen := 0, 1
+
+	for right := 1; right < len(nums); right++ {
+		// Если текущий элемент не больше предыдущего, сбрасываем left
+		if nums[right] <= nums[right-1] {
+			left = right
+		}
+		// Обновляем maxLen, если текущая подпоследовательность длиннее
+		maxLen = max(maxLen, right-left+1)
+	}
+
+	// Возвращаем максимальную длину найденной подпоследовательности
+	return maxLen
+}
