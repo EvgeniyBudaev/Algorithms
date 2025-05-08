@@ -24,12 +24,14 @@ func main() {
 }
 
 // search возвращает индекс элемента массива или -1, если элемент отсутствует в массиве.
+// time: O(log n)
+// space: O(1)
 func search(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
 	for low <= high {
-		mid := (low + high) / 2
-		guess := nums[mid]
+		mid := (low + high) / 2 // mid - индекс среднего элемента
+		guess := nums[mid]      // guess - предполагаемое значение
 
 		if guess == target {
 			return mid
