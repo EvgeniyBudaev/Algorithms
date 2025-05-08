@@ -25,18 +25,21 @@ func main() {
 }
 
 // peakIndexInMountainArray возвращает индекс пикового элемента в массиве arr.
+// time: O(log n), space: O(1)
 func peakIndexInMountainArray(arr []int) int {
 	left, right := 0, len(arr)-1
 
 	for left <= right {
-		mid := (left + right) / 2
+		mid := (left + right) / 2 // Находим индекс среднего элемента
 		// Проверяем, является ли текущий элемент пиковым элементом
 		if arr[mid] < arr[mid+1] { // Если текущий элемент меньше следующего, двигаемся вправо
 			left = mid + 1
+			// Если текущий элемент больше следующего, двигаемся влево
 		} else {
 			right = mid - 1
 		}
 	}
 
+	// Возвращаем индекс пикового элемента
 	return left
 }
