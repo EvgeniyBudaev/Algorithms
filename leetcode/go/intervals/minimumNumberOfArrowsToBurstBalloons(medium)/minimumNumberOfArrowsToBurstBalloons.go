@@ -36,29 +36,29 @@ func main() {
 // findMinArrowShots - функция, которая находит минимальное количество стрел, которое необходимо выпустить, чтобы лопнуть все воздушные шары.
 // time complexity: O(n * log n)
 // space complexity: O(1)
-func findMinArrowShots(points [][]int) int {
+func findMinArrowShots(intervals [][]int) int {
 	// Если нет воздушных шаров, то нет стрел
-	if len(points) == 0 {
+	if len(intervals) == 0 {
 		return 0
 	}
 
 	// Сортируем интервалы по начальной точке
-	sort.Slice(points, func(i, j int) bool {
-		return points[i][0] < points[j][0]
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
 	})
 	// [[1, 6] [2, 8] [7, 12] [10, 16]]
 
-	result := 1            // Первый интервал всегда лопается стрелой
-	lastPoint := points[0] // Последний интервал, который лопается стрелой
+	result := 1                  // Первый интервал всегда лопается стрелой
+	lastInterval := intervals[0] // Последний интервал, который лопается стрелой
 
-	for _, point := range points {
+	for _, interval := range intervals {
 		// Если интервал не пересекается с последним лопающим интервалом, то увеличиваем количество стрел
-		if isOverlapping(lastPoint, point) {
-			lastPoint = overlapTwoIntervals(lastPoint, point) // Иначе, обновляем последний лопающий интервал
+		if isOverlapping(lastInterval, interval) {
+			lastInterval = overlapTwoIntervals(lastInterval, interval) // Иначе, обновляем последний лопающий интервал
 			continue
 		}
-		lastPoint = point // Иначе, обновляем последний лопающий интервал
-		result++          // И увеличиваем количество стрел
+		lastInterval = interval // Иначе, обновляем последний лопающий интервал
+		result++                // И увеличиваем количество стрел
 	}
 
 	return result
