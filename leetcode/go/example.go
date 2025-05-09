@@ -1,27 +1,19 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	nums := []int{-1, 0, 3, 5, 9, 12}
-	fmt.Println(search(nums, 9)) // 4
-}
-
-func search(nums []int, target int) int {
-	low, high := 0, len(nums)-1
-	for low <= high {
-		mid := (low + high) / 2
-		guess := nums[mid]
-		if guess == target {
-			return mid
-		}
-		if guess > target {
-			high = mid - 1
-		} else {
-			low = mid + 1
-		}
+	// предложение
+	sentence := "Πολύ λίγα πράγματα συμβαίνουν στο σωστό χρόνο, και τα υπόλοιπα δεν συμβαίνουν καθόλου"
+	// инициализируем map
+	// ключами будут знаки, а значениями — количество вхождений
+	frequency := make(map[rune]int)
+	// пройдёмся по знакам в предложении
+	for _, v := range sentence {
+		frequency[v]++ // встреченному знаку увеличиваем частоту
 	}
-	return -1
+	// печатаем
+	for k, v := range frequency {
+		fmt.Printf("Знак %c встречается %d раз \n", k, v)
+	}
 }
