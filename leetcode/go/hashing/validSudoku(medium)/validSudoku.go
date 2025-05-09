@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/valid-sudoku/description/
+/* 36. Valid Sudoku
+https://leetcode.com/problems/valid-sudoku/description/
 
 Определите, действительна ли доска для судоку 9 x 9. Только заполненные ячейки подлежат проверке согласно следующим
 правилам:
@@ -56,7 +57,8 @@ func main() {
 	fmt.Println(isValidSudoku(board)) // true
 }
 
-// isValidSudoku проверяет, является ли переданная доска валидной по правилам Sudoku
+// isValidSudoku проверяет, является ли переданная доска валидной по правилам Sudoku.
+// time complexity: O(1) - 9x9, space complexity: O(1) - 9x9
 func isValidSudoku(board [][]byte) bool {
 	boardSize := len(board)
 
