@@ -7,6 +7,7 @@ func main() {
 }
 
 // quicksort быстрая сортировка массива O(n*log(n))
+// time: O(n*log(n)) - среднее время выполнения, space: O(log(n)) - рекурсивный случай вызывает стек
 func quicksort(list []int) []int {
 	// Базовый случай
 	if len(list) < 2 {
