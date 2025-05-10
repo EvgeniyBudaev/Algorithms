@@ -32,6 +32,9 @@ func main() {
 	fmt.Println(minRemoveToMakeValid(s)) // "lee(t(c)o)de"
 }
 
+// minRemoveToMakeValid- удалить минимальное количество скобок ('(' или ')', в любых позициях ) так,
+// чтобы результирующая строка скобок была допустимой.
+// time: O(n), space: O(n)
 func minRemoveToMakeValid(s string) string {
 	runes := []rune(s)      // Преобразуем строку в слайс рун для изменения
 	stack := make([]int, 0) // храним индексы открывающих скобок
