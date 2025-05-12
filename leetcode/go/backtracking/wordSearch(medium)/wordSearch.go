@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/word-search/description/
+/* 79. Word Search
+https://leetcode.com/problems/word-search/description/
 
 Учитывая сетку символов m x n и строковое слово, верните true, если слово существует в сетке.
 Слово может быть составлено из букв последовательно соседних ячеек, где соседние ячейки являются соседними по
@@ -22,49 +23,50 @@ func main() {
 	fmt.Println(exist(board, word)) // true
 }
 
-// exist проверяет, существует ли слово в матрице символов
+// exist проверяет, существует ли слово в матрице символов.
+// time: O(m * n * 4^k), где m и n - размеры матрицы, а k - длина слова.
+// space: O(k), где k - длина слова.
 func exist(board [][]byte, word string) bool {
-	m := len(board)
+	m := len(board) // Количество строк в матрице
 	if m == 0 {
 		return false
-	}
-	n := len(board[0])
+	} // Если матрица пустая - успех
+	n := len(board[0]) // Количество столбцов в матрице
 
-	// Внутренняя рекурсивная функция для поиска слова
-	var backtrack func(int, int, int) bool
+	var backtrack func(int, int, int) bool // Внутренняя рекурсивная функция для поиска слова
 	backtrack = func(i, j, k int) bool {
 		// Если прошли все буквы слова - успех
 		if k == len(word) {
 			return true
 		}
-		// Проверка границ и совпадения символа
+		// Проверка границ и совпадения символа. Если вышли за границы или символ не совпадает - не успех
 		if i < 0 || i >= m || j < 0 || j >= n || board[i][j] != word[k] {
 			return false
 		}
 
 		// Временно заменяем символ, чтобы избежать повторного использования
-		temp := board[i][j]
-		board[i][j] = 0
+		temp := board[i][j] // Сохраняем текущий символ
+		board[i][j] = 0     // Заменяем символ нулём, чтобы не использовать его повторно
 
 		// Проверяем все 4 направления
-		result := backtrack(i+1, j, k+1) ||
-			backtrack(i-1, j, k+1) ||
-			backtrack(i, j+1, k+1) ||
-			backtrack(i, j-1, k+1)
+		result := backtrack(i+1, j, k+1) || // Горизонтальные соседи
+			backtrack(i-1, j, k+1) || // Верхний и нижний соседи
+			backtrack(i, j+1, k+1) || // Левый и правый соседи
+			backtrack(i, j-1, k+1) // Вертикальные соседи
 
 		// Восстанавливаем исходное значение
-		board[i][j] = temp
-		return result
+		board[i][j] = temp // Восстанавливаем исходный символ
+		return result      // Возвращаем результат
 	}
 
 	// Перебираем все клетки как стартовые позиции
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
+	for i := 0; i < m; i++ { // Перебираем все строки в матрице
+		for j := 0; j < n; j++ { // Перебираем все клетки в матрице
 			if backtrack(i, j, 0) {
 				return true
-			}
+			} // Если найдено совпадение, возвращаем true
 		}
 	}
 
-	return false
+	return false // Если не найдено совпадение, возвращаем false
 }
