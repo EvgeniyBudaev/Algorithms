@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/unique-paths/description/
+/* 62. Unique Paths
+https://leetcode.com/problems/unique-paths/description/
 
 На сетке m x n находится робот. Робот изначально расположен в верхнем левом углу (т. е. сетка[0][0]). Робот пытается
 переместиться в правый нижний угол (т. е. сетку[m - 1][n - 1]). В любой момент времени робот может двигаться только вниз
@@ -28,10 +29,10 @@ func main() {
 	fmt.Println(uniquePaths(3, 7)) // 28
 }
 
-// uniquePaths вычисляет количество уникальных путей из верхнего левого угла
+// uniquePaths вычисляет количество уникальных путей из верхнего левого угла.
+// time: O(m*n), space: O(n)
 func uniquePaths(m int, n int) int {
-	// Создаем временный массив для хранения промежуточных результатов
-	aboveRow := make([]int, n)
+	aboveRow := make([]int, n) // Создаем временный массив для хранения промежуточных результатов
 
 	// Инициализируем первую строку единицами
 	for i := range aboveRow {
@@ -40,8 +41,8 @@ func uniquePaths(m int, n int) int {
 
 	// Заполняем последующие строки
 	for row := 1; row < m; row++ {
-		currentRow := make([]int, n)
-		currentRow[0] = 1 // Первый элемент в строке всегда 1
+		currentRow := make([]int, n) // Создаем новый временный массив для текущей строки
+		currentRow[0] = 1            // Первый элемент в строке всегда 1
 
 		for col := 1; col < n; col++ {
 			// Количество путей равно сумме путей сверху и слева
@@ -51,5 +52,5 @@ func uniquePaths(m int, n int) int {
 		aboveRow = currentRow // Обновляем aboveRow для следующей итерации
 	}
 
-	return aboveRow[n-1]
+	return aboveRow[n-1] // Возвращаем количество путей до правого нижнего угла
 }
