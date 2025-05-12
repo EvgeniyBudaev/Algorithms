@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-/*
+/* 322. Coin Change
 https://leetcode.com/problems/coin-change/description/
 
 Вам дан целочисленный массив coin, представляющий монеты разного номинала, и целочисленная сумма, представляющая общую
@@ -29,7 +29,9 @@ func main() {
 	fmt.Println(coinChange([]int{1, 2, 5}, 11)) // 3
 }
 
-// coinChange вычисляет минимальное количество монет, необходимых для составления суммы
+// coinChange вычисляет минимальное количество монет, необходимых для составления суммы.
+// time: O(n*m) где n - количество монет, а m - сумма
+// space: O(m) где m - сумма
 func coinChange(coins []int, amount int) int {
 	// Если сумма равна 0, монет не требуется
 	if amount < 1 {
@@ -38,13 +40,12 @@ func coinChange(coins []int, amount int) int {
 
 	// Создаем массив для хранения минимального количества монет для каждой суммы
 	// Изначально заполняем "бесконечностью" (недостижимым значением)
-	dp := make([]int, amount+1)
+	dp := make([]int, amount+1) // +1 потому что индексы начинаются с 0
 	for i := range dp {
-		dp[i] = math.MaxInt32
+		dp[i] = math.MaxInt32 // "бесконечность" (MaxInt32)
 	}
 
-	// Базовый случай: для суммы 0 нужно 0 монет
-	dp[0] = 0
+	dp[0] = 0 // Базовый случай: для суммы 0 нужно 0 монет
 
 	// Перебираем все номиналы монет
 	for _, coin := range coins {
@@ -52,7 +53,7 @@ func coinChange(coins []int, amount int) int {
 		for i := coin; i <= amount; i++ {
 			// Минимум между текущим значением и значением для суммы (i-coin) + 1 монета
 			if dp[i-coin]+1 < dp[i] {
-				dp[i] = dp[i-coin] + 1
+				dp[i] = dp[i-coin] + 1 // Обновляем значение в массиве
 			}
 		}
 	}
@@ -62,5 +63,5 @@ func coinChange(coins []int, amount int) int {
 		return -1
 	}
 
-	return dp[amount]
+	return dp[amount] // Возвращаем минимальное количество монет для суммы amount
 }
