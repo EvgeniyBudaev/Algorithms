@@ -51,28 +51,30 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// getIntersectionNode находит точку пересечения двух связных списков.
+// time: O(n+m), где n и m - длины списков A и B, space: O(1)
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	if headA == nil || headB == nil {
+	if headA == nil || headB == nil { // Если хотя бы один список пуст, то нет пересечения
 		return nil
 	}
 
-	dummy1, dummy2 := headA, headB
+	dummy1, dummy2 := headA, headB // Создаем временные указатели на начало списков
 
-	for dummy1 != dummy2 {
-		if dummy1 != nil {
-			dummy1 = dummy1.Next
-		} else {
-			dummy1 = headB
+	for dummy1 != dummy2 { // Пока временные указатели не сходятся
+		if dummy1 != nil { // Если текущий узел в списке A не равен nil, то переходим к следующему узлу в списке A
+			dummy1 = dummy1.Next // Переходим к следующему узлу в списке A
+		} else { // Если текущий узел в списке A равен nil, то переходим в начало списка B
+			dummy1 = headB // Переходим в начало списка B
 		}
 
-		if dummy2 != nil {
-			dummy2 = dummy2.Next
-		} else {
-			dummy2 = headA
+		if dummy2 != nil { // Если текущий узел в списке B не равен nil, то переходим к следующему узлу в списке B
+			dummy2 = dummy2.Next // Переходим к следующему узлу в списке B
+		} else { // Если текущий узел в списке B равен nil, то переходим в начало списка A
+			dummy2 = headA // Переходим в начало списка A
 		}
 	}
 
-	return dummy1
+	return dummy1 // Возвращаем пересекаемый узел или nil, если нет пересечения
 }
 
 // createList создает связный список из массива значений
