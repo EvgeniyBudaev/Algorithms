@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/jump-game/description/
+/* 55. Jump Game
+https://leetcode.com/problems/jump-game/description/
 
 Вам дан целочисленный массив чисел. Изначально вы находитесь в первом индексе массива, и каждый элемент массива
 представляет максимальную длину прыжка в этой позиции.
@@ -22,15 +23,15 @@ func main() {
 	fmt.Println(canJump([]int{2, 3, 1, 1, 4})) // true
 }
 
-// canJump проверяет, можно ли добраться до последнего элемента массива
+// canJump проверяет, можно ли добраться до последнего элемента массива.
+// time: O(n), space: O(1)
 func canJump(nums []int) bool {
 	// Если массив пустой или содержит один элемент - сразу возвращаем true
 	if len(nums) <= 1 {
 		return true
 	}
 
-	// maximum - максимальная позиция, до которой можно добраться
-	maximum := nums[0]
+	maximum := nums[0] // maximum - максимальная позиция, до которой можно добраться
 
 	for i := 0; i < len(nums); i++ {
 		// Если текущая позиция недостижима и здесь стоит 0 - возвращаем false
@@ -49,5 +50,5 @@ func canJump(nums []int) bool {
 		}
 	}
 
-	return false
+	return false // Если не удалось добраться до конца, возвращаем false
 }
