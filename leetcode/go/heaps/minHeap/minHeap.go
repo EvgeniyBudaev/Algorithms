@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// MinHeap - min heap
+// MinHeap - min heaps
 type MinHeap struct {
 	arr []int // Массив для хранения элементов кучи
 }
@@ -33,7 +33,7 @@ func (h *MinHeap) PopTop() {
 // time: O(1), space: O(1)
 func (h *MinHeap) Top() int {
 	if len(h.arr) == 0 { // Если куча пуста, то паникуем
-		panic("heap is empty")
+		panic("heaps is empty")
 	}
 	return h.arr[0] // Возвращаем корневой элемент
 }
