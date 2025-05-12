@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/longest-increasing-subsequence/description/
+/* 300. Longest Increasing Subsequence
+https://leetcode.com/problems/longest-increasing-subsequence/description/
 
 Учитывая целочисленный массив nums, верните длину самого длинного, строго увеличивающегося последовательность.
 
@@ -21,11 +22,12 @@ func main() {
 	fmt.Println(lengthOfLIS([]int{10, 9, 2, 5, 3, 7, 101, 18})) // 4
 }
 
-// lengthOfLIS находит длину наибольшей возрастающей подпоследовательности
+// lengthOfLIS находит длину наибольшей возрастающей подпоследовательности.
+// time: O(n^2), space: O(n)
 func lengthOfLIS(nums []int) int {
 	if len(nums) == 0 {
 		return 0
-	}
+	} // Если массив пуст, возвращаем 0
 
 	// Создаем массив для хранения длин НВП для каждой позиции
 	result := make([]int, len(nums))
@@ -36,7 +38,7 @@ func lengthOfLIS(nums []int) int {
 	for i := 0; i < len(nums); i++ {
 		// Проверяем все предыдущие элементы
 		for j := i - 1; j >= 0; j-- {
-			if nums[i] > nums[j] {
+			if nums[i] > nums[j] { // Если текущий элемент больше предыдущего
 				// Обновляем длину НВП для текущей позиции
 				result[i] = max(result[i], result[j]+1)
 			}
@@ -44,12 +46,12 @@ func lengthOfLIS(nums []int) int {
 	}
 
 	// Находим максимальное значение в массиве result
-	maxLen := 0
+	maxLen := 0 // Инициализируем максимальную длину
 	for _, v := range result {
-		if v > maxLen {
+		if v > maxLen { // Если текущее значение больше максимального, обновляем максимальное значение
 			maxLen = v
 		}
 	}
 
-	return maxLen
+	return maxLen // Возвращаем максимальную длину НВП
 }
