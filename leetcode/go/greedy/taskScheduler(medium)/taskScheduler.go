@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/task-scheduler/description/
+/* 621. Task Scheduler
+https://leetcode.com/problems/task-scheduler/description/
 
 Вам дан массив задач ЦП, каждая из которых обозначена буквами от A до Z, и время охлаждения n. Каждый цикл или интервал
 позволяет выполнить одну задачу. Задачи можно выполнять в любом порядке, но есть ограничение: одинаковые задачи должны
@@ -26,6 +27,8 @@ func main() {
 	fmt.Println(leastInterval(tasks, 2)) // 8
 }
 
+// leastInterval - вычисляет минимальное количество интервалов, необходимых для выполнения всех задач.
+// time: O(n), space: O(n)
 func leastInterval(tasks []byte, n int) int {
 	// Создаем карту для подсчета частот задач
 	taskMap := make(map[byte]int)
