@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/generate-parentheses/description/
+/* 22. Generate Parentheses
+https://leetcode.com/problems/generate-parentheses/description/
 
 Учитывая n пар круглых скобок, напишите функцию, которая генерирует все комбинации правильных круглых скобок.
 
@@ -17,12 +18,12 @@ func main() {
 	fmt.Println(generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
 }
 
-// generateParenthesis генерирует все правильные скобочные последовательности длины 2n
+// generateParenthesis генерирует все правильные скобочные последовательности длины 2n.
+// time: O(4^n / sqrt(n)) - количество возможных комбинаций. space: O(n) - глубина рекурсии.
 func generateParenthesis(n int) []string {
-	var result []string
+	var result []string                  // Срез для хранения результатов
+	var backtrack func(string, int, int) // Внутренняя рекурсивная функция для генерации последовательностей
 
-	// Внутренняя рекурсивная функция для генерации последовательностей
-	var backtrack func(string, int, int)
 	backtrack = func(current string, open int, close int) {
 		// Если достигли нужной длины, добавляем в результат
 		if len(current) == 2*n {
