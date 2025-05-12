@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/combination-sum/description/
+/* 39. Combination Sum
+https://leetcode.com/problems/combination-sum/description/
 
 Учитывая массив различных целых чисел-кандидатов и целевую целочисленную цель, верните список всех уникальных комбинаций
 кандидатов, в которых сумма выбранных чисел равна целевому значению. Вы можете возвращать комбинации в любом порядке.
@@ -28,6 +29,8 @@ func main() {
 
 // combinationSum находит все уникальные комбинации чисел из candidates,
 // которые в сумме дают target. Одно и то же число может использоваться многократно.
+// time: O(n^target) в худшем случае, где n — количество уникальных чисел в candidates.
+// space: O(target) для хранения текущей комбинации и рекурсивных вызовов.
 func combinationSum(candidates []int, target int) [][]int {
 	var result [][]int // Здесь будем хранить все найденные комбинации
 
@@ -37,9 +40,9 @@ func combinationSum(candidates []int, target int) [][]int {
 		// Если сумма совпадает с целевой, добавляем комбинацию в результат
 		if sum == target {
 			// Создаем копию текущей комбинации
-			temp := make([]int, len(current))
-			copy(temp, current)
-			result = append(result, temp)
+			temp := make([]int, len(current)) // Создаем копию текущей комбинации
+			copy(temp, current)               // Копируем элементы в новый срез
+			result = append(result, temp)     // Добавляем копию в результат
 			return
 		}
 		// Если сумма превысила целевое значение или дошли до конца массива
@@ -48,14 +51,14 @@ func combinationSum(candidates []int, target int) [][]int {
 		}
 
 		// Включаем текущий элемент в комбинацию (можно использовать многократно)
-		current = append(current, candidates[start])
+		current = append(current, candidates[start])     // Добавляем текущий элемент в комбинацию
 		backtrack(start, current, sum+candidates[start]) // Не увеличиваем индекс
 
 		// Исключаем текущий элемент (backtracking)
-		current = current[:len(current)-1]
-		backtrack(start+1, current, sum) // Переходим к следующему элементу
+		current = current[:len(current)-1] // Удаляем последний элемент из комбинации
+		backtrack(start+1, current, sum)   // Переходим к следующему элементу
 	}
 
 	backtrack(0, []int{}, 0) // Начинаем с первого элемента, пустой комбинации и суммы 0
-	return result
+	return result            // Возвращаем все найденные комбинации
 }
