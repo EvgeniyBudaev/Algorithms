@@ -22,17 +22,18 @@ func main() {
 	fmt.Println(findMaxConsecutiveOnes(nums)) // 4
 }
 
-// findMaxConsecutiveOnes возвращает максимальное количество последовательных 1 в массиве при условии, что
+// findMaxConsecutiveOnes - возвращает максимальное количество последовательных 1 в массиве при условии, что
 // можно перевернуть 0 не более одного раза.
+// time: O(n), space: O(1)
 func findMaxConsecutiveOnes(nums []int) int {
 	left, zeroCount, result, maxFlipOperations := 0, 0, 0, 1
 
 	for right := 0; right < len(nums); right++ {
-		if nums[right] == 0 {
+		if nums[right] == 0 { // Если ноль, то увеличиваем счетчик нулей
 			zeroCount++
 		}
-		for zeroCount > maxFlipOperations {
-			if nums[left] == 0 {
+		for zeroCount > maxFlipOperations { // Если превышено максимальное количество нулей, то сдвигаем левый указатель
+			if nums[left] == 0 { // Если ноль, то уменьшаем счетчик нулей
 				zeroCount--
 			}
 			left++
@@ -40,5 +41,5 @@ func findMaxConsecutiveOnes(nums []int) int {
 		result = max(result, right-left+1)
 	}
 
-	return result
+	return result // Возвращаем максимальное количество последовательных 1
 }
