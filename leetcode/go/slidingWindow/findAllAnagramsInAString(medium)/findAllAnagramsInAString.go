@@ -21,9 +21,10 @@ func main() {
 	fmt.Println(findAnagrams("cbaebabacd", "abc")) // [0,6]
 }
 
-// findAnagrams находит все анаграммы строки p в строке s и возвращает их начальные индексы.
+// findAnagrams - находит все анаграммы строки p в строке s и возвращает их начальные индексы.
+// time: O(n), space: O(1)
 func findAnagrams(s string, p string) []int {
-	result := []int{}
+	var result []int              // Список индексов анаграмм
 	charMap := make(map[byte]int) // Словарь для подсчета символов в строке p
 
 	// Заполняем map для строки p
@@ -31,16 +32,15 @@ func findAnagrams(s string, p string) []int {
 		charMap[p[i]]++
 	}
 
-	left, right, count := 0, 0, len(p)
+	left, right, count := 0, 0, len(p) // left - левый указатель, right - правый указатель, count - количество символов в p
 
-	for right < len(s) {
+	for right < len(s) { // Перебираем все символы в строке s
 		// Если символ s[right] есть в charMap, уменьшаем count
 		if charMap[s[right]] > 0 {
 			count--
 		}
-		// Уменьшаем значение в charMap для текущего символа
-		charMap[s[right]]--
-		right++
+		charMap[s[right]]-- // Уменьшаем значение в charMap для текущего символа
+		right++             // Перемещаем правый указатель
 
 		// Если count == 0, значит, нашли анаграмму
 		if count == 0 {
