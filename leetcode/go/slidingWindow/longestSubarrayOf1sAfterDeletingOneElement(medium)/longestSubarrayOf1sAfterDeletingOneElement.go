@@ -28,6 +28,7 @@ func main() {
 }
 
 // longestSubarray - возвращает размер самого длинного подмассива, содержащего только 1 в результирующем массиве.
+// time: O(n), space: O(1)
 func longestSubarray(nums []int) int {
 	left, result, zeroCount := 0, 0, 0
 
