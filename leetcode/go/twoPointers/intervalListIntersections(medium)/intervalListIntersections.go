@@ -24,23 +24,24 @@ func main() {
 	fmt.Println(intervalIntersection(firstList, secondList)) // [[1 2] [5 5] [8 10] [15 23] [24 24] [25 25]]
 }
 
-// intervalIntersection находит пересечение двух списков интервалов.
+// intervalIntersection - находит пересечение двух списков интервалов.
+// time: O(n), space: O(n)
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
-	var result [][]int
+	var result [][]int // Результирующий список интервалов
 	left, right := 0, 0
 
-	for left < len(firstList) && right < len(secondList) {
-		first := firstList[left]          // текущий интервал первого списка
-		second := secondList[right]       // текущий интервал второго списка
-		start := max(first[0], second[0]) // максимальное начало
-		end := min(first[1], second[1])   // минимальное окончание
-		if start <= end {                 // если начало меньше окончания, то добавляем интервал в результат
+	for left < len(firstList) && right < len(secondList) { // Пока не закончатся интервалы в обоих списках
+		first := firstList[left]          // Текущий интервал первого списка
+		second := secondList[right]       // Текущий интервал второго списка
+		start := max(first[0], second[0]) // Максимальное начало
+		end := min(first[1], second[1])   // Минимальное окончание
+		if start <= end {                 // Если начало меньше окончания, то добавляем интервал в результат
 			result = append(result, []int{start, end})
 		}
-		// если окончание первого интервала меньше второго, то двигаем указатель первого интервала, иначе двигаем второй
+		// Усли окончание первого интервала меньше второго, то двигаем указатель первого интервала, иначе двигаем второй
 		if first[1] < second[1] {
 			left++
-			// если окончание первого интервала больше второго, то двигаем указатель второго интервала
+			// Усли окончание первого интервала больше второго, то двигаем указатель второго интервала
 		} else if first[1] > second[1] {
 			right++
 		} else {
@@ -49,5 +50,5 @@ func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 		}
 	}
 
-	return result
+	return result // Список интервалов
 }
