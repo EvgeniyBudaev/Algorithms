@@ -22,9 +22,10 @@ func main() {
 	fmt.Println(findMaxAverage(nums, 4)) // 12.75
 }
 
-// findMaxAverage находит максимальное среднее значение непрерывного подмассива длиной k.
+// findMaxAverage - находит максимальное среднее значение непрерывного подмассива длиной k.
+// time O(n), space O(1)
 func findMaxAverage(nums []int, k int) float64 {
-	sum := 0
+	sum := 0 // Сумма элементов подмассива
 
 	// Вычисляем сумму первых k элементов
 	for i := 0; i < k; i++ {
@@ -36,12 +37,12 @@ func findMaxAverage(nums []int, k int) float64 {
 
 	// Используем sliding window для вычисления суммы остальных подмассивов
 	for i := k; i < len(nums); i++ {
-		sum += nums[i] - nums[i-k] // Добавляем новый элемент и убираем старый
-		avg := float64(sum) / float64(k)
-		if avg > maxAvg {
+		sum += nums[i] - nums[i-k]       // Добавляем новый элемент и убираем старый
+		avg := float64(sum) / float64(k) // Вычисляем среднее значение
+		if avg > maxAvg {                // Обновляем максимальное среднее значение, если нужно
 			maxAvg = avg
 		}
 	}
 
-	return maxAvg
+	return maxAvg // Возвращаем максимальное среднее значение
 }
