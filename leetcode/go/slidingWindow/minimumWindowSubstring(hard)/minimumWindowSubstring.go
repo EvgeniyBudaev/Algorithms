@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/minimum-window-substring/description/
+/* 76. Minimum Window Substring
+https://leetcode.com/problems/minimum-window-substring/description/
 solution https://leetcode.com/problems/minimum-window-substring/solutions/4673781/easy-sliding-window-solution-explained/
 
 Учитывая две строки s и t длиной m и n соответственно, верните минимальную подстроку окна s, такую, что каждый символ
@@ -26,7 +27,10 @@ func main() {
 	fmt.Println(minWindow("ADOBECODEBANC", "ABC")) // "BANC"
 }
 
+// minWindow - функция для нахождения минимального окна в строке s, содержащего все символы из строки t.
+// time: O(n), space: O(1)
 func minWindow(s string, t string) string {
+	// Если длина t больше s, то нет смысла искать
 	if len(s) < len(t) {
 		return ""
 	}
@@ -41,27 +45,27 @@ func minWindow(s string, t string) string {
 	ansLeft, ansRight := 0, 0   // Индексы для минимального окна
 	required := len(t)          // Количество символов, которые нужно найти
 
-	for right := 0; right < len(s); right++ {
-		current := s[right]
-		if charMap[current] > 0 {
+	for right := 0; right < len(s); right++ { // Перебираем все символы в s
+		current := s[right]       // Получаем текущий символ
+		if charMap[current] > 0 { // Если текущий символ есть в charMap
 			required-- // Уменьшаем количество требуемых символов
 		}
-		charMap[current]--
+		charMap[current]-- // Уменьшаем количество текущего символа
 
 		// Когда все символы найдены, пытаемся сузить окно
 		for required == 0 {
 			// Обновляем минимальное окно
-			if right-left+1 < minLen {
-				minLen = right - left + 1
-				ansLeft, ansRight = left, right
+			if right-left+1 < minLen { // Если новое окно короче предыдущего
+				minLen = right - left + 1       // Обновляем минимальную длину
+				ansLeft, ansRight = left, right // Обновляем индексы
 			}
 
 			// Убираем левый символ из окна
-			charMap[s[left]]++
-			if charMap[s[left]] > 0 {
+			charMap[s[left]]++        // Увеличиваем количество требуемых символов
+			if charMap[s[left]] > 0 { // Если символ был частью t, уменьшаем
 				required++ // Если символ был частью t, увеличиваем required
 			}
-			left++
+			left++ // Сдвигаем левый указатель
 		}
 	}
 
@@ -70,5 +74,5 @@ func minWindow(s string, t string) string {
 		return ""
 	}
 
-	return s[ansLeft : ansRight+1]
+	return s[ansLeft : ansRight+1] // Возвращаем минимальное окно
 }
