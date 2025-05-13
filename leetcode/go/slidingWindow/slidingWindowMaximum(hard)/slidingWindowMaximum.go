@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/sliding-window-maximum/description/
+/* 239. Sliding Window Maximum
+https://leetcode.com/problems/sliding-window-maximum/description/
 https://leetcode.com/problems/minimum-window-substring/solutions/3061723/js-fastest-easy-commented/
 
 Вам дан массив целых чисел nums, есть скользящее окно размера k, которое перемещается из самого левого края массива в
@@ -30,11 +31,11 @@ func main() {
 	fmt.Println(maxSlidingWindow(nums, 3)) // [3,3,5,5,6,7]
 }
 
+// maxSlidingWindow - функция для нахождения максимального значения в каждом окне.
+// time: O(n), space: O(k), где n - длина входного массива, k - размер окна.
 func maxSlidingWindow(nums []int, k int) []int {
-	// Инициализируем массив для хранения максимальных значений
-	ans := []int{}
-	// Инициализируем дек (двустороннюю очередь) для хранения индексов элементов в текущем окне
-	deque := []int{}
+	var result []int // Инициализируем массив для хранения максимальных значений
+	var deque []int  // Инициализируем дек (двустороннюю очередь) для хранения индексов элементов в текущем окне
 
 	// Перебираем входной массив
 	for i := 0; i < len(nums); i++ {
@@ -46,14 +47,12 @@ func maxSlidingWindow(nums []int, k int) []int {
 		if len(deque) > 0 && deque[0] <= i-k {
 			deque = deque[1:]
 		}
-		// Добавляем текущий индекс в дек
-		deque = append(deque, i)
+		deque = append(deque, i) // Добавляем текущий индекс в дек
 		// Если текущий индекс достиг размера окна или больше, добавляем максимальный элемент из дека в массив результатов
 		if i >= k-1 {
-			ans = append(ans, nums[deque[0]])
+			result = append(result, nums[deque[0]])
 		}
 	}
 
-	// Возвращаем массив, содержащий максимальный элемент в каждом скользящем окне
-	return ans
+	return result // Возвращаем массив, содержащий максимальный элемент в каждом скользящем окне
 }
