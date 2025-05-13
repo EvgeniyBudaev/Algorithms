@@ -33,6 +33,7 @@ func intersect(nums1 []int, nums2 []int) []int {
 	left, right := 0, 0
 	result := make([]int, 0)
 
+	// time: O(n), space: O(n)
 	for left < len(nums1) && right < len(nums2) {
 		if nums1[left] < nums2[right] {
 			left++
