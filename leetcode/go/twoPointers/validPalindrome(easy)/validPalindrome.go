@@ -30,28 +30,31 @@ func main() {
 	fmt.Println(isPalindrome("A man, a plan, a canal: Panama")) // true
 }
 
-// isAlphaNumeric проверяет, является ли переданный символ буквенно-цифровым
+// isAlphaNumeric - проверяет, является ли переданный символ буквенно-цифровым
+// time: O(1), space: O(1)
 func isAlphaNumeric(c rune) bool {
 	return unicode.IsLetter(c) || unicode.IsDigit(c)
 }
 
-// isPalindrome проверяет, является ли строка s палиндромом после нормализации.
+// isPalindrome - проверяет, является ли строка s палиндромом после нормализации.
+// time: O(n), где n - количество символов в строке, space: O(1)
 func isPalindrome(s string) bool {
 	left, right := 0, len(s)-1
 
 	for left < right {
-		skipLeft := !isAlphaNumeric(rune(s[left]))
+		skipLeft := !isAlphaNumeric(rune(s[left])) // пропускаем символы, которые не являются буквенно-цифровыми
 		if skipLeft {
 			left++
 			continue
 		}
 
-		skipRight := !isAlphaNumeric(rune(s[right]))
+		skipRight := !isAlphaNumeric(rune(s[right])) // пропускаем символы, которые не являются буквенно-цифровыми
 		if skipRight {
 			right--
 			continue
 		}
 
+		// сравниваем символы, которые являются буквенно-цифровыми
 		endsEqual := unicode.ToLower(rune(s[left])) == unicode.ToLower(rune(s[right]))
 		if !endsEqual {
 			return false
