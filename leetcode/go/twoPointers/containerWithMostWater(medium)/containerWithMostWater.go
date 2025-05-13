@@ -31,11 +31,12 @@ func main() {
 	fmt.Println(maxArea(nums)) // 49
 }
 
-// maxArea вычисляет максимальную площадь контейнера, образованного двумя вертикальными линиями и осью X,
+// maxArea - вычисляет максимальную площадь контейнера, образованного двумя вертикальными линиями и осью X,
 // где каждая линия задана высотой height[i], а расстояние между линиями определяет ширину контейнера.
+// time: O(n), space: O(1)
 func maxArea(height []int) int {
-	maxAreaContainer := 0
-	left := 0
+	maxAreaContainer := 0 // Максимальная площадь воды
+	left := 0             // Левый указатель
 	right := len(height) - 1
 
 	for left < right {
@@ -54,5 +55,5 @@ func maxArea(height []int) int {
 		}
 	}
 
-	return maxAreaContainer
+	return maxAreaContainer // Возвращаем максимальную площадь
 }
