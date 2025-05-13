@@ -26,12 +26,12 @@ func main() {
 }
 
 // arrayPairSum - возвращает максимальную сумму пар в массиве чисел.
-// time: O(n*log(n)), space: O(1)
+// time: O(n), space: O(1)
 func arrayPairSum(nums []int) int {
-	sort.Ints(nums) // Сортируем массив
+	sort.Ints(nums) // Сортируем массив O(n*log(n)) [1, 2, 3, 4]
 	sum := 0        // Сумма пар
 
-	// Берем каждый второй элемент (начиная с 0)
+	// Берем каждый второй элемент (начиная с 0). time: O(n), space: O(1)
 	for i := 0; i < len(nums); i += 2 {
 		sum += nums[i] // Добавляем его к сумме пар
 	}
