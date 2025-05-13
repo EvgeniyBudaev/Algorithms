@@ -27,7 +27,8 @@ func main() {
 	fmt.Println(minSubArrayLen(7, nums)) // 2
 }
 
-// minSubArrayLen возвращает минимальную длину подмассива, сумма которой больше или равна целевой.
+// minSubArrayLen - возвращает минимальную длину подмассива, сумма которой больше или равна целевой.
+// time: O(n), space: O(1)
 func minSubArrayLen(target int, nums []int) int {
 	left, right := 0, 0
 	minLength := math.MaxInt32 // Используем максимальное значение для инициализации
@@ -57,5 +58,5 @@ func minSubArrayLen(target int, nums []int) int {
 		return 0
 	}
 
-	return minLength
+	return minLength // Возвращаем минимальную длину
 }
