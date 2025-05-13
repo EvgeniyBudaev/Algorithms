@@ -38,16 +38,16 @@ func main() {
 //	return nums
 //}
 
-// sortedSquares возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
-// time complexity: O(n), space complexity: O(n)
+// sortedSquares - возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
+// time: O(n), space: O(n)
 func sortedSquares(nums []int) []int {
-	n := len(nums)           // длина массива
-	result := make([]int, n) // массив квадратов
-	p1, p2 := 0, n-1         // указатели на начало и конец массива
+	n := len(nums)           // Длина массива
+	result := make([]int, n) // Массив квадратов
+	p1, p2 := 0, n-1         // Указатели на начало и конец массива
 
-	for i := n - 1; p1 <= p2; i-- {
-		if abs(nums[p1]) > abs(nums[p2]) {
-			result[i] = nums[p1] * nums[p1]
+	for i := n - 1; p1 <= p2; i-- { // Проход по массиву
+		if abs(nums[p1]) > abs(nums[p2]) { // Если модуль первого элемента больше модуля второго
+			result[i] = nums[p1] * nums[p1] // Записываем квадрат первого элемента
 			p1++
 		} else {
 			result[i] = nums[p2] * nums[p2]
@@ -58,8 +58,8 @@ func sortedSquares(nums []int) []int {
 	return result
 }
 
-// abs возвращает абсолютное значение числа.
-// time complexity: O(1), space complexity: O(1)
+// abs - возвращает абсолютное значение числа.
+// time: O(1), space: O(1)
 func abs(x int) int {
 	if x < 0 {
 		return -x
