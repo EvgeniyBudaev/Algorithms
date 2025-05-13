@@ -27,7 +27,7 @@ func main() {
 	fmt.Println(longestSubarray(nums)) // 3
 }
 
-// longestSubarray возвращает размер самого длинного подмассива, содержащего только 1 в результирующем массиве.
+// longestSubarray - возвращает размер самого длинного подмассива, содержащего только 1 в результирующем массиве.
 func longestSubarray(nums []int) int {
 	left, result, zeroCount := 0, 0, 0
 
@@ -46,5 +46,5 @@ func longestSubarray(nums []int) int {
 		result = max(result, right-left)
 	}
 
-	return result
+	return result // Возвращаем размер самого длинного подмассива
 }
