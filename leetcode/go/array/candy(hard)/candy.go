@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/candy/description/
+/* 135. Candy
+https://leetcode.com/problems/candy/description/
 
 В очереди стоят n детей. Каждому дочернему ребенку присваивается значение рейтинга, указанное в рейтингах
 целочисленного массива.
@@ -27,8 +28,10 @@ func main() {
 	fmt.Println(r)
 }
 
+// candy - функция, которая принимает рейтинги детей и возвращает минимальное количество конфет, которое нужно дать детям.
+// time: O(n), space: O(n)
 func candy(ratings []int) int {
-	n := len(ratings)
+	n := len(ratings) // Длина массива рейтингов
 
 	// Создаем массив candies длины n, где каждый элемент инициализируется значением 1.
 	candies := make([]int, n)
@@ -38,6 +41,7 @@ func candy(ratings []int) int {
 
 	// Расширение к правой стороне
 	for i := 1; i < n; i++ {
+		// Если рейтинг текущего ребенка больше рейтинга предыдущего ребенка, то увеличиваем количество конфет на 1.
 		if ratings[i] > ratings[i-1] {
 			candies[i] = candies[i-1] + 1
 		}
@@ -45,16 +49,17 @@ func candy(ratings []int) int {
 
 	// Расширение к левой стороне
 	for i := n - 2; i >= 0; i-- {
+		// Если рейтинг текущего ребенка больше рейтинга следующего ребенка, то увеличиваем количество конфет на 1.
 		if ratings[i] > ratings[i+1] {
 			candies[i] = max(candies[i], candies[i+1]+1)
 		}
 	}
 
 	// Суммируем все конфеты
-	total := 0
+	total := 0 // Инициализируем переменную total, которая будет хранить сумму конфет
 	for _, c := range candies {
 		total += c
 	}
 
-	return total
+	return total // Возвращаем сумму конфет
 }
