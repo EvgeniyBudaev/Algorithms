@@ -28,17 +28,17 @@ func main() {
 // fourSum - возвращает массив всех уникальных четверок [nums[a], nums[b], nums[c], nums[d]] таких, что nums[a] + nums[b] + nums[c] + nums[d] == target.
 // time: O(n^3), space: O(n)
 func fourSum(nums []int, target int) [][]int {
-	sort.Ints(nums)    // Сортируем массив для удобства работы с двумя указателями
+	sort.Ints(nums)    // Сортируем массив для удобства работы с двумя указателями [-2 -1 0 0 1 2]
 	var result [][]int // Результат
 	n := len(nums)     // Длина массива
 
-	for i := 0; i < n-3; i++ {
+	for i := 0; i < n-3; i++ { // Первый указатель
 		// Пропускаем дубликаты для первого числа
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
 
-		for j := i + 1; j < n-2; j++ {
+		for j := i + 1; j < n-2; j++ { // Второй указатель
 			// Пропускаем дубликаты для второго числа
 			if j > i+1 && nums[j] == nums[j-1] {
 				continue
@@ -73,5 +73,5 @@ func fourSum(nums []int, target int) [][]int {
 		}
 	}
 
-	return result
+	return result // Возвращаем массив всех уникальных четверок
 }
