@@ -25,7 +25,7 @@ func main() {
 }
 
 // maxProfit - находим максимальную прибыль.
-// time complexity: O(n), space complexity: O(1)
+// time: O(n), space: O(1)
 func maxProfit(prices []int) int {
 	profit := 0 // 0 - если нет прибыли
 
@@ -36,5 +36,5 @@ func maxProfit(prices []int) int {
 		}
 	}
 
-	return profit
+	return profit // Возвращаем максимальную прибыль
 }
