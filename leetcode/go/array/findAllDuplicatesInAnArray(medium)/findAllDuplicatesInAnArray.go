@@ -27,18 +27,17 @@ func main() {
 	fmt.Println(findDuplicates(nums)) // [2,3]
 }
 
-// Time O(n)
-// Space O(1)
 // findDuplicates находит дубликаты чисел.
+// time: O(n), space: O(1)
 func findDuplicates(nums []int) []int {
-	sort.Ints(nums) // [1, 2, 2, 3, 3, 4, 7, 8]
-	var result []int
+	sort.Ints(nums)  // [1, 2, 2, 3, 3, 4, 7, 8]
+	var result []int // Создаем пустой слайс для хранения дубликатов
 
 	for i := 1; i < len(nums); i++ {
-		if nums[i] == nums[i-1] { // если текущий элемент равен предыдущему, добавляем его в результат
+		if nums[i] == nums[i-1] { // Если текущий элемент равен предыдущему, добавляем его в результат
 			result = append(result, nums[i])
 		}
 	}
 
-	return result
+	return result // Возвращаем список дубликатов
 }
