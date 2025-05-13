@@ -23,8 +23,9 @@ func main() {
 	fmt.Println(checkIfExist([]int{10, 2, 5, 3})) // true
 }
 
-// checkIfExist проверяет, существует ли в массиве arr два различных индекса i и j,
+// checkIfExist - проверяет, существует ли в массиве arr два различных индекса i и j,
 // таких что один элемент равен удвоенному другому (т.е. arr[i] == 2 * arr[j] или arr[j] == 2 * arr[i]).
+// time: O(n^2), space: O(1)
 func checkIfExist(arr []int) bool {
 	left, right := 0, 1
 
