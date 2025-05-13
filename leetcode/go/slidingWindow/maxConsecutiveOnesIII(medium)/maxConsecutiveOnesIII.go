@@ -23,17 +23,18 @@ func main() {
 	fmt.Println(longestOnes(nums, 2)) // 6
 }
 
-// longestOnes возвращает максимальное количество последовательных единиц в массиве при условии, что
+// longestOnes - возвращает максимальное количество последовательных единиц в массиве при условии, что
 // можно перевернуть не более k нулей.
+// time: O(n), space: O(1)
 func longestOnes(nums []int, k int) int {
 	left, zeroCount, result := 0, 0, 0
 
 	for right := 0; right < len(nums); right++ {
-		if nums[right] == 0 {
+		if nums[right] == 0 { // Если ноль, то увеличиваем счетчик нулей
 			zeroCount++
 		}
-		for zeroCount > k {
-			if nums[left] == 0 {
+		for zeroCount > k { // Если превышено количество нулей, то сдвигаем левый указатель
+			if nums[left] == 0 { // Если ноль, то уменьшаем счетчик нулей
 				zeroCount--
 			}
 			left++
@@ -41,5 +42,5 @@ func longestOnes(nums []int, k int) int {
 		result = max(result, right-left+1)
 	}
 
-	return result
+	return result // Возвращаем максимальную длину подмассива
 }
