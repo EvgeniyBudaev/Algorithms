@@ -13,6 +13,7 @@ func main() {
 }
 
 // checkIfPalindrome проверяет, является ли строка палиндромом.
+// time: O(n), space: O(1)
 func checkIfPalindrome(s string) bool {
 	left, right := 0, len(s)-1
 
