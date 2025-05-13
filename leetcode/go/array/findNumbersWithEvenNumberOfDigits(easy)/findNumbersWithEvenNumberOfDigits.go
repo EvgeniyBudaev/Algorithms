@@ -24,15 +24,16 @@ func main() {
 	fmt.Println(findNumbers([]int{12, 345, 2, 6, 7896})) // 2
 }
 
-// findNumbers возвращает количество чисел с четным числом цифр.
+// findNumbers - возвращает количество чисел с четным числом цифр.
+// time: O(n), space: O(1)
 func findNumbers(nums []int) int {
-	counter := 0
+	counter := 0 // Счетчик чисел с четным числом цифр
 
 	for _, num := range nums {
-		if len(strconv.Itoa(num))%2 == 0 {
-			counter++
+		if len(strconv.Itoa(num))%2 == 0 { // Проверяем, является ли число четным
+			counter++ // Увеличиваем счетчик
 		}
 	}
 
-	return counter
+	return counter // Возвращаем счетчик чисел с четным числом цифр
 }
