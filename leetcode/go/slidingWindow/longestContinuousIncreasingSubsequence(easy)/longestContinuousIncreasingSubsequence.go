@@ -26,15 +26,14 @@ func main() {
 	fmt.Println(findLengthOfLCIS(nums)) // 3
 }
 
-// findLengthOfLCIS находит длину самой длинной непрерывной возрастающей подпоследовательности в массиве nums.
-// time complexity: O(n)
-// space complexity: O(1)
+// findLengthOfLCIS - находит длину самой длинной непрерывной возрастающей подпоследовательности в массиве nums.
+// time: O(n), space: O(1)
 func findLengthOfLCIS(nums []int) int {
-	if len(nums) == 0 {
+	if len(nums) == 0 { // Если массив nums пуст, возвращаем 0
 		return 0
 	}
 
-	left, maxLen := 0, 1
+	left, maxLen := 0, 1 // left - левая граница текущей подпоследовательности, maxLen - максимальная длина найденной подпоследовательности
 
 	for right := 1; right < len(nums); right++ {
 		// Если текущий элемент не больше предыдущего, сбрасываем left
