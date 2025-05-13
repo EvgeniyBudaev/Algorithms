@@ -1,6 +1,9 @@
 package main
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 /* 38. Count and Say
 https://leetcode.com/problems/count-and-say/description/
@@ -27,7 +30,7 @@ countAndSay(4) = RLE of "21" = "1211"
 */
 
 func main() {
-
+	fmt.Println(countAndSay(4)) // "1211"
 }
 
 // countAndSay возвращает строку, представляющую n-й элемент последовательности count-and-say.
