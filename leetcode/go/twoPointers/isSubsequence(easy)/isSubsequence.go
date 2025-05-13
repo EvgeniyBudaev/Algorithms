@@ -15,16 +15,17 @@ func main() {
 	fmt.Println(isSubsequence("aec", "abcde")) // false
 }
 
-// isSubsequence проверяет, является ли строка s подпоследовательностью строки t.
+// isSubsequence - проверяет, является ли строка s подпоследовательностью строки t.
+// time: O(n), space: O(1)
 func isSubsequence(s, t string) bool {
 	left, right := 0, 0
 
-	for left < len(s) && right < len(t) {
-		if s[left] == t[right] {
+	for left < len(s) && right < len(t) { // пока не достигнут конец одной из строк
+		if s[left] == t[right] { // если символы совпадают
 			left++
 		}
 		right++
 	}
 
-	return left == len(s)
+	return left == len(s) // если все символы из s были найдены в t, то возвращаем true
 }
