@@ -27,6 +27,8 @@ func main() {
 }
 
 // threeSumClosest возвращает сумму трех целых чисел, ближайшую к цели.
+// time: O(n^2), так как мы сортируем массив и проходим по нему дважды.
+// space: O(1), так как мы не используем дополнительную память.
 func threeSumClosest(nums []int, target int) int {
 	sort.Ints(nums)                           // Сортируем массив чисел // [-4,-1,1,2]
 	n := len(nums)                            // Длина массива чисел
@@ -56,6 +58,9 @@ func threeSumClosest(nums []int, target int) int {
 	return closestSum
 }
 
+// absInt возвращает абсолютное значение целого числа.
+// time: O(1), так как мы не используем дополнительную память.
+// space: O(1), так как мы не используем дополнительную память.
 func absInt(x int) int {
 	return int(math.Abs(float64(x)))
 }
