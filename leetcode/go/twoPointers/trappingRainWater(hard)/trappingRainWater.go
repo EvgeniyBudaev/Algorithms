@@ -19,26 +19,27 @@ func main() {
 	fmt.Println(trap(height)) // 6
 }
 
-// trap вычисляет количество воды, которое может быть залита в массиве высот после дождя.
+// trap - вычисляет количество воды, которое может быть залита в массиве высот после дождя.
+// time: O(n), space: O(1)
 func trap(height []int) int {
-	left := 0
-	leftMaxValue := height[left] // максимальная высота слева
-	right := len(height) - 1
-	rightMaxValue := height[right] // максимальная высота справа
+	left := 0                      // левая граница
+	leftMaxValue := height[left]   // максимальное количество воды слева
+	right := len(height) - 1       // правая граница
+	rightMaxValue := height[right] // максимальное количество воды справа
 	sum := 0                       // общее количество воды, которое может быть залита
 
-	for left < right {
+	for left < right { // пока левая граница не сравняется с правой
 		// если максимальная высота слева меньше максимальной высоты справа, двигаем левую границу вправо
 		if leftMaxValue <= rightMaxValue {
-			sum += leftMaxValue - height[left] // вычисляем количество воды, которое может быть залита в текущей ячейке
-			left++
+			sum += leftMaxValue - height[left]             // вычисляем количество воды, которое может быть залита в текущей ячейке
+			left++                                         // двигаем левую границу вправо
 			leftMaxValue = max(leftMaxValue, height[left]) // обновляем максимальную высоту слева
 		} else {
-			sum += rightMaxValue - height[right] // вычисляем количество воды, которое может быть залита в текущей ячейке
-			right--
+			sum += rightMaxValue - height[right]              // вычисляем количество воды, которое может быть залита в текущей ячейке
+			right--                                           // двигаем правую границу влево
 			rightMaxValue = max(rightMaxValue, height[right]) // обновляем максимальную высоту справа
 		}
 	}
 
-	return sum
+	return sum // возвращаем общее количество воды, которое может быть залита
 }
