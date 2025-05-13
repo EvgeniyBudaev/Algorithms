@@ -20,8 +20,10 @@ func main() {
 	fmt.Println(checkInclusion("ab", "eidbaooo")) // true
 }
 
-// checkInclusion проверяет, содержит ли строка s2 перестановку строки s1.
+// checkInclusion - проверяет, содержит ли строка s2 перестановку строки s1.
+// time: O(n), space: O(1)
 func checkInclusion(s1 string, s2 string) bool {
+	// Если длина s1 больше длины s2, то s1 не может быть перестановкой s2
 	if len(s1) > len(s2) {
 		return false
 	}
@@ -32,18 +34,16 @@ func checkInclusion(s1 string, s2 string) bool {
 		neededChar[s1[i]]++
 	}
 
-	left, right, requiredLength := 0, 0, len(s1)
+	left, right, requiredLength := 0, 0, len(s1) // Инициализируем левую и правую границы окна, и счетчик необходимых символов
 
-	for right < len(s2) {
+	for right < len(s2) { // Проходим по s2
 		currentChar := s2[right] // Текущий символ в s2
 		// Если текущий символ найден в s1, уменьшаем счетчик необходимых символов
 		if neededChar[currentChar] > 0 {
-			requiredLength--
+			requiredLength-- // Уменьшаем счетчик необходимых символов
 		}
-		// Уменьшаем счетчик текущего символа
-		neededChar[currentChar]--
-		// Сдвигаем правую границу окна
-		right++
+		neededChar[currentChar]-- // Уменьшаем счетчик текущего символа
+		right++                   // Сдвигаем правую границу окна
 
 		// Если все символы s1 найдены в текущем окне
 		if requiredLength == 0 {
@@ -54,13 +54,12 @@ func checkInclusion(s1 string, s2 string) bool {
 		if right-left == len(s1) {
 			// Если символ на левой границе был найден в s1, увеличиваем счетчик необходимых символов
 			if neededChar[s2[left]] >= 0 {
-				requiredLength++
+				requiredLength++ // Увеличиваем счетчик необходимых символов
 			}
-			// Восстанавливаем счетчик текущего символа
-			neededChar[s2[left]]++
-			left++
+			neededChar[s2[left]]++ // Восстанавливаем счетчик текущего символа
+			left++                 // Сдвигаем левую границу окна
 		}
 	}
 
-	return false
+	return false // Если перестановка не найдена
 }
