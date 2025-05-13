@@ -23,16 +23,19 @@ func main() {
 	fmt.Println(numSubarrayProductLessThanK(nums, 100)) // 8
 }
 
-// numSubarrayProductLessThanK возвращает количество подмассивов, в которых произведение всех элементов в подмассиве строго меньше k.
+// numSubarrayProductLessThanK - возвращает количество подмассивов,
+// в которых произведение всех элементов в подмассиве строго меньше k.
+// time: O(n), space: O(1)
 func numSubarrayProductLessThanK(nums []int, k int) int {
+	// Если k <= 1, то нет подмассивов, в которых произведение всех элементов в подмассиве строго меньше k.
 	if k <= 1 {
 		return 0
 	}
 
-	left, curr, result := 0, 1, 0
+	left, curr, result := 0, 1, 0 // left - левая граница окна, curr - текущее произведение, result - количество подмассивов
 
 	for right := 0; right < len(nums); right++ {
-		curr *= nums[right]
+		curr *= nums[right] // Увеличиваем текущее произведение на текущий элемент
 		// Если произведение превышает или равно k, сдвигаем левую границу окна
 		for curr >= k {
 			curr /= nums[left]
@@ -42,5 +45,5 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 		result += right - left + 1
 	}
 
-	return result
+	return result // Возвращаем количество подмассивов
 }
