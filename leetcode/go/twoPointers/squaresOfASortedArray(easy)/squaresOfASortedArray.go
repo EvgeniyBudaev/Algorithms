@@ -27,8 +27,8 @@ func main() {
 	fmt.Println(sortedSquares([]int{-4, -1, 0, 3, 10})) // [0,1,9,16,100]
 }
 
-// sortedSquares возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
-// Time complexity: O(n), space complexity: O(n)
+// sortedSquares - возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
+// time: O(n), space: O(n)
 //func sortedSquares(nums []int) []int {
 //	for i, num := range nums {
 //		nums[i] = num * num
