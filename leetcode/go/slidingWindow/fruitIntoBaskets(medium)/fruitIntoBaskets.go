@@ -38,30 +38,29 @@ func main() {
 	fmt.Println(totalFruit(fruits)) // Вывод: 4 // [2,3,2,2]
 }
 
-// totalFruit возвращает максимальное количество фруктов, которые можно собрать в двух корзинах.
+// totalFruit - возвращает максимальное количество фруктов, которые можно собрать в двух корзинах.
+// time: O(n), space: O(1)
 func totalFruit(fruits []int) int {
 	fruitMap := make(map[int]int) // Хранит количество фруктов каждого типа в текущем окне
 	left, maxCount := 0, 0        // Левый указатель окна и максимальное количество фруктов
 
-	for right := 0; right < len(fruits); right++ {
+	for right := 0; right < len(fruits); right++ { // Проходим по массиву фруктов
 		rightFruit := fruits[right] // Фрукт на правом указателе
 		fruitMap[rightFruit]++      // Увеличиваем количество текущего фрукта
 
 		// Если в окне больше двух типов фруктов, сдвигаем left
 		for len(fruitMap) > 2 {
-			leftFruit := fruits[left] // Фрукт на левом указателе
-			fruitMap[leftFruit]--     // Уменьшаем количество фрукта слева
-			if fruitMap[leftFruit] == 0 {
+			leftFruit := fruits[left]     // Фрукт на левом указателе
+			fruitMap[leftFruit]--         // Уменьшаем количество фрукта слева
+			if fruitMap[leftFruit] == 0 { // Если количество фрукта стало 0
 				delete(fruitMap, leftFruit) // Удаляем фрукт из map, если его количество стало 0
 			}
-			left++
+			left++ // Сдвигаем левый указатель
 		}
 
-		// Текущий размер окна
-		currentWindow := right - left + 1
-		// Обновляем максимальную длину окна
-		maxCount = fruitMap[currentWindow]
+		currentWindow := right - left + 1       // Текущий размер окна
+		maxCount = max(maxCount, currentWindow) // Обновляем максимальную длину окна
 	}
 
-	return maxCount
+	return maxCount // Возвращаем максимальное количество фруктов
 }
