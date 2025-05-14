@@ -20,7 +20,7 @@ func main() {
 }
 
 // firstUniqChar - возвращает индекс первого уникального символа в строке s.
-// time complexity: O(n), space complexity: O(n)
+// time: O(n), space: O(n)
 func firstUniqChar(s string) int {
 	// Создаем мап для подсчета количества вхождений каждого символа
 	charCount := make(map[rune]int)
