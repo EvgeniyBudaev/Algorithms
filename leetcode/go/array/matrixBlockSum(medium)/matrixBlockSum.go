@@ -12,7 +12,6 @@ i - k <= r <= i + k,
 j - k <= c <= j + k, и
 (r, c) является допустимой позицией в матрице.
 
-Example 1:
 Input: mat = [[1,2,3],[4,5,6],[7,8,9]], k = 1
 Output: [[12,21,16],[27,45,33],[24,39,28]]
 */
@@ -23,9 +22,8 @@ func main() {
 	fmt.Println(matrixBlockSum(mat, k)) // [[12,21,16],[27,45,33],[24,39,28]]
 }
 
-// matrixBlockSum возвращает матрицу размером m x n, где каждый ответ[i][j] является суммой.
-// time complexity: O(m*n)
-// space complexity: O(m*n)
+// matrixBlockSum - возвращает матрицу размером m x n, где каждый ответ[i][j] является суммой.
+// time: O(m*n), space: O(m*n)
 func matrixBlockSum(mat [][]int, k int) [][]int {
 	r, c := len(mat), len(mat[0]) // r - количество строк, c - количество столбцов
 	prefixMat := make([][]int, r) // матрица префиксов
@@ -33,8 +31,8 @@ func matrixBlockSum(mat [][]int, k int) [][]int {
 
 	// Инициализируем матрицы префиксов и вывода
 	for i := 0; i < r; i++ {
-		prefixMat[i] = make([]int, c)
-		output[i] = make([]int, c)
+		prefixMat[i] = make([]int, c) // Инициализируем каждый столбец в каждой строке
+		output[i] = make([]int, c)    // Инициализируем каждый столбец в каждой строке
 	}
 
 	// Создаем матрицу префиксов
@@ -45,6 +43,7 @@ func matrixBlockSum(mat [][]int, k int) [][]int {
 			// Если это первый элемент в столбце, то он не зависит от предыдущего элемента
 			if j == 0 {
 				prefixMat[i][j] = mat[i][j]
+				// Если это не первый элемент в столбце, то сумма зависит от предыдущего элемента
 			} else {
 				prefixMat[i][j] = prefixMat[i][j-1] + mat[i][j]
 			}
@@ -60,8 +59,8 @@ func matrixBlockSum(mat [][]int, k int) [][]int {
 	}
 
 	var maxRow, maxCol, minRow, minCol int // максимальные и минимальные значения строк и столбцов
-	for i := 0; i < r; i++ {
-		for j := 0; j < c; j++ {
+	for i := 0; i < r; i++ {               // Перебираем строки
+		for j := 0; j < c; j++ { // Перебираем столбцы
 			minRow = max(0, i-k)   // Вычисляем минимальное значение строки
 			maxRow = min(i+k, r-1) // Вычисляем максимальное значение строки
 			minCol = max(0, j-k)   // Вычисляем минимальное значение столбца
