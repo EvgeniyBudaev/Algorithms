@@ -29,8 +29,10 @@ func main() {
 	fmt.Println(isIsomorphic("abc", "aaa")) // false
 }
 
-// isIsomorphic определяет, изоморфны ли строки.
+// isIsomorphic - определяет, изоморфны ли строки.
+// time: O(n), space: O(n), где n - длина строки.
 func isIsomorphic(s string, t string) bool {
+	// Если длины строк не совпадают, то они не изоморфны.
 	if len(s) != len(t) {
 		return false
 	}
@@ -40,7 +42,7 @@ func isIsomorphic(s string, t string) bool {
 	// Используем карту для отслеживания уже сопоставленных символов.
 	valuesMap := make(map[byte]bool)
 
-	for i := range s {
+	for i := range s { // Проходим по символам в строке s.
 		sLetter := s[i] // Текущий символ в строке s.
 		tLetter := t[i] // Текущий символ в строке t.
 
@@ -54,7 +56,7 @@ func isIsomorphic(s string, t string) bool {
 			// Символ не существует, добавляем его в карту.
 			valuesMap[tLetter] = true  // Добавляем в карту, чтобы отслеживать уже сопоставленные символы.
 			charMap[sLetter] = tLetter // Добавляем в карту соответствия символов.
-			continue
+			continue                   // Переходим к следующему символу.
 		}
 
 		// Если символ уже существует, но не соответствует текущему символу строки t, возвращаем false.
@@ -63,5 +65,5 @@ func isIsomorphic(s string, t string) bool {
 		}
 	}
 
-	return true
+	return true // Строки изоморфны.
 }
