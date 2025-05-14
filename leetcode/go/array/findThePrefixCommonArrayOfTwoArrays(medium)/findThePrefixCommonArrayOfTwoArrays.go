@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/description/
+/* 2657. Find the Prefix Common Array of Two Arrays
+https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/description/
 
 Вам даны две целочисленные перестановки A и B с нулевым индексом длины n.
 Общий префиксный массив A и B — это массив C, такой, что C[i] равен количеству чисел, которые присутствуют в индексе i
@@ -24,25 +25,27 @@ func main() {
 	fmt.Println(findThePrefixCommonArray(A, B)) // [0, 2, 3, 4]
 }
 
+// findThePrefixCommonArray - функция, которая возвращает общий массив префиксов A и B.
+// time: O(n), space: O(n)
 func findThePrefixCommonArray(A []int, B []int) []int {
-	res := []int{}
-	set := make(map[int]bool)
-	count := 0
+	var res []int             // общий массив префиксов A и B
+	set := make(map[int]bool) // хранит числа, которые присутствуют в индексе или перед ним как в A, так и в B
+	count := 0                // счетчик чисел, которые присутствуют в индексе или перед ним как в A, так и в B
 
 	for i := 0; i < len(A); i++ {
-		if set[A[i]] {
+		if set[A[i]] { // если число присутствует в индексе или перед ним в A, то увеличиваем счетчик на 1
 			count++
 		}
-		if set[B[i]] {
+		if set[B[i]] { // если число присутствует в индексе или перед ним в B, то увеличиваем счетчик на 1
 			count++
 		}
-		if A[i] == B[i] {
+		if A[i] == B[i] { // если числа в индексе i одинаковые, то увеличиваем счетчик на 1
 			count++
 		}
-		set[A[i]] = true
-		set[B[i]] = true
-		res = append(res, count)
+		set[A[i]] = true         // добавляем число в множество
+		set[B[i]] = true         // добавляем число в множество
+		res = append(res, count) // добавляем счетчик в результат
 	}
 
-	return res
+	return res // возвращаем результат
 }
