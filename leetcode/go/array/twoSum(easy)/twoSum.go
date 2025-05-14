@@ -29,7 +29,8 @@ func main() {
 	fmt.Println(twoSum([]int{2, 7, 11, 15}, 9)) // [0,1]
 }
 
-// twoSum возвращает индексы двух чисел так, чтобы их сумма составляла target.
+// twoSum - возвращает индексы двух чисел так, чтобы их сумма составляла target.
+// time: O(n), space: O(n)
 func twoSum(nums []int, target int) []int {
 	// Создаем map для хранения чисел и их индексов
 	numMap := make(map[int]int)
