@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 /* 763. Partition Labels
+https://leetcode.com/problems/partition-labels/description/
 
 Вам дана строка s. Мы хотим разделить строку на как можно большее количество частей, чтобы каждая буква появлялась не
 более чем в одной части. Обратите внимание, что разбиение выполнено так, что после объединения всех частей по порядку
@@ -23,8 +24,9 @@ func main() {
 	fmt.Println(partitionLabels("ababcbacadefegdehijhklij")) // [9,7,8]
 }
 
-// partitionLabels разделяет строки на максимальное количество частей так,
+// partitionLabels - разделяет строки на максимальное количество частей так,
 // чтобы каждый символ встречался только в одной части.
+// time: O(n), space: O(1)
 func partitionLabels(s string) []int {
 	// 1. Создаём мапу, где ключ — символ, значение — его последний индекс в строке
 	lastIdx := make(map[rune]int)
@@ -32,9 +34,9 @@ func partitionLabels(s string) []int {
 		lastIdx[char] = i
 	}
 
-	curLastIdx := 0   // Текущая граница раздела
-	result := []int{} // Результат (длины частей)
-	acc := 0          // Суммарная длина предыдущих частей (для вычисления длины текущей)
+	curLastIdx := 0  // Текущая граница раздела
+	var result []int // Результат (длины частей)
+	acc := 0         // Суммарная длина предыдущих частей (для вычисления длины текущей)
 
 	// 2. Проходим по строке, определяя границы частей
 	for i, char := range s {
@@ -49,5 +51,5 @@ func partitionLabels(s string) []int {
 		}
 	}
 
-	return result
+	return result // Возвращаем список целых чисел
 }
