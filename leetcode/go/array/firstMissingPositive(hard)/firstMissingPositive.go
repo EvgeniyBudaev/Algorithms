@@ -26,20 +26,46 @@ func main() {
 	fmt.Println(firstMissingPositive(nums)) // 3
 }
 
-// firstMissingPositive возвращает наименьшее положительное целое число, которого нет в nums.
+// firstMissingPositive - возвращает наименьшее положительное целое число, которого нет в nums.
+// time: O(n), memory: O(1)
 func firstMissingPositive(nums []int) int {
-	set := make(map[int]bool)
+	n := len(nums) // Длина массива
 
-	for _, num := range nums {
-		if num > 0 {
-			set[num] = true
+	// Первый проход: расставляем числа на свои места
+	for i := 0; i < n; i++ {
+		// Пока число не на своем месте и валидно, перемещаем его
+		for nums[i] > 0 && nums[i] <= n && nums[nums[i]-1] != nums[i] {
+			nums[nums[i]-1], nums[i] = nums[i], nums[nums[i]-1] // Меняем местами числа
+		}
+	}
+	// nums: [1, 2, 0]
+
+	// Второй проход: ищем первое число, не соответствующее индексу
+	for i := 0; i < n; i++ {
+		if nums[i] != i+1 { // Если число не на своем месте, возвращаем его индекс + 1
+			return i + 1
 		}
 	}
 
-	i := 1 // наименьшее положительное целое число
-	for set[i] {
-		i++
-	}
-
-	return i
+	// Если все числа на месте, ответ n+1
+	return n + 1
 }
+
+// firstMissingPositive - возвращает наименьшее положительное целое число, которого нет в nums.
+// time: O(n), memory: O(n)
+//func firstMissingPositive(nums []int) int {
+//	set := make(map[int]bool)
+//
+//	for _, num := range nums {
+//		if num > 0 {
+//			set[num] = true
+//		}
+//	}
+//
+//	i := 1 // наименьшее положительное целое число
+//	for set[i] {
+//		i++
+//	}
+//
+//	return i
+//}
