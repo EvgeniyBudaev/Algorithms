@@ -42,11 +42,8 @@ func main() {
 // findTheDistanceValue - возвращает значение расстояния между двумя массивами.
 // time: O(n log n), space: O(1)
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
-	// Сортируем arr2
-	sort.Ints(arr2)
-
-	// Инициализируем счетчик подходящих элементов
-	count := 0
+	sort.Ints(arr2) // Сортируем arr2
+	count := 0      // Инициализируем счетчик подходящих элементов
 
 	// Проходим по каждому элементу x в arr1
 	for _, x := range arr1 {
@@ -54,16 +51,16 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 		index := sort.SearchInts(arr2, x)
 
 		// Проверяем, выполняется ли условие |x - y| > d для найденного элемента и его соседей
-		valid := true
+		valid := true // Флаг, указывающий на то, что элемент подходит
 		// Если элемент находится в arr2, проверяем его соседей
 		if index < len(arr2) {
-			if abs(x-arr2[index]) <= d {
+			if abs(x-arr2[index]) <= d { // Если условие не выполняется, устанавливаем флаг в false
 				valid = false
 			}
 		}
 		// Если элемент находится в arr2, проверяем его соседей
 		if index > 0 {
-			if abs(x-arr2[index-1]) <= d {
+			if abs(x-arr2[index-1]) <= d { // Если условие не выполняется, устанавливаем флаг в false
 				valid = false
 			}
 		}
