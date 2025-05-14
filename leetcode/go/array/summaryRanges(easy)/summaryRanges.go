@@ -32,14 +32,15 @@ func main() {
 	fmt.Println(summaryRanges(nums)) // [0->2 4->5 7]
 }
 
-// summaryRanges возвращает наименьший отсортированный список диапазонов, который точно охватывает все числа в массиве nums.
+// summaryRanges - возвращает наименьший отсортированный список диапазонов, который точно охватывает все числа в массиве nums.
+// time: O(n), space: O(n)
 func summaryRanges(nums []int) []string {
 	if len(nums) == 0 {
 		return []string{}
 	}
 
-	result := []string{} // Результирующий список диапазонов
-	start := nums[0]     // Начало текущего диапазона
+	var result []string // Результирующий список диапазонов
+	start := nums[0]    // Начало текущего диапазона
 
 	for i := 1; i <= len(nums); i++ {
 		// Если числа идут подряд
@@ -61,5 +62,5 @@ func summaryRanges(nums []int) []string {
 		}
 	}
 
-	return result
+	return result // Возвращает наименьший отсортированный список диапазонов
 }
