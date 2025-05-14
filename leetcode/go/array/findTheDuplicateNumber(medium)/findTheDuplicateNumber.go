@@ -23,9 +23,8 @@ func main() {
 	fmt.Println(findDuplicate([]int{1, 3, 4, 2, 2})) // 2
 }
 
-// findDuplicate возвращает целое повторяющееся число.
-// time complexity: O(n) - проход по массиву.
-// space complexity: O(1) - не используется дополнительная память.
+// findDuplicate - возвращает целое повторяющееся число.
+// time: O(n), space: O(1)
 func findDuplicate(nums []int) int {
 	for _, num := range nums {
 		i := abs(num) // индекс в массиве
@@ -37,10 +36,13 @@ func findDuplicate(nums []int) int {
 			nums[i] = -nums[i]
 		}
 	}
+
 	// Не найдено повторяющееся число.
 	return 0
 }
 
+// abs - возвращает абсолютное значение числа.
+// time: O(1), space: O(1)
 func abs(a int) int {
 	if a < 0 {
 		return -a
@@ -48,7 +50,7 @@ func abs(a int) int {
 	return a
 }
 
-// findDuplicate возвращает целое повторяющееся число.
+// findDuplicate - возвращает целое повторяющееся число.
 // time complexity: O(n) - проход по массиву.
 // space complexity: O(n) - используется вспомогательный массив для хранения посещенных чисел.
 //func findDuplicate(nums []int) int {
@@ -65,6 +67,9 @@ func abs(a int) int {
 //	return -1
 //}
 
+// findDuplicate - возвращает целое повторяющееся число.
+// time: O(n*log(n)) - сортировка массива.
+// space: O(1) - не используется дополнительная память.
 //func findDuplicate(nums []int) int {
 //	sort.Ints(nums)
 //	for i := 1; i < len(nums); i++ {
