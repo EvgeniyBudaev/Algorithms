@@ -18,21 +18,23 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 */
 
 func main() {
-	removeElement([]int{3, 2, 2, 3}, 3) // [2,2]
+	nums := []int{3, 2, 2, 3}
+	removeElement(nums, 3) // 2
 }
 
-// removeElement удаляет все вхождения val в nums.
+// removeElement - удаляет все вхождения val в nums.
+// time: O(n), space: O(1)
 func removeElement(nums []int, val int) int {
 	count := 0 // Счетчик для отслеживания элементов, отличных от val
 
-	for i := 0; i < len(nums); i++ {
+	for i := 0; i < len(nums); i++ { // Перебираем элементы массива
 		if nums[i] != val { // Если текущий элемент не равен val, то переносим его в начало массива
-			nums[count] = nums[i]
-			count++
+			nums[count] = nums[i] // Перемещаем элемент в начало массива
+			count++               // Увеличиваем счетчик
 		}
 	}
 
 	// [2,2,2,3] -> [2,2,_,_]
 	nums = nums[:count] // Обрезаем срез до фактической длины
-	return count
+	return count        // Возвращаем фактическую длину
 }
