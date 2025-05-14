@@ -12,15 +12,12 @@ https://leetcode.com/problems/monotonic-array/description/
 если для всех i <= j, nums[i] >= nums[j].
 Если задан целочисленный массив nums, вернуть true, если заданный массив монотонен, или false в противном случае.
 
-Example 1:
 Input: nums = [1,2,2,3]
 Output: true
 
-Example 2:
 Input: nums = [6,5,4,4]
 Output: true
 
-Example 3:
 Input: nums = [1,3,2]
 Output: false
 */
@@ -36,9 +33,8 @@ func main() {
 	fmt.Println(isMonotonic(nums3)) // false
 }
 
-// isMonotonic возвращает true, если заданный массив монотонен, или false в противном случае.
-// time complexity: O(n)
-// space complexity: O(1)
+// isMonotonic - возвращает true, если заданный массив монотонен, или false в противном случае.
+// time: O(n), space: O(1)
 func isMonotonic(nums []int) bool {
 	isIncreasing := true // монотонно возрастает
 	isDecreasing := true // монотонно убывает
