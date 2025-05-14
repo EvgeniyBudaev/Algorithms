@@ -26,11 +26,12 @@ func main() {
 	fmt.Println(singleNumber([]int{2, 2, 1})) // 1
 }
 
-// singleNumber находит уникальное число в слайсе.
+// singleNumber - находит уникальное число в слайсе.
+// time: O(n), space: O(1)
 func singleNumber(nums []int) int {
-	sort.Ints(nums)
+	sort.Ints(nums) // time: O(n logn), space: O(1)
 
-	// Цикл по всем элементам, кроме последнего.
+	// Цикл по всем элементам, кроме последнего. time: O(n), space: O(1)
 	for i := 0; i < len(nums)-1; i += 2 {
 		// Если текущий элемент не равен следующему, то текущий элемент является уникальным.
 		if nums[i] != nums[i+1] {
