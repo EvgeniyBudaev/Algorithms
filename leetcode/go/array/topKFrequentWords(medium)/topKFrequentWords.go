@@ -24,7 +24,8 @@ func main() {
 	fmt.Println(topKFrequent(words, 2)) // ["i", "love"]
 }
 
-// topKFrequent возвращает k наиболее часто встречающихся слов.
+// topKFrequent - возвращает k наиболее часто встречающихся слов.
+// time: O(n log n), где n - длина массива words, space: O(n), где n - длина массива words
 func topKFrequent(words []string, k int) []string {
 	// Создаем map для подсчета частоты слов
 	freqMap := make(map[string]int)
@@ -34,11 +35,11 @@ func topKFrequent(words []string, k int) []string {
 
 	// Создаем slice для хранения пар (слово, частота)
 	type wordFreq struct {
-		word  string
-		count int
+		word  string // Слово
+		count int    // Частота
 	}
-	var wordFreqs []wordFreq
-	for word, count := range freqMap {
+	var wordFreqs []wordFreq           // Создаем slice для хранения пар (слово, частота)
+	for word, count := range freqMap { // Проходим по словам и частотам
 		wordFreqs = append(wordFreqs, wordFreq{word, count})
 	}
 
@@ -51,10 +52,10 @@ func topKFrequent(words []string, k int) []string {
 	})
 
 	// Выбираем первые k элементов
-	result := make([]string, 0, k)
-	for i := 0; i < k && i < len(wordFreqs); i++ {
+	result := make([]string, 0, k)                 // Создаем слайс для хранения результата
+	for i := 0; i < k && i < len(wordFreqs); i++ { // Проходим по первых k элементам
 		result = append(result, wordFreqs[i].word)
 	}
 
-	return result
+	return result // Возвращаем k наиболее часто встречающихся слов
 }
