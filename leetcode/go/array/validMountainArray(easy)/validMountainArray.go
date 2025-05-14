@@ -28,16 +28,18 @@ func main() {
 	fmt.Println(validMountainArray(arr)) // true
 }
 
-// validMountainArray проверяет, является ли массив горным массивом.
+// validMountainArray - проверяет, является ли массив горным массивом.
+// time: O(n), space: O(1)
 func validMountainArray(arr []int) bool {
+	// Если массив меньше 3 элементов, это не горный массив.
 	if len(arr) <= 2 {
 		return false
 	}
 
-	left := 0
-	right := len(arr) - 1
+	left := 0             // Левый указатель
+	right := len(arr) - 1 // Правый указатель
 
-	for c := 0; c < len(arr); c++ {
+	for c := 0; c < len(arr); c++ { // Пока не достигнут конец массива
 		// Если элементы возрастают, двигаемся вправо.
 		if arr[left] < arr[left+1] {
 			left++
@@ -56,5 +58,5 @@ func validMountainArray(arr []int) bool {
 		}
 	}
 
-	return false
+	return false // Если не удалось найти горный массив, возвращаем false.
 }
