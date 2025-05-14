@@ -29,15 +29,16 @@ func main() {
 }
 
 // Предположим, что это предоставленный API (в реальности он будет реализован иначе)
+// isBadVersion - это предоставленная функция, которая проверяет, является ли версия плохой или нет.
 func isBadVersion(version int) bool {
 	// В данном примере предполагаем, что bad = 4
 	return version >= 4
 }
 
-// firstBadVersion находит первую плохую версию среди n версий.
+// firstBadVersion - находит первую плохую версию среди n версий.
 // time: O(log n), space: O(1)
 func firstBadVersion(n int) int {
-	left, right := 1, n
+	left, right := 1, n // Инициализируем границы поиска: left - первый элемент, right - последний элемент
 
 	for left < right {
 		mid := left + (right-left)/2 // Избегаем переполнения, используя формулу (left + right) / 2
