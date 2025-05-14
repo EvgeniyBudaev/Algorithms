@@ -28,7 +28,8 @@ func main() {
 	removeDuplicates([]int{1, 1, 2}) // [1,2]
 }
 
-// removeDuplicates функция для удаления дубликатов в отсортированном массиве чисел.
+// removeDuplicates - функция для удаления дубликатов в отсортированном массиве чисел.
+// time: O(n), space: O(1)
 func removeDuplicates(nums []int) int {
 	k := 1 // Инициализируем количество уникальных элементов равным 1
 
