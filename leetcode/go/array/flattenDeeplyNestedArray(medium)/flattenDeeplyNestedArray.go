@@ -5,7 +5,8 @@ import (
 	"reflect"
 )
 
-/* https://leetcode.com/problems/flatten-deeply-nested-array/description/
+/* 2625. Flatten Deeply Nested Array
+https://leetcode.com/problems/flatten-deeply-nested-array/description/
 
 Учитывая многомерный массив arr и глубину n, верните сглаженную версию этого массива.
 Многомерный массив — это рекурсивная структура данных, содержащая целые числа или другие многомерные массивы.
@@ -40,22 +41,24 @@ func main() {
 	fmt.Println(flat(arr, n)) // [1, 2, 3, [4, 5, 6], [7, 8, [9, 10, 11], 12], [13, 14, 15]]
 }
 
+// flat - функция для сглаживания многомерного массива с заданной глубиной n.
+// Она использует рекурсивную функцию flatten для обхода массива и сглаживания его подмассивов.
+// time: O(n), space: O(n).
 func flat(arr []interface{}, n int) []interface{} {
-	res := []interface{}{}
+	var res []interface{} //Сглаженный результат
 
-	var flatten func(arr []interface{}, depth int)
+	var flatten func(arr []interface{}, depth int) // Рекурсивная функция для сглаживания массива
 	flatten = func(arr []interface{}, depth int) {
-		for _, item := range arr {
+		for _, item := range arr { // Обходим каждый элемент массива
+			// Если элемент является массивом и глубина меньше n, рекурсивно сглаживаем
 			if reflect.TypeOf(item) == reflect.TypeOf([]interface{}{}) && depth < n {
-				// Если элемент является массивом и глубина меньше n, рекурсивно сглаживаем
-				flatten(item.([]interface{}), depth+1)
-			} else {
-				// Иначе добавляем элемент в результат
+				flatten(item.([]interface{}), depth+1) // Увеличиваем глубину на 1
+			} else { // Иначе добавляем элемент в результат
 				res = append(res, item)
 			}
 		}
 	}
 
-	flatten(arr, 0)
-	return res
+	flatten(arr, 0) // Начинаем обход массива с глубиной 0
+	return res      // Возвращаем сглаженный результат
 }
