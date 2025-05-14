@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 /* 2215. Find the Difference of Two Arrays
+https://leetcode.com/problems/find-the-difference-of-two-arrays/description/
 
 Учитывая два целочисленных массива nums1 и nums2 с индексом 0, верните ответ в виде списка размером 2, где:
 
