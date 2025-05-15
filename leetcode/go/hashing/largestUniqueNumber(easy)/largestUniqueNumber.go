@@ -9,13 +9,13 @@ import "fmt"
 
 Input: [5,7,3,9,4,9,8,3,1]
 Output: 8
-Explanation:
-The maximum integer in the array is 9 but it is repeated. The number 8 occurs only once, so it's the answer.
+Пояснение:
+Максимальное целое число в массиве — 9, но оно повторяется. Число 8 встречается только один раз, поэтому это ответ.
 
 Input: [9,9,8,8]
 Output: -1
-Explanation:
-There is no number that occurs only once.
+Пояснение:
+Нет числа, которое встречается только один раз.
 */
 
 func main() {
@@ -23,11 +23,11 @@ func main() {
 	fmt.Println(largestUniqueNumber(nums)) // 8
 }
 
-// largestUniqueNumber находит наибольшее уникальное число в массиве.
+// largestUniqueNumber - находит наибольшее уникальное число в массиве.
 // Если такого числа нет, возвращает -1.
+// time: O(n), space: O(n)
 func largestUniqueNumber(nums []int) int {
-	// Создаем мапу для подсчета количества вхождений каждого числа
-	freq := make(map[int]int)
+	freq := make(map[int]int) // Создаем мапу для подсчета количества вхождений каждого числа
 
 	// Заполняем мапу: ключ - число, значение - количество вхождений
 	for _, num := range nums {
@@ -44,5 +44,5 @@ func largestUniqueNumber(nums []int) int {
 		}
 	}
 
-	return maxNum
+	return maxNum // Возвращаем максимальное уникальное число
 }
