@@ -27,34 +27,37 @@ func main() {
 	fmt.Println(groupAnagrams(strs)) // [["bat"],["nat","tan"],["ate","eat","tea"]]
 }
 
-// groupAnagrams группирует анаграммы в исходном срезе строк
+// groupAnagrams - группирует анаграммы в исходном срезе строк.
+// time: O(n * m * log(m)), где n - количество строк в массиве, m - максимальная длина строки
+// space: O(n * m), где n - количество строк в массиве, m - максимальная длина строки
 func groupAnagrams(strs []string) [][]string {
+	// Если массив пуст, возвращаем пустой
 	if len(strs) == 0 {
 		return [][]string{}
 	}
 
-	anagramMap := make(map[string][]string)
+	anagramMap := make(map[string][]string) // Мапа для хранения групп анаграмм
 
-	for _, str := range strs {
-		// Преобразовываем строку в фрагмент рун для правильной сортировки
-		s := []rune(str)
+	for _, str := range strs { // Прох
+		s := []rune(str) // Преобразовываем строку в фрагмент рун для правильной сортировки
+		// Сортируем фрагмент рун
 		sort.Slice(s, func(i, j int) bool {
 			return s[i] < s[j]
 		})
 		sortedStr := string(s) // aet, aet, ant, aet, ant, abt
 
-		anagramMap[sortedStr] = append(anagramMap[sortedStr], str)
+		anagramMap[sortedStr] = append(anagramMap[sortedStr], str) // Добавляем строку в группу
 	}
 	// anagramMap: [[eat tea ate] [tan nat] [bat]]
 
 	// Преобразовываем значения карты в срезы срезов
 	result := make([][]string, 0, len(anagramMap))
-	for _, group := range anagramMap {
+	for _, group := range anagramMap { // Проходим по группам
 		// [eat tea ate]
 		// [tan nat]
 		// [bat]
-		result = append(result, group)
+		result = append(result, group) // Добавляем группу в результат
 	}
 
-	return result
+	return result // Возвращаем результат
 }
