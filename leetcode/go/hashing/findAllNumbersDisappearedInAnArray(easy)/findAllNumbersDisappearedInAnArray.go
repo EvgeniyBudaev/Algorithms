@@ -21,6 +21,7 @@ func main() {
 }
 
 // findDisappearedNumbers - находит пропущенные числа в массиве nums.
+// time: O(n), space: O(n)
 func findDisappearedNumbers(nums []int) []int {
 	numSet := make(map[int]bool) // Создаем карту для отслеживания чисел
 	var result []int             // Создаем срез для хранения пропущенных чисел
