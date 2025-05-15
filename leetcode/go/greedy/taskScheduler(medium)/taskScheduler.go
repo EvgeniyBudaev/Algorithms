@@ -27,7 +27,7 @@ func main() {
 	fmt.Println(leastInterval(tasks, 2)) // 8
 }
 
-// leastInterval - вычисляет минимальное количество интервалов, необходимых для выполнения всех задач.
+// leastInterval вычисляет минимальное количество интервалов, необходимых для выполнения всех задач.
 // time: O(n), space: O(n)
 func leastInterval(tasks []byte, n int) int {
 	// Создаем карту для подсчета частот задач
@@ -43,11 +43,8 @@ func leastInterval(tasks []byte, n int) int {
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(taskCounts)))
 
-	// Вычисляем максимальное количество повторений
-	maxCount := taskCounts[0]
-
-	// Вычисляем количество "холостых" слотов
-	idleSlots := (maxCount - 1) * n
+	maxCount := taskCounts[0]       // Вычисляем максимальное количество повторений
+	idleSlots := (maxCount - 1) * n // Вычисляем количество "холостых" слотов
 
 	// Заполняем холостые слоты другими задачами
 	for i := 1; i < len(taskCounts); i++ {
@@ -59,6 +56,5 @@ func leastInterval(tasks []byte, n int) int {
 		idleSlots = 0
 	}
 
-	// Общее время = все задачи + холостые слоты
-	return len(tasks) + idleSlots
+	return len(tasks) + idleSlots // Общее время = все задачи + холостые слоты
 }
