@@ -29,9 +29,8 @@ func main() {
 	fmt.Println(missingNumber(nums)) // 2
 }
 
-// missingNumber находит пропущенное число в последовательности [0, n]
-// time complexity: O(n)
-// space complexity: O(1) - не использует дополнительной памяти
+// missingNumber - находит пропущенное число в последовательности [0, n]
+// time: O(n), space: O(1)
 func missingNumber(nums []int) int {
 	n := len(nums)                 // Длина массива
 	expectedSum := n * (n + 1) / 2 // Сумма чисел от 0 до n
