@@ -27,7 +27,8 @@ func main() {
 	fmt.Println(maxNumberOfBalloons("nlaebolko")) // 1
 }
 
-// maxNumberOfBalloons подсчитывает, сколько раз можно составить слово "balloon" из букв строки
+// maxNumberOfBalloons - подсчитывает, сколько раз можно составить слово "balloon" из букв строки.
+// time: O(n), space: O(1)
 func maxNumberOfBalloons(text string) int {
 	// Создаем мапу для подсчета нужных букв
 	counts := map[rune]float64{
@@ -40,7 +41,7 @@ func maxNumberOfBalloons(text string) int {
 
 	// Подсчитываем только те буквы, которые входят в слово "balloon"
 	for _, char := range text {
-		if _, exists := counts[char]; exists {
+		if _, exists := counts[char]; exists { // Если буква есть в мапе, то увеличиваем ее счетчик
 			counts[char]++
 		}
 	}
@@ -53,7 +54,7 @@ func maxNumberOfBalloons(text string) int {
 	// Находим минимальное значение среди всех требуемых букв
 	minValue := math.Inf(1) // Начинаем с положительной бесконечности
 	for _, count := range counts {
-		minValue = min(minValue, count)
+		minValue = min(minValue, count) // Находим минимальное значение
 	}
 
 	// Возвращаем целую часть минимального значения (округляем вниз)
