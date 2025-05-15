@@ -5,7 +5,8 @@ import (
 	"sort"
 )
 
-/* https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/
+/* 452. Minimum Number of Arrows to Burst Balloons
+https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/description/
 
 К плоской стене, представляющей плоскость XY, приклеено несколько сферических воздушных шаров. Выноски представлены в
 виде двумерного целочисленного массива точек, где points[i] = [xstart, xend] обозначает выноску, горизонтальный диаметр
@@ -30,7 +31,10 @@ func main() {
 	fmt.Println(findMinArrowShots(points)) // 2
 }
 
+// findMinArrowShots находит минимальное количество стрел, которое необходимо выпустить, чтобы лопнуть все воздушные шары.
+// time: O(n), space: O(1)
 func findMinArrowShots(points [][]int) int {
+	// Если нет интервалов, то нет стрел
 	if len(points) == 0 {
 		return 0
 	}
@@ -39,17 +43,18 @@ func findMinArrowShots(points [][]int) int {
 	sort.Slice(points, func(i, j int) bool {
 		return points[i][1] < points[j][1]
 	})
+	// points: [[1 6] [2 8] [7 12] [10 16]]
 
-	arrows := 1
-	lastEnd := points[0][1]
+	arrows := 1             // Первый интервал всегда лопнется стрелой
+	lastEnd := points[0][1] // Последняя точка конца
 
-	for i := 1; i < len(points); i++ {
+	for i := 1; i < len(points); i++ { // Перебираем оставшиеся интервалы
 		// Если текущий интервал не пересекается с последним, нужна новая стрела
 		if points[i][0] > lastEnd {
-			arrows++
-			lastEnd = points[i][1]
+			arrows++               // Добавляем стрелу
+			lastEnd = points[i][1] // Обновляем последнюю точку конца
 		}
 	}
 
-	return arrows
+	return arrows // Возвращаем количество стрел
 }
