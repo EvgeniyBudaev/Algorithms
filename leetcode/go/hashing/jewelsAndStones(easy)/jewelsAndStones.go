@@ -21,7 +21,8 @@ func main() {
 	fmt.Println(numJewelsInStones("aA", "aAAbbbb")) // 3
 }
 
-// numJewelsInStones получает количество камней из набора камней в наборе камней
+// numJewelsInStones - получает количество камней из набора камней в наборе камней.
+// time: O(n), space: O(n)
 func numJewelsInStones(jewels string, stones string) int {
 	count := 0                      // Счетчик камней
 	jewelSet := make(map[rune]bool) // Множество камней
@@ -33,10 +34,10 @@ func numJewelsInStones(jewels string, stones string) int {
 
 	// Считаем сколько камней в наборе
 	for _, s := range stones {
-		if jewelSet[s] {
+		if jewelSet[s] { // Если камень есть в наборе, то увеличиваем счетчик
 			count++
 		}
 	}
 
-	return count
+	return count // Возвращаем счетчик
 }
