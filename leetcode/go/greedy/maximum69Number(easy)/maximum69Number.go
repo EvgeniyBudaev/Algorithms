@@ -34,11 +34,10 @@ func main() {
 }
 
 // maximum69Number возвращает максимальное число, полученное из числа с заменой одной цифры 6 на 9
+// time: O(n), space: O(n), где n - длина строки
 func maximum69Number(num int) int {
-	// Преобразуем число в строку, чтобы работать с отдельными цифрами
-	s := strconv.Itoa(num)
-	// Преобразуем строку в слайс рун для изменения символов
-	digits := []rune(s)
+	s := strconv.Itoa(num) // Преобразуем число в строку, чтобы работать с отдельными цифрами
+	digits := []rune(s)    // Преобразуем строку в слайс рун для изменения символов
 
 	// Ищем первую 6 и заменяем ее на 9
 	for i, char := range digits {
@@ -50,5 +49,5 @@ func maximum69Number(num int) int {
 
 	// Преобразуем обратно в число
 	result, _ := strconv.Atoi(string(digits))
-	return result
+	return result // Возвращаем максимальное число
 }
