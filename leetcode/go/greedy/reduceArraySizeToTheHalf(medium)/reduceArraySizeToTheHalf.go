@@ -6,6 +6,7 @@ import (
 )
 
 /* 1338. Reduce Array Size to The Half
+https://leetcode.com/problems/reduce-array-size-to-the-half/description/
 
 Вам дан целочисленный массив. Вы можете выбрать набор целых чисел и удалить все вхождения этих целых чисел в массиве.
 Верните минимальный размер набора, чтобы была удалена хотя бы половина целых чисел массива.
@@ -29,6 +30,7 @@ func main() {
 }
 
 // minSetSize возвращает минимальный размер набора, чтобы была удалена хотя бы половина целых чисел массива.
+// time O(n), space O(n)
 func minSetSize(arr []int) int {
 	freqMap := make(map[int]int) // Создаем карту для подсчета частот
 
@@ -54,13 +56,13 @@ func minSetSize(arr []int) int {
 
 	// Суммируем частоты, пока не достигнем половины
 	for _, count := range freqs {
-		sum += count
-		size++
+		sum += count // Добавляем частоту числа к сумме
+		size++       // Увеличиваем размер набора
 		// Если сумма частот больше или равна половине, возвращаем размер набора
 		if sum >= half {
 			return size
 		}
 	}
 
-	return size
+	return size // Возвращаем минимальный размер набора
 }
