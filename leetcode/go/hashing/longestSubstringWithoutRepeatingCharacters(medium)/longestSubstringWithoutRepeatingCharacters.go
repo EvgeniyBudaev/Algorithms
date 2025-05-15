@@ -25,26 +25,28 @@ func main() {
 	fmt.Println(lengthOfLongestSubstring("abcabcbb")) // 3
 }
 
-// lengthOfLongestSubstring находит длину самой длинной подстрока без повторения символов.
+// lengthOfLongestSubstring - находит длину самой длинной подстрока без повторения символов.
+// time: O(n), space: O(n)
 func lengthOfLongestSubstring(s string) int {
+	// Если строка пустая или содержит только один символ, возвращаем длину строки
 	if len(s) <= 1 {
 		return len(s)
 	}
 
-	left, right, maxLength := 0, 0, 0
-	charSet := make(map[byte]bool)
+	left, right, maxLength := 0, 0, 0 // Индексы левого и правого края подстроки, максимальная длина
+	charSet := make(map[byte]bool)    // Мапа для хранения уникальных символов
 
-	for right < len(s) {
-		currentChar := s[right]
-		if _, ok := charSet[currentChar]; !ok {
-			charSet[currentChar] = true
-			maxLength = max(maxLength, right-left+1)
-			right++
-		} else {
-			delete(charSet, s[left])
-			left++
+	for right < len(s) { // Проходим по строке
+		currentChar := s[right]                 // Текущий символ
+		if _, ok := charSet[currentChar]; !ok { // Если символ не найден в мапе
+			charSet[currentChar] = true              // Добавляем его в мапу
+			maxLength = max(maxLength, right-left+1) // Обновляем максимальную длину
+			right++                                  // Переходим к следующему символу
+		} else { // Если символ найден в мапе
+			delete(charSet, s[left]) // Удаляем символ из мапы
+			left++                   // Переходим к следующему символу
 		}
 	}
 
-	return maxLength
+	return maxLength // Возвращаем максимальную длину
 }
