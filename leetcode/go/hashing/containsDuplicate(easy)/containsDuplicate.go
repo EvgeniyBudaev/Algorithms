@@ -22,16 +22,18 @@ func main() {
 	fmt.Println(containsDuplicate([]int{1, 2, 3, 1})) // true
 }
 
-// containsDuplicate проверяет, содержит ли массив повторяющиеся элементы.
+// containsDuplicate - проверяет, содержит ли массив повторяющиеся элементы.
+// time: O(n), space: O(n)
 func containsDuplicate(nums []int) bool {
-	seen := make(map[int]bool)
+	seen := make(map[int]bool) // Мапа для хранения уже встреченных значений
 
 	for _, num := range nums {
+		// Если значение уже встречалось, возвращаем true
 		if seen[num] {
 			return true
 		}
 		seen[num] = true
 	}
 
-	return false
+	return false // Если ни одно значение не повторилось, возвращаем false
 }
