@@ -6,6 +6,7 @@ import (
 )
 
 /* 1710. Maximum Units on a Truck
+https://leetcode.com/problems/maximum-units-on-a-truck/description/
 
 Вам поручено погрузить некоторое количество коробок в один грузовик. Вам дан двумерный массив boxTypes,
 где boxTypes[i] = [numberOfBoxesi, NumberOfUnitsPerBoxi]:
@@ -34,6 +35,7 @@ func main() {
 }
 
 // maximumUnits возвращает максимальное количество коробок, которое можно разместить в грузовике.
+// time: O(n), space: O(1)
 func maximumUnits(boxTypes [][]int, truckSize int) int {
 	// Сортируем коробки по количеству единиц в убывающем порядке
 	sort.Slice(boxTypes, func(i, j int) bool {
@@ -41,7 +43,7 @@ func maximumUnits(boxTypes [][]int, truckSize int) int {
 	})
 	// после сортировки получаем [[1 3] [2 2] [3 1]]
 
-	countOfUnits := 0
+	countOfUnits := 0 // Количество единиц, которое можно разместить в грузовике
 
 	// Итерируемся по отсортированным коробкам
 	for _, box := range boxTypes {
@@ -52,10 +54,8 @@ func maximumUnits(boxTypes [][]int, truckSize int) int {
 			allowedBoxes = truckSize
 		}
 
-		// Уменьшаем оставшийся объем грузовика
-		truckSize -= allowedBoxes
-		// Увеличиваем общее количество единиц
-		countOfUnits += allowedBoxes * box[1]
+		truckSize -= allowedBoxes             // Уменьшаем оставшийся объем грузовика
+		countOfUnits += allowedBoxes * box[1] // Увеличиваем общее количество единиц
 
 		// Если грузовик заполнен, выходим из цикла
 		if truckSize == 0 {
@@ -63,5 +63,5 @@ func maximumUnits(boxTypes [][]int, truckSize int) int {
 		}
 	}
 
-	return countOfUnits
+	return countOfUnits // Возвращаем общее количество единиц
 }
