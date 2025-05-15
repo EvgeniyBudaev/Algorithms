@@ -24,18 +24,20 @@ func main() {
 	fmt.Println(checkIfPangram("leetcode"))                            // false
 }
 
-// checkIfPangram проверяет, является ли предложение панграммой.
+// checkIfPangram - проверяет, является ли предложение панграммой.
+// time: O(n), space: O(1)
 func checkIfPangram(sentence string) bool {
+	// Проверяем, что предложение содержит хотя бы 26 уникальных букв
 	if len(sentence) < 26 {
 		return false
 	}
 
-	letters := make(map[rune]bool)
+	letters := make(map[rune]bool) // Создаем карту для хранения уникальных букв
 	for _, char := range sentence {
-		if unicode.IsLetter(char) {
+		if unicode.IsLetter(char) { // Если символ является буквой
 			letters[unicode.ToLower(char)] = true
 		}
 	}
 
-	return len(letters) == 26
+	return len(letters) == 26 // Если количество уникальных букв равно 26, то это панграмма
 }
