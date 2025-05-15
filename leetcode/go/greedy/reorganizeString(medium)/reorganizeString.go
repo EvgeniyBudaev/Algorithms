@@ -24,6 +24,7 @@ func main() {
 }
 
 // reorganizeString переставляет символы в строке так, чтобы любые два соседних символа не были одинаковыми.
+// time: O(n), space: O(n)
 func reorganizeString(s string) string {
 	// Создаем карту для подсчета частот символов
 	freq := make(map[rune]int)
@@ -33,12 +34,12 @@ func reorganizeString(s string) string {
 
 	// Создаем слайс для сортировки символов по частоте
 	type charCount struct {
-		char  rune
-		count int
+		char  rune // Символ
+		count int  // Частота
 	}
-	var chars []charCount
-	for char, count := range freq {
-		chars = append(chars, charCount{char, count})
+	var chars []charCount           // Создаем слайс для хранения символов и их частот
+	for char, count := range freq { // Добавляем символы и их частоты в слайс
+		chars = append(chars, charCount{char, count}) // Добавляем символ и его частоту
 	}
 
 	// Сортируем по убыванию частоты
@@ -55,7 +56,7 @@ func reorganizeString(s string) string {
 	result := make([]rune, len(s))
 	position := 0 // Индекс для заполнения результата
 
-	for _, cc := range chars {
+	for _, cc := range chars { // Делаем перебор для каждого символа в отсортированном слайсе
 		for i := 0; i < cc.count; i++ { // Для каждого символа заполняем его в результирующей строке
 			result[position] = cc.char // Заполняем символ в результирующей строке
 			position += 2              // Переходим к следующему индексу для заполнения
