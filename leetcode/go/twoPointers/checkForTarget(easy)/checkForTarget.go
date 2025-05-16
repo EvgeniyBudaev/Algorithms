@@ -15,13 +15,13 @@ func main() {
 	fmt.Println(checkForTarget(nums, 13)) // true
 }
 
-// checkForTarget - проверяет, существует ли в отсортированном массиве nums пара чисел, сумма которых равна заданному
+// checkForTarget проверяет, существует ли в отсортированном массиве nums пара чисел, сумма которых равна заданному
 // целевому значению target.
 // time: O(n), space: O(1)
 func checkForTarget(nums []int, target int) bool {
-	left, right := 0, len(nums)-1
+	left, right := 0, len(nums)-1 // левая и правая границы массива
 
-	for left < right {
+	for left < right { // пока левая граница меньше правой
 		sum := nums[left] + nums[right] // сумма пары
 		if sum == target {              // если найдено
 			return true
