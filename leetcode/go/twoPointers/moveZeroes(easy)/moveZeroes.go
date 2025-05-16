@@ -21,15 +21,15 @@ func main() {
 	fmt.Println(nums)
 }
 
-// moveZeroes -  перемещает все нули в конец массива nums, сохраняя относительный порядок ненулевых элементов.
+// moveZeroes перемещает все нули в конец массива nums, сохраняя относительный порядок ненулевых элементов.
 // time: O(n), space: O(1)
 func moveZeroes(nums []int) {
-	left := 0
+	left := 0 // Индекс для следующего ненулевого элемента
 
 	for right := 0; right < len(nums); right++ {
-		if nums[right] != 0 {
-			nums[right], nums[left] = nums[left], nums[right]
-			left++
+		if nums[right] != 0 { // Если текущий элемент не равен 0
+			nums[right], nums[left] = nums[left], nums[right] // Меняем местами текущий элемент и следующий ненулевой элемент
+			left++                                            // Увеличиваем индекс для следующего ненулевого элемента
 		}
 	}
 }
