@@ -15,7 +15,7 @@ func main() {
 	fmt.Println(isSubsequence("aec", "abcde")) // false
 }
 
-// isSubsequence - проверяет, является ли строка s подпоследовательностью строки t.
+// isSubsequence проверяет, является ли строка s подпоследовательностью строки t.
 // time: O(n), space: O(1)
 func isSubsequence(s, t string) bool {
 	left, right := 0, 0
