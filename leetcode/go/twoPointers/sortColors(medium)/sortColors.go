@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(nums) // [0,0,1,1,2,2]
 }
 
-// sortColors - сортирует массив целых чисел по возрастанию.
+// sortColors сортирует массив целых чисел по возрастанию.
 // time: O(n), space: O(1)
 func sortColors(nums []int) {
 	i := 0                        // Индекс текущего элемента
