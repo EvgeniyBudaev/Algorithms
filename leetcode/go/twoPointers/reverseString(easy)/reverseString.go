@@ -20,7 +20,7 @@ func main() {
 	fmt.Println(string(s1)) // ["o","l","l","e","h"]
 }
 
-// reverseString - переворачивает строку.
+// reverseString переворачивает строку.
 // time: O(n), space: O(1)
 func reverseString(s []byte) {
 	left, right := 0, len(s)-1
