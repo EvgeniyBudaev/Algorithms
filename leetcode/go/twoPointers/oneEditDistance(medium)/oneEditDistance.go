@@ -23,8 +23,8 @@ func main() {
 	fmt.Println(isOneEditDistance("ab", "acb")) // true
 }
 
-// isOneEditDistance - определяет, находятся ли строки на расстоянии одного редактирования друг от друга.
-// time complexity: O(n), space complexity: O(1)
+// isOneEditDistance определяет, находятся ли строки на расстоянии одного редактирования друг от друга.
+// time: O(n), space: O(1)
 func isOneEditDistance(s string, t string) bool {
 	m, n := len(s), len(t)
 	if m < n {
@@ -51,8 +51,5 @@ func isOneEditDistance(s string, t string) bool {
 	}
 
 	// Если все символы строки s и t совпадают, то проверяем, что строка s имеет длину n+1.
-	// Заходим если первые len(t) символов совпали в строках,
-	// в таком случае если len(s) == len(t) нужно вернуть false
-	// т.к. нам обязательно нужно применить одну из операций
 	return m == n+1
 }
