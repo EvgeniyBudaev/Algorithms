@@ -4,7 +4,6 @@ import "fmt"
 
 /* 986. Interval List Intersections
 https://leetcode.com/problems/interval-list-intersections/description/
-solution https://leetcode.com/problems/interval-list-intersections/solutions/4686775/simple-easy-solution-using-two-pointer/
 
 Вам даны два списка закрытых интервалов, firstList и SecondList,
 где firstList[i] = [starti, endi] и SecondList[j] = [startj, endj]. Каждый список интервалов попарно непересекающийся и
@@ -24,7 +23,7 @@ func main() {
 	fmt.Println(intervalIntersection(firstList, secondList)) // [[1 2] [5 5] [8 10] [15 23] [24 24] [25 25]]
 }
 
-// intervalIntersection - находит пересечение двух списков интервалов.
+// intervalIntersection находит пересечение двух списков интервалов.
 // time: O(n), space: O(n)
 func intervalIntersection(firstList [][]int, secondList [][]int) [][]int {
 	var result [][]int // Результирующий список интервалов
