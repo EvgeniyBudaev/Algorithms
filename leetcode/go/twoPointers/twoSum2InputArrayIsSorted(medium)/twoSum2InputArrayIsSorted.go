@@ -28,21 +28,21 @@ func main() {
 	fmt.Println(twoSum([]int{2, 7, 11, 15}, 9)) // [1,2]
 }
 
-// twoSum - находит два числа в отсортированном массиве numbers, сумма которых равна заданному целевому значению target.
+// twoSum находит два числа в отсортированном массиве numbers, сумма которых равна заданному целевому значению target.
 // time: O(n), space: O(1)
 func twoSum(numbers []int, target int) []int {
-	left, right := 0, len(numbers)-1
+	left, right := 0, len(numbers)-1 // Инициализируем указатели на начало и конец массива
 
-	for left < right {
-		sum := numbers[left] + numbers[right]
-		if sum == target {
+	for left < right { // Продолжаем поиск, пока левый указатель не станет больше правого
+		sum := numbers[left] + numbers[right] // Вычисляем сумму текущих двух чисел
+		if sum == target {                    // Если сумма равна целевому значению, возвращаем индексы чисел
 			return []int{left + 1, right + 1}
-		} else if sum < target {
+		} else if sum < target { // Если сумма меньше целевого значения, сдвигаем левый указатель вправо
 			left++
-		} else {
+		} else { // Если сумма больше целевого значения, сдвигаем правый указатель влево
 			right--
 		}
 	}
 
-	return []int{-1, -1}
+	return []int{-1, -1} // Если не найдено ни одного решения, вернуть [-1,-1]
 }
