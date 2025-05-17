@@ -59,10 +59,10 @@ func threeSum(nums []int) [][]int {
 		left := i + 1          // Указатель на следующий элемент после текущего числа
 		right := len(nums) - 1 // Указатель на последний элемент
 		for left < right {
-			threeSum := num + nums[left] + nums[right]
-			if threeSum > 0 {
+			sum := num + nums[left] + nums[right]
+			if sum > 0 {
 				right-- // Сумма слишком большая, уменьшаем правый указатель
-			} else if threeSum < 0 {
+			} else if sum < 0 {
 				left++ // Сумма слишком маленькая, увеличиваем левый указатель
 			} else {
 				// Нашли тройку
