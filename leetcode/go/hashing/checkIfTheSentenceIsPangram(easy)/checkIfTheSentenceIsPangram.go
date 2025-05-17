@@ -24,7 +24,7 @@ func main() {
 	fmt.Println(checkIfPangram("leetcode"))                            // false
 }
 
-// checkIfPangram - проверяет, является ли предложение панграммой.
+// checkIfPangram проверяет, является ли предложение панграммой.
 // time: O(n), space: O(1)
 func checkIfPangram(sentence string) bool {
 	// Проверяем, что предложение содержит хотя бы 26 уникальных букв
