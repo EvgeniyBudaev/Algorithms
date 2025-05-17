@@ -24,29 +24,31 @@ func main() {
 	fmt.Println(validPalindrome("abc"))  // false
 }
 
-// validPalindrome - проверяет, можно ли сделать строку палиндромом, удалив один символ.
+// validPalindrome проверяет, можно ли сделать строку палиндромом, удалив один символ.
 // time: O(n), space: O(1)
 func validPalindrome(s string) bool {
 	left, right := 0, len(s)-1
-	for left < right {
+	for left < right { // Сравниваем символы с обоих концов строки.
+		// Если символы не равны, проверяем, можно ли сделать строку палиндромом, удалив один символ.
 		if s[left] != s[right] {
 			return isPalindrome(s, left+1, right) || isPalindrome(s, left, right-1)
 		}
 		left++
 		right--
 	}
-	return true
+	return true // Если цикл завершился успешно, строка является палиндромом.
 }
 
-// isPalindrome - проверяет, является ли строка палиндромом.
+// isPalindrome проверяет, является ли строка палиндромом.
 // time: O(n), space: O(1)
 func isPalindrome(s string, left, right int) bool {
 	for left < right {
+		// Если символы не равны, строка не является палиндромом.
 		if s[left] != s[right] {
 			return false
 		}
 		left++
 		right--
 	}
-	return true
+	return true // Если цикл завершился успешно, строка является палиндромом.
 }
