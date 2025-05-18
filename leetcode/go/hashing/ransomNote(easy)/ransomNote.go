@@ -24,7 +24,7 @@ func main() {
 	fmt.Println(canConstruct("aa", "aab")) // true
 }
 
-// canConstruct - проверяет, можно ли построить строку ransomNote из букв строки magazine.
+// canConstruct проверяет, можно ли построить строку ransomNote из букв строки magazine.
 // time: O(n), space: O(1)
 func canConstruct(ransomNote string, magazine string) bool {
 	// Создаем map для подсчета количества каждой буквы в magazine
