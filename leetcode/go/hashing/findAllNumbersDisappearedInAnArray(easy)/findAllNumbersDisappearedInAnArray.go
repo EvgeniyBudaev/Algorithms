@@ -20,7 +20,7 @@ func main() {
 	fmt.Println(findDisappearedNumbers(nums)) // [5,6]
 }
 
-// findDisappearedNumbers - находит пропущенные числа в массиве nums.
+// findDisappearedNumbers находит пропущенные числа в массиве nums.
 // time: O(n), space: O(n)
 func findDisappearedNumbers(nums []int) []int {
 	numSet := make(map[int]bool) // Создаем карту для отслеживания чисел
