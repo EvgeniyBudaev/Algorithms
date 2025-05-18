@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(findMaxLength(nums)) // 2
 }
 
-// findMaxLength - находит максимальную длину непрерывного подмассива с равным количеством 0 и 1.
+// findMaxLength находит максимальную длину непрерывного подмассива с равным количеством 0 и 1.
 // time: O(n), space: O(n)
 func findMaxLength(nums []int) int {
 	maxLen := 0 // Текущая максимальная длина подмассива
