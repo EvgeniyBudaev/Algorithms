@@ -20,7 +20,7 @@ func main() {
 	fmt.Println(isAnagram("anagram", "nagaram")) // true
 }
 
-// isAnagram - проверяет, являются ли строки анаграммами.
+// isAnagram проверяет, являются ли строки анаграммами.
 // time: O(n), space: O(n)
 func isAnagram(s string, t string) bool {
 	// Если длины строк разные, они не могут быть анаграммами
