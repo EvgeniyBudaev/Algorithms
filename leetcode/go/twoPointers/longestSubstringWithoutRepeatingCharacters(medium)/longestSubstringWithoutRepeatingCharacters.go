@@ -25,7 +25,7 @@ func main() {
 	fmt.Println(lengthOfLongestSubstring("abcabcbb")) // 3
 }
 
-// lengthOfLongestSubstring - находит длину самой длинной подстрока без повторения символов.
+// lengthOfLongestSubstring находит длину самой длинной подстрока без повторения символов.
 // time: O(n), space: O(n)
 func lengthOfLongestSubstring(s string) int {
 	// Если строка пустая или содержит только один символ, возвращаем длину строки
