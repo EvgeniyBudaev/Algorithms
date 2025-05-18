@@ -27,7 +27,7 @@ func main() {
 	fmt.Println(maxNumberOfBalloons("nlaebolko")) // 1
 }
 
-// maxNumberOfBalloons - подсчитывает, сколько раз можно составить слово "balloon" из букв строки.
+// maxNumberOfBalloons подсчитывает, сколько раз можно составить слово "balloon" из букв строки.
 // time: O(n), space: O(1)
 func maxNumberOfBalloons(text string) int {
 	// Создаем мапу для подсчета нужных букв
