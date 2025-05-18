@@ -25,7 +25,7 @@ func main() {
 	fmt.Println(longestConsecutive(nums)) // 4
 }
 
-// longestConsecutive - находит длину самой длинной последовательности последовательных чисел.
+// longestConsecutive находит длину самой длинной последовательности последовательных чисел.
 // time: O(n), space: O(1)
 func longestConsecutive(nums []int) int {
 	// Если массив пуст, возвращаем 0.
@@ -39,7 +39,7 @@ func longestConsecutive(nums []int) int {
 	return search(nums)
 }
 
-// search - проходит по отсортированному массиву и находит самую длинную последовательность.
+// search проходит по отсортированному массиву и находит самую длинную последовательность.
 // time: O(n), space: O(1)
 func search(nums []int) int {
 	maxScore := 1  // Максимальная длина последовательности
