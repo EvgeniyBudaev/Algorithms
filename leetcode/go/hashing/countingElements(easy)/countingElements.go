@@ -35,7 +35,7 @@ func main() {
 	fmt.Println(countElements([]int{1, 1, 2})) // 2
 }
 
-// countElements - подсчитывает количество элементов x в массиве, таких что x + 1 также находится в массиве.
+// countElements подсчитывает количество элементов x в массиве, таких что x + 1 также находится в массиве.
 // time: O(n), space: O(n)
 func countElements(arr []int) int {
 	elementSet := make(map[int]bool) // Создаем множество (map) для быстрой проверки наличия элементов в массиве.
