@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(topKFrequent(nums, 2)) // [1, 2]
 }
 
-// topKFrequent - возвращает k наиболее часто встречающихся чисел.
+// topKFrequent возвращает k наиболее часто встречающихся чисел.
 // time: O(n log n), space: O(n)
 func topKFrequent(nums []int, k int) []int {
 	// Создаем map для подсчета частоты каждого числа
@@ -53,7 +53,7 @@ func topKFrequent(nums []int, k int) []int {
 	// [{1, 3} {2, 2} {3, 1}]
 
 	// Выбираем k самых частых чисел
-	result := make([]int, 0, k)
+	var result []int                              // Создаем слайс для результата
 	for i := 0; i < k && i < len(numFreqs); i++ { // Проверяем, что i < k и i < длины numFreqs
 		result = append(result, numFreqs[i].num) // Добавляем i-е число в результат
 	}
