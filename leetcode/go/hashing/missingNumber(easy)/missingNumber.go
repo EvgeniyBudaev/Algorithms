@@ -29,7 +29,7 @@ func main() {
 	fmt.Println(missingNumber(nums)) // 2
 }
 
-// missingNumber - находит пропущенное число в последовательности [0, n]
+// missingNumber находит пропущенное число в последовательности [0, n]
 // time: O(n), space: O(1)
 func missingNumber(nums []int) int {
 	n := len(nums)                 // Длина массива
