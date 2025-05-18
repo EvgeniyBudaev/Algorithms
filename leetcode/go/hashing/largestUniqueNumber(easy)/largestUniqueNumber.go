@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(largestUniqueNumber(nums)) // 8
 }
 
-// largestUniqueNumber - находит наибольшее уникальное число в массиве.
+// largestUniqueNumber находит наибольшее уникальное число в массиве.
 // Если такого числа нет, возвращает -1.
 // time: O(n), space: O(n)
 func largestUniqueNumber(nums []int) int {
