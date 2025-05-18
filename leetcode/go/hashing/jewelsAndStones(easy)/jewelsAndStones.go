@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(numJewelsInStones("aA", "aAAbbbb")) // 3
 }
 
-// numJewelsInStones - получает количество камней из набора камней в наборе камней.
+// numJewelsInStones получает количество камней из набора камней в наборе камней.
 // time: O(n), space: O(n)
 func numJewelsInStones(jewels string, stones string) int {
 	count := 0                      // Счетчик камней
