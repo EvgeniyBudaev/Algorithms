@@ -15,17 +15,17 @@ func main() {
 	fmt.Println(findLengthSubarray(nums, 8)) // 4
 }
 
-// findLengthSubarray - находит длину самого длинного подмассива, сумма которого меньше или равна k.
+// findLengthSubarray находит длину самого длинного подмассива, сумма которого меньше или равна k.
 // time: O(n), space: O(1)
 func findLengthSubarray(nums []int, k int) int {
-	left, sum, result := 0, 0, 0
+	left, sum, result := 0, 0, 0 // Инициализируем левый указатель, сумму и результат
 
-	for right := 0; right < len(nums); right++ {
-		sum += nums[right]
-		// Если сумма превышает k, сдвигаем left
+	for right := 0; right < len(nums); right++ { // Перебираем все элементы массива
+		sum += nums[right] // Добавляем текущий элемент в сумму
+		// Если сумма превышает k
 		for sum > k {
-			sum -= nums[left]
-			left++
+			sum -= nums[left] // Убираем элемент из суммы
+			left++            // Сдвигаем левый указатель
 		}
 		// Обновляем максимальную длину подмассива
 		result = max(result, right-left+1)
