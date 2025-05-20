@@ -26,12 +26,12 @@ func main() {
 	fmt.Println(maxProfit(prices)) // 5
 }
 
-// maxProfit - вычисляет максимальную возможную прибыль от покупки и продажи акций на основе массива цен.
+// maxProfit вычисляет максимальную возможную прибыль от покупки и продажи акций на основе массива цен.
 // time: O(n), space: O(1)
 func maxProfit(prices []int) int {
 	left, right, profit := 0, 1, 0 // left - для покупки, right - для продажи
 
-	for right < len(prices) {
+	for right < len(prices) { // проходимся по массиву цен
 		// если цена акции меньше или равна цене акции в день покупки, то сдвигаем левую границу на один шаг вправо
 		if prices[right] <= prices[left] {
 			left = right
@@ -41,5 +41,5 @@ func maxProfit(prices []int) int {
 		right++
 	}
 
-	return profit
+	return profit // возвращаем максимальную прибыль
 }
