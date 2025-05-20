@@ -27,24 +27,24 @@ func main() {
 	fmt.Println(longestSubarray(nums)) // 3
 }
 
-// longestSubarray - возвращает размер самого длинного подмассива, содержащего только 1 в результирующем массиве.
+// longestSubarray возвращает размер самого длинного подмассива, содержащего только 1 в результирующем массиве.
 // time: O(n), space: O(1)
 func longestSubarray(nums []int) int {
-	left, result, zeroCount := 0, 0, 0
+	left, result, zeroCount := 0, 0, 0 // left - левый указатель, result - результат, zeroCount - количество нулей
 
-	for right := 0; right < len(nums); right++ {
-		if nums[right] == 0 {
+	for right := 0; right < len(nums); right++ { // Проходим по массиву
+		if nums[right] == 0 { // Если ноль, то увеличиваем количество нулей
 			zeroCount++
 		}
-		// Если количество нулей превышает 1, сдвигаем left
-		for zeroCount > 1 {
-			if nums[left] == 0 {
+
+		for zeroCount > 1 { // Если количество нулей превышает 1
+			if nums[left] == 0 { // Если ноль, то уменьшаем количество нулей
 				zeroCount--
 			}
-			left++
+			left++ // Сдвигаем левый указатель
 		}
-		// Обновляем максимальную длину подмассива
-		result = max(result, right-left)
+
+		result = max(result, right-left) // Обновляем максимальную длину подмассива
 	}
 
 	return result // Возвращаем размер самого длинного подмассива
