@@ -19,7 +19,7 @@ func main() {
 	fmt.Println(lengthOfLongestSubstringKDistinct("eceba", 2)) // Вывод: 3
 }
 
-// lengthOfLongestSubstringKDistinct - возвращает длину самой длинной подстроки s, содержащей не более k различных символов.
+// lengthOfLongestSubstringKDistinct возвращает длину самой длинной подстроки s, содержащей не более k различных символов.
 // time: O(n), space: O(k)
 func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	charMap := make(map[byte]int) // Хранит частоту символов в текущем окне
@@ -29,7 +29,7 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	for right := 0; right < len(s); right++ {
 		currentChar := s[right] // Текущий символ
 		charMap[currentChar]++  // Увеличиваем частоту текущего символа
-		// Если количество уникальных символов превышает k, сдвигаем left
+		// Если количество уникальных символов превышает k, сдвигаем левый указатель
 		for len(charMap) > k {
 			leftChar := s[left]
 			charMap[leftChar]-- // Уменьшаем частоту символа слева
