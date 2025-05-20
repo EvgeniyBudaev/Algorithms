@@ -25,7 +25,7 @@ func findLengthString(s string) int {
 
 	for right := 0; right < len(s); right++ {
 		if s[right] == '0' { // Если слева стоит ноль, увеличиваем счетчик нулей
-			zeroCount++ // Сдвигаем правый указатель
+			zeroCount++
 		}
 		// Если количество нулей больше 1, сдвигаем left
 		for zeroCount > 1 {
