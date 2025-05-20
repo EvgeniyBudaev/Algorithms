@@ -29,30 +29,24 @@ func main() {
 // characterReplacement находит длину самой длинной подстроки, в которой можно сделать не более k замен символов.
 // time: O(n), space: O(1)
 func characterReplacement(s string, k int) int {
-	charMap := make(map[byte]int) // Хранит количество каждого символа в текущем окне
-	result, maxFreq := 0, 0       // result - максимальная длина, maxFreq - максимальная частота символа в окне
-	left := 0                     // Указатель на начало окна
+	charCount := make(map[byte]int) // Мапа для подсчета количества каждого символа в подстроке
+	result, maxFreq := 0, 0         // Результат и максимальная частота в подстроке
+	left := 0                       // Левый индекс подстроки
 
-	for right := 0; right < len(s); right++ {
-		currentChar := s[right] // Текущий символ
-		charMap[currentChar]++  // Увеличиваем количество текущего символа
+	for right := 0; right < len(s); right++ { // Проходим по строке
+		current := s[right]                        // Текущий символ
+		charCount[current]++                       // Увеличиваем счетчик текущего символа
+		maxFreq = max(maxFreq, charCount[current]) // Обновляем максимальную частоту
+		window := right - left + 1                 // Текущая длина подстроки
 
-		if charMap[currentChar] > maxFreq { // Обновляем максимальную частоту символа в окне
-			maxFreq = charMap[currentChar]
+		if window-maxFreq > k { // Если текущая подстрока не подходит по условию
+			charCount[s[left]]-- // Уменьшаем счетчик левого символа
+			left++               // Сдвигаем левый индекс
 		}
 
-		window := right - left + 1 // Размер текущего окна
-
-		if window-maxFreq > k { // Если размер окна превышает maxFreq + k, сдвигаем left
-			charMap[s[left]]-- // Уменьшаем количество символа слева
-			if charMap[s[left]] == 0 {
-				delete(charMap, s[left]) // Удаляем символ, если его количество становится 0
-			}
-			left++ // Сдвигаем left
-		}
-
-		result = max(result, window) // Обновляем максимальную длину окна
+		currentWindow := right - left + 1   // Текущая длина подстроки
+		result = max(result, currentWindow) // Обновляем результат
 	}
 
-	return result // Возвращаем максимальную длину
+	return result // Возвращаем результат
 }
