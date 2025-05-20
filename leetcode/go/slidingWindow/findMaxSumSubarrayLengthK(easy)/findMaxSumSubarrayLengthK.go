@@ -12,7 +12,7 @@ func main() {
 	fmt.Println(findMaxSumSubarrayLengthK(nums, 4)) // 18 <- [3, -1, 4, 12,]
 }
 
-// findMaxSumSubarrayLengthK - находит сумму подмассива с наибольшей суммой, длина которой равна k.
+// findMaxSumSubarrayLengthK находит сумму подмассива с наибольшей суммой, длина которой равна k.
 // time: O(n), space: O(1)
 func findMaxSumSubarrayLengthK(nums []int, k int) int {
 	sum := 0 // Текущая сумма подмассива длины k
