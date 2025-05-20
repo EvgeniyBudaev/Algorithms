@@ -26,7 +26,7 @@ func main() {
 	fmt.Println(characterReplacement("ABAB", 2)) // 4
 }
 
-// characterReplacement - находит длину самой длинной подстроки, в которой можно сделать не более k замен символов.
+// characterReplacement находит длину самой длинной подстроки, в которой можно сделать не более k замен символов.
 // time: O(n), space: O(1)
 func characterReplacement(s string, k int) int {
 	charMap := make(map[byte]int) // Хранит количество каждого символа в текущем окне
@@ -37,14 +37,13 @@ func characterReplacement(s string, k int) int {
 		currentChar := s[right] // Текущий символ
 		charMap[currentChar]++  // Увеличиваем количество текущего символа
 
-		// Обновляем максимальную частоту символа в окне
-		if charMap[currentChar] > maxFreq {
+		if charMap[currentChar] > maxFreq { // Обновляем максимальную частоту символа в окне
 			maxFreq = charMap[currentChar]
 		}
 
 		window := right - left + 1 // Размер текущего окна
-		// Если размер окна превышает maxFreq + k, сдвигаем left
-		if window-maxFreq > k {
+
+		if window-maxFreq > k { // Если размер окна превышает maxFreq + k, сдвигаем left
 			charMap[s[left]]-- // Уменьшаем количество символа слева
 			if charMap[s[left]] == 0 {
 				delete(charMap, s[left]) // Удаляем символ, если его количество становится 0
@@ -52,8 +51,7 @@ func characterReplacement(s string, k int) int {
 			left++ // Сдвигаем left
 		}
 
-		// Обновляем максимальную длину окна
-		result = max(result, window)
+		result = max(result, window) // Обновляем максимальную длину окна
 	}
 
 	return result // Возвращаем максимальную длину
