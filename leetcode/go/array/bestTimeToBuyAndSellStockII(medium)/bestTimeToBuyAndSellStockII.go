@@ -24,7 +24,7 @@ func main() {
 	fmt.Println(maxProfit(prices)) // 7  // 4 + 3
 }
 
-// maxProfit - находим максимальную прибыль.
+// maxProfit находим максимальную прибыль.
 // time: O(n), space: O(1)
 func maxProfit(prices []int) int {
 	profit := 0 // 0 - если нет прибыли
