@@ -25,7 +25,7 @@ func main() {
 	fmt.Println(arrayPairSum(nums)) // 4
 }
 
-// arrayPairSum - возвращает максимальную сумму пар в массиве чисел.
+// arrayPairSum возвращает максимальную сумму пар в массиве чисел.
 // time: O(n), space: O(1)
 func arrayPairSum(nums []int) int {
 	sort.Ints(nums) // Сортируем массив O(n*log(n)) [1, 2, 3, 4]
