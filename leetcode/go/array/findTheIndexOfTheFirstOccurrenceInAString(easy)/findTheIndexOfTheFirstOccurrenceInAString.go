@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(strStr(haystack, needle)) // 0
 }
 
-// strStr - функция, которая находит индекс первого вхождения needle в haystack.
+// strStr возвращает индекс первого вхождения needle в haystack.
 // time complexity: O(n*m), space complexity: O(1)
 func strStr(haystack string, needle string) int {
 	// Если needle пустой, то возвращаем 0
@@ -36,5 +36,5 @@ func strStr(haystack string, needle string) int {
 		}
 	}
 
-	return -1
+	return -1 // Если needle не найдено, возвращаем -1
 }
