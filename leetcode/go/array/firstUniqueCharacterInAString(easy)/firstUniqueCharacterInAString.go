@@ -11,8 +11,7 @@ https://leetcode.com/problems/first-unique-character-in-a-string/description/
 
 Input: s = "leetcode"
 Output: 0
-Пояснение:
-Символ «l» в индексе 0 — это первый символ, который не встречается ни в каком другом индексе.
+Пояснение: Символ «l» в индексе 0 — это первый символ, который не встречается ни в каком другом индексе.
 */
 
 func main() {
@@ -22,8 +21,7 @@ func main() {
 // firstUniqChar возвращает индекс первого уникального символа в строке s.
 // time: O(n), space: O(n)
 func firstUniqChar(s string) int {
-	// Создаем мап для подсчета количества вхождений каждого символа
-	charCount := make(map[rune]int)
+	charCount := make(map[rune]int) // Создаем мап для подсчета количества вхождений каждого символа
 
 	// Первый проход: подсчитываем количество каждого символа
 	for _, char := range s {
@@ -37,6 +35,5 @@ func firstUniqChar(s string) int {
 		}
 	}
 
-	// Если не нашли уникальных символов
-	return -1
+	return -1 // Если не нашли уникальных символов
 }
