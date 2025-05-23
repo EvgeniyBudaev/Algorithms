@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(increasingTriplet(nums)) // true
 }
 
-// increasingTriplet - функция проверяет, существует ли возрастающая триплетная подпоследовательность
+// increasingTriplet проверяет, существует ли возрастающая триплетная подпоследовательность
 // в заданном целочисленном массиве.
 // time: O(n), space: O(1)
 func increasingTriplet(nums []int) bool {
