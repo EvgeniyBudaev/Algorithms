@@ -19,7 +19,7 @@ func main() {
 	fmt.Println(firstUniqChar("leetcode")) // 0
 }
 
-// firstUniqChar - возвращает индекс первого уникального символа в строке s.
+// firstUniqChar возвращает индекс первого уникального символа в строке s.
 // time: O(n), space: O(n)
 func firstUniqChar(s string) int {
 	// Создаем мап для подсчета количества вхождений каждого символа
