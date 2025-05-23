@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(findDuplicate([]int{1, 3, 4, 2, 2})) // 2
 }
 
-// findDuplicate - возвращает целое повторяющееся число.
+// findDuplicate возвращает целое повторяющееся число.
 // time: O(n), space: O(1)
 func findDuplicate(nums []int) int {
 	for _, num := range nums {
