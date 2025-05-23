@@ -24,9 +24,12 @@ Output: 1
 func main() {
 	nums := []int{1, 2, 0}
 	fmt.Println(firstMissingPositive(nums)) // 3
+
+	nums2 := []int{3, 4, -1, 1}
+	fmt.Println(firstMissingPositive(nums2)) // 2
 }
 
-// firstMissingPositive - возвращает наименьшее положительное целое число, которого нет в nums.
+// firstMissingPositive возвращает наименьшее положительное целое число, которого нет в nums.
 // time: O(n), memory: O(1)
 func firstMissingPositive(nums []int) int {
 	n := len(nums) // Длина массива
@@ -39,6 +42,7 @@ func firstMissingPositive(nums []int) int {
 		}
 	}
 	// nums: [1, 2, 0]
+	// nums: [1, -1, 3, 4]
 
 	// Второй проход: ищем первое число, не соответствующее индексу
 	for i := 0; i < n; i++ {
