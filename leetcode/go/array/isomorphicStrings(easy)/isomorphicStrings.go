@@ -29,7 +29,7 @@ func main() {
 	fmt.Println(isIsomorphic("abc", "aaa")) // false
 }
 
-// isIsomorphic - определяет, изоморфны ли строки.
+// isIsomorphic определяет, изоморфны ли строки.
 // time: O(n), space: O(n), где n - длина строки.
 func isIsomorphic(s string, t string) bool {
 	// Если длины строк не совпадают, то они не изоморфны.
