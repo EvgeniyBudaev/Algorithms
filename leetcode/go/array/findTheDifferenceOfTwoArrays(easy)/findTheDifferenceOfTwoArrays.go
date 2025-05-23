@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /* 2215. Find the Difference of Two Arrays
 https://leetcode.com/problems/find-the-difference-of-two-arrays/description/
@@ -26,7 +28,7 @@ func main() {
 	fmt.Println(findDifference(arr1, arr2)) // [[1,3],[4,6]]
 }
 
-// findDifference - возвращает списки элементов, которых нет в другом масиве.
+// findDifference возвращает списки элементов, которых нет в другом масиве.
 // time: O(n), space: O(n)
 func findDifference(nums1 []int, nums2 []int) [][]int {
 	s1 := make(map[int]bool) // Множество элементов первого массива
