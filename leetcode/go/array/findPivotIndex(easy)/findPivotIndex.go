@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(pivotIndex(nums)) // 3
 }
 
-// pivotIndex - находит индекс поворота массива.
+// pivotIndex находит индекс поворота массива.
 // time: O(n), space: O(1)
 func pivotIndex(nums []int) int {
 	totalSum := 0 // Общая сумма всех элементов массива.
