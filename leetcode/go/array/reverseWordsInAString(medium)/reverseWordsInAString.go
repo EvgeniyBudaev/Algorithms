@@ -27,7 +27,7 @@ func main() {
 	fmt.Println(reverseWords("the sky is blue")) // "blue is sky the"
 }
 
-// reverseWords - функция переворачивает слова в строке.
+// reverseWords переворачивает слова в строке.
 // time: O(n), space: O(n)
 func reverseWords(s string) string {
 	words := strings.Fields(s)      // Разбиваем строку на слова
