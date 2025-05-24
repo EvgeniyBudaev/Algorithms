@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(majorityElement([]int{3, 2, 3})) // 3
 }
 
-// majorityElement - возвращает элемент большинства.
+// majorityElement возвращает элемент большинства.
 // time: O(n), space: O(1)
 func majorityElement(nums []int) int {
 	count := 0     // Количество элементов, которые мы считаем пока не нашли кандидата.
