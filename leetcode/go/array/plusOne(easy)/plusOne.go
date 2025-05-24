@@ -23,8 +23,8 @@ func main() {
 	fmt.Println(plusOne(digits)) // [1,2,4]
 }
 
-// plusOne - функция для увеличения числа на 1.
-// time complexity: O(n), space complexity: O(1)
+// plusOne увеличивает число на 1.
+// time: O(n), space: O(1)
 func plusOne(digits []int) []int {
 	n := len(digits) // Получаем длину массива цифр
 
