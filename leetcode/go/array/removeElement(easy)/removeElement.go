@@ -22,7 +22,7 @@ func main() {
 	removeElement(nums, 3) // 2
 }
 
-// removeElement - удаляет все вхождения val в nums.
+// removeElement удаляет все вхождения val в nums.
 // time: O(n), space: O(1)
 func removeElement(nums []int, val int) int {
 	count := 0 // Счетчик для отслеживания элементов, отличных от val
