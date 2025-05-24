@@ -12,6 +12,15 @@ https://leetcode.com/problems/maximum-product-of-three-numbers/description/
 
 Input: nums = [1,2,3]
 Output: 6
+
+Input: nums = [1,2,3,4]
+Output: 24
+
+Input: nums = [-1,-2,-3]
+Output: -6
+
+Input: nums = [-100,-98,-1,2,3,4]
+Output: 39200
 */
 
 func main() {
@@ -19,7 +28,7 @@ func main() {
 	fmt.Println(maximumProduct(nums)) // 6
 }
 
-// maximumProduct - функция для нахождения максимального произведения трех чисел в массиве nums/
+// maximumProduct возвращает максимальное произведения трех чисел в массиве nums.
 // time: O(n * log(n)), space: O(1)
 func maximumProduct(nums []int) int {
 	sort.Ints(nums) // Сортируем массив в порядке возрастания
