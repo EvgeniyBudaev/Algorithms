@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(singleNumber([]int{2, 2, 3, 2})) // 3
 }
 
-// singleNumber - основная функция, которая находит уникальный элемент в массиве.
+// singleNumber находит уникальный элемент в массиве.
 // time: O(n*log(n)), space: O(1)
 func singleNumber(nums []int) int {
 	if len(nums) == 1 { // Если массив состоит из одного элемента, то он и является единственным
