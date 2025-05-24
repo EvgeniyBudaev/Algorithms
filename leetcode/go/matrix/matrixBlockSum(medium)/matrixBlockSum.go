@@ -22,7 +22,7 @@ func main() {
 	fmt.Println(matrixBlockSum(mat, k)) // [[12,21,16],[27,45,33],[24,39,28]]
 }
 
-// matrixBlockSum - возвращает матрицу размером m x n, где каждый ответ[i][j] является суммой.
+// matrixBlockSum возвращает матрицу размером m x n, где каждый ответ[i][j] является суммой.
 // time: O(m*n), space: O(m*n)
 func matrixBlockSum(mat [][]int, k int) [][]int {
 	r, c := len(mat), len(mat[0]) // r - количество строк, c - количество столбцов
