@@ -26,7 +26,7 @@ func main() {
 	fmt.Println(singleNumber([]int{2, 2, 1})) // 1
 }
 
-// singleNumber - находит уникальное число в слайсе.
+// singleNumber находит уникальное число в слайсе.
 // time: O(n), space: O(1)
 func singleNumber(nums []int) int {
 	sort.Ints(nums) // time: O(n logn), space: O(1)
