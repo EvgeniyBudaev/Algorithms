@@ -33,7 +33,7 @@ func main() {
 	fmt.Println(isMonotonic(nums3)) // false
 }
 
-// isMonotonic - возвращает true, если заданный массив монотонен, или false в противном случае.
+// isMonotonic возвращает true, если заданный массив монотонен, или false в противном случае.
 // time: O(n), space: O(1)
 func isMonotonic(nums []int) bool {
 	isIncreasing := true // монотонно возрастает
@@ -53,6 +53,5 @@ func isMonotonic(nums []int) bool {
 		}
 	}
 
-	// если монотонно возрастает или монотонно убывает
-	return true
+	return true // если монотонно возрастает или монотонно убывает
 }
