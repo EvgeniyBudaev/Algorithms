@@ -21,7 +21,7 @@ func main() {
 	fmt.Println(subarraySum(nums, k)) // 2
 }
 
-// subarraySum - находит количество подмассивов с суммой, равной k.
+// subarraySum возвращает количество подмассивов с суммой, равной k.
 // time: O(n), space: O(n)
 func subarraySum(nums []int, k int) int {
 	sumMap := make(map[int]int) // Создаем map для хранения сумм и их количества
