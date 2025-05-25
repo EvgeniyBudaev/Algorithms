@@ -24,7 +24,7 @@ func main() {
 	fmt.Println(topKFrequent(words, 2)) // ["i", "love"]
 }
 
-// topKFrequent - возвращает k наиболее часто встречающихся слов.
+// topKFrequent возвращает k наиболее часто встречающихся слов.
 // time: O(n log n), где n - длина массива words, space: O(n), где n - длина массива words
 func topKFrequent(words []string, k int) []string {
 	// Создаем map для подсчета частоты слов
