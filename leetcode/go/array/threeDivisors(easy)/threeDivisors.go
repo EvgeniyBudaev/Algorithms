@@ -11,10 +11,15 @@ https://leetcode.com/problems/three-divisors/description/
 Input: n = 2
 Output: false
 Объяснение: у числа 2 всего два делителя: 1 и 2.
+
+Input: n = 4
+Output: true
+Объяснение: 4 имеет три делителя: 1, 2 и 4.
 */
 
 func main() {
 	fmt.Println(isThree(2)) // false
+	fmt.Println(isThree(4)) // true
 }
 
 // isThree принимает число и возвращает true если число имеет ровно три положительных делителя, иначе false.
