@@ -40,11 +40,9 @@ func isMonotonic(nums []int) bool {
 	isDecreasing := true // монотонно убывает
 
 	for i := 1; i < len(nums); i++ {
-		// если монотонно возрастает
-		if nums[i] > nums[i-1] {
+		if nums[i] > nums[i-1] { // если монотонно возрастает
 			isDecreasing = false
-			// если монотонно убывает
-		} else if nums[i] < nums[i-1] {
+		} else if nums[i] < nums[i-1] { // если монотонно убывает
 			isIncreasing = false
 		}
 		// если не монотонно возрастает и не монотонно убывает
