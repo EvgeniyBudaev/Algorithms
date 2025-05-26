@@ -22,7 +22,7 @@ func main() {
 }
 
 // singleNumber находит уникальный элемент в массиве.
-// time: O(n*log(n)), space: O(1)
+// time: O(n), space: O(1)
 func singleNumber(nums []int) int {
 	if len(nums) == 1 { // Если массив состоит из одного элемента, то он и является единственным
 		return nums[0]
