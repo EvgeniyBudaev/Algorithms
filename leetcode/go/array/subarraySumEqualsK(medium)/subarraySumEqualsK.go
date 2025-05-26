@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /* 560. Subarray Sum Equals K
 https://leetcode.com/problems/subarray-sum-equals-k/description/
@@ -17,8 +19,7 @@ Output: 2
 
 func main() {
 	nums := []int{1, 2, 3}
-	k := 3
-	fmt.Println(subarraySum(nums, k)) // 2
+	fmt.Println(subarraySum(nums, 3)) // 2
 }
 
 // subarraySum возвращает количество подмассивов с суммой, равной k.
@@ -30,8 +31,7 @@ func subarraySum(nums []int, k int) int {
 	sum := 0   // Текущая сумма
 	count := 0 // Количество подмассивов с суммой k
 
-	// Проходим по массиву
-	for _, num := range nums {
+	for _, num := range nums { // Проходим по массиву
 		sum += num // Добавляем текущее число к текущей сумме
 		// Если (sum - k) существует в map, увеличиваем count
 		if val, ok := sumMap[sum-k]; ok {
@@ -41,6 +41,5 @@ func subarraySum(nums []int, k int) int {
 		sumMap[sum]++
 	}
 
-	// Возвращаем количество подмассивов с суммой k
-	return count
+	return count // Возвращаем количество подмассивов с суммой k
 }
