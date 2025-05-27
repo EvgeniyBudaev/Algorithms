@@ -24,8 +24,7 @@ func main() {
 }
 
 // search возвращает индекс элемента массива или -1, если элемент отсутствует в массиве.
-// time: O(log n)
-// space: O(1)
+// time: O(log n), space: O(1)
 func search(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
