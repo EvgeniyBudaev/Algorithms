@@ -25,6 +25,7 @@ func main() {
 }
 
 // searchInsert возвращает индекс элемента массива или индекс, где он должен быть вставлен.
+// time: O(log n), space: O(1)
 func searchInsert(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
