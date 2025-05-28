@@ -28,18 +28,20 @@ func main() {
 }
 
 // findPeakElement возвращает индекс пикового элемента в массиве nums.
+// time: O(log n), space: O(1)
 func findPeakElement(nums []int) int {
-	left, right := 0, len(nums)-1
+	left, right := 0, len(nums)-1 // Устанавливаем границы поиска
 
 	for left <= right {
-		mid := (left + right) / 2
+		mid := (left + right) / 2 // Находим индекс среднего элемента
 		// Проверяем, существует ли следующий элемент и сравниваем его с текущим
 		if mid < len(nums)-1 && nums[mid+1] > nums[mid] {
-			left = mid + 1
+			left = mid + 1 // Если следующий элемент больше текущего, двигаемся вправо
+			// Если следующий элемент меньше текущего, двигаемся влево
 		} else {
 			right = mid - 1
 		}
 	}
 
-	return left
+	return left // Возвращаем индекс пикового элемента
 }
