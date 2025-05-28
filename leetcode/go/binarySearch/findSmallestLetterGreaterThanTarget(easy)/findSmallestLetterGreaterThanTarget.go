@@ -21,8 +21,9 @@ func main() {
 }
 
 // nextGreatestLetter возвращает наименьший буквенный символ, который лексикографически больше целевого символа.
+// time: O(log n), space: O(1)
 func nextGreatestLetter(letters []byte, target byte) byte {
-	length := len(letters)
+	length := len(letters) // Длина массива
 
 	// Обработка крайних случаев
 	if target < letters[0] || target >= letters[length-1] {
@@ -36,7 +37,7 @@ func nextGreatestLetter(letters []byte, target byte) byte {
 		guess := letters[mid]
 
 		// Если текущий символ больше целевого, и предыдущий символ меньше или равен целевому, возвращаем текущий символ
-		if guess > target && target >= letters[mid-1] {
+		if guess > target && letters[mid-1] <= target {
 			return guess
 		}
 		if guess > target {
