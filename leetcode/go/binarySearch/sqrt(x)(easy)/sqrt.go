@@ -19,7 +19,7 @@ func main() {
 	fmt.Println(mySqrt(4)) // 2
 }
 
-// mySqrt - возвращает квадратный корень x, округленный до ближайшего целого числа.
+// mySqrt возвращает квадратный корень x, округленный до ближайшего целого числа.
 //
 //	time: O(log n), space: O(1)
 func mySqrt(x int) int {
@@ -33,7 +33,7 @@ func mySqrt(x int) int {
 
 	// Бинарный поиск
 	for right-left > 1 {
-		mid := (left + right) / 2 // Среднее
+		mid := (left + right) / 2 // Вычисляем середину
 		// Если mid*mid <= x, то mid - это искомый корень
 		if good(mid) {
 			left = mid // Переходим к правому краю
@@ -43,6 +43,5 @@ func mySqrt(x int) int {
 		}
 	}
 
-	// Возвращаем левую границу
-	return left
+	return left // Возвращаем левую границу
 }
