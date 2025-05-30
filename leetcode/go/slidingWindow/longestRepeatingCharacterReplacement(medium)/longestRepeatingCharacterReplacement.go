@@ -29,9 +29,8 @@ func main() {
 // characterReplacement находит длину самой длинной подстроки, в которой можно сделать не более k замен символов.
 // time: O(n), space: O(1)
 func characterReplacement(s string, k int) int {
-	charCount := make(map[byte]int) // Мапа для подсчета количества каждого символа в подстроке
-	result, maxFreq := 0, 0         // Результат и максимальная частота в подстроке
-	left := 0                       // Левый индекс подстроки
+	charCount := make(map[byte]int)  // Мапа для подсчета количества каждого символа в подстроке
+	left, result, maxFreq := 0, 0, 0 // Левый индекс подстроки, результат и максимальная частота в подстроке
 
 	for right := 0; right < len(s); right++ { // Проходим по строке
 		current := s[right]                        // Текущий символ
