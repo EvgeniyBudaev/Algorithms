@@ -25,7 +25,7 @@ func main() {
 	fmt.Println(maxSubArray(nums)) // 6
 }
 
-// maxSubArray - находит подмассив с наибольшей суммой и возвращает ее сумму.
+// maxSubArray находит подмассив с наибольшей суммой и возвращает ее сумму.
 // time: O(n), space: O(1)
 func maxSubArray(nums []int) int {
 	// Проверяем, что массив не пустой
