@@ -27,9 +27,7 @@ func findMaxSumSubarrayLengthK(nums []int, k int) int {
 	// Скользим окном по массиву
 	for i := k; i < len(nums); i++ {
 		sum += nums[i] - nums[i-k] // Добавляем nums[i] и удаляем nums[i-k]
-		if sum > result {          // Обновляем result, если текущая сумма больше
-			result = sum
-		}
+		result = max(result, sum)  // Обновляем result, если текущая сумма больше
 	}
 
 	return result // Возвращаем наибольшую сумму подмассива
