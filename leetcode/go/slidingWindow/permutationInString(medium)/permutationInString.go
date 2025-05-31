@@ -18,9 +18,10 @@ Output: false
 
 func main() {
 	fmt.Println(checkInclusion("ab", "eidbaooo")) // true
+	fmt.Println(checkInclusion("ab", "eidboaoo")) // false
 }
 
-// checkInclusion - проверяет, содержит ли строка s2 перестановку строки s1.
+// checkInclusion проверяет, содержит ли строка s2 перестановку строки s1.
 // time: O(n), space: O(1)
 func checkInclusion(s1 string, s2 string) bool {
 	// Если длина s1 больше длины s2, то s1 не может быть перестановкой s2
