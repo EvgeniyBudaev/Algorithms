@@ -38,7 +38,7 @@ func findMaxAverage(nums []int, k int) float64 {
 	for i := k; i < len(nums); i++ {
 		sum += nums[i] - nums[i-k]       // Добавляем новый элемент и убираем старый
 		avg := float64(sum) / float64(k) // Вычисляем среднее значение
-		avg = max(avg, maxAvg)           // Обновляем максимальное среднее значение, если нужно
+		maxAvg = max(maxAvg, avg)        // Обновляем максимальное среднее значение, если нужно
 	}
 
 	return maxAvg // Возвращаем максимальное среднее значение
