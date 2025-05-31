@@ -27,7 +27,7 @@ func main() {
 	fmt.Println(minSubArrayLen(7, nums)) // 2
 }
 
-// minSubArrayLen - возвращает минимальную длину подмассива, сумма которой больше или равна целевой.
+// minSubArrayLen возвращает минимальную длину подмассива, сумма которой больше или равна целевой.
 // time: O(n), space: O(1)
 func minSubArrayLen(target int, nums []int) int {
 	left, right := 0, 0
@@ -37,15 +37,11 @@ func minSubArrayLen(target int, nums []int) int {
 	for right < len(nums) {
 		// Если текущая сумма больше или равна целевой
 		if subarraySum >= target {
-			// Обновляем минимальную длину, если текущая длина меньше
-			minLength = min(minLength, right-left+1)
-			// Уменьшаем сумму, убирая левый элемент
-			subarraySum -= nums[left]
-			// Сдвигаем левый указатель
-			left++
+			minLength = min(minLength, right-left+1) // Обновляем минимальную длину, если текущая длина меньше
+			subarraySum -= nums[left]                // Уменьшаем сумму, убирая левый элемент
+			left++                                   // Сдвигаем левый указатель
 		} else {
-			// Увеличиваем окно, добавляя правый элемент
-			right++
+			right++ // Увеличиваем окно, добавляя правый элемент
 			// Если правый указатель не вышел за пределы массива, добавляем элемент в сумму
 			if right < len(nums) {
 				subarraySum += nums[right]
