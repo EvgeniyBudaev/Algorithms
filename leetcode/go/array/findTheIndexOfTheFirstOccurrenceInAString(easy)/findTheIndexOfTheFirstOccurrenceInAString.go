@@ -22,7 +22,7 @@ func main() {
 }
 
 // strStr возвращает индекс первого вхождения needle в haystack.
-// time complexity: O(n*m), space complexity: O(1)
+// time: O(n*m), где n - длина haystack, m - длина needle, space: O(1)
 func strStr(haystack string, needle string) int {
 	// Если needle пустой, то возвращаем 0
 	if len(needle) == 0 {
