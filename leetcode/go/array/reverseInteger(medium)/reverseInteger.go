@@ -21,8 +21,8 @@ func main() {
 	fmt.Println(reverse(123)) // 321
 }
 
-// reverse - Переворачивает число.
-// Time: O(n), Space: O(1)
+// reverse переворачивает число.
+// Time: O(n), space: O(1)
 func reverse(x int) int {
 	sign := 1 // По умолчанию положительное число
 
@@ -32,24 +32,23 @@ func reverse(x int) int {
 		x = -x    // Игнорируем минус при перевороте
 	}
 
-	res := 0     // Результат
+	result := 0  // Результат
 	for x != 0 { // Пока число не 0
-		res = res*10 + x%10 // Добавляем последнюю цифру в результат
-		x /= 10             // Убираем последнюю цифру
+		result = result*10 + x%10 // Добавляем последнюю цифру в результат
+		x /= 10                   // Убираем последнюю цифру
 	}
-	res *= sign // Возвращаем знак
+	result *= sign // Возвращаем знак
 
 	// Проверяем 32-битные границы
-	if res < math.MinInt32 || res > math.MaxInt32 {
+	if result < math.MinInt32 || result > math.MaxInt32 {
 		return 0
 	}
 
-	// Возвращаем результат
-	return res
+	return result // Возвращаем результат
 }
 
-// reverse - Переворачивает число.
-// Time: O(n), Space: O(n)
+// reverse переворачивает число.
+// Time: O(n), space: O(n)
 //func reverse(x int) int {
 //	// Преобразуем число в строку
 //	s := strconv.Itoa(x)
