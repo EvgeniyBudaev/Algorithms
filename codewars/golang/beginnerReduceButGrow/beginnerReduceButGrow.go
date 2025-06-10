@@ -16,6 +16,8 @@ func main() {
 	fmt.Println(Grow(arr)) // 24
 }
 
+// Grow возвращает произведение элементов массива.
+// time: O(n), space: O(1)
 func Grow(arr []int) int {
 	result := 1
 
