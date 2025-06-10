@@ -16,6 +16,8 @@ func main() {
 	fmt.Println(PositiveSum(numbers)) // 20
 }
 
+// PositiveSum возвращает сумму положительных чисел в массиве.
+// time O(n), space O(1)
 func PositiveSum(numbers []int) int {
 	sum := 0
 
