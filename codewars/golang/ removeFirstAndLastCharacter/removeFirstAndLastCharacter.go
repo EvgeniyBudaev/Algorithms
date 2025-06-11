@@ -15,6 +15,8 @@ func main() {
 	fmt.Println(RemoveChar("country")) // "ountr"
 }
 
+// RemoveChar удаляет первый и последний символы строки.
+// time: O(n), space: O(n)
 func RemoveChar(word string) string {
 	return word[1 : len(word)-1]
 }
