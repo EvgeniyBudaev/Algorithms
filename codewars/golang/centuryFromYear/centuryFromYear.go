@@ -27,6 +27,8 @@ func main() {
 	fmt.Println(century(89))   // 1
 }
 
+// century возвращает век, в котором находится год.
+// time: O(1), space: O(1)
 func century(year int) int {
 	if year%100 == 0 {
 		return year / 100
