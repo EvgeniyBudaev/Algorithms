@@ -33,6 +33,8 @@ func main() {
 	fmt.Println(CountSheeps(numbers)) // 17
 }
 
+// CountSheeps подсчитывает количество овец.
+// time: O(n), space: O(1)
 func CountSheeps(numbers []bool) int {
 	count := 0
 
