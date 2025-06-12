@@ -17,8 +17,11 @@ func main() {
 	fmt.Println(countSheep(0)) // ""
 }
 
+// countSheep возвращает строку "1 sheep...2 sheep...3 sheep..." для заданного числа.
+// time: O(n), space: O(n)
 func countSheep(num int) string {
 	result := ""
+
 	for i := 0; i < num; i++ {
 		result += fmt.Sprintf("%d sheep...", i+1)
 	}
