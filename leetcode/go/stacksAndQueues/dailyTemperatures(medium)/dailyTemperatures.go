@@ -24,8 +24,9 @@ func main() {
 	fmt.Println(dailyTemperatures(temps)) // [1,1,4,2,1,1,0,0]
 }
 
-// dailyTemperatures — функция, которая возвращает количество дней, которое вам нужно подождать после i-го дня,
+// dailyTemperatures возвращает количество дней, которое вам нужно подождать после i-го дня,
 // чтобы получить более высокую температуру.
+// time: O(n), space: O(n), где n - длина входного массива температур.
 func dailyTemperatures(temperatures []int) []int {
 	var stack []int // Стек для хранения индексов дней с пониженной температурой
 	result := make([]int, len(temperatures))
