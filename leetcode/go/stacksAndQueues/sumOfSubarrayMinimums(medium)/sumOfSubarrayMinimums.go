@@ -23,12 +23,11 @@ func main() {
 	fmt.Println(sumSubarrayMins(arr)) // 17
 }
 
-//	sumSubarrayMins - находим сумму минимумов каждого подмассива.
-//
+// sumSubarrayMins находит сумму минимумов каждого подмассива.
 // time: O(n), space: O(n)
 func sumSubarrayMins(arr []int) int {
 	sums := make([]int, len(arr)) // Суммы каждого подмассива
-	stack := []int{}              // Стэк индексов
+	var stack []int               // Стэк индексов
 
 	for i, v := range arr {
 		for len(stack) > 0 && v < arr[stack[len(stack)-1]] { // Сравниваем текущее число с верхним индексом стэка
