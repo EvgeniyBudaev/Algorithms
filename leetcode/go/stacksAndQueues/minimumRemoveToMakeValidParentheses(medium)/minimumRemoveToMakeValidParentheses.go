@@ -32,7 +32,7 @@ func main() {
 	fmt.Println(minRemoveToMakeValid(s)) // "lee(t(c)o)de"
 }
 
-// minRemoveToMakeValid- удалить минимальное количество скобок ('(' или ')', в любых позициях ) так,
+// minRemoveToMakeValid удаляет минимальное количество скобок ('(' или ')', в любых позициях ) так,
 // чтобы результирующая строка скобок была допустимой.
 // time: O(n), space: O(n)
 func minRemoveToMakeValid(s string) string {
@@ -66,6 +66,5 @@ func minRemoveToMakeValid(s string) string {
 		}
 	}
 
-	// Преобразуем билдер в строку и возвращаем результат
-	return result.String()
+	return result.String() // Преобразуем билдер в строку и возвращаем результат
 }
