@@ -31,6 +31,7 @@ func main() {
 }
 
 // isValid проверяет, что каждой закрывающей скобке соответствует открытая скобка того же типа.
+// time: O(n), space: O(n), где n - длина строки.
 func isValid(s string) bool {
 	stack := make([]rune, 0) // Стек для хранения открывающих скобок
 	brackets := map[rune]rune{
@@ -54,5 +55,5 @@ func isValid(s string) bool {
 		}
 	}
 
-	return len(stack) == 0
+	return len(stack) == 0 // Если стек пуст, то все скобки соответствуют
 }
