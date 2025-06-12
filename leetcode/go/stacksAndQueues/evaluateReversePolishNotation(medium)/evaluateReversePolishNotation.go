@@ -34,7 +34,8 @@ func main() {
 	fmt.Println(evalRPN(tokens)) // 9
 }
 
-// evalRPN - оценка выражения в обратной польской нотации
+// evalRPN оценивает выражения в обратной польской нотации
+// time: O(n), space: O(n), где n - количество токенов в выражении
 func evalRPN(tokens []string) int {
 	var stack []int // Стек для хранения операндов
 	operators := map[string]func(int, int) int{
@@ -61,5 +62,5 @@ func evalRPN(tokens []string) int {
 		}
 	}
 
-	return stack[0]
+	return stack[0] // Остаток в стеке - результат вычисления выражения
 }
