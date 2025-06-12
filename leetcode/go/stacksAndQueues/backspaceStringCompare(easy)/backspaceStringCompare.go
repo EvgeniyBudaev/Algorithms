@@ -27,6 +27,7 @@ func main() {
 }
 
 // backspaceCompare проверяет, равны ли две строки, когда обе вводятся в пустые текстовые редакторы, после символа возврата.
+// time: O(n + m), space: O(n + m), где n и m - длины строк s и t соответственно.
 func backspaceCompare(s string, t string) bool {
 	build := func(str string) string {
 		var stack []rune
