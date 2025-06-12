@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-/* https://leetcode.com/problems/next-greater-element-i/description/
+/* 496. Next Greater Element I
+https://leetcode.com/problems/next-greater-element-i/description/
 
 Следующий больший элемент некоторого элемента x в массиве — это первый больший элемент, находящийся справа от x в том же
 массиве.
@@ -31,13 +32,15 @@ func main() {
 	fmt.Println(nextGreaterElement(nums1, nums2)) // [-1,3,-1]
 }
 
+// nextGreaterElement находит следующий больший элемент для каждого элемента в nums1 из nums2.
+// time: O(n), space: O(n), где n — количество элементов в nums2.
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
-	stack := make([]int, 0)
-	mapping := make(map[int]int)
+	stack := make([]int, 0)      // Используем стек для хранения элементов
+	mapping := make(map[int]int) // Маппинг для следующего большего элемента
 
 	// Проходим nums2 справа налево
 	for i := len(nums2) - 1; i >= 0; i-- {
-		num := nums2[i]
+		num := nums2[i] // Текущий элемент
 		// Удаляем из стека все элементы меньшие или равные текущему
 		for len(stack) > 0 && stack[len(stack)-1] <= num {
 			stack = stack[:len(stack)-1]
