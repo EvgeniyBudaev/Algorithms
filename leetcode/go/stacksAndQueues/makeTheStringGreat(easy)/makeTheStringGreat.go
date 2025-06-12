@@ -37,6 +37,7 @@ func main() {
 }
 
 // makeGood возвращает хорошую строку.
+// time: O(n), space: O(n), где n - длина строки
 func makeGood(s string) string {
 	if len(s) == 0 {
 		return ""
@@ -46,15 +47,15 @@ func makeGood(s string) string {
 
 	for _, char := range s {
 		if len(stack) > 0 {
-			lastChar := stack[len(stack)-1]
+			lastChar := stack[len(stack)-1] // Получаем последний символ из стека
 			// Если символы являются противоположными регистрами
 			if char != lastChar && unicode.ToLower(char) == unicode.ToLower(lastChar) {
 				stack = stack[:len(stack)-1] // Удаляем последний элемент
 				continue
 			}
 		}
-		stack = append(stack, char)
+		stack = append(stack, char) // Добавляем символ в стек
 	}
 
-	return string(stack)
+	return string(stack) // Преобразуем стек обратно в строку
 }
