@@ -46,6 +46,7 @@ func main() {
 }
 
 // simplifyPath принимает абсолютный путь в стиле Unix и возвращает упрощенный канонический путь.
+// time: O(n), space: O(n), где n - длина пути
 func simplifyPath(path string) string {
 	var stack []string                      // Стек для хранения директорий
 	directories := strings.Split(path, "/") // Разбиваем путь на составляющие директории
