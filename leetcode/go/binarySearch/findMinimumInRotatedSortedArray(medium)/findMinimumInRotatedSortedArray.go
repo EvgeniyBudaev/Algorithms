@@ -27,6 +27,7 @@ func main() {
 }
 
 // findMin возвращает минимальный элемент повернутого отсортированного массива.
+// time: O(log n), space: O(1)
 func findMin(nums []int) int {
 	left, right := 0, len(nums)-1
 
@@ -47,5 +48,5 @@ func findMin(nums []int) int {
 		}
 	}
 
-	return nums[left]
+	return nums[left] // Возвращаем элемент в левой части массива
 }
