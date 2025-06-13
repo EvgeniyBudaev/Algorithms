@@ -24,8 +24,8 @@ func main() {
 	fmt.Println(searchRange(arr, target)) // [3,4]
 }
 
-// searchRange - поиск начальной и конечной позиции целевого значения в массиве.
-// time complexity: O(log n), space complexity: O(1)
+// searchRange находит начальную и конечную позицию целевого значения в массиве.
+// time: O(log n), space: O(1)
 func searchRange(nums []int, target int) []int {
 	// Проверка на пустой массив
 	if len(nums) == 0 {
@@ -43,7 +43,7 @@ func searchRange(nums []int, target int) []int {
 		return nums[i] > target // Поиск позиции, где элемент больше target
 	})
 
-	end--
+	end-- // Уменьшение на единицу, чтобы получить конечную позицию
 
-	return []int{start, end}
+	return []int{start, end} // Возврат начальной и конечной позиций
 }
