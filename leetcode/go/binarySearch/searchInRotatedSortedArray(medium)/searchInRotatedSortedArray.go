@@ -25,7 +25,8 @@ func main() {
 	fmt.Println(search(nums, 0)) // 4
 }
 
-// search - ищет индекс цели в отсортированном массиве после возможного поворота.
+// search ищет индекс цели в отсортированном массиве после возможного поворота.
+// time: O(log n), space: O(1)
 func search(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 
