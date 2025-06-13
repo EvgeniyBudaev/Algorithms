@@ -24,7 +24,8 @@ func main() {
 	fmt.Println(findClosestElements(arr, 4, 3)) // [1,2,3,4]
 }
 
-// findClosestElements использует бинарный поиск для нахождения позиции элемента, ближайшего к x.
+// findClosestElements возвращает k ближайших к x целых чисел в массиве.
+// time: O(log(n-k) + k), space: O(1), где n - длина массива arr, k - количество ближайших чисел.
 func findClosestElements(arr []int, k int, x int) []int {
 	left, right := 0, len(arr)-k
 
