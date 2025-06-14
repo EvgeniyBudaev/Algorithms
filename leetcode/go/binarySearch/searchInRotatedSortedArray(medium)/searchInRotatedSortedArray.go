@@ -42,7 +42,7 @@ func search(nums []int, target int) int {
 		// Если левая половина отсортирована
 		if leftNum <= guess {
 			// Если цель находится между левой и центральной числами
-			if leftNum <= target && target < guess {
+			if guess > target && leftNum <= target {
 				high = mid - 1
 			} else {
 				low = mid + 1
@@ -50,7 +50,7 @@ func search(nums []int, target int) int {
 		} else {
 			// Правая половина отсортирована
 			// Если цель находится между правой и центральной числами
-			if guess < target && target <= rightNum {
+			if guess < target && rightNum >= target {
 				low = mid + 1
 			} else {
 				high = mid - 1
