@@ -15,6 +15,8 @@ Output: ["()"]
 */
 
 func main() {
+	fmt.Println(generateParenthesis(1)) // ["()"]
+	fmt.Println(generateParenthesis(2)) // ["(()())", "()()"]
 	fmt.Println(generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
 }
 
