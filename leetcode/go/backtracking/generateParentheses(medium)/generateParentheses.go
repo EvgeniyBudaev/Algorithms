@@ -16,12 +16,12 @@ Output: ["()"]
 
 func main() {
 	fmt.Println(generateParenthesis(1)) // ["()"]
-	fmt.Println(generateParenthesis(2)) // ["(()())", "()()"]
+	fmt.Println(generateParenthesis(2)) // [(()), ()()]
 	fmt.Println(generateParenthesis(3)) // ["((()))","(()())","(())()","()(())","()()()"]
 }
 
 // generateParenthesis генерирует все правильные скобочные последовательности длины 2n.
-// time: O(4^n / sqrt(n)) - количество возможных комбинаций. space: O(n) - глубина рекурсии.
+// time: O(2^n), space: O(n), n - количество пар скобок
 func generateParenthesis(n int) []string {
 	var result []string                  // Срез для хранения результатов
 	var backtrack func(string, int, int) // Внутренняя рекурсивная функция для генерации последовательностей
