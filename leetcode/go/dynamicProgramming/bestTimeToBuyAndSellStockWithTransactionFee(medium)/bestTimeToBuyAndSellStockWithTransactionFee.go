@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-/*
+/* 714. Best Time to Buy and Sell Stock with Transaction Fee
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/
 
 Вам дан массив prices, где prices[i] — это цена данной акции на i-й день, а также целочисленная комиссия, представляющая
@@ -27,7 +27,8 @@ func main() {
 	fmt.Println(maxProfit([]int{1, 3, 2, 8, 4, 9}, 2)) // 8
 }
 
-// maxProfit вычисляет максимальную прибыль от торговли акциями с учетом комиссии за транзакцию
+// maxProfit вычисляет максимальную прибыль от торговли акциями с учетом комиссии за транзакцию.
+// time: O(n), space: O(1)
 func maxProfit(prices []int, fee int) int {
 	n := len(prices)
 	if n < 2 {
