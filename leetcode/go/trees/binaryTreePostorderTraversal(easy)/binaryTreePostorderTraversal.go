@@ -31,8 +31,8 @@ type TreeNode struct {
 }
 
 // postorderTraversal возвращает обратный обход значений узлов бинарного дерева.
-// time complexity: O(n), где n - количество узлов в дереве
-// space complexity: O(h), где h - высота дерева
+// time: O(n), где n - количество узлов в дереве
+// space: O(h), где h - высота дерева
 func postorderTraversal(root *TreeNode) []int {
 	result := make([]int, 0)
 	traverse(root, &result)
@@ -40,6 +40,7 @@ func postorderTraversal(root *TreeNode) []int {
 }
 
 // traverse рекурсивно проходит по дереву и добавляет значения узлов в ответ.
+// time: O(n), space: O(h)
 func traverse(node *TreeNode, result *[]int) {
 	if node == nil {
 		return
