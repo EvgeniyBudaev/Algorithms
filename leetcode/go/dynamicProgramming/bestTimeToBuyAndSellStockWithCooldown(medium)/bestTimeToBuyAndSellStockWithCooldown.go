@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-/*
+/* 309. Best Time to Buy and Sell Stock with Cooldown
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/
 
 Вам дан массив цен, где цены[i] — это цена данной акции на i-й день.
@@ -28,7 +28,8 @@ func main() {
 	fmt.Println(maxProfit([]int{1, 2, 3, 0, 2})) // 3
 }
 
-// maxProfit вычисляет максимальную прибыль от торговли акциями
+// maxProfit вычисляет максимальную прибыль от торговли акциями.
+// time: O(n), space: O(1), n - длина массива цен
 func maxProfit(prices []int) int {
 	// coolDown - прибыль, если в текущий день ничего не делаем (после продажи или бездействия)
 	// sell     - прибыль, если продаем акцию в текущий день
