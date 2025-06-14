@@ -25,7 +25,8 @@ func main() {
 	fmt.Println(search(nums, 0)) // true
 }
 
-// search - проверяет, содержит ли массив целевую цель.
+// search проверяет, содержит ли массив целевую цель.
+// time: O(n), space: O(1)
 func search(nums []int, target int) bool {
 	for _, num := range nums {
 		if num == target {
@@ -35,12 +36,14 @@ func search(nums []int, target int) bool {
 	return false
 }
 
-// searchBinarySearch - использует бинарный поиск для поиска целевой цели в отсортированном массиве с возможным поворотом.
+// searchBinarySearch использует бинарный поиск для поиска целевой цели в отсортированном массиве с возможным поворотом.
+// time: O(log n), space: O(1)
 func searchBinarySearch(nums []int, target int) bool {
 	low, high := 0, len(nums)-1
 
 	for low <= high {
 		mid := (low + high) / 2
+		leftNum, rightNum := nums[low], nums[high]
 
 		// Проверяем, совпадает ли целевая цель с числом в середине массива
 		if nums[mid] == target {
@@ -48,15 +51,15 @@ func searchBinarySearch(nums []int, target int) bool {
 		}
 
 		// Обработка дубликатов
-		if nums[low] == nums[mid] { // Если левый элемент равен среднему элементу, сдвигаем левую границу
+		if leftNum == nums[mid] { // Если левый элемент равен среднему элементу, сдвигаем левую границу
 			low++
 			continue
 		}
 
 		// Определение отсортированной половины
 		// Левая половина отсортирована
-		if nums[low] <= nums[mid] {
-			if nums[low] <= target && target <= nums[mid] { // Проверяем находится ли целевая цель в отсортированной левой половине
+		if leftNum <= nums[mid] {
+			if leftNum <= target && target <= nums[mid] { // Проверяем находится ли целевая цель в отсортированной левой половине
 				// Цель находится в левой половине
 				high = mid - 1
 			} else {
@@ -65,7 +68,7 @@ func searchBinarySearch(nums []int, target int) bool {
 			}
 		} else {
 			// Правая половина отсортирована
-			if nums[mid] <= target && target <= nums[high] { // Проверяем находится ли целевая цель в отсортированной правой половине
+			if rightNum >= target && target >= nums[mid] { // Проверяем находится ли целевая цель в отсортированной правой половине
 				// Цель находится в правой половине
 				low = mid + 1
 			} else {
