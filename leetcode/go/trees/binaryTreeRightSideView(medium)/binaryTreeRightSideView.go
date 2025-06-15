@@ -14,7 +14,8 @@ Output: [1,3,4]
 */
 
 func main() {
-	root := createTree([]interface{}{1, 2, 3, nil, 5, nil, 4})
+	//root := createTree([]interface{}{1, 2, 3, nil, 5, nil, 4})
+	root := createTree([]interface{}{1, 2, 3})
 	fmt.Println(rightSideView(root)) // [1,3,4]
 }
 
@@ -25,22 +26,22 @@ type TreeNode struct {
 }
 
 // rightSideView возвращает список значений узлов, которые вы видите с правой стороны, упорядоченные сверху вниз.
-// time complexity: O(n), где n - количество узлов в дереве
-// space complexity: O(n)
+// time: O(n), space: O(n), где n - количество узлов в дереве
 func rightSideView(root *TreeNode) []int {
 	result := make([]int, 0)
 	preOrder(root, 0, &result)
 	return result
 }
 
-// preOrder рекурсивно обходит дерево и заполняет уровни
+// preOrder рекурсивно обходит дерево и заполняет уровни.
+// time: O(n), space: O(n)
 func preOrder(node *TreeNode, level int, list *[]int) *[]int {
 	// Если узел равен nil, возвращаем слайс уровней
 	if node == nil {
 		return list
 	}
 
-	// Делаем PreOrder и на каждом уровне запоминаем последнюю вершину для уровня
+	// Делаем PreOrder и на каждом уровне запоминаем последнюю вершину для уровня.
 	// Если текущего уровня еще нет в слайсе, добавляем новый уровень
 	if level == len(*list) {
 		*list = append(*list, 0)
