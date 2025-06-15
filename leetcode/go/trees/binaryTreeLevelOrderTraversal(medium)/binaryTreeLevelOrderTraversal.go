@@ -28,15 +28,15 @@ type TreeNode struct {
 }
 
 // levelOrder возвращает список значений узлов дерева в порядке обхода уровнями.
-// time complexity: O(n), где n - количество узлов в дереве
-// space complexity: O(n)
+// time: O(n), space: O(n), где n - количество узлов в дереве
 func levelOrder(root *TreeNode) [][]int {
 	levels := make([][]int, 0)
 	preOrder(root, 0, &levels)
 	return levels
 }
 
-// preOrder рекурсивно обходит дерево и заполняет уровни
+// preOrder рекурсивно обходит дерево и заполняет уровни.
+// time: O(n), space: O(n)
 func preOrder(node *TreeNode, level int, levels *[][]int) *[][]int {
 	// Если узел равен nil, возвращаем слайс уровней
 	if node == nil {
