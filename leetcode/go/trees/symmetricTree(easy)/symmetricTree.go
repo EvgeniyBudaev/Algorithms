@@ -33,7 +33,7 @@ type TreeNode struct {
 }
 
 // isSymmetric проверяет, является ли двоичное дерево симметричным относительно своего центра.
-// time complexity: O(n), где n - количество узлов в дереве, space complexity: O(h)
+// time: O(n), где n - количество узлов в дереве, space: O(h), где h - высота дерева.
 func isSymmetric(root *TreeNode) bool {
 	// Проверяем, является ли дерево пустым
 	if root == nil {
@@ -44,6 +44,7 @@ func isSymmetric(root *TreeNode) bool {
 }
 
 // check рекурсивно проверяет симметричность двух поддеревьев.
+// time: O(n), где n - количество узлов в дереве, space: O(h), где h - высота дерева.
 func check(left, right *TreeNode) bool {
 	// Проверяем, являются ли оба поддерева пустыми
 	if left == nil || right == nil {
