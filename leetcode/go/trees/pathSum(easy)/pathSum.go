@@ -28,13 +28,15 @@ type TreeNode struct {
 }
 
 // hasPathSum проверяет, есть ли в дереве путь от корня до листа, сумма чисел которого равна заданной сумме.
-// time complexity: O(n), где n - количество узлов в дереве
-// space complexity: O(h), где h - высота дерева. В худшем случае h = n.
+// time: O(n), где n - количество узлов в дереве
+// space: O(h), где h - высота дерева. В худшем случае h = n.
 func hasPathSum(root *TreeNode, targetSum int) bool {
 	return checkPathSum(root, 0, targetSum)
 }
 
 // checkPathSum проверяет наличие пути от заданного узла до листа, сумма чисел которого равна заданной сумме.
+// time: O(n), где n - количество узлов в дереве
+// space: O(h), где h - высота дерева. В худшем случае h = n.
 func checkPathSum(node *TreeNode, currentSum, targetSum int) bool {
 	// Если узел пустой, возвращаем false
 	if node == nil {
