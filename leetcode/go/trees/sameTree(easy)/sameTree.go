@@ -31,8 +31,8 @@ type TreeNode struct {
 }
 
 // isSameTree проверяет, являются ли два дерева идентичными.
-// time complexity: O(n), где n - количество узлов в дереве
-// space complexity: O(h), где h - высота дерева. В худшем случае h = n.
+// time: O(n), где n - количество узлов в дереве
+// space: O(h), где h - высота дерева. В худшем случае h = n.
 func isSameTree(p *TreeNode, q *TreeNode) bool {
 	// Если одно из деревьев nil, проверяем оба
 	if p == nil || q == nil {
