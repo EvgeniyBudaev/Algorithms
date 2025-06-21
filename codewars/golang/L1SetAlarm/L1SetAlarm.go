@@ -29,8 +29,5 @@ func main() {
 // SetAlarm возвращает true, если работаем и не в отпуске.
 // time: O(1), space: O(1)
 func SetAlarm(employed, vacation bool) bool {
-	if employed && !vacation {
-		return true
-	}
-	return false
+	return employed && !vacation
 }
