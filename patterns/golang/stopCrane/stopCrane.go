@@ -1,6 +1,9 @@
 package main
 
-import "log"
+import (
+	"log"
+	"time"
+)
 
 func main() {
 	// Слайс данных
@@ -8,6 +11,8 @@ func main() {
 
 	// Отправляем данные в функцию handler с явной отменой
 	handler(input)
+
+	time.Sleep(time.Second)
 }
 
 // handler получает данные из слайса
@@ -34,7 +39,7 @@ func handler(input []int) {
 }
 
 // generator отправляет данные из слайса в канал, а потом его возвращает.
-func generator(done chan struct{}, input []int) <-chan int {
+func generator(doneCh chan struct{}, input []int) <-chan int {
 	// Канал, в который будем отправлять данные из слайса
 	inputCh := make(chan int)
 
@@ -47,7 +52,7 @@ func generator(done chan struct{}, input []int) <-chan int {
 		for _, data := range input {
 			select {
 			// Если канал doneCh закрылся - сразу выходим из горутины
-			case inputCh <- data:
+			case <-doneCh:
 				log.Println("Останавливаем генератор")
 				return
 			// Отправляем данные в канал inputCh
