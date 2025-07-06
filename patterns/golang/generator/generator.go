@@ -15,22 +15,22 @@ func main() {
 
 // generator создает канал и сразу возвращает его.
 func generator(input []int) <-chan int {
-	ch := make(chan int)
+	inputCh := make(chan int)
 
 	// Через отдельную горутину генератор отправляет данные в канал
 	go func() {
 		// Закрываем канал по завершению горутины — это отправитель
-		defer close(ch)
+		defer close(inputCh)
 
 		// Перебираем данные в слайсе
 		for _, data := range input {
 			// Отправляем данные в канал inputCh
-			ch <- data
+			inputCh <- data
 		}
 	}()
 
 	// Возвращаем канал inputCh
-	return ch
+	return inputCh
 }
 
 // consumer проходит через канал и одновременно обрабатывает данные из него (выводит на экран)
