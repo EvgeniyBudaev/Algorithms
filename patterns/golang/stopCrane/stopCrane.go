@@ -2,21 +2,22 @@ package main
 
 import (
 	"log"
-	"time"
+	"sync"
 )
 
 func main() {
-	// Слайс данных
-	input := []int{1, 2, 3, 4, 5, 6}
+	input := []int{1, 2, 3, 4, 5, 6} // Слайс данных
 
-	// Отправляем данные в функцию handler с явной отменой
-	handler(input)
+	var wg sync.WaitGroup // Создаем WaitGroup для ожидания завершения горутин
+	wg.Add(1)             // Увеличиваем счетчик на 1, так как у нас одна горутина в handler
 
-	time.Sleep(time.Second)
+	handler(&wg, input) // Отправляем данные в функцию handler с явной отменой
+
+	wg.Wait() // Ждем завершения всех горутин
 }
 
 // handler получает данные из слайса
-func handler(input []int) {
+func handler(wg *sync.WaitGroup, input []int) {
 	// канал для явной отмены
 	doneCh := make(chan struct{})
 
@@ -24,7 +25,7 @@ func handler(input []int) {
 	defer close(doneCh)
 
 	// Получаем канал с данными из генератора
-	inputCh := generator(doneCh, input)
+	inputCh := generator(wg, doneCh, input)
 
 	// забираем данные из канала
 	for data := range inputCh {
@@ -39,7 +40,7 @@ func handler(input []int) {
 }
 
 // generator отправляет данные из слайса в канал, а потом его возвращает.
-func generator(doneCh chan struct{}, input []int) <-chan int {
+func generator(wg *sync.WaitGroup, doneCh chan struct{}, input []int) <-chan int {
 	// Канал, в который будем отправлять данные из слайса
 	inputCh := make(chan int)
 
@@ -47,6 +48,7 @@ func generator(doneCh chan struct{}, input []int) <-chan int {
 	go func() {
 		// Закрываем канал по завершению горутины
 		defer close(inputCh)
+		defer wg.Done()
 
 		// Перебираем данные в слайсе
 		for _, data := range input {
