@@ -28,12 +28,6 @@ func main() {
 
 // handler получает данные из слайса
 func handler(ctx context.Context, input []int) {
-	// канал для явной отмены
-	doneCh := make(chan struct{})
-
-	// когда выходим из handler — сразу закрываем канал doneCh
-	defer close(doneCh)
-
 	// Получаем канал с данными из генератора
 	inputCh := generator(ctx, input)
 
