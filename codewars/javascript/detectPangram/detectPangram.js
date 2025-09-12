@@ -1,6 +1,8 @@
 /* Панграмма — это предложение, в котором каждая буква алфавита встречается хотя
  бы по одному разу. */
 
+// isPangram возвращает true, если строка является панграммой, иначе false.
+// time: O(n), space: O(1), n - длина строки
 function isPangram(string) {
 	const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	return [...alphabet].every(letter => string.toLowerCase().includes(letter));
