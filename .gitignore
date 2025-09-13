@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 # Папки, создаваемые средой разработки
+.gigaide
 .idea
 .DS_Store
 .AppleDouble
