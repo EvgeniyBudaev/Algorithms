@@ -1,0 +1,51 @@
+package twoPointers.twoSum2InputArrayIsSorted;
+
+import java.util.Arrays;
+
+/* 167. Two Sum II - Input Array Is Sorted
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
+
+Учитывая массив целых чисел с индексом 1, который уже отсортирован в неубывающем порядке, найдите два числа, сумма
+которых дает определенное целевое число. Пусть эти два числа будут числами[индекс1] и числами[индекс2],
+где 1 <= index1 < index2 <= numbers.length.
+
+Верните индексы двух чисел, индекс1 и индекс2, добавленные на единицу, в виде целочисленного массива
+[индекс1, индекс2] длины 2.
+
+Тесты генерируются так, что существует ровно одно решение. Вы не можете использовать один и тот же элемент дважды.
+Ваше решение должно использовать только постоянное дополнительное пространство.
+
+Input: numbers = [2,7,11,15], target = 9
+Output: [1,2]
+Пояснение: Сумма 2 и 7 равна 9. Следовательно, index1 = 1, index2 = 2. Мы возвращаем [1, 2].
+
+Input: numbers = [-1,0], target = -1
+Output: [1,2]
+Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
+*/
+
+public class twoSum2InputArrayIsSorted {
+    public static void main(String[] args) {
+        int[] numbers = new int[]{2, 7, 11, 15};
+        System.out.println(Arrays.toString(twoSum(numbers, 9))); // [1,2]
+    }
+
+    // twoSum находит два числа в отсортированном массиве numbers, сумма которых равна заданному целевому значению target.
+    // time: O(n), space: O(1)
+    public static int[] twoSum(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1; // Инициализируем указатели на начало и конец массива
+
+        while (left < right) { // Продолжаем поиск, пока левый указатель не станет больше правого
+            int sum = numbers[left] + numbers[right]; // Вычисляем сумму текущих двух чисел
+            if (sum == target) { // Если сумма равна целевому значению, возвращаем индексы чисел
+                return new int[]{left + 1, right + 1};
+            } else if (sum < target) { // Если сумма меньше целевого значения, сдвигаем левый указатель вправо
+                left++;
+            } else { // Если сумма больше целевого значения, сдвигаем правый указатель влево
+			    right--;
+		    }
+        }
+
+        return new int[]{-1, -1}; // Если не найдено ни одного решения, вернуть [-1,-1]
+    }
+}
