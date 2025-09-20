@@ -21,7 +21,7 @@ public class ReverseString {
 
     // reverseString переворачивает строку.
     // time: O(n), space: O(1)
-    public static void reverseString(char[] s) {
+    private static void reverseString(char[] s) {
         int left = 0, right = s.length - 1;
 
         while (left < right) {

@@ -31,7 +31,7 @@ public class SquaresOfASortedArray {
 
     // sortedSquares возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
     // time: O(n), space: O(n)
-    public int[] sortedSquares(int[] nums) {
+    private int[] sortedSquares(int[] nums) {
         int n = nums.length; // Длина массива
         int[] result = new int[n];     // Массив квадратов
         int p1 = 0, p2 = n - 1;       // Указатели на начало и конец массива

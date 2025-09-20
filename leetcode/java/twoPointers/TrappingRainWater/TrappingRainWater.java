@@ -24,7 +24,7 @@ public class TrappingRainWater {
      * @param height массив высот
      * @return количество задержанной воды
      */
-    public static int trap(int[] height) {
+    private static int trap(int[] height) {
         if (height == null || height.length == 0) {
             return 0;
         }

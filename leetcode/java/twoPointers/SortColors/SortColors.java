@@ -30,7 +30,7 @@ public class SortColors {
 
     // sortColors сортирует массив целых чисел по возрастанию.
     // time: O(n), space: O(1)
-    public static void sortColors(int[] nums) {
+    private static void sortColors(int[] nums) {
         int i = 0; // Индекс текущего элемента
         int left = 0, right = nums.length - 1; // Левая и правая границы
 

@@ -26,7 +26,7 @@ public class PalindromeNumber {
 
     // isPalindrome проверяет, является ли целое число x палиндромом.
     // time: O(n), space: O(1)
-    public static boolean isPalindrome(int x) {
+    private static boolean isPalindrome(int x) {
         // Отрицательные числа не могут быть палиндромами
         if (x < 0) {
             return false;
@@ -52,7 +52,7 @@ public class PalindromeNumber {
 
     // isPalindrome проверяет, является ли целое число x палиндромом.
     // time: O(n), space: O(n) - из-за создания строки
-    // public static boolean isPalindrome(int x) {
+    // private static boolean isPalindrome(int x) {
     //     String str = String.valueOf(x); // Преобразуем число в строку
     //     int left = 0;
     //     int right = str.length() - 1;

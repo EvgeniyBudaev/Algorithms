@@ -32,7 +32,7 @@ public class TwoSum2InputArrayIsSorted {
 
     // twoSum находит два числа в отсортированном массиве numbers, сумма которых равна заданному целевому значению target.
     // time: O(n), space: O(1)
-    public static int[] twoSum(int[] numbers, int target) {
+    private static int[] twoSum(int[] numbers, int target) {
         int left = 0, right = numbers.length - 1; // Инициализируем указатели на начало и конец массива
 
         while (left < right) { // Продолжаем поиск, пока левый указатель не станет больше правого
