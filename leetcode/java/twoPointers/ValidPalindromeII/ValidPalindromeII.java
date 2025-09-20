@@ -16,7 +16,7 @@ Input: s = "abc"
 Output: false
 */
 
-public class validPalindromeII {
+public class ValidPalindromeII {
     public static void main(String[] args) {
         System.out.println(validPalindrome("aba"));   // true
         System.out.println(validPalindrome("abca"));  // true

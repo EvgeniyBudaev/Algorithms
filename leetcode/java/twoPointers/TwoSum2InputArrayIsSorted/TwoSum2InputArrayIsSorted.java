@@ -24,7 +24,7 @@ Output: [1,2]
 Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 */
 
-public class twoSum2InputArrayIsSorted {
+public class TwoSum2InputArrayIsSorted {
     public static void main(String[] args) {
         int[] numbers = new int[]{2, 7, 11, 15};
         System.out.println(Arrays.toString(twoSum(numbers, 9))); // [1,2]
