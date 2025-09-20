@@ -1,4 +1,4 @@
-package twoPointers.twoSum2InputArrayIsSorted;
+package twoPointers.TwoSum2InputArrayIsSorted;
 
 import java.util.Arrays;
 

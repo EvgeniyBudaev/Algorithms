@@ -1,4 +1,4 @@
-package twoPointers.validPalindrome;
+package twoPointers.ValidPalindrome;
 
 /* 125. Valid Palindrome
 https://leetcode.com/problems/valid-palindrome/description/
