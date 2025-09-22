@@ -14,9 +14,9 @@ Output: ["h","a","n","n","a","H"]
 
 public class ReverseString {
     public static void main(String[] args) {
-        char[] s1 = {'h', 'e', 'l', 'l', 'o'};
-        reverseString(s1);
-        System.out.println(new String(s1)); // ["o","l","l","e","h"]
+        char[] s = {'h', 'e', 'l', 'l', 'o'};
+        reverseString(s);
+        System.out.println(s); // ["o","l","l","e","h"]
     }
 
     // reverseString переворачивает строку.
