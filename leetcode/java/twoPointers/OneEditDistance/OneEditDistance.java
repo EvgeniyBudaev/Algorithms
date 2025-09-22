@@ -16,8 +16,8 @@ Output: true
 Input: s = "cab", t = "ad"
 Output: false
  */
-public class OneEditDistance {
 
+public class OneEditDistance {
     public static void main(String[] args) {
         System.out.println(isOneEditDistance("ab", "acb")); // true
         System.out.println(isOneEditDistance("cab", "ad")); // false
