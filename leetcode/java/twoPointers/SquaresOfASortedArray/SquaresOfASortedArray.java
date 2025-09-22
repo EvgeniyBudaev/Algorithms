@@ -33,28 +33,45 @@ public class SquaresOfASortedArray {
     // time: O(n), space: O(n)
     private int[] sortedSquares(int[] nums) {
         int n = nums.length; // Длина массива
-        int[] result = new int[n];     // Массив квадратов
-        int p1 = 0, p2 = n - 1;       // Указатели на начало и конец массива
+        int[] result = new int[n];
+        int left = 0; // Индекс первого элемента массива nums
+        int right = n - 1; // Индекс последнего элемента массива nums
+        int index = n - 1; // Индекс последнего элемента массива result
 
-        for (int i = n - 1; p1 <= p2; i--) { // Проход по массиву
-            if (abs(nums[p1]) > abs(nums[p2])) { // Если модуль первого элемента больше модуля второго
-                result[i] = nums[p1] * nums[p1]; // Записываем квадрат первого элемента
-                p1++;
+        while (left <= right) {
+            int leftSquare = nums[left] * nums[left];
+            int rightSquare = nums[right] * nums[right];
+
+            if (leftSquare > rightSquare) {
+                result[index] = leftSquare;
+                left++;
             } else {
-                result[i] = nums[p2] * nums[p2];
-                p2--;
+                result[index] = rightSquare;
+                right--;
             }
+            index--;
         }
 
         return result;
     }
 
-    // abs возвращает абсолютное значение числа.
-    // time: O(1), space: O(1)
-    private static int abs(int x) {
-        if (x < 0) {
-		    return -x;
-        }
-        return x;
-    }
+    // sortedSquares возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
+    // time: O(n), space: O(n)
+//    private int[] sortedSquares(int[] nums) {
+//        for (int i = 0; i < nums.length; i++) {
+//            nums[i] = nums[i] * nums[i];
+//        }
+//
+//        Arrays.sort(nums);
+//        return nums;
+//    }
+
+    // sortedSquares возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
+    // time: O(n), space: O(n)
+//    public int[] sortedSquares(int[] nums) {
+//        return Arrays.stream(nums)
+//                .map(num -> num * num)
+//                .sorted()
+//                .toArray();
+//    }
 }
