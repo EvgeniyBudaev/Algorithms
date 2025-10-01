@@ -21,6 +21,7 @@ public class TrappingRainWater {
     /**
      * Вычисляет количество воды, которое может быть задержано после дождя
      * time: O(n), space: O(1)
+     *
      * @param height массив высот
      * @return количество задержанной воды
      */
@@ -28,13 +29,13 @@ public class TrappingRainWater {
         if (height == null || height.length == 0) {
             return 0;
         }
-        
+
         int left = 0; // левая граница
         int leftMaxValue = height[left]; // максимальное количество воды слева
         int right = height.length - 1; // правая граница
         int rightMaxValue = height[right]; // максимальное количество воды справа
         int sum = 0; // общее количество воды, которое может быть залита
-        
+
         while (left < right) { // пока левая граница не сравняется с правой
             // если максимальная высота слева меньше максимальной высоты справа, двигаем левую границу вправо
             if (leftMaxValue <= rightMaxValue) {
@@ -47,7 +48,7 @@ public class TrappingRainWater {
                 rightMaxValue = Math.max(rightMaxValue, height[right]); // обновляем максимальную высоту справа
             }
         }
-        
+
         return sum; // возвращаем общее количество воды, которое может быть залита
     }
 }

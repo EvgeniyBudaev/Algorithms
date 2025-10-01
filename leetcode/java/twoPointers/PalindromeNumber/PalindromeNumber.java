@@ -44,7 +44,7 @@ public class PalindromeNumber {
             reversed = reversed * 10 + x % 10;
             x /= 10;
         }
-        
+
         // Для четного количества цифр: x == reversed
         // Для нечетного количества цифр: x == reversed / 10
         return x == reversed || x == reversed / 10;
@@ -56,7 +56,7 @@ public class PalindromeNumber {
     //     String str = String.valueOf(x); // Преобразуем число в строку
     //     int left = 0;
     //     int right = str.length() - 1;
-        
+
     //     while (left < right) {
     //         if (str.charAt(left) != str.charAt(right)) {
     //             return false;
@@ -64,7 +64,7 @@ public class PalindromeNumber {
     //         left++;
     //         right--;
     //     }
-        
+
     //     return true;
     // }
 }

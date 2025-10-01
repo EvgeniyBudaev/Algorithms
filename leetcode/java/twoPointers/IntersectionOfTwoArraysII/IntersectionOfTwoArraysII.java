@@ -24,16 +24,16 @@ public class IntersectionOfTwoArraysII {
         int[] nums2 = {2, 2};
         System.out.println(Arrays.toString(intersect(nums1, nums2))); // [2, 2]
     }
-    
+
     // intersect находит пересечение двух массивов nums1 и nums2.
     // time: O(n), space: O(n)
     private static int[] intersect(int[] nums1, int[] nums2) {
         Arrays.sort(nums1); // [1, 1, 2, 2]
         Arrays.sort(nums2); // [2, 2]
-        
+
         int left = 0, right = 0;
         List<Integer> result = new ArrayList<>();
-        
+
         // time: O(n), space: O(n)
         while (left < nums1.length && right < nums2.length) {
             if (nums1[left] < nums2[right]) {
@@ -46,7 +46,7 @@ public class IntersectionOfTwoArraysII {
                 right++;
             }
         }
-        
+
         // Конвертируем List в массив
         int[] arr = new int[result.size()];
         for (int i = 0; i < result.size(); i++) {

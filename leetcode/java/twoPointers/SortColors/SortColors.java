@@ -22,7 +22,7 @@ public class SortColors {
         int[] nums1 = {2, 0, 2, 1, 1, 0};
         sortColors(nums1);
         System.out.println(Arrays.toString(nums1)); // [0,0,1,1,2,2]
-        
+
         int[] nums2 = {2, 0, 1};
         sortColors(nums2);
         System.out.println(Arrays.toString(nums2)); // [0,1,2]
@@ -43,7 +43,7 @@ public class SortColors {
                 // Если текущий элемент равен 2, то меняем его местами с элементом в конце массива
             } else if (nums[i] == 2) {
                 swap(nums, right, i);
-			    right--;
+                right--;
                 // Если текущий элемент равен 1, то оставляем его на месте и переходим к следующему элементу
             } else {
                 i++;

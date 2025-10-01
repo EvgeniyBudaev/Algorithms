@@ -30,7 +30,7 @@ public class ContainerWithMostWater {
     public static int maxArea(int[] height) {
         int maxAreaContainer = 0; // Максимальная площадь воды
         int left = 0, right = height.length - 1;
-        
+
         while (left < right) {
             // Находим минимальную высоту между двумя линиями
             int minHeight = Math.min(height[left], height[right]);
@@ -46,7 +46,7 @@ public class ContainerWithMostWater {
                 right--;
             }
         }
-        
+
         return maxAreaContainer; // Возвращаем максимальную площадь
     }
 }
