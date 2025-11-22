@@ -32,7 +32,7 @@ public class BestTimeToBuyAndSellStock {
 
         while (right < prices.length) { // проходимся по массиву цен
             // если цена акции меньше или равна цене акции в день покупки,
-            // то сдвигаем левую границу (день покупки) на текущий день (right)
+            // то сдвигаем левую границу на один шаг вправо
             if (prices[right] <= prices[left]) {
                 left = right;
             }
