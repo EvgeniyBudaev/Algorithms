@@ -1,0 +1,53 @@
+package binarySearch.FirstBadVersion;
+
+/* 278. First Bad Version
+https://leetcode.com/problems/first-bad-version/description/
+
+Вы менеджер по продукту и в настоящее время руководите командой по разработке нового продукта. К сожалению, последняя
+версия вашего продукта не проходит проверку качества. Поскольку каждая версия разрабатывается на основе предыдущей
+версии, все версии после плохой версии также плохие.
+
+Предположим, у вас есть n версий [1, 2, ..., n] и вы хотите узнать первую плохую, которая делает все последующие плохими.
+
+Вам дан API bool isBadVersion(version), который возвращает, является ли версия плохой. Реализуйте функцию для поиска
+первой плохой версии. Вам следует минимизировать количество вызовов API.
+
+Input: n = 5, bad = 4
+Output: 4
+Объяснение:
+call isBadVersion(3) -> false
+call isBadVersion(5) -> true
+call isBadVersion(4) -> true
+Тогда 4 — первая плохая версия.
+*/
+
+public class FirstBadVersion {
+    public static void main(String[] args) {
+        System.out.println(firstBadVersion(5)); // Выведет: 4
+    }
+
+    // firstBadVersion находит первую плохую версию среди n версий.
+    // time: O(log n), space: O(1)
+    private static int firstBadVersion(int n) {
+        int left = 1, right = n; // Инициализируем границы поиска: left - первый элемент, right - последний элемент
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2; // Находим среднюю версию
+
+            if (isBadVersion(mid)) { // Если текущая версия плохая, смещаем правую границу влево
+                right = mid - 1; // Перемещаем правую границу влево на одну позицию
+            } else { // Если текущая версия хорошая, смещаем левую границу вправо
+                left = mid + 1; // Перемещаем левую границу вправо на одну позицию
+            }
+        }
+
+        return left; // Когда цикл завершится, left будет указывать на первую плохую версию
+    }
+
+    // Предположим, что это предоставленный API (в реальности он будет реализован иначе)
+    // isBadVersion проверяет, является ли версия плохой или нет.
+    private static boolean isBadVersion(int version) {
+        // В данном примере предполагаем, что bad = 4
+        return version >= 4;
+    }
+}
