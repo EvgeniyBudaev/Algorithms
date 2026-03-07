@@ -1,0 +1,57 @@
+package leetcode.java.dynamicProgramming.CombinationSumIV;
+
+/* 377. Combination Sum IV
+https://leetcode.com/problems/combination-sum-iv/description/
+
+Учитывая массив различных целых чисел nums и целевое целочисленное значение, верните количество возможных комбинаций,
+которые в сумме составляют целевое значение.
+Тестовые случаи генерируются таким образом, чтобы ответ мог уместиться в 32-битное целое число.
+
+Input: nums = [1,2,3], target = 4
+Output: 7
+Explanation:
+Возможные способы комбинирования:
+(1, 1, 1, 1)
+(1, 1, 2)
+(1, 2, 1)
+(1, 3)
+(2, 1, 1)
+(2, 2)
+(3, 1)
+Обратите внимание, что разные последовательности считаются разными комбинациями.
+
+Input: nums = [9], target = 3
+Output: 0
+*/
+
+public class CombinationSumIV {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3};
+        System.out.println(combinationSum4(nums, 4)); // 7  
+    }
+
+    // combinationSum4 вычисляет количество комбинаций чисел из nums, которые в сумме дают target
+    // time: O(target * n), space: O(target)
+    private static int combinationSum4(int[] nums, int target) {
+        // Создаем массив dp для хранения количества комбинаций для каждой суммы
+        int[] dp = new int[target + 1];
+
+        // Базовый случай: одна комбинация для суммы 0 (пустая комбинация)
+        dp[0] = 1;
+
+        // Заполняем массив dp для всех сумм от 1 до target
+        for (int i = 1; i <= target; i++) {
+            // Для каждого числа в nums проверяем, можно ли его использовать
+            for (int num : nums) {
+                // Если число не превышает текущую сумму
+                if (i >= num) {
+                    // Добавляем количество комбинаций для суммы (i - num)
+                    dp[i] += dp[i - num];
+                }
+            }
+        }
+
+        // Возвращаем количество комбинаций для целевой суммы
+        return dp[target];
+    }
+}
