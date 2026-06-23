@@ -1,13 +1,13 @@
 import java.util.HashMap;
 
-class Example {
+class Polymorphism {
     public static void main(String[] args) {
         String name = "Катя";
 
         System.out.println("Что " + name + " делает как работник:");
         Employee employee = new SoftwareDeveloper(name);
         // employee.work();
-        // System.out.println("Получает зарплату за месяц: " + employee.getSalary() + " р.");
+        // employee.getSalary();
         // Таких методов в интерфейсе Employee нет - произойдет ошибка
         // employee.eat();
         // employee.doDebug();
