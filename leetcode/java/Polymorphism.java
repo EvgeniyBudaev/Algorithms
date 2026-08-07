@@ -1,4 +1,3 @@
-import java.util.HashMap;
 
 class Polymorphism {
     public static void main(String[] args) {
@@ -31,11 +30,6 @@ class Polymorphism {
         // softwareDeveloper.think();
         softwareDeveloper.sayLine();
         softwareDeveloper.callStatic();
-
-        HashMap<String, String> officeTool = new HashMap<>();
-        officeTool.put("S234", "Большой степлер");
-         officeTool.remove("P34342"); // нет ошибки
-         System.out.println(officeTool);
     }
 }
 
