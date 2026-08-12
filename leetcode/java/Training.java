@@ -1,35 +1,23 @@
-
 public class Training {
     public static void main(String[] args) {
-        Rodent capybara = new Capybara();
-        capybara.crunch();
-        capybara.sleep();
-    }
-}
-
-class Rodent {
-    public void crunch() {
-        System.out.println("Грызун грызёт что угодно.");
+        int[] nums = {1, 2, 4, 6, 8, 9, 14, 15};
+        System.out.println(checkForTarget(nums, 13));
     }
 
-    public void sleep() {
-        System.out.println("Грызун уснул.");
-    }
-}
+    private static boolean checkForTarget(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
 
-class Capybara extends Rodent {
+        while (left < right) {
+            int sum = nums[left] + nums[right];
+            if (sum == target) {
+                return true;
+            } else if (sum > target) {
+                right--;
+            } else {
+                left++;
+            }
+        }
 
-    @Override
-    public void crunch() {
-        System.out.println("Капибара любит грызть кукурузу.");
-    }
-
-    @Override
-    public void sleep() {
-        System.out.println("Капибара крепко спит.");
-    }
-
-    public void dive() {
-        System.out.println("Капибара умеет нырять.");
+        return false;
     }
 }
