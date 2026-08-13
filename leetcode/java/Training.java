@@ -1,20 +1,20 @@
 public class Training {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 4, 6, 8, 9, 14, 15};
-        System.out.println(checkForTarget(nums, 13));
+        int[] arr = {10, 2, 5, 3};
+        System.out.println(checkIfExist(arr));
     }
 
-    private static boolean checkForTarget(int[] nums, int target) {
-        int left = 0, right = nums.length - 1;
+    private static boolean checkIfExist(int[] arr) {
+        int left = 0, right = 1;
 
-        while (left < right) {
-            int sum = nums[left] + nums[right];
-            if (sum == target) {
+        while (left < arr.length - 1) {
+            if (arr[left] == arr[right] * 2 || arr[right] == arr[left] * 2) {
                 return true;
-            } else if (sum > target) {
-                right--;
-            } else {
+            } else if (right == arr.length - 1) {
                 left++;
+                right = left + 1;
+            } else {
+                right++;
             }
         }
 
