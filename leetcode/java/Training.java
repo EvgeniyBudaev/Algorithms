@@ -1,23 +1,19 @@
 public class Training {
     public static void main(String[] args) {
-        int[] arr = {10, 2, 5, 3};
-        System.out.println(checkIfExist(arr));
+        System.out.println(checkIfPalindrome("racecar")); // true
+        System.out.println(checkIfPalindrome("aleba")); // false
     }
 
-    private static boolean checkIfExist(int[] arr) {
-        int left = 0, right = 1;
+    private static boolean checkIfPalindrome(String s) {
+        int left = 0, right = s.length() - 1;
 
-        while (left < arr.length - 1) {
-            if (arr[left] == arr[right] * 2 || arr[right] == arr[left] * 2) {
-                return true;
-            } else if (right == arr.length - 1) {
-                left++;
-                right = left + 1;
-            } else {
-                right++;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
             }
+            left++;
+            right--;
         }
-
-        return false;
+        return true;
     }
 }
