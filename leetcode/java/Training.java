@@ -1,19 +1,27 @@
+
 public class Training {
     public static void main(String[] args) {
-        System.out.println(checkIfPalindrome("racecar")); // true
-        System.out.println(checkIfPalindrome("aleba")); // false
+        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+        System.out.println(maxArea(height)); // 49
     }
 
-    private static boolean checkIfPalindrome(String s) {
-        int left = 0, right = s.length() - 1;
+    public static int maxArea(int[] height) {
+        int maxAreaContainer = 0;
+        int left = 0, right = height.length - 1;
 
         while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
+            int minHeight = Math.min(height[left], height[right]);
+            int width = right - left;
+            int currentArea = minHeight * width;
+            maxAreaContainer = Math.max(maxAreaContainer, currentArea);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
             }
-            left++;
-            right--;
         }
-        return true;
+
+        return maxAreaContainer;
     }
 }
