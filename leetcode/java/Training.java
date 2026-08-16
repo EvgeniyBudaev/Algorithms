@@ -1,27 +1,19 @@
-
 public class Training {
     public static void main(String[] args) {
-        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println(maxArea(height)); // 49
+        System.out.println(isSubsequence("ace", "abcde")); // true
+        System.out.println(isSubsequence("aec", "abcde")); // false
     }
 
-    public static int maxArea(int[] height) {
-        int maxAreaContainer = 0;
-        int left = 0, right = height.length - 1;
+    private static boolean isSubsequence(String s, String t) {
+        int left = 0, right = 0;
 
-        while (left < right) {
-            int minHeight = Math.min(height[left], height[right]);
-            int width = right - left;
-            int currentArea = minHeight * width;
-            maxAreaContainer = Math.max(maxAreaContainer, currentArea);
-
-            if (height[left] < height[right]) {
+        while (left < s.length() && right < t.length()) {
+            if (s.charAt(left) == t.charAt(right)) {
                 left++;
-            } else {
-                right--;
             }
+            right++;
         }
 
-        return maxAreaContainer;
+        return left == s.length();
     }
 }
