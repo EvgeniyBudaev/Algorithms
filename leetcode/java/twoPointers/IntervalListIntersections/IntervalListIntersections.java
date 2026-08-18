@@ -8,8 +8,8 @@ import java.util.List;
 https://leetcode.com/problems/interval-list-intersections/description/
 
 Вам даны два списка закрытых интервалов, firstList и SecondList,
-где firstList[i] = [starti, endi] и SecondList[j] = [startj, endj]. Каждый список интервалов попарно непересекающийся и
-отсортирован.
+где firstList[i] = [starti, endi] и SecondList[j] = [startj, endj].
+Каждый список интервалов попарно непересекающийся и отсортирован.
 Верните пересечение этих двух списков интервалов.
 Замкнутый интервал [a, b] (с a <= b) обозначает набор действительных чисел x с a <= x <= b.
 Пересечение двух закрытых интервалов представляет собой набор действительных чисел, которые либо пусты, либо
