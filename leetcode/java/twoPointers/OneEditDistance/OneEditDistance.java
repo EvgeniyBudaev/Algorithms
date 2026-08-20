@@ -20,6 +20,7 @@ Output: false
 public class OneEditDistance {
     public static void main(String[] args) {
         System.out.println(isOneEditDistance("ab", "acb")); // true
+        System.out.println(isOneEditDistance("ab", "ad")); // true
         System.out.println(isOneEditDistance("cab", "ad")); // false
     }
 
