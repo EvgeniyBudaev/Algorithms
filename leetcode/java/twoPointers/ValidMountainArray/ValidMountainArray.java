@@ -34,8 +34,7 @@ public class ValidMountainArray {
             return false;
         }
 
-        int left = 0;
-        int right = arr.length - 1;
+        int left = 0, right = arr.length - 1;
 
         // Двигаем указатели навстречу друг другу
         while (left < right) {
