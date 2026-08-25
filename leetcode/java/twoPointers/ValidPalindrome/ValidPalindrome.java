@@ -35,8 +35,7 @@ public class ValidPalindrome {
     // isPalindrome проверяет, является ли строка s палиндромом после нормализации.
     // time: O(n), где n - количество символов в строке, space: O(1)
     private static boolean isPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
+        int left = 0, right = s.length() - 1;
 
         while (left < right) {
             // пропускаем символы, которые не являются буквенно-цифровыми
