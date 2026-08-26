@@ -26,8 +26,7 @@ public class ValidPalindromeII {
     // validPalindrome проверяет, можно ли сделать строку палиндромом, удалив один символ.
     // time: O(n), space: O(1)
     private static boolean validPalindrome(String s) {
-        int left = 0;
-        int right = s.length() - 1;
+        int left = 0, right = s.length() - 1;
 
         while (left < right) {
             // Если символы не равны, проверяем, можно ли сделать строку палиндромом, удалив один символ
