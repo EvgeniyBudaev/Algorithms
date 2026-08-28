@@ -3,6 +3,7 @@ package twoPointers.IntersectionOfTwoArraysII;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /* 350. Intersection of Two Arrays II
 https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
@@ -33,7 +34,7 @@ public class IntersectionOfTwoArraysII {
         Arrays.sort(nums2); // [2, 2]
 
         int left = 0, right = 0;
-        List<Integer> result = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
         // time: O(n), space: O(n)
         while (left < nums1.length && right < nums2.length) {
@@ -42,18 +43,18 @@ public class IntersectionOfTwoArraysII {
             } else if (nums1[left] > nums2[right]) {
                 right++;
             } else {
-                result.add(nums1[left]);
+                list.add(nums1[left]);
                 left++;
                 right++;
             }
         }
 
         // Конвертируем List в массив
-        int[] arr = new int[result.size()];
-        for (int i = 0; i < result.size(); i++) {
-            arr[i] = result.get(i);
-        }
+        int[] result = list.stream()
+                  .filter(Objects::nonNull)
+                  .mapToInt(Integer::intValue)
+                  .toArray();
 
-        return arr;
+        return result;
     }
 }
