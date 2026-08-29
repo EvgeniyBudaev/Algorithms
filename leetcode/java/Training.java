@@ -1,36 +1,22 @@
 
 public class Training {
     public static void main(String[] args) {
-        System.out.println(validPalindrome("aba"));   // true
-        System.out.println(validPalindrome("abca"));  // true
-        System.out.println(validPalindrome("abc"));   // false
+        int[] nums = {0, 1, 0, 3, 12};
+        moveZeroes(nums);
+        System.out.println(Arrays.toString(nums)); // [1, 3, 12, 0, 0]
     }
 
-    private static boolean isPalindrome(String s, int left, int right) {
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
+    private static void moveZeroes(int[] nums) {
+        int left = 0; // Индекс для следующего ненулевого элемента
+
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] != 0) { // Если текущий элемент не равен 0
+                // Меняем местами текущий элемент и следующий ненулевой элемент
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
+                left++; // Увеличиваем индекс для следующего ненулевого элемента
             }
-
-            left++;
-            right--;
         }
-
-        return true;
-    }
-
-    private static boolean validPalindrome(String s) {
-        int left = 0, right = s.length() - 1;
-
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
-            }
-            
-            left++;
-            right--;
-        }
-
-        return true;
     }
 }
