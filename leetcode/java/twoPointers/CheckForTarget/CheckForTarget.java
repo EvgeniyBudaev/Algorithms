@@ -14,8 +14,8 @@ public class CheckForTarget {
         System.out.println(checkForTarget(nums, 13)); // true
     }
 
-    // checkForTarget проверяет, существует ли в отсортированном массиве nums пара чисел, сумма которых равна заданному
-    // целевому значению target.
+    // checkForTarget проверяет, существует ли в отсортированном массиве nums пара чисел,
+    // сумма которых равна заданному целевому значению target.
     // time: O(n), space: O(1)
     private static boolean checkForTarget(int[] nums, int target) {
         int left = 0, right = nums.length - 1; // левая и правая границы массива
