@@ -1,41 +1,23 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 public class Training {
     public static void main(String[] args) {
-        int[] nums1 = {1, 2, 2, 1};
-        int[] nums2 = {2, 2};
-        System.out.println(Arrays.toString(intersect(nums1, nums2))); // [2, 2]
+        int[] nums = {0, 1, 0, 3, 12};
+        moveZeroes(nums);
+        System.out.println(Arrays.toString(nums)); // [1, 3, 12, 0, 0]
     }
 
-    private static int[] intersect(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1); // [1, 1, 2, 2]
-        Arrays.sort(nums2); // [2, 2]
+    private static void moveZeroes(int[] nums) {
+        int left = 0; // Индекс для следующего ненулевого элемента
 
-        int left = 0, right = 0;
-        List<Integer> list = new ArrayList<>();
-
-        // time: O(n), space: O(n)
-        while (left < nums1.length && right < nums2.length) {
-            if (nums1[left] < nums2[right]) {
-                left++;
-            } else if (nums1[left] > nums2[right]) {
-                right++;
-            } else {
-                list.add(nums1[left]);
-                left++;
-                right++;
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] != 0) { // Если текущий элемент не равен 0
+                // Меняем местами текущий элемент и следующий ненулевой элемент
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
+                left++; // Увеличиваем индекс для следующего ненулевого элемента
             }
         }
-
-        // Конвертируем List в массив
-        int[] result = list.stream()
-                  .filter(Objects::nonNull)
-                  .mapToInt(Integer::intValue)
-                  .toArray();
-
-        return result;
     }
 }
