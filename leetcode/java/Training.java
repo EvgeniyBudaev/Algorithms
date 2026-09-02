@@ -1,23 +1,32 @@
-import java.util.Arrays;
 
 public class Training {
     public static void main(String[] args) {
-        int[] nums = {0, 1, 0, 3, 12};
-        moveZeroes(nums);
-        System.out.println(Arrays.toString(nums)); // [1, 3, 12, 0, 0]
+        int[] arr = {0, 3, 2, 1};
+        System.out.println(validMountainArray(arr)); // true
     }
 
-    private static void moveZeroes(int[] nums) {
-        int left = 0; // Индекс для следующего ненулевого элемента
+    public static boolean validMountainArray(int[] arr) {
+        if (arr == null || arr.length < 3) {
+            return false;
+        }
 
-        for (int right = 0; right < nums.length; right++) {
-            if (nums[right] != 0) { // Если текущий элемент не равен 0
-                // Меняем местами текущий элемент и следующий ненулевой элемент
-                int temp = nums[right];
-                nums[right] = nums[left];
-                nums[left] = temp;
-                left++; // Увеличиваем индекс для следующего ненулевого элемента
+        int left = 0, right = arr.length - 1;
+
+        // Двигаем указатели навстречу друг другу
+        while (left < right) {
+            if (arr[left] < arr[left + 1]) {
+                left++;       // Идем вверх по левому склону
+            } else if (arr[right] < arr[right - 1]) {
+                right--;      // Идем вверх по правому склону
+            } else {
+                // Если ни один из указателей не может двигаться 
+                // (склон плоский, яма или указатели пересеклись не на пике)
+                return false;
             }
         }
+
+        // Указатели встретились на пике. 
+        // Пик не должен находиться на самом краю массива (иначе это просто склон без спуска/подъема).
+        return left != 0 && right != arr.length - 1;
     }
 }
