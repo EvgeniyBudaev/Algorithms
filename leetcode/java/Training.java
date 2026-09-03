@@ -1,32 +1,41 @@
 
 public class Training {
     public static void main(String[] args) {
-        int[] arr = {0, 3, 2, 1};
-        System.out.println(validMountainArray(arr)); // true
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama")); // true
     }
 
-    public static boolean validMountainArray(int[] arr) {
-        if (arr == null || arr.length < 3) {
-            return false;
-        }
+    private static boolean isAlphaNumeric(char c) {
+        return Character.isLetter(c) || Character.isDigit(c);
+    }
 
-        int left = 0, right = arr.length - 1;
+    private static boolean isPalindrome(String s) {
+        int left = 0, right = s.length() - 1;
 
-        // Двигаем указатели навстречу друг другу
         while (left < right) {
-            if (arr[left] < arr[left + 1]) {
-                left++;       // Идем вверх по левому склону
-            } else if (arr[right] < arr[right - 1]) {
-                right--;      // Идем вверх по правому склону
-            } else {
-                // Если ни один из указателей не может двигаться 
-                // (склон плоский, яма или указатели пересеклись не на пике)
+            // пропускаем символы, которые не являются буквенно-цифровыми
+            boolean skipLeft = !isAlphaNumeric(s.charAt(left));
+            if (skipLeft) {
+                left++;
+                continue;
+            }
+
+            // пропускаем символы, которые не являются буквенно-цифровыми
+            boolean skipRight = !isAlphaNumeric(s.charAt(right));
+            if (skipRight) {
+                right--;
+                continue;
+            }
+
+            // сравниваем символы, которые являются буквенно-цифровыми
+            boolean endsEqual = Character.toLowerCase(s.charAt(left)) == Character.toLowerCase(s.charAt(right));
+            if (!endsEqual) {
                 return false;
             }
+
+            left++;
+            right--;
         }
 
-        // Указатели встретились на пике. 
-        // Пик не должен находиться на самом краю массива (иначе это просто склон без спуска/подъема).
-        return left != 0 && right != arr.length - 1;
+        return true; // строка является палиндромом
     }
 }
