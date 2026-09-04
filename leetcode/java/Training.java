@@ -1,41 +1,34 @@
 
 public class Training {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("A man, a plan, a canal: Panama")); // true
+        System.out.println(validPalindrome("aba"));   // true
+        System.out.println(validPalindrome("abca"));  // true
+        System.out.println(validPalindrome("abc"));   // false
     }
 
-    private static boolean isAlphaNumeric(char c) {
-        return Character.isLetter(c) || Character.isDigit(c);
-    }
-
-    private static boolean isPalindrome(String s) {
+    private static boolean validPalindrome(String s) {
         int left = 0, right = s.length() - 1;
 
         while (left < right) {
-            // пропускаем символы, которые не являются буквенно-цифровыми
-            boolean skipLeft = !isAlphaNumeric(s.charAt(left));
-            if (skipLeft) {
-                left++;
-                continue;
+            // Если символы не равны, проверяем, можно ли сделать строку палиндромом, удалив один символ
+            if (s.charAt(left) != s.charAt(right)) {
+                return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
             }
-
-            // пропускаем символы, которые не являются буквенно-цифровыми
-            boolean skipRight = !isAlphaNumeric(s.charAt(right));
-            if (skipRight) {
-                right--;
-                continue;
-            }
-
-            // сравниваем символы, которые являются буквенно-цифровыми
-            boolean endsEqual = Character.toLowerCase(s.charAt(left)) == Character.toLowerCase(s.charAt(right));
-            if (!endsEqual) {
-                return false;
-            }
-
             left++;
             right--;
         }
+        return true; // Если цикл завершился успешно, строка является палиндромом
+    }
 
-        return true; // строка является палиндромом
+    private static boolean isPalindrome(String s, int left, int right) {
+        while (left < right) {
+            // Если символы не равны, строка не является палиндромом
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true; // Если цикл завершился успешно, строка является палиндромом
     }
 }
