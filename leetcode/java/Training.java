@@ -1,34 +1,25 @@
+import java.util.Arrays;
 
 public class Training {
     public static void main(String[] args) {
-        System.out.println(validPalindrome("aba"));   // true
-        System.out.println(validPalindrome("abca"));  // true
-        System.out.println(validPalindrome("abc"));   // false
+        int[] numbers = new int[]{2, 7, 11, 15};
+        System.out.println(Arrays.toString(twoSum(numbers, 9))); // [1,2]
     }
 
-    private static boolean validPalindrome(String s) {
-        int left = 0, right = s.length() - 1;
+    private static int[] twoSum(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1; // Инициализируем указатели на начало и конец массива
 
-        while (left < right) {
-            // Если символы не равны, проверяем, можно ли сделать строку палиндромом, удалив один символ
-            if (s.charAt(left) != s.charAt(right)) {
-                return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
+        while (left < right) { // Продолжаем поиск, пока левый указатель не станет больше правого
+            int sum = numbers[left] + numbers[right]; // Вычисляем сумму текущих двух чисел
+            if (sum == target) { // Если сумма равна целевому значению, возвращаем индексы чисел
+                return new int[]{left + 1, right + 1};
+            } else if (sum < target) { // Если сумма меньше целевого значения, сдвигаем левый указатель вправо
+                left++;
+            } else { // Если сумма больше целевого значения, сдвигаем правый указатель влево
+                right--;
             }
-            left++;
-            right--;
         }
-        return true; // Если цикл завершился успешно, строка является палиндромом
-    }
 
-    private static boolean isPalindrome(String s, int left, int right) {
-        while (left < right) {
-            // Если символы не равны, строка не является палиндромом
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true; // Если цикл завершился успешно, строка является палиндромом
+        return new int[]{-1, -1}; // Если не найдено ни одного решения, вернуть [-1,-1]
     }
 }
