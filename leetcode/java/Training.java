@@ -1,25 +1,34 @@
-import java.util.Arrays;
 
 public class Training {
     public static void main(String[] args) {
-        int[] numbers = new int[]{2, 7, 11, 15};
-        System.out.println(Arrays.toString(twoSum(numbers, 9))); // [1,2]
+        int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+        System.out.println(trap(height)); // 6
     }
 
-    private static int[] twoSum(int[] numbers, int target) {
-        int left = 0, right = numbers.length - 1; // Инициализируем указатели на начало и конец массива
+    private static int trap(int[] height) {
+        if (height == null || height.length == 0) {
+            return 0;
+        }
 
-        while (left < right) { // Продолжаем поиск, пока левый указатель не станет больше правого
-            int sum = numbers[left] + numbers[right]; // Вычисляем сумму текущих двух чисел
-            if (sum == target) { // Если сумма равна целевому значению, возвращаем индексы чисел
-                return new int[]{left + 1, right + 1};
-            } else if (sum < target) { // Если сумма меньше целевого значения, сдвигаем левый указатель вправо
-                left++;
-            } else { // Если сумма больше целевого значения, сдвигаем правый указатель влево
-                right--;
+        int left = 0; // левая граница
+        int leftMaxValue = height[left]; // максимальное количество воды слева
+        int right = height.length - 1; // правая граница
+        int rightMaxValue = height[right]; // максимальное количество воды справа
+        int sum = 0; // общее количество воды, которое может быть залита
+
+        while (left < right) { // пока левая граница не сравняется с правой
+            // если максимальная высота слева меньше максимальной высоты справа, двигаем левую границу вправо
+            if (leftMaxValue <= rightMaxValue) {
+                sum += leftMaxValue - height[left]; // вычисляем количество воды, которое может быть залита в текущей ячейке
+                left++; // двигаем левую границу вправо
+                leftMaxValue = Math.max(leftMaxValue, height[left]); // обновляем максимальную высоту слева
+            } else {
+                sum += rightMaxValue - height[right]; // вычисляем количество воды, которое может быть залита в текущей ячейке
+                right--; // двигаем правую границу влево
+                rightMaxValue = Math.max(rightMaxValue, height[right]); // обновляем максимальную высоту справа
             }
         }
 
-        return new int[]{-1, -1}; // Если не найдено ни одного решения, вернуть [-1,-1]
+        return sum; // возвращаем общее количество воды, которое может быть залита
     }
 }
