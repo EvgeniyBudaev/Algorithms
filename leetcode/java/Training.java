@@ -1,34 +1,36 @@
+import java.util.Arrays;
+
+import twoPointers.SquaresOfASortedArray.SquaresOfASortedArray;
 
 public class Training {
     public static void main(String[] args) {
-        int[] height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        System.out.println(trap(height)); // 6
+        int[] nums = new int[]{-4, -1, 0, 3, 10};
+        // Создаем экземпляр класса для вызова нестатического метода
+        SquaresOfASortedArray solution = new SquaresOfASortedArray();
+        System.out.println(Arrays.toString(solution.sortedSquares(nums))); // [0,1,9,16,100]
     }
 
-    private static int trap(int[] height) {
-        if (height == null || height.length == 0) {
-            return 0;
-        }
+    private int[] sortedSquares(int[] nums) {
+        int n = nums.length; // Длина массива
+        int[] result = new int[n];
+        int left = 0; // Индекс первого элемента массива nums
+        int right = n - 1; // Индекс последнего элемента массива nums
+        int index = n - 1; // Индекс последнего элемента массива result
 
-        int left = 0; // левая граница
-        int leftMaxValue = height[left]; // максимальное количество воды слева
-        int right = height.length - 1; // правая граница
-        int rightMaxValue = height[right]; // максимальное количество воды справа
-        int sum = 0; // общее количество воды, которое может быть залита
+        while (left <= right) {
+            int leftSquare = nums[left] * nums[left];
+            int rightSquare = nums[right] * nums[right];
 
-        while (left < right) { // пока левая граница не сравняется с правой
-            // если максимальная высота слева меньше максимальной высоты справа, двигаем левую границу вправо
-            if (leftMaxValue <= rightMaxValue) {
-                sum += leftMaxValue - height[left]; // вычисляем количество воды, которое может быть залита в текущей ячейке
-                left++; // двигаем левую границу вправо
-                leftMaxValue = Math.max(leftMaxValue, height[left]); // обновляем максимальную высоту слева
+            if (leftSquare > rightSquare) {
+                result[index] = leftSquare;
+                left++;
             } else {
-                sum += rightMaxValue - height[right]; // вычисляем количество воды, которое может быть залита в текущей ячейке
-                right--; // двигаем правую границу влево
-                rightMaxValue = Math.max(rightMaxValue, height[right]); // обновляем максимальную высоту справа
+                result[index] = rightSquare;
+                right--;
             }
+            index--;
         }
 
-        return sum; // возвращаем общее количество воды, которое может быть залита
+        return result;
     }
 }
