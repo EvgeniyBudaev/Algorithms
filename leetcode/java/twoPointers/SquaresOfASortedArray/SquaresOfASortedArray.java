@@ -24,14 +24,12 @@ Space complexity: O(n)
 public class SquaresOfASortedArray {
     public static void main(String[] args) {
         int[] nums = new int[]{-4, -1, 0, 3, 10};
-        // Создаем экземпляр класса для вызова нестатического метода
-        SquaresOfASortedArray solution = new SquaresOfASortedArray();
-        System.out.println(Arrays.toString(solution.sortedSquares(nums))); // [0,1,9,16,100]
+        System.out.println(Arrays.toString(sortedSquares(nums))); // [0,1,9,16,100]
     }
 
     // sortedSquares возвращает массив квадратов каждого числа, отсортированного в неубывающем порядке.
     // time: O(n), space: O(n)
-    private int[] sortedSquares(int[] nums) {
+    private static int[] sortedSquares(int[] nums) {
         int n = nums.length; // Длина массива
         int[] result = new int[n];
         int left = 0; // Индекс первого элемента массива nums
