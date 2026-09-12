@@ -1,20 +1,31 @@
 
 public class Training {
     public static void main(String[] args) {
-        char[] s = {'h', 'e', 'l', 'l', 'o'};
-        reverseString(s);
-        System.out.println(s); // ["o","l","l","e","h"]
+        System.out.println(isPalindrome(121)); // true
+        System.out.println(isPalindrome(-121)); // false
     }
 
-    private static void reverseString(char[] s) {
-        int left = 0, right = s.length - 1;
-
-        while (left < right) {
-            char temp = s[left];
-            s[left] = s[right];
-            s[right] = temp;
-            left++;
-            right--;
+    private static boolean isPalindrome(int x) {
+        // Отрицательные числа не могут быть палиндромами
+        if (x < 0) {
+            return false;
         }
+
+        // Числа, оканчивающиеся на 0 (кроме 0) не могут быть палиндромами
+        if (x % 10 == 0 && x != 0) {
+            return false;
+        }
+
+        int reversed = 0;
+
+        // Переворачиваем половину числа
+        while (x > reversed) {
+            reversed = reversed * 10 + x % 10;
+            x /= 10;
+        }
+
+        // Для четного количества цифр: x == reversed
+        // Для нечетного количества цифр: x == reversed / 10
+        return x == reversed || x == reversed / 10;
     }
 }
