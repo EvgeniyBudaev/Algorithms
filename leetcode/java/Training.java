@@ -1,31 +1,39 @@
 
 public class Training {
     public static void main(String[] args) {
-        System.out.println(isPalindrome(121)); // true
-        System.out.println(isPalindrome(-121)); // false
+        System.out.println(isOneEditDistance("ab", "acb")); // true
+        System.out.println(isOneEditDistance("ab", "ad")); // true
+        System.out.println(isOneEditDistance("cab", "ad")); // false
     }
 
-    private static boolean isPalindrome(int x) {
-        // Отрицательные числа не могут быть палиндромами
-        if (x < 0) {
+    private static boolean isOneEditDistance(String s, String t) {
+        int m = s.length(), n = t.length();
+
+        // Меняем местами строки, чтобы s всегда была длиннее строки t.
+        if (m < n) {
+            return isOneEditDistance(t, s);
+        }
+
+        // Если разница в длинах больше 1, то строки не могут быть на расстоянии одного редактирования друг от друга.
+        if (m - n > 1) {
             return false;
         }
 
-        // Числа, оканчивающиеся на 0 (кроме 0) не могут быть палиндромами
-        if (x % 10 == 0 && x != 0) {
-            return false;
+        // s: "acb", t: "ab"
+        for (int i = 0; i < n; i++) {
+            // Если символы строки s и t не совпадают, то проверяем, что строка s имеет длину n+1.
+            if (s.charAt(i) != t.charAt(i)) {
+                // Если строки имеют одинаковую длину, то проверяем, что строки равны, начиная с i+1 символа.
+                if (m == n) {
+                    return s.substring(i + 1).equals(t.substring(i + 1));
+                }
+                // Если строки имеют разную длину, то проверяем, что строка s имеет длину n+1.
+                // s[i+1:]: "b" t[i:]: "b
+                return s.substring(i + 1).equals(t.substring(i));
+            }
         }
 
-        int reversed = 0;
-
-        // Переворачиваем половину числа
-        while (x > reversed) {
-            reversed = reversed * 10 + x % 10;
-            x /= 10;
-        }
-
-        // Для четного количества цифр: x == reversed
-        // Для нечетного количества цифр: x == reversed / 10
-        return x == reversed || x == reversed / 10;
+        // Если все символы строки s и t совпадают, то проверяем, что строка s имеет длину n+1.
+        return m == n + 1;
     }
 }
