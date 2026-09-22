@@ -2,21 +2,14 @@
 
 public class Training {
     public static void main(String[] args) {
-        System.out.println(checkIfPalindrome("racecar")); // true
-        System.out.println(checkIfPalindrome("aleba")); // false
+        Training t1 = new Training();
+        Training t2 = new Training();
+        Training r = t1.go(t2);
+        System.out.println(r); // null
     }
 
-    private static boolean checkIfPalindrome(String s) {
-        int left = 0, right = s.length() - 1;
-
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-
-        return true;
+    public Training go(Training tr) {
+        tr = null;
+        return tr;
     }
 }
