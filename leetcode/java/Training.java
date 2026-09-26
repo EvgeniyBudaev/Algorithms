@@ -1,25 +1,24 @@
 
 public class Training {
     public static void main(String[] args) {
-        int[] arr = {10, 2, 5, 3};
-        System.out.println(checkIfExist(arr)); // true
+        int[] nums = {1, 2, 4, 6, 8, 9, 14, 15};
+        System.out.println(checkForTarget(nums, 13)); // true
     }
 
-    private static boolean checkIfExist(int[] arr) {
-        int left = 0, right = 1; // инициализируем два указателя на начало и конец массива
+    private static boolean checkForTarget(int[] nums, int target) {
+        int left = 0, right = nums.length - 1; // левая и правая границы массива
 
-        while (left < arr.length - 1) { // запускаем цикл для перемещения левого указателя
-            if (arr[left] == arr[right] * 2 || arr[right] == arr[left] * 2) { // проверяем условие на равенство
+        while (left < right) { // пока левая граница меньше правой
+            int sum = nums[left] + nums[right]; // сумма пары
+            if (sum == target) {
                 return true;
-                // если достигнут конец массива, перемещаем левый указатель вправо и обновляем правый
-            } else if (right == arr.length - 1) {
+            } else if (sum > target) { // если сумма больше целевого значения, то уменьшаем правую границу
+                right--;
+            } else { // если сумма меньше целевого значения, то увеличиваем левую границу
                 left++;
-                right = left + 1;
-            } else {
-                right++; // перемещаем правый указатель вправо
             }
         }
 
-        return false; // если не найдено ни одной пары, возвращаем false
+        return false; // если не найдено
     }
 }
