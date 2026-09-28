@@ -1,17 +1,14 @@
-
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Training {
-    private static final String world = "world";
-
     public static void main(String[] args) {
-        StaticTest st = new StaticTest();
-        st.foo();
-    }
-
-    public static class StaticTest {
-        public void foo() {
-            System.out.println(world);
-        }
+        List<String> list = new ArrayList<>();
+        list.add("D");
+        list.add("A");
+        list.add("B");
+        Collections.sort(list, (a, b) -> a.compareTo(b));
+        System.out.println(list);
     }
 }
