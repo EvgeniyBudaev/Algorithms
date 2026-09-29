@@ -1,14 +1,7 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.stream.Stream;
 
 public class Training {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("D");
-        list.add("A");
-        list.add("B");
-        Collections.sort(list, (a, b) -> a.compareTo(b));
-        System.out.println(list);
+        Stream.of(5, 3, 4).mapToInt(i -> i).max().getAsInt();
     }
 }
