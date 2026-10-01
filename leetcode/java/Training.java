@@ -1,27 +1,22 @@
+import java.util.Arrays;
 
 public class Training {
     public static void main(String[] args) {
-        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println(maxArea(height)); // 49
+        int[] nums = {0, 1, 0, 3, 12};
+        moveZeroes(nums);
+        System.out.println(Arrays.toString(nums)); // [1, 3, 12, 0, 0]
     }
 
-    public static int maxArea(int[] height) {
-        int maxAreaContainer = 0;
-        int left = 0, right = height.length - 1;
+    private static void moveZeroes(int[] nums) {
+        int left = 0;
 
-        while (left < right) {
-            int minHeight = Math.min(height[left], height[right]);
-            int width = right - left;
-            int currentArea = minHeight * width;
-            maxAreaContainer = Math.max(maxAreaContainer, currentArea);
-
-            if (height[left] < height[right]) {
+        for (int right = 0; right <  nums.length; right++) {
+            if (nums[right] != 0) {
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
                 left++;
-            } else {
-                right--;
             }
         }
-
-        return maxAreaContainer;
     }
 }
