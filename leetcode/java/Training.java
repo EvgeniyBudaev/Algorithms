@@ -1,41 +1,32 @@
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.time.Duration;
 
 public class Training {
-    public static void main(String[] args) throws InterruptedException {
-        SumThread thread = new SumThread();
-        thread.start();
+    public static void main(String[] args) {
+        int[] arr = {0, 3, 2, 1};
+        System.out.println(validMountainArray(arr)); // true
+    }
 
-        Thread.sleep(Duration.ofSeconds(1));
-        thread.interrupt(); 
+    public static boolean validMountainArray(int[] arr) {
+        if (arr == null || arr.length < 3) {
+            return false;
+        }
+
+        int left = 0, right = arr.length - 1;
+
+        // Двигаем указатели навстречу друг другу
+        while (left < right) {
+            if (arr[left] < arr[left + 1]) {
+                left++;       // Идем вверх по левому склону
+            } else if (arr[right] < arr[right - 1]) {
+                right--;      // Идем вверх по правому склону
+            } else {
+                // Если ни один из указателей не может двигаться 
+                // (склон плоский, яма или указатели пересеклись не на пике)
+                return false;
+            }
+        }
+
+        // Указатели встретились на пике. 
+        // Пик не должен находиться на самом краю массива (иначе это просто склон без спуска/подъема).
+        return left != 0 && right != arr.length - 1;
     }
 }
-
-class SumThread extends Thread {
-
-    @Override
-    public void run() {
-        try (BufferedWriter writer = Files.newBufferedWriter(Path.of("result.txt"))) {
-            long total = 0;
-            for (int i = 0; i < 1_000_000_000; i++) {
-                total += i;
-
-                if (i % 100 == 0) { // Каждые 100 итераций записываем результат в файл
-                    writer.write(total + "\n");
-                    writer.flush();
-
-                    if (isInterrupted()) {
-                        // Если поток прервали, завершаем работу
-                        break;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e.getMessage(), e);
-        }
-    }
-
-} 
