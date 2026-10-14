@@ -1,24 +1,36 @@
 
+
+
 public class Training {
     public static void main(String[] args) {
-        B b = new B();
-        A a = new B();
-
-        b.f(); // A
-        a.f(); // A
+        UserStatus userStatus = UserStatus.ACTIVE;
+        System.out.println("userStatus: " + userStatus);
     }
 }
 
+enum UserStatus implements Describable {
+    ACTIVE(1, "Активный"),
+    INACTIVE(2, "Неактивный"),
+    BANNED(3, "Заблокирован");
 
-class A {
-    public void f() {
-        System.out.println("A");
+    private final int code;
+    private final String description;
+
+    UserStatus(int code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+
+    public int getCode() { return code; }
+
+    public String getDescription() { return description; }
+
+    @Override
+    public String getInfo() {
+        return "";
     }
 }
 
-class B extends A {
-    // @Override
-    // public void f() {
-    //     System.out.println("B");
-    // }
+interface Describable {
+    String getInfo();
 }
