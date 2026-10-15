@@ -1,36 +1,59 @@
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Training {
     public static void main(String[] args) {
-        UserStatus userStatus = UserStatus.ACTIVE;
-        System.out.println("userStatus: " + userStatus);
+        Apple a = new Apple();
+        Banana b = new Banana();
+        List<Fruit> apples = new ArrayList<>();
+        apples.add(a);
+        List<Fruit> bananes = new ArrayList<>();
+        bananes.add(b);
+        Bag<Fruit> bag = new Bag<>(apples);
+        bag.print();
     }
 }
 
-enum UserStatus implements Describable {
-    ACTIVE(1, "Активный"),
-    INACTIVE(2, "Неактивный"),
-    BANNED(3, "Заблокирован");
+class Bag<T extends Fruit> {
+    private final List<T> list;
 
-    private final int code;
-    private final String description;
-
-    UserStatus(int code, String description) {
-        this.code = code;
-        this.description = description;
+    public Bag(List<T> list) {
+        this.list = list;
     }
 
-    public int getCode() { return code; }
-
-    public String getDescription() { return description; }
-
-    @Override
-    public String getInfo() {
-        return "";
+    public void print() {
+        for (T el : list) {
+            System.out.println(el.getName());
+        }
     }
 }
 
-interface Describable {
-    String getInfo();
+abstract class Fruit {
+    private final String name;
+    private final Double price;
+
+    protected Fruit(String name, Double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+}
+
+class Apple extends Fruit {
+    public Apple() {
+        super("Яблоко", 10.0);
+    }
+}
+
+class Banana extends Fruit {
+    public Banana() {
+        super("Банан", 15.50);
+    }
 }
