@@ -1,59 +1,28 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Training {
     public static void main(String[] args) {
-        Apple a = new Apple();
-        Banana b = new Banana();
-        List<Fruit> apples = new ArrayList<>();
-        apples.add(a);
-        List<Fruit> bananes = new ArrayList<>();
-        bananes.add(b);
-        Bag<Fruit> bag = new Bag<>(apples);
-        bag.print();
-    }
-}
-
-class Bag<T extends Fruit> {
-    private final List<T> list;
-
-    public Bag(List<T> list) {
-        this.list = list;
+        char result = findFirstUniqueLetter("summer time sadness");
+        System.out.println(result); // 'u'
     }
 
-    public void print() {
-        for (T el : list) {
-            System.out.println(el.getName());
+    private static Character findFirstUniqueLetter(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("String is null or empty");
         }
-    }
-}
 
-abstract class Fruit {
-    private final String name;
-    private final Double price;
+        Map<Character, Integer> freq = new LinkedHashMap<>();
+        for (char c : str.toCharArray()) {
+            freq.put(c, freq.getOrDefault(c, 0) + 1);
+        }
 
-    protected Fruit(String name, Double price) {
-        this.name = name;
-        this.price = price;
-    }
+        for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
+        }
 
-    public String getName() {
-        return name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-}
-
-class Apple extends Fruit {
-    public Apple() {
-        super("Яблоко", 10.0);
-    }
-}
-
-class Banana extends Fruit {
-    public Banana() {
-        super("Банан", 15.50);
+        throw new RuntimeException("No unique character found");
     }
 }
