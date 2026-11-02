@@ -27,7 +27,7 @@ public class DuplicateZeros {
 
     // duplicateZeros дублирует каждое вхождение нуля, сдвигая оставшиеся элементы вправо.
     // Элементы, превышающие длину исходного массива, не записываются.
-    // time: O(n), space: O(1)
+    // time: O(n²), space: O(1)
     private static void duplicateZeros(int[] arr) {
         for (int i = 0; i < arr.length; i++) { // Проходим по массиву
             if (arr[i] == 0 && arr.length != 0) { // Если ноль и длина массива не равна 0
