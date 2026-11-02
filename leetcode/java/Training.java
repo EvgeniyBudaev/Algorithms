@@ -1,28 +1,19 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class Training {
     public static void main(String[] args) {
-        char result = findFirstUniqueLetter("summer time sadness");
-        System.out.println(result); // 'u'
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println(maxProfit(prices));
     }
 
-    private static Character findFirstUniqueLetter(String str) {
-        if (str == null || str.isEmpty()) {
-            throw new IllegalArgumentException("String is null or empty");
-        }
+    private static int maxProfit(int[] prices) {
+        int profit = 0;
 
-        Map<Character, Integer> freq = new LinkedHashMap<>();
-        for (char c : str.toCharArray()) {
-            freq.put(c, freq.getOrDefault(c, 0) + 1);
-        }
-
-        for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
-            if (entry.getValue() == 1) {
-                return entry.getKey();
+        for(int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                profit += prices[i] - prices[i - 1];
             }
         }
 
-        throw new RuntimeException("No unique character found");
+        return profit;
     }
 }
