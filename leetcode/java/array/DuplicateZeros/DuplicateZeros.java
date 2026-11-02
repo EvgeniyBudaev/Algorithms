@@ -1,5 +1,7 @@
 package array.DuplicateZeros;
 
+import java.util.Arrays;
+
 /* 1089. Duplicate Zeros
 https://leetcode.com/problems/duplicate-zeros/description/
 
@@ -20,7 +22,7 @@ public class DuplicateZeros {
     public static void main(String[] args) {
         int[] arr = {1, 0, 2, 3, 0, 4, 5, 0};
         duplicateZeros(arr);
-        System.out.println(arr); // [1,0,0,2,3,0,0,4]
+        System.out.println(Arrays.toString(arr)); // [1,0,0,2,3,0,0,4]
     }
 
     // duplicateZeros дублирует каждое вхождение нуля, сдвигая оставшиеся элементы вправо.

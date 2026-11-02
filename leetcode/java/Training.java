@@ -1,19 +1,18 @@
+import java.util.Arrays;
 
 public class Training {
     public static void main(String[] args) {
-        int[] prices = {7, 1, 5, 3, 6, 4};
-        System.out.println(maxProfit(prices));
+        int[] arr = {1, 0, 2, 3, 0, 4, 5, 0};
+        duplicateZeros(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    private static int maxProfit(int[] prices) {
-        int profit = 0;
-
-        for(int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i - 1]) {
-                profit += prices[i] - prices[i - 1];
+    private static void duplicateZeros(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0 && arr.length != 0) {
+                System.arraycopy(arr, i, arr, i + 1, arr.length - i - 1);
+                i++;
             }
         }
-
-        return profit;
     }
 }
