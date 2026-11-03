@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/check-if-n-and-its-double-exist/description/
+/* 1346. Check If N and Its Double Exist
+https://leetcode.com/problems/check-if-n-and-its-double-exist/description/
 
 Учитывая массив целых чисел, проверьте, существуют ли два индекса i и j такие, что:
 i != j
@@ -17,22 +18,46 @@ Output: false
 /**
  * @param {number[]} arr
  * @return {boolean}
+ * @time O(n)
+ * @space O(n)
  */
 var checkIfExist = function(arr) {
-    let left = 0, right = 1;
+    const seen = new Set();
 
-    while (left < arr.length - 1) {
-        if (arr[left] === (arr[right] * 2) || arr[right] === (arr[left] * 2)) {
+    for (let num of arr) {
+        // Проверяем, есть ли уже в Set число, которое в 2 раза больше или меньше текущего
+        if (seen.has(num * 2) || (num % 2 === 0 && seen.has(num / 2))) {
             return true;
-        } else if (right === arr.length - 1) {
-            left++;
-            right = left + 1;
-        } else {
-            right++;
         }
+
+        seen.add(num);
     }
 
     return false;
 };
 
-console.log(checkIfExist([10,2,5,3]));
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ * @time O(n²)
+ * @space O(1)
+ */
+// var checkIfExist = function(arr) {
+//     let left = 0, right = 1;
+
+//     while (left < arr.length - 1) {
+//         if (arr[left] === (arr[right] * 2) || arr[right] === (arr[left] * 2)) {
+//             return true;
+//         } else if (right === arr.length - 1) {
+//             left++;
+//             right = left + 1;
+//         } else {
+//             right++;
+//         }
+//     }
+
+//     return false;
+// };
+
+console.log(checkIfExist([10,2,5,3])); // true
+console.log(checkIfExist([5, 10])); // true
