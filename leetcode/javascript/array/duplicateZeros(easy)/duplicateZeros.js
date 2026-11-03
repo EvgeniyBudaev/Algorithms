@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/duplicate-zeros/description/
+/* 1089. Duplicate Zeros
+https://leetcode.com/problems/duplicate-zeros/description/
 
 Учитывая целочисленный массив фиксированной длины arr, дублируйте каждое вхождение нуля, сдвигая оставшиеся элементы
 вправо. Обратите внимание, что элементы, превышающие длину исходного массива, не записываются. Внесите вышеуказанные
@@ -16,6 +17,8 @@ Explanation: After calling your function, the input array is modified to: [1,2,3
 /**
  * @param {number[]} arr
  * @return {void} Do not return anything, modify arr in-place instead.
+ * @time O(n²)
+ * @space O(1)
  */
 var duplicateZeros = function(arr) {
     for (let i = 0; i < arr.length; i++) {
@@ -25,29 +28,7 @@ var duplicateZeros = function(arr) {
             i++;
         }
     }
-};
-
-/**
- * @param {number[]} arr
- * @return {void} Do not return anything, modify arr in-place instead.
- */
-// Two pointers
-// O(n) time | O(1) space
-// var duplicateZeros(easy) = function(arr) {
-//     for (let i = 0; i < arr.length - 1; i++) {
-//         if (arr[i] == 0) {
-//             shiftArray(arr, i + 1, arr.length - 1);
-//             arr[++i] = 0;
-//         }
-//     }
-// };
-
-// function shiftArray(array, left, right) {
-//     while (left < right) {
-//         array[right] = array[right - 1];
-//         right--;
-//     }
-// }
+}
 
 const arr = [1,0,2,3,0,4,5,0];
 duplicateZeros(arr);
