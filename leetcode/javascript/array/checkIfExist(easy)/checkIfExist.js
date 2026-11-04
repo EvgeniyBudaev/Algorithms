@@ -25,39 +25,14 @@ var checkIfExist = function(arr) {
     const seen = new Set();
 
     for (let num of arr) {
-        // Проверяем, есть ли уже в Set число, которое в 2 раза больше или меньше текущего
         if (seen.has(num * 2) || (num % 2 === 0 && seen.has(num / 2))) {
             return true;
         }
-
         seen.add(num);
     }
 
     return false;
 };
-
-/**
- * @param {number[]} arr
- * @return {boolean}
- * @time O(n²)
- * @space O(1)
- */
-// var checkIfExist = function(arr) {
-//     let left = 0, right = 1;
-
-//     while (left < arr.length - 1) {
-//         if (arr[left] === (arr[right] * 2) || arr[right] === (arr[left] * 2)) {
-//             return true;
-//         } else if (right === arr.length - 1) {
-//             left++;
-//             right = left + 1;
-//         } else {
-//             right++;
-//         }
-//     }
-
-//     return false;
-// };
 
 console.log(checkIfExist([10,2,5,3])); // true
 console.log(checkIfExist([5, 10])); // true
