@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/find-the-duplicate-number/description/
+/* 287. Find the Duplicate Number
+https://leetcode.com/problems/find-the-duplicate-number/description/
 
 Дан массив целых чисел nums, содержащий n + 1 целых чисел, где каждое целое число находится в диапазоне [1, n]
 включительно.
@@ -15,21 +16,34 @@ Output: 3
 /**
  * @param {number[]} nums
  * @return {number}
+ * @time O(n)
+ * @space O(1)
+ * @description Алгоритм Флойда («Черепаха и Заяц»)
  */
 var findDuplicate = function(nums) {
-    let visited = new Array(nums.length).fill(false);
-    for (let num of nums) {
-        if (!visited[num]) visited[num] = true;
-        else return num;
-    }
-};
+    // ЭТАП 1: Поиск точки пересечения внутри цикла
+    // Начинаем с индекса 0. Значение nums[0] указывает на следующий индекс.
+    let slow = nums[0];
+    let fast = nums[nums[0]];
 
-var findDuplicate2 = function(nums) {
-    const set = new Set();
-    for (const num of nums) {
-        if (set.has(num)) return num;
-        else set.add(num);
+    // Двигаем "черепаху" на 1 шаг, а "зайца" на 2 шага, пока они не встретятся
+    while (slow !== fast) {
+        slow = nums[slow];           // 1 шаг
+        fast = nums[nums[fast]];     // 2 шага
     }
+
+    // ЭТАП 2: Поиск точки входа в цикл (это и есть дубликат)
+    // Возвращаем один из указателей в самое начало (на индекс 0)
+    slow = 0;
+
+    // Теперь двигаем оба указателя с одинаковой скоростью (по 1 шагу)
+    while (slow !== fast) {
+        slow = nums[slow];
+        fast = nums[fast];
+    }
+
+    // Точка, где они встретятся, и будет началом цикла (дублирующимся числом)
+    return slow;
 };
 
 console.log(findDuplicate([1,3,4,2,2])); // 2
