@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
+/* 442. Find All Duplicates in an Array
+https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
 
 Учитывая целочисленный массив nums длины n, где все целые числа nums находятся в диапазоне [1, n] и каждое целое число
 встречается один или два раза, верните массив всех целых чисел, которые встречаются дважды.
@@ -17,14 +18,23 @@ Output: []
 /**
  * @param {number[]} nums
  * @return {number[]}
+ * @time O(n)
+ * @space O(1)
  */
 var findDuplicates = function(nums) {
-    const set = new Set();
     const result = [];
-    for (let num of nums ) {
-        if (set.has(num)) result.push(num);
-        else set.add(num);
+
+    for (let i = 0; i < nums.length; i++) {
+        const num = Math.abs(nums[i]);
+        const index = num - 1;
+
+        if (nums[index] < 0) {
+            result.push(num);
+        } else {
+            nums[index] = -nums[index];
+        }
     }
+
     return result;
 };
 
