@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/isomorphic-strings/description/
+/* 205. Isomorphic Strings
+https://leetcode.com/problems/isomorphic-strings/description/
 
 Даны две строки s и t. Определите, изоморфны ли они.
 Две строки s и t изоморфны, если символы в s можно заменить, чтобы получить t.
@@ -21,12 +22,35 @@ Output: true
  * @param {string} s
  * @param {string} t
  * @return {boolean}
+ * @time O(n)
+ * @space O(1)
  */
 var isIsomorphic = function(s, t) {
     if (s.length !== t.length) return false;
+    
+    const mapS = new Map(); // Хранит соответствие s[i] -> t[i]
+    const mapT = new Map(); // Хранит соответствие t[i] -> s[i]
+    
     for (let i = 0; i < s.length; i++) {
-        if (s.indexOf(s[i], i + 1) !== t.indexOf(t[i], i + 1)) return false;
+        const charS = s[i];
+        const charT = t[i];
+        
+        // Если для charS уже есть сопоставление, но оно не равно charT
+        if (mapS.has(charS) && mapS.get(charS) !== charT) {
+            return false;
+        }
+        
+        // Если для charT уже есть сопоставление, но оно не равно charS
+        // (это предотвращает ситуацию, когда два разных символа s маппятся на один символ t)
+        if (mapT.has(charT) && mapT.get(charT) !== charS) {
+            return false;
+        }
+        
+        // Записываем новые сопоставления
+        mapS.set(charS, charT);
+        mapT.set(charT, charS);
     }
+    
     return true;
 };
 
