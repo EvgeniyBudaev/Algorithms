@@ -30,5 +30,4 @@ var duplicateZeros = function(arr) {
     }
 }
 
-const arr = [1,0,2,3,0,4,5,0];
-duplicateZeros(arr);
+const arr = [1,0,2,3,0,4,5,0]; // [1,0,0,2,3,0,0,4]
