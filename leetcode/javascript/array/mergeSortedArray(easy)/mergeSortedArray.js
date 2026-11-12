@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/merge-sorted-array/description/
+/* 88. Merge Sorted Array
+https://leetcode.com/problems/merge-sorted-array/description/
 
 Вам даны два целочисленных массива nums1 и nums2, отсортированные в порядке неубывания, и два целых числа m и n,
 представляющие количество элементов в nums1 и nums2 соответственно.
@@ -31,14 +32,16 @@ Output: [1]
  * @param {number[]} nums2
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
+ * @time O(m + n)
+ * @space O(1)
  */
 var merge = function(nums1, m, nums2, n) {
     let index1 = m - 1;
     let index2 = n - 1;
 
     for (let i = m + n - 1; i >= 0; i--) {
-        if (index2 < 0) break;
-        if (nums1[index1] > nums2[index2]) {
+        if (index2 < 0) break; // Если nums2 полностью скопирован, можно завершать
+        if (index1 >= 0 && nums1[index1] > nums2[index2]) {
             nums1[i] = nums1[index1];
             index1--;
         } else {
@@ -50,12 +53,4 @@ var merge = function(nums1, m, nums2, n) {
     console.log(nums1);
 };
 
-// var merge = function(nums1, m, nums2, n) {
-//     for (let i = m, j = 0; i < m + n; i++, j++) {
-//         nums1[i] = nums2[j];
-//     }
-//     nums1.sort((a, b) => a - b);
-//     console.log(nums1);
-// };
-
-merge([1,2,3,0,0,0], 3, [2,5,6], 3);
+merge([1,2,3,0,0,0], 3, [2,5,6], 3); // [1,2,2,3,5,6]
