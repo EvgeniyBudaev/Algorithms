@@ -10,11 +10,19 @@ Input: intervals = [[7,10],[2,4]]
 Output: true
 */
 
+/**
+ * @param {number[][]} intervals
+ * @return {boolean}
+ * @time O(n log n)
+ * @space O(1)
+ */
 var canAttendMeetings = function(intervals) {
     intervals.sort((a, b) => a[0] - b[0]); // [[2,4],[7,10]]
+    
     for (let i = 1; i < intervals.length; i++) {
         if (intervals[i][0] < intervals[i - 1][1]) return false;
     }
+
     return true;
 };
 
