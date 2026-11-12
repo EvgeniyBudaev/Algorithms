@@ -41,14 +41,13 @@ const findNumbers = function(nums) {
 //     for (let i = 0; i < nums.length; i++) {
 //         let temp = nums[i];
 //         let digits = 0;
+
 //         while (temp > 0) {
 //             digits++;
 //             temp = Math.floor(temp / 10);
-//             console.log("temp: ", temp);
 //         }
-//         if (digits % 2 === 0) {
-//             counter++;
-//         }
+        
+//         if (digits % 2 === 0) counter++;
 //     }
     
 //     return counter;
