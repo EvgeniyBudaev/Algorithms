@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/majority-element/description/
+/* 169. Majority Element
+https://leetcode.com/problems/majority-element/description/
 
 Учитывая массив nums размера n, верните элемент большинства.
 Мажоритарным элементом является элемент, который появляется более ⌊n / 2⌋ раз. Вы можете предположить, что элемент
@@ -17,13 +18,17 @@ Output: 3
 /**
  * @param {number[]} nums
  * @return {number}
+ * @time O(n)
+ * @space O(1)
  */
 var majorityElement = function(nums) {
     let count = 0, candidate = 0;
+
     for (let i = 0; i < nums.length; i++) {
         if (count === 0) candidate = nums[i];
         count += candidate === nums[i] ? 1 : -1;
     }
+    
     return candidate;
 };
 
