@@ -36,15 +36,11 @@ var isIsomorphic = function(s, t) {
         const charT = t[i];
         
         // Если для charS уже есть сопоставление, но оно не равно charT
-        if (mapS.has(charS) && mapS.get(charS) !== charT) {
-            return false;
-        }
+        if (mapS.has(charS) && mapS.get(charS) !== charT) return false;
         
         // Если для charT уже есть сопоставление, но оно не равно charS
         // (это предотвращает ситуацию, когда два разных символа s маппятся на один символ t)
-        if (mapT.has(charT) && mapT.get(charT) !== charS) {
-            return false;
-        }
+        if (mapT.has(charT) && mapT.get(charT) !== charS) return false;
         
         // Записываем новые сопоставления
         mapS.set(charS, charT);
