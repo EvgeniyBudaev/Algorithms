@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+/* 26. Remove Duplicates from Sorted Array
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
 Учитывая целочисленный массив чисел, отсортированный в неубывающем порядке, удалите дубликаты на месте так, чтобы каждый
 уникальный элемент появлялся только один раз. Относительный порядок элементов должен оставаться неизменным.
@@ -22,32 +23,22 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 /**
  * @param {number[]} nums
  * @return {number[]}
+ * @time O(n)
+ * @space O(1)
  */
 var removeDuplicates = function(nums) {
     if (!nums.length) return [];
-    // Инициализируем количество уникальных элементов равным 1
-    let k = 1;
+    let k = 1; // Инициализируем количество уникальных элементов равным 1
+
     for (let i = 1; i < nums.length; i++) {
         if (nums[i] !== nums[k - 1]) {
-            nums[k] = nums[i]; // перезаписываем следующий уникальный элемент
+            nums[k] = nums[i]; // Перезаписываем следующий уникальный элемент
             k++;
         }
     }
-    // обрезаем массив до его фактической длины после удаления дубликатов
-    nums.length = k;
-    // возвращаем массив без дубликатов
-    return nums;
+  
+    nums.length = k; // Обрезаем массив до его фактической длины после удаления дубликатов
+    return nums; // Возвращаем массив без дубликатов
 };
-
-// var removeDuplicates = function(nums) {
-//     let i = nums.length - 1;
-//     while (i > 0) {
-//         if (nums[i] === nums[i - 1]) {
-//             nums.splice(i, 1);
-//         }
-//         i--;
-//     }
-//     return nums;
-// };
 
 console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4])); // [0,1,2,3,4]
