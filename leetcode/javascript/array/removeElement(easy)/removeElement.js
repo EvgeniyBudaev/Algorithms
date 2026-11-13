@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/remove-element/description/
+/* 7. Remove Element
+https://leetcode.com/problems/remove-element/description/
 
 Учитывая целочисленный массив nums и целочисленное значение, удалите все вхождения val в nums на месте. Порядок
 элементов может быть изменен. Затем верните количество элементов в виде чисел, которые не равны val.
@@ -18,25 +19,21 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
  * @param {number[]} nums
  * @param {number} val
  * @return {number}
+ * @time O(n)
+ * @space O(1)
  */
 function removeElement(nums, val) {
 	let count = 0; // Счетчик для отслеживания элементов, отличных от val
+
 	for (let i = 0; i < nums.length; i++) {
-		if (nums[i] !== val) nums[count++] = nums[i];
+		if (nums[i] !== val) {
+			nums[count] = nums[i];
+			count++;
+		};
 	}
+
 	nums.length = count; // Обрезаем массив до фактической длины
 	return nums.length;
 }
-
-// var removeElement = function(nums, val) {
-// 	if (!nums) return 0;
-// 	for (let i = 0; i < nums.length; i++) {
-// 		if (nums[i] === val) {
-// 			nums.splice(i, 1);
-// 			i--;
-// 		}
-// 	}
-// 	return nums.length;
-// };
 
 console.log(removeElement([3,2,2,3], 3)); // 2
