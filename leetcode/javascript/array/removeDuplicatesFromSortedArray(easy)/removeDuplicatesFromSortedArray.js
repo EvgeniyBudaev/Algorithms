@@ -21,10 +21,11 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 /**
- * @param {number[]} nums
- * @return {number[]}
- * @time O(n)
- * @space O(1)
+ * Удаляет дубликаты из отсортированного массива на месте.
+ * @param {number[]} nums - Отсортированный массив чисел
+ * @return {number[]} - Список уникальных элементов
+ * @time O(n) - один проход по массиву
+ * @space O(1) - модификация in-place, без выделения дополнительной памяти)
  */
 var removeDuplicates = function(nums) {
     if (!nums.length) return [];
