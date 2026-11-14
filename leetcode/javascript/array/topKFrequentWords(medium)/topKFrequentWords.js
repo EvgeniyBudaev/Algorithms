@@ -1,4 +1,5 @@
-/* https://leetcode.com/problems/top-k-frequent-words/description/
+/* 692. Top K Frequent Words
+https://leetcode.com/problems/top-k-frequent-words/description/
 
 Учитывая массив строковых слов и целое число k, верните k наиболее часто встречающихся строк.
 Возвращает ответ, отсортированный по частоте от самого высокого до самого низкого. Отсортируйте слова с одинаковой
@@ -11,9 +12,12 @@ Output: ["i","love"]
 */
 
 /**
- * @param {string[]} words
- * @param {number} k
- * @return {string[]}
+ * Возвращает k наиболее часто встречающихся слов.
+ * @param {string[]} words - Массив слов
+ * @param {number} k - Количество возвращаемых слов
+ * @return {string[]} - Массив из k наиболее частых слов
+ * @time O(n log n * L) - где n - длина массива, L - макс. длина слова (из-за сортировки и localeCompare)
+ * @space O(n * L) - для хранения Map и промежуточного массива записей
  */
 var topKFrequent = function(words, k) {
     const map = new Map();
