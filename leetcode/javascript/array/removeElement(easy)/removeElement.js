@@ -16,11 +16,12 @@ Output: 5, nums = [0,1,4,0,3,_,_,_]
 */
 
 /**
- * @param {number[]} nums
- * @param {number} val
- * @return {number}
- * @time O(n)
- * @space O(1)
+ * Удаляет все вхождения val из массива nums на месте.
+ * @param {number[]} nums - Исходный массив чисел
+ * @param {number} val - Значение, которое нужно удалить
+ * @return {number} k - Количество элементов, не равных val
+ * @time O(n) - один проход по массиву
+ * @space O(1) - модификация in-place, без выделения дополнительной памяти
  */
 function removeElement(nums, val) {
 	let count = 0; // Счетчик для отслеживания элементов, отличных от val
